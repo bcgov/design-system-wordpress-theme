@@ -1,0 +1,57 @@
+{
+    "name": "bcgov-theme/alphagov-wordpress-theme",
+    "description": "Alpha Gov WordPress Theme",
+    "version": "1.0.0",
+    "type": "wordpress-theme",
+    "license": "Apache-2.0",
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://apps.itsm.gov.bc.ca/satis"
+        }
+    ],
+    "require-dev": {
+        "bcgov/wordpress-scripts": "2.1.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Bcgov\\Theme\\AlphaGov\\": [
+                "src",
+                "inc"
+            ]
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Bcgov\\Theme\\AlphaGov\\Tests\\": "Tests/"
+        }
+    },
+    "scripts": {
+        "production": [
+            "composer validate",
+            "Bcgov\\Script\\Checklists::postProductionChecks"
+        ],
+        "checklist": [
+            "composer validate",
+            "Bcgov\\Script\\Checklists::postProductionChecks"
+        ],
+        "phpcs": [
+            "Bcgov\\Script\\Standards::phpcs"
+        ],
+        "phpcbf": [
+            "Bcgov\\Script\\Standards::phpcbf"
+        ],
+        "test": [
+            "Bcgov\\Script\\Tests::phpunit"
+        ],
+        "coverage": [
+            "./vendor/bin/phpunit --coverage-html ./coverage/php/"
+        ]
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
+}
