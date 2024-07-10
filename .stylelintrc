@@ -1,0 +1,3 @@
+{
+    "extends": "@bcgov/wordpress-stylelintrc/.stylelintrc"
+}

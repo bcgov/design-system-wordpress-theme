@@ -1,0 +1,49 @@
+{
+  "name": "alphagov-wordpress-theme",
+  "version": "1.0.0",
+  "description": "Alpha Gov WordPress Theme",
+  "author": "govwordpress@gov.bc.ca",
+  "license": "Apache-2.0",
+  "keywords": [
+    "WordPress",
+    "Block Theme",
+    "BCGov",
+    "AlphaGov",
+    "Gutenberg"
+  ],
+  "homepage": "https://github.com/bcgov/alphagov-wordpress-theme#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bcgov/alphagov-wordpress-theme.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "build": "wp-scripts build src/scripts/public/font.js --output-path=dist",
+    "build:production": "npm ci && npm run fix:js && npm run lint:js && npm run fix:css && npm run lint:css && npm run lint:md:docs && npm run test:unit && npm run build",
+    "lint:css": "wp-scripts lint-style src/styles",
+    "fix:css": "wp-scripts lint-style --fix --config @wordpress/stylelint-config/scss src/styles",
+    "lint:js": "wp-scripts lint-js src/scripts",
+    "fix:js": "wp-scripts lint-js src/scripts --fix",
+    "format": "wp-scripts format src/",
+    "lint:md:docs": "wp-scripts lint-md-docs --config .markdownlint.json --ignore-path .markdownlintignore",
+    "lint:pkg-json": "wp-scripts lint-pkg-json",
+    "packages-update": "wp-scripts packages-update",
+    "start": "wp-scripts start src/scripts/public/font.js --output-path=dist",
+    "test:e2e": "wp-scripts test-e2e --passWithNoTests",
+    "test:unit": "wp-scripts test-unit-js --passWithNoTests",
+    "test": "npm run test:unit",
+  },
+  "engines": {
+    "npm": ">= 10.7.0",
+    "node": ">=20.15.1"
+  },
+  "dependencies": {
+    "@wordpress/icons": "^10.3.0"
+  },
+  "devDependencies": {
+    "@bcgov/bc-sans": "^2.1.0",
+    "@bcgov/wordpress-eslint": "git+https://apps.itsm.gov.bc.ca/bitbucket/scm/wp/bcgov-wordpress-eslint.git#semver:1.x",
+    "@bcgov/wordpress-stylelintrc": "git+https://apps.itsm.gov.bc.ca/bitbucket/scm/wp/bcgov-wordpress-stylelintrc.git#semver:1.x",
+    "@wordpress/scripts": "^28.3.0"
+  }
+}
