@@ -31,7 +31,7 @@
     "start": "wp-scripts start src/scripts/public/font.js --output-path=dist",
     "test:e2e": "wp-scripts test-e2e --passWithNoTests",
     "test:unit": "wp-scripts test-unit-js --passWithNoTests",
-    "test": "npm run test:unit",
+    "test": "npm run test:unit"
   },
   "engines": {
     "npm": ">= 10.7.0",
