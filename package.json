@@ -42,7 +42,7 @@
     "lint:js": "wp-scripts lint-js src/scripts",
     "fix:js": "wp-scripts lint-js src/scripts --fix",
     "format": "wp-scripts format src/",
-    "lint:md:docs": "wp-scripts lint-md-docs",
+    "lint:md:docs": "wp-scripts lint-md-docs --config .markdownlint.json --ignore-path .markdownlintignore",
     "lint:pkg-json": "wp-scripts lint-pkg-json",
     "packages-update": "wp-scripts packages-update",
     "start": "wp-scripts start src/scripts/public/font.js --output-path=dist",
