@@ -14,6 +14,7 @@ npm run start
 
 ## Build
 
-* ``` npm run build:production ```
-* ``` composer checklist ```
-
+```bash
+npm run build:production 
+composer checklist 
+```
