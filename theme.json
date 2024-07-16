@@ -3,8 +3,13 @@
   "version": 2,
   "templateParts": [
     {
-      "title": "Header Container",
-      "name": "header",
+      "name": "header-no-site-title",
+      "title": "Header No Site Title",
+      "area": "header"
+    },
+    {
+      "name": "header-site-title",
+      "title": "Header Site Title",
       "area": "header"
     },
     {
