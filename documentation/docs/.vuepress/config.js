@@ -28,9 +28,11 @@ export default defineUserConfig( {
         sidebar: [
             // SidebarItem
             {
-                text: 'Getting Started',
+                text: 'Site Editor',
                 collapsible: true,
-                children: [],
+                children: [
+                     "/guide/SiteEditor/Patterns"
+                ],
             },
         ],
     } ),
