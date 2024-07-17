@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.0 July 17, 2024
+-   Added Header Template Part
+-   Added VuePress Site.
+
 ## 1.1.0 July 11, 2024
 
 -   [DESCW-2473](https://citz-gdx.atlassian.net/browse/DESCW-2473)

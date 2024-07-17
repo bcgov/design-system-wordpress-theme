@@ -16,3 +16,9 @@ coverage
 /documentation/docs/.vuepress/dist/**
 .vscode/**
 .wp-env.json
+./
+
+# documentation
+documentation/docs/.vuepress/.temp
+documentation/docs/.vuepress/.cache
+documentation/node_modules
