@@ -1,23 +1,23 @@
 {
-  "name": "alphagov-wordpress-theme",
+  "name": "design-system-wordpress-theme",
   "version": "1.0.0",
-  "description": "Alpha Gov WordPress Theme",
+  "description": "Design System WordPress Theme",
   "author": "govwordpress@gov.bc.ca",
   "license": "GPL-2.0-or-later",
   "keywords": [
     "WordPress",
     "Block Theme",
     "BCGov",
-    "AlphaGov",
+    "DesignSystem",
     "Gutenberg"
   ],
-  "homepage": "https://github.com/bcgov/alphagov-wordpress-theme#readme",
+  "homepage": "https://github.com/bcgov/design-system-wordpress-theme#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bcgov/alphagov-wordpress-theme.git"
+    "url": "git+https://github.com/bcgov/design-system-wordpress-theme.git"
   },
   "bugs": {
-    "url": "https://github.com/bcgov/alphagov-wordpress-theme#readme",
+    "url": "https://github.com/bcgov/design-system-wordpress-theme#readme",
     "email": "govwordpress@gov.bc.ca"
   },
   "engines": {

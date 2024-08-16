@@ -1,6 +1,6 @@
 {
-    "name": "bcgov-theme/alphagov-wordpress-theme",
-    "description": "Alpha Gov WordPress Theme",
+    "name": "bcgov-theme/design-system-wordpress-theme",
+    "description": "Design System WordPress Theme",
     "version": "1.2.0",
     "type": "wordpress-theme",
     "license": "Apache-2.0",
@@ -15,7 +15,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Bcgov\\Theme\\AlphaGov\\": [
+            "Bcgov\\Theme\\DesignSystem\\": [
                 "src",
                 "inc"
             ]
@@ -23,7 +23,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Bcgov\\Theme\\AlphaGov\\Tests\\": "Tests/"
+            "Bcgov\\Theme\\DesignSystem\\Tests\\": "Tests/"
         }
     },
     "scripts": {
