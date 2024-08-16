@@ -1,12 +1,12 @@
-# BCGov Alpha Gov WordPress Theme
+# Design System WordPress Theme
 
 ![Lifecycle:Experimental](https://img.shields.io/badge/Lifecycle-Experimental-339999)
 
 ## Development Setup
 
 ```bash
-git clone https://github.com/bcgov/alphagov-wordpress-theme.git
-cd alphagov-wordpress-theme
+git clone https://github.com/bcgov/design-system-wordpress-theme.git
+cd design-system-wordpress-theme
 composer install
 npm i
 npm run start
