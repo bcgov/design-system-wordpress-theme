@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.3.0 August 28, 2024
+-   Added design tokens from BC design system for use as variables in sass
+
 ## 1.2.0 July 17, 2024
 -   Added Header Template Part
 -   Added VuePress Site.
