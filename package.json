@@ -37,7 +37,7 @@
   },
   "scripts": {
     "build": "wp-scripts build --output-path=dist",
-    "build:production": "npm ci && npm run fix:js && npm run lint:js && npm run fix:css && npm run lint:css && npm run lint:md && npm run fix:md && npm run test:unit && npm run build",
+    "build:production": "npm ci && npm run fix:js && npm run fix:css && npm run fix:md && npm run test:unit && npm run build",
     "lint:css": "wp-scripts lint-style 'src/**/*.scss' --allow-empty-input",
     "fix:css": "wp-scripts lint-style 'src/**/*.scss' --fix --allow-empty-input",
     "lint:js": "wp-scripts lint-js src/scripts",
