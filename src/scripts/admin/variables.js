@@ -1,1 +1,0 @@
-import '@bcgov/design-tokens/css-prefixed/variables.css';
