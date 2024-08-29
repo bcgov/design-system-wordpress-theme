@@ -48,7 +48,7 @@ function bcgov_block_theme_enqueue_admin_scripts(): void {
 }
 
 add_action( 'admin_enqueue_scripts', 'bcgov_block_theme_enqueue_admin_scripts' );
-
+add_action( 'enqueue_block_assets', 'design_system_public_enqueue_global_styles' );
 add_action( 'wp_enqueue_scripts', 'design_system_public_enqueue_global_styles' );
 // add_action('after_setup_theme', 'design_system_public_enqueue_global_styles');
 
