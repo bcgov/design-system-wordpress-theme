@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.4.0 August 29, 2024
+
+-   Implemented new design system into global site editor
+-   Added mapped design token options to typography size options
+
 ## 1.3.0 August 28, 2024
 
 -   Added design tokens from BC design system for use as variables in sass
