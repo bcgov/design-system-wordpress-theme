@@ -36,7 +36,34 @@
       "wideSize": "1440px"
     },
     "typography": {
-      "fluid": true
+      "fluid": true,
+      "fontSizes": [
+      {
+        "slug": "h1",
+        "size": "var(--dswp-typography-regular-H1)",
+        "name": "Heading 1"
+      },
+      {
+        "slug": "h2",
+        "size": "var(--dswp-typography-regular-H2)",
+        "name": "Heading 2"
+      },
+      {
+        "slug": "h3",
+        "size": "var(--dswp-typography-regular-H3)",
+        "name": "Heading 3"
+      },
+      {
+        "slug": "h4",
+        "size": "var(--dswp-typography-regular-H4)",
+        "name": "Heading 4"
+      },
+      {
+        "slug": "h5",
+        "size": "var(--dswp-typography-regular-H5)",
+        "name": "Heading 5"
+      }
+    ]
     },
     "spacing": {
       "blockGap": null,
