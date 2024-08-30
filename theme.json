@@ -102,9 +102,9 @@
         "typography": {
             "fontFamilies": [
                 {
-                    "fontFamily": "BCSans",
+                    "fontFamily": "var(--dswp-typography-font-families-bc-sans), Noto Sans, Verdana, Arial, sans-serif",
                     "name": "BC Sans",
-                    "slug": "bcsans-font-family"
+                    "slug": "bcsans"
                 }
             ],
             "fontSizes": [
