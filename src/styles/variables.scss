@@ -1,5 +1,6 @@
 :root {
 	// Typography
+	--dswp-typography-font-families-bc-sans: var(--bcds-typography-font-families-bc-sans);
 	--dswp-typography-font-size-label: var(--bcds-typography-font-size-label);
 	--dswp-typography-font-size-small-body: var(--bcds-typography-font-size-small-body);
 	--dswp-typography-font-size-body: var(--bcds-typography-font-size-body);
@@ -20,5 +21,7 @@
 	--dswp-typography-color-primary: var(--bcds-typography-color-primary);
 	--dswp-surface-color-primary-button-default: var(--bcds-surface-color-primary-button-default);
 	// Layout
-	--dswp-content-size: 1120px;
+	--dswp-layout-content-size: 1120px;
+	--dswp-layout-padding-none: var(--bcds-layout-padding-none);
+	--dswp-layout-margin-xlarge: var(--bcds-layout-margin-xlarge);
 }

@@ -47,7 +47,7 @@
     "fix:md": "wp-scripts lint-md-docs --fix",
     "lint:pkg-json": "wp-scripts lint-pkg-json",
     "packages-update": "wp-scripts packages-update",
-    "start": "wp-scripts start src/scripts/public/font.js --output-path=dist",
+    "start": "wp-scripts start --output-path=dist",
     "test:e2e": "wp-scripts test-e2e --passWithNoTests",
     "test:unit": "wp-scripts test-unit-js --passWithNoTests",
     "test": "npm run test:unit"

@@ -1,6 +1,6 @@
 {
     "$schema": "https://schemas.wp.org/trunk/theme.json",
-    "version": 2,
+    "version": 3,
     "title": "Design System Wordpress Theme",
     "templateParts": [
         {
@@ -24,13 +24,16 @@
             "text": "var(--dswp-typography-color-primary)",
             "background": "var(--dswp-surface-color-background-white)"
         },
-        "typography": { "fontFamily": "BCSans" },
+        "typography": {
+            "fontFamily": "var(--dswp-typography-font-families-bc-sans), Noto Sans, Verdana, Arial, sans-serif",
+            "fontSize": "var(--dswp-typography-font-size-body)"
+        },
         "spacing": {
             "padding": {
-                "top": "0px",
-                "right": "2rem",
-                "bottom": "0px",
-                "left": "2rem"
+                "top": "var(--dswp-layout-padding-none)",
+                "right": "var(--dswp-layout-margin-xlarge)",
+                "bottom": "var(--dswp-layout-padding-none)",
+                "left": "var(--dswp-layout-margin-xlarge)"
             }
         },
         "elements": {
@@ -51,24 +54,10 @@
             "caption": {
                 "color": {
                     "text": "var(--dswp-typography-color-primary)"
-                },
-                "typography": {
-                    "fontSize": "var(--dswp-typography-font-size-body)"
-                }
-            },
-            "cite": {
-                "color": {
-                    "text": "var(--dswp-typography-color-primary)"
-                },
-                "typography": {
-                    "fontSize": "var(--dswp-typography-font-size-body)"
                 }
             },
             "link": {
-                "color": { "text": "var(--dswp-typography-color-link)" },
-                "typography": {
-                    "fontSize": "var(--dswp-typography-font-size-body)"
-                }
+                "color": { "text": "var(--dswp-typography-color-link)" }
             },
             "h6": {
                 "typography": {
