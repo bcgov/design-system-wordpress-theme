@@ -1,13 +1,27 @@
 :root {
-	--dswp-typography-font-size-h1: var(--bcds-typography-font-size-h1);
-	--dswp-typography-font-size-h2: var(--bcds-typography-font-size-h2);
-	--dswp-typography-font-size-h3: var(--bcds-typography-font-size-h3);
-	--dswp-typography-font-size-h4: var(--bcds-typography-font-size-h4);
-	--dswp-typography-font-size-h5: var(--bcds-typography-font-size-h5);
-	--dswp-typography-font-size-h6: var(--bcds-typography-font-size-large-body);
+	// Typography
+	--dswp-typography-font-families-bc-sans: var(--bcds-typography-font-families-bc-sans);
 	--dswp-typography-font-size-label: var(--bcds-typography-font-size-label);
 	--dswp-typography-font-size-small-body: var(--bcds-typography-font-size-small-body);
 	--dswp-typography-font-size-body: var(--bcds-typography-font-size-body);
 	--dswp-typography-font-size-large-body: var(--bcds-typography-font-size-large-body);
+	--dswp-typography-font-size-h6: var(--bcds-typography-font-size-large-body);
+	--dswp-typography-font-size-h5: var(--bcds-typography-font-size-h5);
+	--dswp-typography-font-size-h4: var(--bcds-typography-font-size-h4);
+	--dswp-typography-font-size-h3: var(--bcds-typography-font-size-h3);
+	--dswp-typography-font-size-h2: var(--bcds-typography-font-size-h2);
+	--dswp-typography-font-size-h1: var(--bcds-typography-font-size-h1);
 	--dswp-typography-font-size-display: var(--bcds-typography-font-size-display);
+	// Colors
+	--dswp-surface-color-background-white: var(--bcds-surface-color-background-white);
+	--dswp-surface-color-menus-default: var(--bcds-surface-color-menus-default);
+	--dswp-theme-primary-blue: var(--bcds-theme-primary-blue);
+	--dswp-theme-gray-white: var(--bcds-theme-gray-white);
+	--dswp-typography-color-link: var(--bcds-typography-color-link);
+	--dswp-typography-color-primary: var(--bcds-typography-color-primary);
+	--dswp-surface-color-primary-button-default: var(--bcds-surface-color-primary-button-default);
+	// Layout
+	--dswp-layout-content-size: 1120px;
+	--dswp-layout-padding-none: var(--bcds-layout-padding-none);
+	--dswp-layout-margin-xlarge: var(--bcds-layout-margin-xlarge);
 }

@@ -1,6 +1,6 @@
 {
   "name": "design-system-wordpress-theme",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "Design System WordPress Theme",
   "author": "govwordpress@gov.bc.ca",
   "license": "GPL-2.0-or-later",
@@ -31,8 +31,8 @@
   },
   "devDependencies": {
     "@bcgov/bc-sans": "^2.1.0",
-    "@bcgov/wordpress-eslint": "git+https://apps.itsm.gov.bc.ca/bitbucket/scm/wp/bcgov-wordpress-eslint.git#semver:1.x",
-    "@bcgov/wordpress-stylelintrc": "git+https://apps.itsm.gov.bc.ca/bitbucket/scm/wp/bcgov-wordpress-stylelintrc.git#semver:1.x",
+    "@bcgov/wordpress-eslint": "git+https://github.com/bcgov/wordpress-eslint.git#semver:1.x",
+    "@bcgov/wordpress-stylelintrc": "git+https://github.com/bcgov/wordpress-stylelintrc.git#semver:1.x",
     "@wordpress/scripts": "^28.6.0"
   },
   "scripts": {
@@ -47,7 +47,7 @@
     "fix:md": "wp-scripts lint-md-docs --fix",
     "lint:pkg-json": "wp-scripts lint-pkg-json",
     "packages-update": "wp-scripts packages-update",
-    "start": "wp-scripts start src/scripts/public/font.js --output-path=dist",
+    "start": "wp-scripts start --output-path=dist",
     "test:e2e": "wp-scripts test-e2e --passWithNoTests",
     "test:unit": "wp-scripts test-unit-js --passWithNoTests",
     "test": "npm run test:unit"
