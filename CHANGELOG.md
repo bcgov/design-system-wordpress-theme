@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.0 August 30, 2024
+
+-  [DSWP-19]Added mapped design token as defaults for global site styles through theme.json
+
 ## 1.4.0 August 29, 2024
 
 -   Implemented new design system into global site editor

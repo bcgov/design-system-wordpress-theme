@@ -20,6 +20,11 @@
         }
     ],
     "styles": {
+        "color": {
+            "text": "var(--dswp-typography-color-primary)",
+            "background": "var(--dswp-surface-color-background-white)"
+        },
+        "typography": { "fontFamily": "BCSans" },
         "spacing": {
             "padding": {
                 "top": "0px",
@@ -29,6 +34,42 @@
             }
         },
         "elements": {
+            "heading": {
+                "color": {
+                    "text": "var(--dswp-typography-color-primary)"
+                }
+            },
+            "button": {
+                "color": {
+                    "text": "var(--dswp-theme-gray-white)",
+                    "background": "var(--dswp-surface-color-primary-button-default)"
+                },
+                "typography": {
+                    "fontSize": "var(--dswp-typography-font-size-body)"
+                }
+            },
+            "caption": {
+                "color": {
+                    "text": "var(--dswp-typography-color-primary)"
+                },
+                "typography": {
+                    "fontSize": "var(--dswp-typography-font-size-body)"
+                }
+            },
+            "cite": {
+                "color": {
+                    "text": "var(--dswp-typography-color-primary)"
+                },
+                "typography": {
+                    "fontSize": "var(--dswp-typography-font-size-body)"
+                }
+            },
+            "link": {
+                "color": { "text": "var(--dswp-typography-color-link)" },
+                "typography": {
+                    "fontSize": "var(--dswp-typography-font-size-body)"
+                }
+            },
             "h6": {
                 "typography": {
                     "fontSize": "var(--dswp-typography-font-size-h6)"
@@ -66,10 +107,17 @@
         "appearanceTools": true,
         "useRootPaddingAwareAlignments": true,
         "layout": {
-            "contentSize": "1440px",
-            "wideSize": "1440px"
+            "contentSize": "var(--dswp-content-size)",
+            "wideSize": "var(--dswp-content-size)"
         },
         "typography": {
+            "fontFamilies": [
+                {
+                    "fontFamily": "BCSans",
+                    "name": "BC Sans",
+                    "slug": "bcsans-font-family"
+                }
+            ],
             "fontSizes": [
                 {
                     "slug": "bcds-h6",
@@ -123,7 +171,7 @@
                 },
                 {
                     "slug": "bcds-display",
-                    "size": "var(--bcds-typography-font-size-display)",
+                    "size": "var(--dswp-typography-font-size-display)",
                     "name": "Display"
                 }
             ]
@@ -133,30 +181,31 @@
             "margin": true
         },
         "color": {
+            "defaultPalette": false,
             "palette": [
                 {
                     "slug": "header-color-background",
-                    "color": "blue",
+                    "color": "var(--dswp-surface-color-background-white)",
                     "name": "Header background color"
                 },
                 {
                     "slug": "menu-color-background",
-                    "color": "#ffffff",
+                    "color": "var(--dswp-surface-color-menus-default)",
                     "name": "Menu background color"
                 },
                 {
                     "slug": "typography-primary-color",
-                    "color": "#2d2d2d",
+                    "color": "var(--dswp-theme-primary-blue)",
                     "name": "Primary color"
                 },
                 {
                     "slug": "foreground",
-                    "color": "var(--wp--preset--color--typography-primary-color)",
+                    "color": "var(--dswp-theme-gray-white)",
                     "name": "Foreground"
                 },
                 {
                     "slug": "background",
-                    "color": "#ffffff",
+                    "color": "var(--dswp-surface-color-background-white)",
                     "name": "Background"
                 }
             ]
