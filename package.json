@@ -31,8 +31,8 @@
   },
   "devDependencies": {
     "@bcgov/bc-sans": "^2.1.0",
-    "@bcgov/wordpress-eslint": "git+https://apps.itsm.gov.bc.ca/bitbucket/scm/wp/bcgov-wordpress-eslint.git#semver:1.x",
-    "@bcgov/wordpress-stylelintrc": "git+https://apps.itsm.gov.bc.ca/bitbucket/scm/wp/bcgov-wordpress-stylelintrc.git#semver:1.x",
+    "@bcgov/wordpress-eslint": "git+https://github.com/bcgov/wordpress-eslint.git#semver:1.x",
+    "@bcgov/wordpress-stylelintrc": "git+https://github.com/bcgov/wordpress-stylelintrc.git#semver:1.x",
     "@wordpress/scripts": "^28.6.0"
   },
   "scripts": {
