@@ -1,7 +1,13 @@
 :root {
-	--dswp-typography-regular-H1: var(--bcds-typography-font-size-h1);
-	--dswp-typography-regular-H2: var(--bcds-typography-font-size-h2);
-	--dswp-typography-regular-H3: var(--bcds-typography-font-size-h3);
-	--dswp-typography-regular-H4: var(--bcds-typography-font-size-h4);
-	--dswp-typography-regular-H5: var(--bcds-typography-font-size-h5);
+	--dswp-typography-font-size-h1: var(--bcds-typography-font-size-h1);
+	--dswp-typography-font-size-h2: var(--bcds-typography-font-size-h2);
+	--dswp-typography-font-size-h3: var(--bcds-typography-font-size-h3);
+	--dswp-typography-font-size-h4: var(--bcds-typography-font-size-h4);
+	--dswp-typography-font-size-h5: var(--bcds-typography-font-size-h5);
+	--dswp-typography-font-size-h6: var(--bcds-typography-font-size-large-body);
+	--dswp-typography-font-size-label: var(--bcds-typography-font-size-label);
+	--dswp-typography-font-size-small-body: var(--bcds-typography-font-size-small-body);
+	--dswp-typography-font-size-body: var(--bcds-typography-font-size-body);
+	--dswp-typography-font-size-large-body: var(--bcds-typography-font-size-large-body);
+	--dswp-typography-font-size-display: var(--bcds-typography-font-size-display);
 }
