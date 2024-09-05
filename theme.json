@@ -173,11 +173,6 @@
             "defaultPalette": false,
             "palette": [
                 {
-                    "slug": "bcgov-theme-hero-title-background",
-                    "color": "var(--dswp-theme-hero-title-background)",
-                    "name": "BCGov Hero Title Background"
-                },
-                {
                     "slug": "bcgov-gold-accent",
                     "color": "var(--dswp-theme-primary-gold)",
                     "name": "BCGov Gold Accent"
