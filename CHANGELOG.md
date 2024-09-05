@@ -1,8 +1,12 @@
 # Changelog
 
+## 1.5.1 September 5, 2024
+
+-  [DSWP-21](https://citz-gdx.atlassian.net/browse/DSWP-19)Fixed bug related to header and footer template parts
+
 ## 1.5.0 August 30, 2024
 
--  [DSWP-19]Added mapped design token as defaults for global site styles through theme.json
+-  [DSWP-19](https://citz-gdx.atlassian.net/browse/DSWP-19)Added mapped design token as defaults for global site styles through theme.json
 
 ## 1.4.0 August 29, 2024
 

@@ -1,2 +1,2 @@
 import './styles/index.scss';
-import './scripts/public/font.js';
+import './scripts/public/index.js';
