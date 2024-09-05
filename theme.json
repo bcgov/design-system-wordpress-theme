@@ -14,8 +14,8 @@
             "area": "header"
         },
         {
-            "title": "Footer Container",
-            "name": "footer",
+            "title": "Footer Territorial Acknowledgment",
+            "name": "footer-territorial-acknowledgment",
             "area": "footer"
         }
     ],
@@ -172,6 +172,16 @@
         "color": {
             "defaultPalette": false,
             "palette": [
+                {
+                    "slug": "bcgov-gold-accent",
+                    "color": "var(--dswp-theme-primary-gold)",
+                    "name": "BCGov Gold Accent"
+                },
+                {
+                    "slug": "banner-background-dark",
+                    "color": "var(--dswp-banner-background-dark)",
+                    "name": "Banner background dark"
+                },
                 {
                     "slug": "header-color-background",
                     "color": "var(--dswp-surface-color-background-white)",
