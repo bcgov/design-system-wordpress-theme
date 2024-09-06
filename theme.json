@@ -96,8 +96,8 @@
         "appearanceTools": true,
         "useRootPaddingAwareAlignments": true,
         "layout": {
-            "contentSize": "var(--dswp-content-size)",
-            "wideSize": "var(--dswp-content-size)"
+            "contentSize": "var(--dswp-layout-content-size)",
+            "wideSize": "var(--dswp-layout-content-size)"
         },
         "typography": {
             "fontFamilies": [

@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.6.1 September 5, 2024
+
+-  [DSWP-26](https://citz-gdx.atlassian.net/browse/DSWP-26) Added page template for "pages"
+   [DSWP-17](https://citz-gdx.atlassian.net/browse/DSWP-17) Added cover image for theme(screenshot)
+
 ## 1.5.1 September 5, 2024
 
 -  [DSWP-21](https://citz-gdx.atlassian.net/browse/DSWP-19)Fixed bug related to header and footer template parts

@@ -1,7 +1,7 @@
 {
     "name": "bcgov-theme/design-system-wordpress-theme",
     "description": "Design System WordPress Theme",
-    "version": "1.5.1",
+    "version": "1.6.1",
     "type": "wordpress-theme",
     "license": "Apache-2.0",
     "repositories": [

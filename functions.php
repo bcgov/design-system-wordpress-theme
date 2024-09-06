@@ -12,7 +12,8 @@ function design_system_public_enqueue_global_styles() {
     wp_enqueue_style( 'design-system-styles', get_template_directory_uri() . '/dist/index.css', array(), $version );
 }
 
-add_action( 'enqueue_block_assets', 'design_system_public_enqueue_global_styles' );
+add_action( 'enqueue_block_assets', 'design_system_public_enqueue_global_styles', 100 );
+
 
 
 /**
