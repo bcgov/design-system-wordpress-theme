@@ -1,0 +1,18 @@
+@media (min-width: $break-small) {
+
+	.is-style-wp-block-navigation-separator {
+
+		.wp-block-navigation__responsive-container:not(.is-menu-open) {
+
+			.wp-block-navigation__container.block-editor-block-list__layout {
+				column-gap: 10px !important;
+			}
+
+			.wp-block-navigation-item:not(:last-child) a {
+				border-right: 3px solid var(--dswp-typography-color-primary);
+				padding-right: 10px;
+			}
+		}
+	}
+}
+
