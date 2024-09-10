@@ -16,7 +16,7 @@ add_action( 'enqueue_block_assets', 'design_system_public_enqueue_global_styles'
  */
 function design_system_enqueue_global_js_scripts() {
     wp_enqueue_script(
-        'my-custom-block-variations',
+        'design-system-scripts',
         get_template_directory_uri() . '/dist/index.js',
         array( 'wp-blocks', 'wp-element' ),
         filemtime( get_template_directory() . '/dist/index.js' ),
