@@ -1,3 +1,6 @@
 @import "@bcgov/design-tokens/css-prefixed/variables.css"; // import BCgov design system tokens npm package
+@import "node_modules/@wordpress/base-styles/breakpoints";
 @import "./variables"; // import your variables.scss file
 @import "@bcgov/bc-sans/css/BC_Sans.css";
+@import "./block-overrides";
+

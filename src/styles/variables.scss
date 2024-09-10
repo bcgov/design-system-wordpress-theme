@@ -27,3 +27,14 @@
 	--dswp-layout-padding-none: var(--bcds-layout-padding-none);
 	--dswp-layout-margin-xlarge: var(--bcds-layout-margin-xlarge);
 }
+
+//WordPress Screen Viewports (@wordpress/base-styles https://github.com/WordPress/gutenberg/blob/07c7821b07e5d2b2abaa86f6737dd486da26383e/packages/base-styles/_breakpoints.scss#L6)
+// $break-xhuge: 1920px;
+// $break-huge: 1440px;
+// $break-wide: 1280px;
+// $break-xlarge: 1080px;
+// $break-large: 960px;	// admin sidebar auto folds
+// $break-medium: 782px;	// adminbar goes big
+// $break-small: 600px;
+// $break-mobile: 480px;
+// $break-zoomed-in: 280px;
