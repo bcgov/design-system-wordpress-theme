@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.7.1 September 13, 2024
+
+-  [DWSP-32](https://citz-gdx.atlassian.net/browse/DSWP-32) Added new patterns for image and text - image and text flipped
+
 ## 1.6.1 September 5, 2024
 
 -  [DSWP-26](https://citz-gdx.atlassian.net/browse/DSWP-26) Added page template for "pages"
