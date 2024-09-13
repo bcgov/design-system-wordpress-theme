@@ -16,3 +16,22 @@
 	}
 }
 
+@media (max-width: $break-medium) {
+
+	.dswp-text-image-block-custom-layout *,
+	.dswp-text-image-flipped-block-custom-layout * {
+		text-align: center !important;
+		align-items: center !important;
+	}
+
+	.dswp-text-image-flipped-block-custom-layout * {
+		flex-wrap: wrap-reverse !important;
+	}
+}
+
+.dswp-text-image-flipped-block-custom-layout {
+
+	.wp-block-columns {
+		justify-content: space-between;
+	}
+}
