@@ -2,6 +2,15 @@
     "$schema": "https://schemas.wp.org/trunk/theme.json",
     "version": 3,
     "title": "Design System Wordpress Theme",
+    "customTemplates": [
+        {
+            "name": "page",
+            "title": "Page",
+            "postTypes": [
+                "page"
+            ]
+        }
+    ],
     "templateParts": [
         {
             "name": "header-no-site-title",
@@ -14,8 +23,8 @@
             "area": "header"
         },
         {
-            "title": "Footer Territorial Acknowledgment",
             "name": "footer-territorial-acknowledgment",
+            "title": "Footer Territorial Acknowledgment",
             "area": "footer"
         }
     ],
@@ -29,6 +38,7 @@
             "fontSize": "var(--dswp-typography-font-size-body)"
         },
         "spacing": {
+            "blockGap": "0px",
             "padding": {
                 "top": "var(--dswp-layout-padding-none)",
                 "right": "var(--dswp-layout-margin-xlarge)",
