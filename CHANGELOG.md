@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.7.2 September 17, 2024
+
+-  [DWSP-34](https://citz-gdx.atlassian.net/browse/DSWP-34) Fix block gap and navigation overrides. Fixed template layout and structure.
+
 ## 1.7.1 September 13, 2024
 
 -  [DWSP-32](https://citz-gdx.atlassian.net/browse/DSWP-32) Added new patterns for image and text - image and text flipped
