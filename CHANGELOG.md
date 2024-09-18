@@ -3,6 +3,7 @@
 ## 1.0.0 September 17, 2024
 
 -  Launch of version 1.0.0
+-  [DWSP-35](https://citz-gdx.atlassian.net/browse/DSWP-35) Make page templates and template parts more reusable.
 
 ## 0.7.2 September 17, 2024
 

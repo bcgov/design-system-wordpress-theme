@@ -2,29 +2,15 @@
     "$schema": "https://schemas.wp.org/trunk/theme.json",
     "version": 3,
     "title": "Design System Wordpress Theme",
-    "customTemplates": [
-        {
-            "name": "page",
-            "title": "Page",
-            "postTypes": [
-                "page"
-            ]
-        }
-    ],
     "templateParts": [
         {
-            "name": "header-no-site-title",
-            "title": "Header No Site Title",
+            "name": "header",
+            "title": "Header",
             "area": "header"
-        },
+        },   
         {
-            "name": "header-site-title",
-            "title": "Header Site Title",
-            "area": "header"
-        },
-        {
-            "name": "footer-territorial-acknowledgment",
-            "title": "Footer Territorial Acknowledgment",
+            "name": "footer",
+            "title": "footer",
             "area": "footer"
         }
     ],
