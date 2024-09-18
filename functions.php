@@ -33,12 +33,7 @@ add_action( 'enqueue_block_editor_assets', 'design_system_enqueue_global_js_scri
  */
 function design_system_include_block_style_variations( $dir_path ) {
     // Define the block style variation files.
-    $block_style_variation_files = [ 'navigation' ]; // Added missing semicolon.
-
-    // Check if directory exists and is readable.
-    if ( ! is_dir( $dir_path ) || ! is_readable( $dir_path ) ) {
-        return new WP_Error( 'dir_not_readable', 'Directory not readable: ' . $dir_path );
-    }
+    $block_style_variation_files = [ 'navigation' ];
 
     // Include specified block style variation files.
     foreach ( glob( $dir_path . '/*.php' ) as $file ) {
@@ -50,7 +45,7 @@ function design_system_include_block_style_variations( $dir_path ) {
 
     // Recursively include from subdirectories.
     foreach ( glob( $dir_path . '/*', GLOB_ONLYDIR ) as $dir ) {
-        design_system_include_block_style_variations( $dir ); // Removed the extra parameter.
+        design_system_include_block_style_variations( $dir );
     }
 }
 
