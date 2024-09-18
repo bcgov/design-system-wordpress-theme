@@ -32,17 +32,28 @@ add_action( 'enqueue_block_editor_assets', 'design_system_enqueue_global_js_scri
  * @param string $dir_path The path of the directory to include files from.
  */
 function design_system_include_block_style_variations( $dir_path ) {
-    // Create a recursive directory iterator.
-    $iterator = new RecursiveIteratorIterator( new RecursiveDirectoryIterator( $dir_path ) );
+    // Define the block style variation files.
+    $block_style_variation_files = [ 'navigation' ]; // Added missing semicolon.
 
-    // Loop through the list of files and include each PHP file.
-    foreach ( $iterator as $file ) {
-        if ( $file->isFile() && $file->getExtension() === 'php' ) {
-            require_once $file->getPathname(); // Include each PHP file.
+    // Check if directory exists and is readable.
+    if ( ! is_dir( $dir_path ) || ! is_readable( $dir_path ) ) {
+        return new WP_Error( 'dir_not_readable', 'Directory not readable: ' . $dir_path );
+    }
+
+    // Include specified block style variation files.
+    foreach ( glob( $dir_path . '/*.php' ) as $file ) {
+        $baseName = basename( $file, '.php' );
+        if ( in_array( $baseName, $block_style_variation_files, true ) && ! class_exists( $baseName ) ) {
+            require_once $file;
         }
+    }
+
+    // Recursively include from subdirectories.
+    foreach ( glob( $dir_path . '/*', GLOB_ONLYDIR ) as $dir ) {
+        design_system_include_block_style_variations( $dir ); // Removed the extra parameter.
     }
 }
 
-// Get the directory path and include PHP files.
+// Set the directory path and include block style variations.
 $dir_path = get_template_directory() . '/blocks/core';
 design_system_include_block_style_variations( $dir_path );
