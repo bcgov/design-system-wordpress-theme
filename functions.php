@@ -55,5 +55,5 @@ function design_system_include_block_style_variations( $dir_path ) {
 }
 
 // Set the directory path and include block style variations.
-$dir_path = get_template_directory() . '/blocks/core';
+$dir_path = get_template_directory() . '/blocks/core/style-overrides';
 design_system_include_block_style_variations( $dir_path );
