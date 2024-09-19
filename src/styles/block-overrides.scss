@@ -26,11 +26,11 @@
 
 @media (max-width: $break-medium) {
 
-
 	.dswp-text-image-block-custom-layout *,
 	.dswp-text-image-flipped-block-custom-layout * {
 		text-align: center !important;
 		align-items: center !important;
+		padding: 0 !important;
 	}
 
 	.dswp-text-image-flipped-block-custom-layout * {
