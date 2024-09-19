@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.1 September 19, 2024
+
+-  [DWSP-38](https://citz-gdx.atlassian.net/browse/DSWP-38) Fix Spacing Issues on DSWP Image Text Patterns.
+
 ## 1.1.0 September 19, 2024
 
 - Updated to version 1.1.0
