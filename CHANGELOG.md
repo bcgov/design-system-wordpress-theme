@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.0 September 19, 2024
+
+- Updated to version 1.1.0
+
 ## 1.0.0 September 17, 2024
 
 -  Launch of version 1.0.0
