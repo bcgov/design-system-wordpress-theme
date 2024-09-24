@@ -11,7 +11,9 @@
         }
     ],
     "require-dev": {
-        "bcgov/wordpress-scripts": "2.1.2"
+        "bcgov/wordpress-scripts": "2.1.2",
+        "phpunit/phpunit": "^9.6",
+        "yoast/phpunit-polyfills": "^2.0"
     },
     "autoload": {
         "psr-4": {
@@ -42,7 +44,7 @@
             "Bcgov\\Script\\Standards::phpcbf"
         ],
         "test": [
-            "Bcgov\\Script\\Tests::phpunit"
+            "vendor/bin/phpunit --configuration phpunit.xml.dist"
         ],
         "coverage": [
             "./vendor/bin/phpunit --coverage-html ./coverage/php/"
