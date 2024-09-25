@@ -6,7 +6,7 @@
  */
 
 if ( PHP_MAJOR_VERSION >= 8 ) {
-	echo 'The scaffolded tests cannot currently be run on PHP 8.0+. See https://github.com/wp-cli/scaffold-command/issues/285' . PHP_EOL; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	echo "The scaffolded tests cannot currently be run on PHP 8.0+. See https://github.com/wp-cli/scaffold-command/issues/285" . PHP_EOL; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	exit( 1 );
 }
 
@@ -17,7 +17,8 @@ if ( ! $_tests_dir ) {
 }
 
 if ( ! file_exists( $_tests_dir . '/includes/functions.php' ) ) {
-    wp_die( esc_html( "Could not find {$_tests_dir}/includes/functions.php, have you run bin/install-wp-tests.sh ?" ) );
+	echo "Could not find {$_tests_dir}/includes/functions.php, have you run bin/install-wp-tests.sh ?" . PHP_EOL;
+	exit( 1 );
 }
 
 // Give access to tests_add_filter() function.
@@ -32,28 +33,19 @@ function _register_theme() {
 	$current_theme = basename( $theme_dir );
 	$theme_root    = dirname( $theme_dir );
 
-	add_filter(
-        'theme_root',
-        function () use ( $theme_root ) {
-			return $theme_root;
-		}
-    );
+	add_filter( 'theme_root', function () use ( $theme_root ) {
+		return $theme_root;
+	} );
 
 	register_theme_directory( $theme_root );
 
-	add_filter(
-        'pre_option_template',
-        function () use ( $current_theme ) {
-			return $current_theme;
-		}
-    );
+	add_filter( 'pre_option_template', function () use ( $current_theme ) {
+		return $current_theme;
+	} );
 
-	add_filter(
-        'pre_option_stylesheet',
-        function () use ( $current_theme ) {
-			return $current_theme;
-		}
-    );
+	add_filter( 'pre_option_stylesheet', function () use ( $current_theme ) {
+		return $current_theme;
+	} );
 }
 
 tests_add_filter( 'muplugins_loaded', '_register_theme' );
