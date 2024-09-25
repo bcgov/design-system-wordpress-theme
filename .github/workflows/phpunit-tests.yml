@@ -17,6 +17,8 @@ jobs:
         ports:
           - "3306:3306"
 
+    php: 7.4  
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
