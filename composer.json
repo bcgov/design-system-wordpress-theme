@@ -1,7 +1,7 @@
 {
     "name": "bcgov-theme/design-system-wordpress-theme",
     "description": "Design System WordPress Theme",
-    "version": "1.1.2",
+    "version": "1.2.0",
     "type": "wordpress-theme",
     "license": "Apache-2.0",
     "repositories": [
@@ -29,6 +29,7 @@
         }
     },
     "scripts": {
+        "update-version": "bash update_version.sh",
         "production": [
             "composer validate",
             "Bcgov\\Script\\Checklists::postProductionChecks"
