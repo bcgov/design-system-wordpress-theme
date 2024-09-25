@@ -3,6 +3,7 @@
 ## 1.1.2 September 24, 2024
 
 -  [DWSP-39](https://citz-gdx.atlassian.net/browse/DSWP-39) Refactor Block Patterns for dswp-image-text and dswp-image-text-flipped to Maintain Spacing on Mobile
+-  [DWSP-41](https://citz-gdx.atlassian.net/browse/DSWP-41) Create Auto Version Increment Script
 
 ## 1.1.1 September 19, 2024
 
