@@ -29,6 +29,7 @@
         }
     },
     "scripts": {
+        "version-update":"bash update_version.sh",
         "production": [
             "composer validate",
             "Bcgov\\Script\\Checklists::postProductionChecks"
