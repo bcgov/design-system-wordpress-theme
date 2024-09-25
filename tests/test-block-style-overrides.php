@@ -1,26 +1,21 @@
 <?php
 /**
- * Class SampleTest2
+ * Class BlockStyleRegistrationTest
  *
  * @package Design_System_Wordpress_Theme
  */
 
-/**
- * Sample test case.
- */
+class BlockStyleRegistrationTest extends WP_UnitTestCase
+{
+    public function test_navigation_register()
+    {
+        
+        $block_name = 'core/navigation'; // Replace with the block type name including namespace
+        $block_style_name = 'wp-block-navigation-separator'; // Replace with the block style name
 
- 
-class SampleTest2 extends WP_UnitTestCase {
+        $registry = WP_Block_Styles_Registry::get_instance();
+        $registered_style = $registry->is_registered($block_name, $block_style_name);
 
-    public static function set_up_before_class() {
-        parent::set_up_before_class();
-        include '/blocks/core/style-overrides/navigation.php';
+        $this->assertTrue($registered_style);
     }
-
-   public function test_navigation_register() {
-        $registry = new WP_Block_Styles_Registry();
-        print_r($registry->get_all_registered());
-        $is_style_registered = $registry->is_registered( 'core/navigation','wp-block-navigation-separator' );  
-        $this->assertTrue( $is_style_registered );
-	}
 }
