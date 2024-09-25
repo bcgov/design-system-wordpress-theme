@@ -10,7 +10,7 @@
   </php>
   <testsuites>
     <testsuite name="WordPress Block Theme test suite">
-      <directory>./Tests/</directory>
+      <directory>./tests/</directory>
     </testsuite>
   </testsuites>
 
