@@ -1,0 +1,32 @@
+name: PHPUnit Tests
+
+on:
+  pull_request:
+    branches:
+      - development
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:8.4
+        env:
+          MYSQL_ROOT_PASSWORD: ''
+          MYSQL_DATABASE: root
+        ports:
+          - "3306:3306"
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: composer install
+
+      - name: Run PHPUnit tests
+        run: vendor/bin/phpunit
+
+      - name: Check test results
+        if: failure()
+        run: exit 1
