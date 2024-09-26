@@ -10,42 +10,31 @@ jobs:
         runs-on: ubuntu-latest
         services:
             mysql:
-                image: mysql:8.0
+                image: mysql:8.4
                 env:
-                    MYSQL_ROOT_PASSWORD: 'rootpassword'  # Set a root password
-                    MYSQL_DATABASE: 'wordpress_test'
+                    MYSQL_ROOT_PASSWORD: ''
+                    MYSQL_DATABASE: wordpress_test
                 ports:
                     - '3306:3306'
-                options: >-
-                    --health-cmd="mysqladmin ping --silent"
-                    --health-interval=5s
-                    --health-timeout=2s
-                    --health-retries=5
 
         steps:
             - name: Checkout code
               uses: actions/checkout@v2
+
+            - name: Install dependencies
+              run: composer install
 
             - name: Setup PHP
               uses: shivammathur/setup-php@v2
               with:
                   php-version: 7.4
 
-            - name: Install dependencies
-              run: composer install
-
-            - name: Wait for MySQL
-              run: |
-                  for i in {1..30}; do
-                      if mysqladmin ping -h localhost --silent; then
-                          break
-                      fi
-                      echo "Waiting for MySQL..."
-                      sleep 2
-                  done
-
-            - name: Create Test Environment
-              run: bin/install-wp-tests.sh wordpress_test root 'rootpassword' localhost latest      
+            - name: Create Test Environement
+              run: bin/install-wp-tests.sh wordpress_test root '' localhost latest      
 
             - name: Run PHPUnit tests
               run: vendor/bin/phpunit --configuration phpunit.xml.dist
+
+            - name: Check test results
+              if: failure()
+              run: exit 1
