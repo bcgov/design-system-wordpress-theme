@@ -7,6 +7,9 @@ on:
 
 jobs:
     test:
+        env:
+            WP_TESTS_DIR: ./wordpress-files/
+            WP_CORE_DIR: ./wordpress-files/
         runs-on: ubuntu-latest
         services:
             mysql:
