@@ -15,7 +15,7 @@ jobs:
             mysql:
                 image: mysql:8.0
                 env:
-                    MYSQL_ROOT_PASSWORD: 'rootpassword'  # Set a root password
+                    MYSQL_ROOT_PASSWORD: ''  # Set a root password
                 ports:
                     - '3306:3306'
                 options: >-
@@ -39,7 +39,7 @@ jobs:
             - name: Wait for MySQL
               run: |
                   for i in {1..30}; do
-                      if mysqladmin ping -h localhost --silent; then
+                      if mysqladmin ping -h 127.0.0.1 --silent; then
                           break
                       fi
                       echo "Waiting for MySQL..."
@@ -47,7 +47,7 @@ jobs:
                   done
 
             - name: Create Test Environment
-              run: bin/install-wp-tests.sh wordpress_test root 'rootpassword' localhost latest      
+              run: bin/install-wp-tests.sh wordpress_test root '' 127.0.0.1 latest      
 
             - name: Run PHPUnit tests
               run: vendor/bin/phpunit --configuration phpunit.xml.dist
