@@ -26,7 +26,7 @@ jobs:
           MYSQL_RANDOM_ROOT_PASSWORD: 1
           MYSQL_DATABASE: wp_tests_db
           MYSQL_USER: wp_test
-          MYSQL_PASSWORD: password
+          MYSQL_PASSWORD: password1
           MYSQL_HOST: 127.0.0.1
         ports:
           - 3306
@@ -46,6 +46,6 @@ jobs:
       - run: composer test
         env:
           WP_DB_USER: wp_test
-          WP_DB_PASS: password
+          WP_DB_PASS: password1
           WP_DB_NAME: wp_tests_db
           WP_DB_HOST: 127.0.0.1:${{ job.services.mysql.ports[3306] }}
