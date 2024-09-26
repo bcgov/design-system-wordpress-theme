@@ -47,7 +47,12 @@ jobs:
                   done
 
             - name: Create Test Environment
-              run: bin/install-wp-tests.sh wordpress_test root 'rootpassword' 127.0.0.1 latest      
+              run: |
+                  echo "WP_TESTS_DIR: $WP_TESTS_DIR"
+                  echo "WP_CORE_DIR: $WP_CORE_DIR"
+                  bin/install-wp-tests.sh wordpress_test root 'rootpassword' 127.0.0.1 latest
+                  ls -al ./wordpress-files/includes
+                  ls -al ./wordpress-files/wp-content
 
             - name: Run PHPUnit tests
               run: vendor/bin/phpunit --configuration phpunit.xml.dist
