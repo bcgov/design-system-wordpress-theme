@@ -7,9 +7,6 @@ on:
 
 jobs:
     test:
-        env:
-            WP_TESTS_DIR: ./wordpress-files
-            WP_CORE_DIR: ./wordpress-files
         runs-on: ubuntu-latest
         services:
             mysql:
@@ -47,12 +44,7 @@ jobs:
                   done
 
             - name: Create Test Environment
-              run: |
-                  echo "WP_TESTS_DIR: $WP_TESTS_DIR"
-                  echo "WP_CORE_DIR: $WP_CORE_DIR"
-                  bin/install-wp-tests.sh wordpress_test root 'rootpassword' 127.0.0.1 latest
-                  ls -al ./wordpress-files/includes
-                  ls -al ./wordpress-files/wp-content
+              run: bin/install-wp-tests.sh wordpress_test root 'rootpassword' 127.0.0.1 latest      
 
             - name: Run PHPUnit tests
               run: vendor/bin/phpunit --configuration phpunit.xml.dist
