@@ -10,10 +10,10 @@ jobs:
         runs-on: ubuntu-latest
         services:
             mysql:
-                image: mysql:8.4
+                image: mysql:8.0
                 env:
-                    MYSQL_ROOT_PASSWORD: ''
-                    MYSQL_DATABASE: root
+                    MYSQL_ROOT_PASSWORD: 'rootpassword'  # Set a root password
+                    MYSQL_DATABASE: 'wordpress_test'
                 ports:
                     - '3306:3306'
                 options: >-
@@ -45,11 +45,7 @@ jobs:
                   done
 
             - name: Create Test Environment
-              run: bin/install-wp-tests.sh wordpress_test root '' localhost latest      
+              run: bin/install-wp-tests.sh wordpress_test root 'rootpassword' localhost latest      
 
             - name: Run PHPUnit tests
               run: vendor/bin/phpunit --configuration phpunit.xml.dist
-
-            - name: Check test results
-              if: failure()
-              run: exit 1
