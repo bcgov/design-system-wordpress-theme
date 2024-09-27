@@ -1,10 +1,10 @@
 name: WordPress PHPUnit Tests
 
 on:
-  push:
+  pull_request:
     branches:
-      - main
-
+      - development
+      
 jobs:
   test:
     runs-on: ubuntu-latest
