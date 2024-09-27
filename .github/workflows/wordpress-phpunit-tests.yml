@@ -6,7 +6,7 @@ on:
       - development
 
 jobs:
-  test:
+  php:
     runs-on: ubuntu-latest
     services:
       mysql:
@@ -22,20 +22,18 @@ jobs:
           - 3306
         options: --health-cmd="mysqladmin ping" --health-interval=5s --health-timeout=2s --health-retries=3
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      
-      - name: PHP Setup 
-        uses: shivammathur/setup-php@v2
+      - uses: actions/checkout@v3
+
+      - uses: shivammathur/setup-php@v2
         with:
           # Update the specific version of PHP to match the version used on your server.
-          php-version: '7.4'
+          php-version: '8.0'
 
-      - name: Install dependencies
-        run: composer install
+      - run: composer validate --strict
 
-      - name: Run PHPUnit tests
-        run: vendor/bin/phpunit --configuration phpunit.xml.dist
+      - run: composer install
+
+      - run: composer test
         env:
           WP_DB_USER: wp_test
           WP_DB_PASS: password
