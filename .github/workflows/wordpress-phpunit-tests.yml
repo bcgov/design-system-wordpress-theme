@@ -8,9 +8,24 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    services:
+      mysql:
+        # Update the specific version of MySQL to match the version used on your server.
+        image: mysql:8
+        env:
+          MYSQL_HOST: 127.0.0.1
+        ports:
+          - 3306
+        options: --health-cmd="mysqladmin ping" --health-interval=5s --health-timeout=2s --health-retries=3
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+      
+      - name: PHP Setup 
+        uses: shivammathur/setup-php@v2
+        with:
+          # Update the specific version of PHP to match the version used on your server.
+          php-version: '8.0'
 
       - name: Install dependencies
         run: composer install
