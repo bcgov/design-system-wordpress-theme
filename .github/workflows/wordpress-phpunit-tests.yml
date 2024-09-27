@@ -13,7 +13,11 @@ jobs:
         # Update the specific version of MySQL to match the version used on your server.
         image: mysql:8
         env:
-          MYSQL_ALLOW_EMPTY_PASSWORD: true
+          MYSQL_RANDOM_ROOT_PASSWORD: 1
+          MYSQL_DATABASE: wp_tests_db
+          MYSQL_USER: wp_test
+          MYSQL_PASSWORD: password
+          MYSQL_HOST: 127.0.0.1
         ports:
           - 3306
         options: --health-cmd="mysqladmin ping" --health-interval=5s --health-timeout=2s --health-retries=3
@@ -36,5 +40,7 @@ jobs:
       - name: Run PHPUnit tests
         run: vendor/bin/phpunit --configuration phpunit.xml.dist
         env:
-          MYSQL_ALLOW_EMPTY_PASSWORD: true
+          WP_DB_USER: wp_test
+          WP_DB_PASS: password
+          WP_DB_NAME: wp_tests_db
           WP_DB_HOST: 127.0.0.1:${{ job.services.mysql.ports[3306] }}
