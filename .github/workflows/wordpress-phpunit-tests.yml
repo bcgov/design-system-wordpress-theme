@@ -1,41 +1,49 @@
-name: WordPress PHPUnit Tests
+name: Test
 
 on:
   pull_request:
     branches:
       - development
+    paths-ignore:
+      - '**.md'
+  workflow_dispatch:
+  schedule:
+    # Run every Sunday at midnight.
+    - cron:  '0 0 * * 0'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  test:
+  php:
     runs-on: ubuntu-latest
     services:
       mysql:
         # Update the specific version of MySQL to match the version used on your server.
         image: mysql:8
         env:
+          MYSQL_RANDOM_ROOT_PASSWORD: 1
+          MYSQL_DATABASE: wp_tests_db
+          MYSQL_USER: wp_test
+          MYSQL_PASSWORD: password
           MYSQL_HOST: 127.0.0.1
-          MYSQL_ALLOW_EMPTY_PASSWORD: true
         ports:
           - 3306
         options: --health-cmd="mysqladmin ping" --health-interval=5s --health-timeout=2s --health-retries=3
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      
-      - name: PHP Setup 
-        uses: shivammathur/setup-php@v2
+      - uses: actions/checkout@v3
+
+      - uses: shivammathur/setup-php@v2
         with:
           # Update the specific version of PHP to match the version used on your server.
-          php-version: '8.0'
+          php-version: '7.4'
 
-      - name: Install dependencies
-        run: composer install
+      - run: composer install
 
-      - name: Create WordPress test database
-        run: bin/install-wp-tests.sh wordpress_test root '' 127.0.0.1 latest
-
-      - name: Run PHPUnit tests
-        run: vendor/bin/phpunit --configuration phpunit.xml.dist
+      - run: composer test
         env:
-          MYSQL_ALLOW_EMPTY_PASSWORD: true
+          WP_DB_USER: wp_test
+          WP_DB_PASS: password
+          WP_DB_NAME: wp_tests_db
           WP_DB_HOST: 127.0.0.1:${{ job.services.mysql.ports[3306] }}
