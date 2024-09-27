@@ -4,7 +4,7 @@ on:
   pull_request:
     branches:
       - development
-      
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -12,6 +12,7 @@ jobs:
       mysql:
         image: mysql:8.0
         env:
+          MYSQL_ALLOW_EMPTY_PASSWORD: true
           MYSQL_ROOT_PASSWORD: ''
           MYSQL_DATABASE: wordpress_test
           MYSQL_USER: root
