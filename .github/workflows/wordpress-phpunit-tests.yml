@@ -13,7 +13,6 @@ jobs:
         # Update the specific version of MySQL to match the version used on your server.
         image: mysql:8
         env:
-          MYSQL_HOST: 127.0.0.1
           MYSQL_ALLOW_EMPTY_PASSWORD: true
         ports:
           - 3306
