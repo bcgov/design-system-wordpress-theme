@@ -37,7 +37,7 @@ jobs:
       - name: Wait for MySQL
         run: |
                   for i in {1..30}; do
-                      if mysqladmin ping -h localhost --silent; then
+                      if mysqladmin ping -h 127.0.0.1 --silent; then
                           break
                       fi
                       echo "Waiting for MySQL..."
@@ -45,7 +45,7 @@ jobs:
                   done
 
       - name: Create WordPress test database
-        run: bin/install-wp-tests.sh wordpress_test root '' localhost latest
+        run: bin/install-wp-tests.sh wordpress_test root '' 127.0.0.1 latest
 
       - name: Run PHPUnit tests
         run: vendor/bin/phpunit --configuration phpunit.xml.dist
@@ -53,4 +53,4 @@ jobs:
           WP_DB_USER: wp_test
           WP_DB_PASS: password
           WP_DB_NAME: wp_tests_db
-          WP_DB_HOST: localhost:${{ job.services.mysql.ports[3306] }}
+          WP_DB_HOST: 127.0.0.1:${{ job.services.mysql.ports[3306] }}
