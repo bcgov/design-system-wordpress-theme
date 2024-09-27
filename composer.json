@@ -10,6 +10,9 @@
             "url": "https://apps.itsm.gov.bc.ca/satis"
         }
     ],
+    "require": {
+        "roots/wordpress": "^6.0"
+    },
     "require-dev": {
         "bcgov/wordpress-scripts": "2.1.2",
         "phpunit/phpunit": "^9.0",
