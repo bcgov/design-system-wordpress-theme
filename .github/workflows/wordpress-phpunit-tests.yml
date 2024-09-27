@@ -1,56 +1,40 @@
 name: WordPress PHPUnit Tests
 
 on:
-  pull_request:
+  push:
     branches:
-      - development
+      - main
 
 jobs:
   test:
     runs-on: ubuntu-latest
     services:
       mysql:
-        # Update the specific version of MySQL to match the version used on your server.
-        image: mysql:8
+        image: mysql:8.0
         env:
-          MYSQL_RANDOM_ROOT_PASSWORD: 1
-          MYSQL_DATABASE: wp_tests_db
-          MYSQL_USER: wp_test
-          MYSQL_PASSWORD: password
-          MYSQL_HOST: 127.0.0.1
+          MYSQL_ROOT_PASSWORD: ''
+          MYSQL_DATABASE: wordpress_test
+          MYSQL_USER: root
+          MYSQL_PASSWORD: ''
         ports:
-          - 3306
-        options: --health-cmd="mysqladmin ping" --health-interval=5s --health-timeout=2s --health-retries=3
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
-      
-      - name: PHP Setup 
-        uses: shivammathur/setup-php@v2
-        with:
-          # Update the specific version of PHP to match the version used on your server.
-          php-version: '7.4'
+        uses: actions/checkout@v2
 
       - name: Install dependencies
         run: composer install
 
       - name: Wait for MySQL
         run: |
-                  for i in {1..30}; do
-                      if mysqladmin ping -h 127.0.0.1 --silent; then
-                          break
-                      fi
-                      echo "Waiting for MySQL..."
-                      sleep 2
-                  done
+          while ! mysql -h 127.0.0.1 -u root --password='' -e "SELECT 1"; do
+            sleep 1
+          done
 
       - name: Create WordPress test database
         run: bin/install-wp-tests.sh wordpress_test root '' 127.0.0.1 latest
 
       - name: Run PHPUnit tests
         run: vendor/bin/phpunit --configuration phpunit.xml.dist
-        env:
-          WP_DB_USER: wp_test
-          WP_DB_PASS: password
-          WP_DB_NAME: wp_tests_db
-          WP_DB_HOST: 127.0.0.1:${{ job.services.mysql.ports[3306] }}
