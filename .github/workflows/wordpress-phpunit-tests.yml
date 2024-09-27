@@ -34,6 +34,16 @@ jobs:
       - name: Install dependencies
         run: composer install
 
+      - name: Wait for MySQL
+        run: |
+                  for i in {1..30}; do
+                      if mysqladmin ping -h localhost --silent; then
+                          break
+                      fi
+                      echo "Waiting for MySQL..."
+                      sleep 2
+                  done
+
       - name: Create WordPress test database
         run: bin/install-wp-tests.sh wordpress_test root '' 127.0.0.1 latest
 
