@@ -42,7 +42,7 @@
             "Bcgov\\Script\\Standards::phpcbf"
         ],
         "test": [
-            "Bcgov\\Script\\Tests::phpunit"
+            "vendor/bin/phpunit --configuration phpunit.xml.dist"
         ],
         "coverage": [
             "./vendor/bin/phpunit --coverage-html ./coverage/php/"
