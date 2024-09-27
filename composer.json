@@ -29,6 +29,7 @@
         }
     },
     "scripts": {
+        "test-setup":"bash bin/install-wp-tests.sh wordpress_test root '' 127.0.0.1 latest",
         "version-update":"bash update_version.sh",
         "production": [
             "composer validate",
