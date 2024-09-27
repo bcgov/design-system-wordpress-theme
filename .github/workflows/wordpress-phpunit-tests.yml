@@ -35,3 +35,6 @@ jobs:
 
       - name: Run PHPUnit tests
         run: vendor/bin/phpunit --configuration phpunit.xml.dist
+        env:
+          MYSQL_ALLOW_EMPTY_PASSWORD: true
+          WP_DB_HOST: 127.0.0.1:${{ job.services.mysql.ports[3306] }}
