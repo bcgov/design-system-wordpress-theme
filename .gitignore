@@ -17,6 +17,8 @@ coverage
 .vscode/**
 .wp-env.json
 ./
+/wordpress-files-tests
+/wordpress-files
 
 # documentation
 documentation/docs/.vuepress/.temp
