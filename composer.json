@@ -12,11 +12,8 @@
     ],
     "require-dev": {
         "bcgov/wordpress-scripts": "2.1.2",
-        "phpunit/phpunit": "^9.6",
-        "yoast/phpunit-polyfills": "^2.0"
-    },
-    "require": {
-        "roots/wordpress": "6.0"
+        "phpunit/phpunit": "^9.0",
+        "yoast/phpunit-polyfills": "^1.0"
     },
     "autoload": {
         "psr-4": {
@@ -32,7 +29,7 @@
         }
     },
     "scripts": {
-        "version-update": "bash update_version.sh",
+        "version-update":"bash update_version.sh",
         "production": [
             "composer validate",
             "Bcgov\\Script\\Checklists::postProductionChecks"
@@ -57,8 +54,7 @@
     "config": {
         "allow-plugins": {
             "composer/installers": true,
-            "dealerdirect/phpcodesniffer-composer-installer": true,
-            "roots/wordpress-core-installer": true
+            "dealerdirect/phpcodesniffer-composer-installer": true
         }
     }
 }

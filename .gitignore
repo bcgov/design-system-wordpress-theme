@@ -17,7 +17,7 @@ coverage
 .vscode/**
 .wp-env.json
 ./
-/wordpress
+
 # documentation
 documentation/docs/.vuepress/.temp
 documentation/docs/.vuepress/.cache
