@@ -34,6 +34,9 @@ jobs:
 
       - name: Install dependencies
         run: composer install
+      
+      - name: Configure Tests
+        run: composer
 
       - name: Run PHPUnit tests
         run: vendor/bin/phpunit --configuration phpunit.xml.dist
