@@ -44,11 +44,7 @@ jobs:
                   done
 
             - name: Create Test Environment
-<<<<<<< HEAD
               run: bin/install-wp-tests.sh wordpress_test root 'rootpassword' 127.0.0.1 latest      
-=======
-              run: bin/install-wp-tests.sh wordpress_test root 'rootpassword' localhost latest      
->>>>>>> parent of 01525be (test)
 
             - name: Run PHPUnit tests
               run: vendor/bin/phpunit --configuration phpunit.xml.dist
