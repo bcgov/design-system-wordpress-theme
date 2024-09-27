@@ -1,0 +1,22 @@
+name: WordPress PHPUnit Tests
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: composer install
+
+      - name: Create WordPress test database
+        run: bin/install-wp-tests.sh wordpress_test root '' 127.0.0.1 latest
+
+      - name: Run PHPUnit tests
+        run: vendor/bin/phpunit --configuration phpunit.xml.dist
