@@ -30,7 +30,7 @@
     },
     "scripts": {
         "test-setup":[
-            "bin/install-wp-tests.sh wp_tests_db wp_test 'password' 127.0.0.1 latest"
+            "bin/install-wp-tests.sh wp_tests_db root 'password' 127.0.0.1 latest"
         ],
         "production": [
             "composer validate",
