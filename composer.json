@@ -32,7 +32,7 @@
             " bash update-version.sh" 
         ],
         "test-setup":[ 
-            "bin/install-wp-tests.sh wp_tests_db root '' 127.0.0.1 latest" 
+            "bash bin/install-wp-tests.sh wp_tests_db root '' 127.0.0.1 latest" 
         ],
         "production": [
             "composer validate",
