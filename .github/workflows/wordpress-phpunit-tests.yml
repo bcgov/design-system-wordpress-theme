@@ -15,7 +15,6 @@ jobs:
         env:
           MYSQL_ROOT_PASSWORD: "password"
           MYSQL_HOST: 127.0.0.1
-          DOCKER_TOKEN: ${DOCKER_TOKEN}  # Reference your token here
         ports:
           - 3306:3306
         options: --health-cmd="mysqladmin ping" --health-interval=5s --health-timeout=2s --health-retries=3
@@ -31,17 +30,6 @@ jobs:
 
       - name: Install dependencies
         run: composer install
-      
-      - name: Wait for MySQL
-        run: |
-                  for i in {1..30}; do
-                      if mysqladmin ping -h 127.0.0.1 --silent; then
-                         echo $(mysqladmin ping -h 127.0.0.1)
-                         break
-                      fi
-                      echo "Waiting for MySQL..."
-                      sleep 2
-                  done
 
       - name: Configure Tests
         run: composer test-setup
