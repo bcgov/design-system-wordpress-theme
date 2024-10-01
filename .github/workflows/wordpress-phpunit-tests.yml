@@ -20,7 +20,7 @@ jobs:
           MYSQL_HOST: 127.0.0.1
           DOCKER_TOKEN: ${DOCKER_TOKEN}  # Reference your token here
         ports:
-          - 3306
+          - 3306:3306
         options: --health-cmd="mysqladmin ping" --health-interval=5s --health-timeout=2s --health-retries=3
     steps:
       - name: Checkout code
