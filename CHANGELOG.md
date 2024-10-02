@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.2.0 October 1, 2024
+
+-  [DWSP-46](https://citz-gdx.atlassian.net/browse/DSWP-46) Added testing framework
+
+
 ## 1.1.2 September 24, 2024
 
 -  [DWSP-39](https://citz-gdx.atlassian.net/browse/DSWP-39) Refactor Block Patterns for dswp-image-text and dswp-image-text-flipped to Maintain Spacing on Mobile
