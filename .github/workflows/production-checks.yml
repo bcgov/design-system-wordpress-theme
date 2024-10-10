@@ -22,10 +22,10 @@ jobs:
           composer install
           npm install
           npm install @wordpress/scripts --save-dev
-
+          
       - name: Run production checks
         run: |
-          composer validate || exit 1
+          composer validate | tee /dev/stderr | grep -q 'WARNING' && exit 1
           composer phpcs || exit 1
           npm run lint:css || exit 1
           npm run lint:js || exit 1
