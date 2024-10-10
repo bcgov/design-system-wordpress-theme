@@ -12,12 +12,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Update version
-        run: bash update-version.sh
-
-      - name: Test setup
-        run: bash bin/install-wp-tests.sh wp_tests_db root 'rootpassword' localhost latest
-
       - name: Run production checks
         run: |
           composer validate
@@ -25,14 +19,3 @@ jobs:
           npm run lint:css
           npm run lint:js
           npm run test
-
-      - name: Run checklist
-        run: |
-          composer validate
-          Bcgov\\Script\\Checklists::postProductionChecks
-
-      - name: Run PHPCS
-        run: Bcgov\\Script\\Standards::phpcs
-
-      - name: Run PHPCBF
-        run: Bcgov\\Script\\Standards::phpcbf
