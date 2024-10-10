@@ -1,9 +1,9 @@
 name: Production Checks
 
 on:
-  push:
+  pull_request:
     branches:
-      - main
+      - development
 
 jobs:
   production:
