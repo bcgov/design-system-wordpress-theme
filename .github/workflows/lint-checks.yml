@@ -25,11 +25,11 @@ jobs:
 
       - name: Validate Composer configuration
         run: |
-          composer validate
+          composer validate | grep -q 'ERROR' && exit 1
 
       - name: Run PHPCS
         run: |
-          composer phpcs | tee /dev/stderr | grep -q 'ERROR' && exit 1
+          composer phpcs | grep -q 'ERROR' && exit 1
 
       - name: Lint CSS
         run: |
