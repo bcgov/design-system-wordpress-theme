@@ -25,7 +25,7 @@ jobs:
 
       - name: Validate Composer configuration
         run: |
-          composer validate |
+          composer validate
 
       - name: Run PHPCS
         run: |
