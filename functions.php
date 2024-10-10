@@ -26,11 +26,7 @@ function design_system_enqueue_global_js_scripts() {
 
 add_action( 'enqueue_block_editor_assets', 'design_system_enqueue_global_js_scripts' );
 
-/**
- * Includes all block style variation PHP files from blocks/core directory recursively.
- *
- * @param string $dir_path The path of the directory to include files from.
- */
+
 function design_system_include_block_style_variations( $dir_path ) {
     // Define the block style variation files.
     $block_style_variation_files = [ 'navigation' ];
