@@ -25,10 +25,8 @@ jobs:
 
       - name: Run production checks
         run: |
-          set -e
-          set -x
-          composer validate
-          composer phpcs
-          npm run lint:css
-          npm run lint:js
-          npm run test
+          composer validate || exit 1
+          composer phpcs || exit 1
+          npm run lint:css || exit 1
+          npm run lint:js || exit 1
+          npm run test || exit 1
