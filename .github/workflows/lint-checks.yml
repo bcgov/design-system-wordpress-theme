@@ -23,10 +23,22 @@ jobs:
           npm install
           npm install @wordpress/scripts --save-dev
 
-      - name: Run lint checks
+      - name: Validate Composer configuration
         run: |
           composer validate | tee /dev/stderr | grep -q 'WARNING' && exit 1
+
+      - name: Run PHPCS
+        run: |
           composer phpcs | tee /dev/stderr | grep -q 'ERROR' && exit 1
+
+      - name: Lint CSS
+        run: |
           npm run lint:css || exit 1
+
+      - name: Lint JS
+        run: |
           npm run lint:js || exit 1
+
+      - name: Run tests
+        run: |
           npm run test || exit 1
