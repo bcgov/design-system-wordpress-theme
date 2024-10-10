@@ -1,4 +1,4 @@
-name: Production Checks
+name: Lint Checks
 
 on:
   pull_request:
@@ -6,7 +6,7 @@ on:
       - development
 
 jobs:
-  production:
+  linting:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -23,7 +23,7 @@ jobs:
           npm install
           npm install @wordpress/scripts --save-dev
 
-      - name: Run production checks
+      - name: Run lint checks
         run: |
           composer validate | tee /dev/stderr | grep -q 'WARNING' && exit 1
           composer phpcs | tee /dev/stderr | grep -q 'ERROR' && exit 1
