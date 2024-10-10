@@ -25,7 +25,8 @@ jobs:
 
       - name: Validate Composer configuration
         run: |
-          composer validate | tee /dev/stderr | grep -q 'ERROR' && exit 1
+          composer validate | tee /dev/stderr
+          if grep -q 'ERROR' <<< "$(composer validate)"; then exit 1; fi
 
       - name: Run PHPCS
         run: |
