@@ -26,9 +26,9 @@ jobs:
       - name: Run production checks
         run: |
           composer validate
-          composer phpcs
+          composer phpcs -- --warning-severity=1
           npm run lint:css
-          npm run lint:js
+          npm run lint:js -- --max-warnings=0
           npm run test
 
         # Fail on any errors in the commands
