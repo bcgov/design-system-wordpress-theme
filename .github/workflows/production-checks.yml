@@ -47,14 +47,14 @@ jobs:
     runs-on: ubuntu-latest
     needs: phpcs
     steps:    
+      - name: Checkout code
+        uses: actions/checkout@v2
+
       - name: Install dependencies
         run: |
           composer install
           npm install
           npm install @wordpress/scripts --save-dev
-
-      - name: Checkout code
-        uses: actions/checkout@v2
 
       - name: Lint CSS
         run: npm run lint:css
