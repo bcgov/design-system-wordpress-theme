@@ -1,4 +1,4 @@
-name: Lint Checks
+name: Production Checks
 
 on:
   pull_request:
