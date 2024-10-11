@@ -32,7 +32,10 @@ jobs:
 
       - name: Run PHPCS
         run: |
-          composer phpcs | grep -q 'ERROR' && exit 1
+         OUTPUT=$(composer phpcs --no-check-publish)
+          if grep -q 'ERROR' <<< "$OUTPUT"; then
+            exit 1
+          fi
 
       - name: Lint CSS
         run: |
