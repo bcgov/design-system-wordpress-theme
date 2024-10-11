@@ -1,4 +1,4 @@
-name: Testing
+name: WordPress PHPUnit Tests
 
 on:
   pull_request:
@@ -6,7 +6,7 @@ on:
       - development
 
 jobs:
-  tests:
+  wordpress-tests:
     runs-on: ubuntu-latest
     services:
       mysql:
@@ -27,23 +27,11 @@ jobs:
           # Update the specific version of PHP to match the version used on your server.
           php-version: '7.4'
 
-      - name: Install Node.js 20
-        uses: actions/setup-node@v3
-        with:
-          node-version: '20'
-
       - name: Install dependencies
-        run: |
-          composer install
-          npm install
-          npm install @wordpress/scripts --save-dev
+        run: composer install
 
       - name: Configure Tests
         run: composer test-setup
 
       - name: Run PHPUnit tests
         run: vendor/bin/phpunit --configuration phpunit.xml.dist
-     
-      - name: Run tests
-        run: |
-          npm run test || exit 1
