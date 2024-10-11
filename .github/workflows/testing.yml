@@ -1,3 +1,4 @@
+
 name: Testing
 
 on:
@@ -33,15 +34,16 @@ jobs:
           node-version: '20'
 
       - name: Install dependencies
-        run: composer install
-             npm install
-             npm install @wordpress/scripts --save-dev
-
+        run: |
+          composer install
+          npm install
+          npm install @wordpress/scripts --save-dev
       - name: Configure Tests
         run: composer test-setup
 
       - name: Run PHPUnit tests
         run: vendor/bin/phpunit --configuration phpunit.xml.dist
-
-      - name: Run Node tests
-        run: npm run test
+     
+      - name: Run tests
+        run: |
+          npm run test
