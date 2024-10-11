@@ -1,4 +1,4 @@
-name: WordPress PHPUnit Tests
+name: Testing
 
 on:
   pull_request:
@@ -35,3 +35,7 @@ jobs:
 
       - name: Run PHPUnit tests
         run: vendor/bin/phpunit --configuration phpunit.xml.dist
+     
+      - name: Run tests
+        run: |
+          npm run test || exit 1

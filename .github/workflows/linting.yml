@@ -1,4 +1,4 @@
-name: Production Checks
+name: Linting
 
 on:
   pull_request:
@@ -46,7 +46,3 @@ jobs:
       - name: Lint JS
         run: |
           npm run lint:js
-
-      - name: Run tests
-        run: |
-          npm run test || exit 1
