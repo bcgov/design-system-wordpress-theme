@@ -1,0 +1,48 @@
+name: Linting
+
+on:
+  pull_request:
+    branches:
+      - development
+
+jobs:
+  linting:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install Node.js 20
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: |
+          composer install
+          npm install
+          npm install @wordpress/scripts --save-dev
+
+      - name: Validate Composer configuration
+        run: |
+          OUTPUT=$(composer validate --no-check-publish)
+          if grep -q 'ERROR' <<< "$OUTPUT"; then
+            exit 1
+          fi
+
+      - name: Run PHPCS
+        run: |
+          OUTPUT=$(composer phpcs --no-check-publish 2>&1)
+          echo "$OUTPUT" | tee phpcs_output.log
+          if grep -q 'ERROR' <<< "$OUTPUT"; then
+            echo "PHPCS found errors. Check phpcs_output.log for details."
+            exit 1
+          fi
+
+      - name: Lint CSS
+        run: |
+          npm run lint:css
+
+      - name: Lint JS
+        run: |
+          npm run lint:js
