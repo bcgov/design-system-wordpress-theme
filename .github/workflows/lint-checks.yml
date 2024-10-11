@@ -32,8 +32,10 @@ jobs:
 
       - name: Run PHPCS
         run: |
-         OUTPUT=$(composer phpcs --no-check-publish)
+          OUTPUT=$(composer phpcs --no-check-publish 2>&1)
+          echo "$OUTPUT" | tee phpcs_output.log
           if grep -q 'ERROR' <<< "$OUTPUT"; then
+            echo "PHPCS found errors. Check phpcs_output.log for details."
             exit 1
           fi
 
