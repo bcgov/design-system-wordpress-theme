@@ -41,11 +41,11 @@ jobs:
 
       - name: Lint CSS
         run: |
-          npm run lint:css --if-present || exit 1
+          npm run lint:css
 
       - name: Lint JS
         run: |
-          npm run lint:js --if-present || exit 1
+          npm run lint:js
 
       - name: Run tests
         run: |
