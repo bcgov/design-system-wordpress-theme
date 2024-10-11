@@ -32,7 +32,7 @@ jobs:
 
       - name: Run PHPCS
         run: |
-          composer phpcs | grep -q 'ERROR' && exit 1
+          composer phpcs
 
       - name: Lint CSS
         run: |
