@@ -25,7 +25,10 @@ jobs:
 
       - name: Validate Composer configuration
         run: |
-          composer validate --no-check-publish | grep -q 'ERROR' && exit 1
+          OUTPUT=$(composer validate --no-check-publish)
+          if grep -q 'ERROR' <<< "$OUTPUT"; then
+            exit 1
+          fi
 
       - name: Run PHPCS
         run: |
