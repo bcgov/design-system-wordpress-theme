@@ -1,0 +1,10 @@
+name: test-reusable-workflow
+
+on:
+  pull_request:
+    branches:
+      - development
+
+jobs:
+  use-copy-openapi-file:
+    uses: bcgov/wordpress-utils/.github/workflows/reusable-wp-phpunit-scaffold.yml@test/test-reusable-workflows
