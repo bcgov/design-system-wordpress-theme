@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.0 May 2, 2024
+
+- Integrate reusable unit tests from WordPress utils ([DESCW-2664](https://apps.itsm.gov.bc.ca/jira/browse/DESCW-2664))
+
 ## 1.2.0 October 1, 2024
 
 -  [DWSP-46](https://citz-gdx.atlassian.net/browse/DSWP-46) Added testing framework

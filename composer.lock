@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "01c04dc4c829c486ff2eb259a8e34a85",
+    "content-hash": "54f949eec36eec6bc12fd9efee120c03",
     "packages": [],
     "packages-dev": [
         {
@@ -56,18 +56,18 @@
             "time": "2024-09-27T16:59:55+00:00"
         },
         {
-            "name": "bcgov/wordpress-scripts",
-            "version": "2.1.2",
+            "name": "bcgov/wordpress-utils",
+            "version": "2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bcgov/wordpress-utils.git",
-                "reference": "510d023da07b8a04ff0a7b9b8cd7858c4b327dc5"
+                "reference": "b7cec817fd4432c389111f170cfb0e7f1bd09b73"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://test.blog.gov.bc.ca/satis/dist/bcgov/wordpress-scripts/bcgov-wordpress-scripts-510d023da07b8a04ff0a7b9b8cd7858c4b327dc5-zip-21c235.zip",
-                "reference": "510d023da07b8a04ff0a7b9b8cd7858c4b327dc5",
-                "shasum": "b3eb2f6e88f0caa702c3a7265f94c1374a603d36"
+                "url": "https://blog.gov.bc.ca/satis/dist/bcgov/wordpress-utils/bcgov-wordpress-utils-b7cec817fd4432c389111f170cfb0e7f1bd09b73-zip-aac50d.zip",
+                "reference": "b7cec817fd4432c389111f170cfb0e7f1bd09b73",
+                "shasum": "2ae3f744171457c4a5ca5d1358730bb12a0a9933"
             },
             "require": {
                 "brain/monkey": "^2.6",
@@ -105,10 +105,10 @@
                 ]
             },
             "support": {
-                "source": "https://github.com/bcgov/wordpress-utils/tree/2.1.2",
+                "source": "https://github.com/bcgov/wordpress-utils/tree/2.3.0",
                 "issues": "https://github.com/bcgov/wordpress-utils/issues"
             },
-            "time": "2024-03-09T04:49:10+00:00"
+            "time": "2024-10-09T22:49:37+00:00"
         },
         {
             "name": "brain/monkey",
@@ -675,16 +675,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v5.3.0",
+            "version": "v5.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "3abf7425cd284141dc5d8d14a9ee444de3345d1a"
+                "reference": "8eea230464783aa9671db8eea6f8c6ac5285794b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/3abf7425cd284141dc5d8d14a9ee444de3345d1a",
-                "reference": "3abf7425cd284141dc5d8d14a9ee444de3345d1a",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/8eea230464783aa9671db8eea6f8c6ac5285794b",
+                "reference": "8eea230464783aa9671db8eea6f8c6ac5285794b",
                 "shasum": ""
             },
             "require": {
@@ -727,9 +727,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nikic/PHP-Parser/issues",
-                "source": "https://github.com/nikic/PHP-Parser/tree/v5.3.0"
+                "source": "https://github.com/nikic/PHP-Parser/tree/v5.3.1"
             },
-            "time": "2024-09-29T13:56:26+00:00"
+            "time": "2024-10-08T18:51:32+00:00"
         },
         {
             "name": "phar-io/manifest",

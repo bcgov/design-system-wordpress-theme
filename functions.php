@@ -37,8 +37,8 @@ function design_system_include_block_style_variations( $dir_path ) {
 
     // Include specified block style variation files.
     foreach ( glob( $dir_path . '/*.php' ) as $file ) {
-        $baseName = basename( $file, '.php' );
-        if ( in_array( $baseName, $block_style_variation_files, true ) && ! class_exists( $baseName ) ) {
+        $base_name = basename( $file, '.php' );
+        if ( in_array( $base_name, $block_style_variation_files, true ) && ! class_exists( $base_name ) ) {
             require_once $file;
         }
     }

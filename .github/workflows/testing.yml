@@ -9,12 +9,15 @@ on:
 jobs:
   tests:
     runs-on: ubuntu-latest
+    env:
+      WP_CORE_DIR: /tmp/WordPress
+      WP_TESTS_DIR: /tmp/WordPress/wordpress-tests-lib
     services:
       mysql:
         # Update the specific version of MySQL to match the version used on your server.
         image: mysql:8
         env:
-          MYSQL_ALLOW_EMPTY_PASSWORD: true
+          MYSQL_ROOT_PASSWORD: 'rootpassword'
         ports:
           - 3306:3306
         options: --health-cmd="mysqladmin ping" --health-interval=5s --health-timeout=2s --health-retries=3
@@ -38,11 +41,20 @@ jobs:
           composer install
           npm install
           npm install @wordpress/scripts --save-dev
+
+      - name: Install SVN
+        run: sudo apt-get update && sudo apt-get install -y subversion    
+
+      - name: Install dependencies
+        run: |
+          composer install
+          npm install
+          npm install @wordpress/scripts --save-dev
       - name: Configure Tests
         run: composer test-setup
 
       - name: Run PHPUnit tests
-        run: vendor/bin/phpunit --configuration phpunit.xml.dist
+        run: vendor/bin/phpunit --configuration vendor/bcgov/wordpress-utils/phpunit.xml.dist
      
       - name: Run tests
         run: |
