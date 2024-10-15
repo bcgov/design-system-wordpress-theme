@@ -40,16 +40,10 @@ jobs:
         run: |
           composer install
           npm install
-          npm install @wordpress/scripts --save-dev
 
       - name: Install SVN
         run: sudo apt-get update && sudo apt-get install -y subversion    
-
-      - name: Install dependencies
-        run: |
-          composer install
-          npm install
-          npm install @wordpress/scripts --save-dev
+          
       - name: Configure Tests
         run: composer test-setup
 
