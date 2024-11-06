@@ -3,6 +3,7 @@
 ## 1.3.0 October 15, 2024
 
 - Integrate reusable unit tests from WordPress utils ([DESCW-2664](https://apps.itsm.gov.bc.ca/jira/browse/DESCW-2664))
+- Added new colors to global color variables ([DSWP-2](https://apps.itsm.gov.bc.ca/jira/browse/DSWP-2))
 
 ## 1.2.0 October 1, 2024
 
