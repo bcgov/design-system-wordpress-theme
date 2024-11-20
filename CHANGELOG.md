@@ -4,6 +4,7 @@
 
 - Integrate reusable unit tests from WordPress utils ([DESCW-2664](https://apps.itsm.gov.bc.ca/jira/browse/DESCW-2664))
 - Added new colors to global color variables ([DSWP-2](https://apps.itsm.gov.bc.ca/jira/browse/DSWP-2))
+- Added Design System Callout style variation to core/header block. ([DSWP-52](https://apps.itsm.gov.bc.ca/jira/browse/DSWP-52))
 
 ## 1.2.0 October 1, 2024
 

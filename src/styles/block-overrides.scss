@@ -24,6 +24,22 @@
 	}
 }
 
+.is-style-wp-block-heading-callout {
+	position: relative;
+	margin-top: 3rem !important;
+	margin-bottom: 1.5rem !important;
+}
+
+.is-style-wp-block-heading-callout::before {
+	content: "";
+	position: absolute;
+	top: -10px;
+	left: 0;
+	width: 36px;
+	height: 4px;
+	background-color: #fcba19;
+}
+
 @media (max-width: $break-medium) {
 
 	.dswp-text-image-block-custom-layout *,
