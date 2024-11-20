@@ -7,7 +7,7 @@
 function design_system_register_navigation_block_styles() {
     $block_name       = 'core/navigation';
     $style_properties = array(
-        'name'         => 'wp-block-navigation-separator',
+        'name'         => 'navigation-separator',
         'label'        => __( 'Separator' ),
         'isDefault'    => false,
         'categories'   => [ 'footer' ],
