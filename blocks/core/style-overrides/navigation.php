@@ -4,7 +4,7 @@
  *
  * @since 1.3.0
  */
-function register_navigation_block_styles() {
+function design_system_register_navigation_block_styles() {
     $block_name       = 'core/navigation';
     $style_properties = array(
         'name'         => 'wp-block-navigation-separator',
@@ -15,4 +15,4 @@ function register_navigation_block_styles() {
     );
     register_block_style( $block_name, $style_properties );
 }
-add_action( 'init', 'register_navigation_block_styles' );
+add_action( 'init', 'design_system_register_navigation_block_styles' );
