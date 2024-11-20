@@ -36,9 +36,10 @@
         ],
         "production": [
             "composer validate",
+            "composer phpcbf",
             "composer phpcs",
-            "npm run lint:css",
-            "npm run lint:js",
+            "npm run fix:js",
+            "npm run fix:css",
             "npm run test",
             "composer test"
         ],

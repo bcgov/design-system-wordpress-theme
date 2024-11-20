@@ -33,7 +33,7 @@ add_action( 'enqueue_block_editor_assets', 'design_system_enqueue_global_js_scri
  */
 function design_system_include_block_style_variations( $dir_path ) {
     // Define the block style variation files.
-    $block_style_variation_files = [ 'navigation' ];
+    $block_style_variation_files = [ 'navigation', 'heading' ];
 
     // Include specified block style variation files.
     foreach ( glob( $dir_path . '/*.php' ) as $file ) {
