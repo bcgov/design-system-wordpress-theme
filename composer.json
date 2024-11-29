@@ -11,7 +11,7 @@
         }
     ],
     "require-dev": {
-        "bcgov/wordpress-utils": "2.3.0",
+        "bcgov/wordpress-utils": "dev-feature/DESCW-2685-default-temp-directory",
         "yoast/phpunit-polyfills": "^1.0"
     },
     "autoload": {
