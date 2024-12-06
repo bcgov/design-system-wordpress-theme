@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.4.0 December 5, 2024
+
+- Added card-with-hyperlink-list pattern
+
+
 ## 1.3.0 October 15, 2024
 
 - Integrate reusable unit tests from WordPress utils ([DESCW-2664](https://apps.itsm.gov.bc.ca/jira/browse/DESCW-2664))
