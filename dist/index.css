@@ -276,7 +276,12 @@
   --dswp-typography-color-link: var(--bcds-typography-color-link);
   --dswp-typography-color-primary: var(--bcds-typography-color-primary);
   --dswp-surface-color-primary-button-default: var(--bcds-surface-color-primary-button-default);
+  --dswp-surface-color-primary-button-hover: var(--bcds-surface-color-primary-button-hover);
+  --dswp-surface-color-secondary-button-default:var(--bcds-surface-color-secondary-button-default);
+  --dswp-surface-color-secondary-button-hover: var(--bcds-surface-color-secondary-button-hover);
   --dswp-banner-background-dark: #292929;
+  --dswp-surface-color-border-dark:var(--bcds-surface-color-border-dark);
+  --dswp-font-dark: #201f1e;
   --dswp-theme-primary-gold: var(--bcds-theme-primary-gold);
   --dswp-icons-color-info: var(--bcds-icons-color-info);
   --dswp-icons-color-danger: var(--bcds-icons-color-danger);

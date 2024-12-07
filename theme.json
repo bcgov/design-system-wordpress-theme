@@ -15,6 +15,18 @@
         }
     ],
     "styles": {
+        "blocks":{
+           "core/button": {
+				"variations": {
+					"outline": {
+						"css":"&:hover{background-color:var(--dswp-surface-color-secondary-button-hover)}",
+                        "border": {"color": "var(--dswp-surface-color-border-dark)",
+                        "radius": "4px",
+                        "width": "1px"}
+					}
+				}
+			}
+        },
         "color": {
             "text": "var(--dswp-typography-color-primary)",
             "background": "var(--dswp-surface-color-background-white)"
@@ -39,10 +51,20 @@
                 }
             },
             "button": {
+                ":hover": {
+					"color": {
+						"background": "var(--dswp-surface-color-primary-button-hover)"
+					}
+				},
                 "color": {
                     "text": "var(--dswp-theme-gray-white)",
                     "background": "var(--dswp-surface-color-primary-button-default)"
                 },
+                "border": {
+						"color": "var(--dswp-surface-color-border-dark)",
+                        "radius": "4px",
+                        "width": "1px"
+			    },
                 "typography": {
                     "fontSize": "var(--dswp-typography-font-size-body)"
                 }
