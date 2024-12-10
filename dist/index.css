@@ -287,6 +287,7 @@
   --dswp-icons-color-danger: var(--bcds-icons-color-danger);
   --dswp-icons-color-success: var(--bcds-icons-color-success);
   --dswp-icons-color-warning: var(--bcds-icons-color-warning);
+  --dswp-surface-color-border-default: var(--bcds-surface-color-border-default);
   --dswp-layout-content-size: 1200px;
   --dswp-layout-padding-none: var(--bcds-layout-padding-none);
   --dswp-layout-margin-xlarge: var(--bcds-layout-margin-xlarge);
@@ -339,6 +340,36 @@
 }
 .dswp-text-image-flipped-block-custom-layout .wp-block-columns {
   justify-content: space-between;
+}
+
+@media (max-width: 782px) {
+  .dswp-large-image-text img {
+    width: 100% !important;
+  }
+}
+@media (min-width: 480px) and (max-width: 782px) {
+  .dswp-large-image-text img {
+    padding: 4rem !important;
+  }
+}
+.dswp-large-image-text {
+  transition: box-shadow 0.3s ease-in;
+  gap: 0;
+  border-radius: 8px;
+  border: 1px solid var(--dswp-surface-color-border-default) !important;
+}
+.dswp-large-image-text:hover {
+  transition: box-shadow 0.5s ease-out;
+  box-shadow: 0 1.2px 3.6px 0 rgba(0, 0, 0, 0.1), 0 6.4px 14.4px 0 rgba(0, 0, 0, 0.13);
+}
+.dswp-large-image-text img {
+  height: 222px;
+  border-radius: 8px 0 0 8px;
+  padding: 1rem;
+  background: #faf9f8;
+}
+.dswp-large-image-text :where(figure) {
+  margin: 0 0 0;
 }
 /*!************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/@bcgov/bc-sans/css/BCSans.css ***!

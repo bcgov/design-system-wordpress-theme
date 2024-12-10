@@ -1,0 +1,49 @@
+@media (max-width: $break-medium) {
+
+	.dswp-large-image-text {
+
+		img {
+			width: 100% !important;
+		}
+	}
+
+}
+
+@media (min-width: $break-mobile) and (max-width: $break-medium) {
+
+	.dswp-large-image-text {
+
+		img {
+			padding: 4rem !important;
+		}
+	}
+}
+
+.dswp-large-image-text {
+
+	// Base styles
+	transition: box-shadow 0.3s ease-in; // Transition for the default state
+
+	&:hover {
+		transition: box-shadow 0.5s ease-out; // Transition for hover state
+		box-shadow:
+			0 1.2px 3.6px 0 rgba(0, 0, 0, 0.1),
+			0 6.4px 14.4px 0 rgba(0, 0, 0, 0.13); // New box-shadow on hover
+	}
+
+	gap: 0;
+	border-radius: 8px;
+	border: 1px solid var(--dswp-surface-color-border-default) !important;
+
+	img {
+		height: 222px;
+		border-radius: 8px 0 0 8px;
+		padding: 1rem;
+		background: #faf9f8;
+	}
+
+	:where(figure) {
+		margin: 0 0 0;
+	}
+}
+

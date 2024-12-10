@@ -52,3 +52,16 @@ function design_system_include_block_style_variations( $dir_path ) {
 // Set the directory path and include block style variations.
 $dir_path = get_template_directory() . '/blocks/core/style-variations';
 design_system_include_block_style_variations( $dir_path );
+
+
+/**
+ * Restrict access to the locking UI to Administrators.
+ *
+ * @param array $settings Default editor settings.
+ */
+function example_theme_restrict_locking_ui( $settings ) {
+    $settings['canLockBlocks'] = current_user_can( 'activate_plugins' );
+
+	return $settings;
+}
+add_filter( 'block_editor_settings_all', 'example_theme_restrict_locking_ui', 10, 2 );
