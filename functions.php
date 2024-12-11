@@ -61,7 +61,6 @@ design_system_include_block_style_variations( $dir_path );
  */
 function dswp_restrict_locking_unlocking_blocks( $settings ) {
     $settings['canLockBlocks'] = current_user_can( 'activate_plugins' );
-
 	return $settings;
 }
 add_filter( 'block_editor_settings_all', 'dswp_restrict_locking_unlocking_blocks', 10, 2 );
