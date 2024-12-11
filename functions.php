@@ -59,9 +59,9 @@ design_system_include_block_style_variations( $dir_path );
  *
  * @param array $settings Default editor settings.
  */
-function example_theme_restrict_locking_ui( $settings ) {
+function dswp_restrict_locking_unlocking_blocks( $settings ) {
     $settings['canLockBlocks'] = current_user_can( 'activate_plugins' );
 
 	return $settings;
 }
-add_filter( 'block_editor_settings_all', 'example_theme_restrict_locking_ui', 10, 2 );
+add_filter( 'block_editor_settings_all', 'dswp_restrict_locking_unlocking_blocks', 10, 2 );

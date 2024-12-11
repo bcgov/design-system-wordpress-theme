@@ -4,17 +4,11 @@
 
 		img {
 			width: 100% !important;
-		}
-	}
 
-}
-
-@media (min-width: $break-mobile) and (max-width: $break-medium) {
-
-	.dswp-large-image-text {
-
-		img {
-			padding: 4rem !important;
+			// Apply padding only for the mobile range
+			@media (min-width: $break-mobile) {
+				padding: 4rem !important;
+			}
 		}
 	}
 }
@@ -39,7 +33,7 @@
 		height: 222px;
 		border-radius: 8px 0 0 8px;
 		padding: 1rem;
-		background: #faf9f8;
+		background: var(--dswp-theme-gray-10);
 	}
 
 	:where(figure) {

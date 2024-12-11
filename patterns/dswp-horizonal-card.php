@@ -25,8 +25,8 @@
 <h5 class="wp-block-heading" style="margin-top:0;margin-bottom:0">Neque porro quisquam</h5>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"style":{"typography":{"fontSize":"16px"}}} -->
-<p style="font-size:16px">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi bibendum rhoncus aliquam. Morbi at libero pellentesque, fermentum erat at, tincidunt nunc. Proin pulvinar turpis vel turpis maximus fermentum. Phasellus ut sagittis nisi, vel accumsan velit.</p>
+<!-- wp:paragraph -->
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi bibendum rhoncus aliquam. Morbi at libero pellentesque, fermentum erat at, tincidunt nunc. Proin pulvinar turpis vel turpis maximus fermentum. Phasellus ut sagittis nisi, vel accumsan velit.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:spacer {"height":"0.5rem"} -->
