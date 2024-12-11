@@ -1,0 +1,18 @@
+.dswp-icon-with-excerpt {
+
+	img {
+		background-color: var(--dswp-surface-color-background-light-gray);
+		object-fit: contain;
+		width: 73px !important;
+	}
+}
+
+@media (max-width: $break-medium) {
+
+	.dswp-icon-with-excerpt {
+
+		.dswp-excerpt {
+			padding-left: 0 !important;
+		}
+	}
+}

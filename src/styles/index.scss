@@ -3,4 +3,5 @@
 @import "./variables"; // import your variables.scss file
 @import "@bcgov/bc-sans/css/BC_Sans.css";
 @import "./block-overrides";
-@import "./patterns/dswp-large-image-text"
+@import "./patterns/dswp-large-image-text";
+@import "./patterns/dswp-icon-with-excerpt"
