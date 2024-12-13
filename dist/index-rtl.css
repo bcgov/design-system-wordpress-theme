@@ -389,13 +389,14 @@
 @media (max-width: 782px) {
   .dswp-horizontal-card-img-1-to-3 img {
     width: 100% !important;
-    border-radius: 8px 8px 0px 0px !important;
+    border-radius: 8px 8px 0 0 !important;
   }
 }
 .dswp-horizontal-card-img-1-to-3 {
   transition: box-shadow 0.3s ease-in;
   gap: 0;
   border-radius: 8px;
+  overflow: hidden;
   border: 1px solid var(--dswp-surface-color-border-default) !important;
   display: flex;
 }
@@ -403,26 +404,13 @@
   transition: box-shadow 0.5s ease-out;
   box-shadow: 0 1.2px 3.6px 0 rgba(0, 0, 0, 0.1), 0 6.4px 14.4px 0 rgba(0, 0, 0, 0.13);
 }
-.dswp-horizontal-card-img-1-to-3 .wp-block-columns {
-  width: 100%;
-}
-.dswp-horizontal-card-img-1-to-3 .wp-block-column:first-child {
-  position: relative;
-  min-height: 384px;
-}
-.dswp-horizontal-card-img-1-to-3 .wp-block-column:first-child figure {
+.dswp-horizontal-card-img-1-to-3 .wp-block-column figure {
   margin: 0;
-  position: absolute;
   top: 0;
   right: 0;
-  width: 100%;
   height: 100%;
 }
-.dswp-horizontal-card-img-1-to-3 .wp-block-column:first-child img {
-  width: 100%;
-  height: 100%;
-  border-radius: 0 8px 8px 0;
-  background: var(--dswp-theme-gray-10);
+.dswp-horizontal-card-img-1-to-3 .wp-block-column img {
   -o-object-fit: cover;
      object-fit: cover;
 }
