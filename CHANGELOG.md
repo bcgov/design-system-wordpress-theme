@@ -6,6 +6,7 @@
 - Added horizontal-card pattern
 - Added icon-with-excerpt pattern
 - Added dswp-horizontal-card-large-img-left pattern
+- Added dswp-horizontal-card-large-img-right pattern
 
 ## 1.3.0 October 15, 2024
 

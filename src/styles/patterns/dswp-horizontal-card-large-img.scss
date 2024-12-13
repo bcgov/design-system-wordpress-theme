@@ -1,15 +1,18 @@
 @media (max-width: $break-medium) {
 
-	.dswp-horizontal-card-large-img-left {
+	.dswp-horizontal-card-large-img {
 
 		img {
 			width: 100% !important;
-			border-radius: 8px 8px 0 0 !important;
+		}
+
+		&.dswp-image-stack-reverse {
+			flex-wrap: wrap-reverse !important;
 		}
 	}
 }
 
-.dswp-horizontal-card-large-img-left {
+.dswp-horizontal-card-large-img {
 	transition: box-shadow 0.3s ease-in;
 
 	&:hover {
@@ -24,7 +27,8 @@
 	overflow: hidden;
 	border: 1px solid var(--dswp-surface-color-border-default) !important;
 
-	.wp-block-column:first-child {
+
+	.dswp-image-column {
 		align-self: inherit;
 
 		figure,

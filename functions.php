@@ -7,7 +7,6 @@
 function design_system_public_enqueue_global_styles() {
     $version = filemtime( get_template_directory() . '/dist/index.css' );
     wp_enqueue_style( 'design-system-styles', get_template_directory_uri() . '/dist/index.css', array(), $version );
-    add_editor_style( 'design-system-styles', get_template_directory_uri() . '/dist/index.css', array(), $version );
 }
 
 add_action( 'enqueue_block_assets', 'design_system_public_enqueue_global_styles' );
