@@ -1,6 +1,6 @@
 @media (max-width: $break-medium) {
 
-	.dswp-horizontal-card-img-1-to-3 {
+	.dswp-horizontal-card-large-img-left {
 
 		img {
 			width: 100% !important;
@@ -9,8 +9,7 @@
 	}
 }
 
-.dswp-horizontal-card-img-1-to-3 {
-	// Base styles
+.dswp-horizontal-card-large-img-left {
 	transition: box-shadow 0.3s ease-in;
 
 	&:hover {
@@ -24,16 +23,20 @@
 	border-radius: 8px;
 	overflow: hidden;
 	border: 1px solid var(--dswp-surface-color-border-default) !important;
-	display: flex;
 
+	.wp-block-column:first-child {
+		align-self: inherit;
 
-	.wp-block-column {
-
-		figure {
-			margin: 0;
-			top: 0;
-			left: 0;
+		figure,
+		.components-resizable-box__container {
+			display: flex;
 			height: 100%;
+			margin: 0;
+		}
+
+		.components-resizable-box__container {
+			flex-shrink: inherit !important;
+			display: inherit !important;
 		}
 
 		img {
