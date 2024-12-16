@@ -11,6 +11,8 @@ function design_system_public_enqueue_global_styles() {
 
 add_action( 'enqueue_block_assets', 'design_system_public_enqueue_global_styles' );
 add_action( 'admin_enqueue_scripts', 'design_system_public_enqueue_global_styles' );
+
+
 /**
  * Enqueues the main scripts file.
  */
