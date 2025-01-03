@@ -1,0 +1,26 @@
+.dswp-vertical-cards {
+	gap: 1rem;
+
+	.dswp-vertical-card {
+		border-radius: 8px !important;
+		overflow: hidden !important;
+		gap: 0 !important;
+
+		img {
+			height: 222px;
+			object-fit: cover;
+		}
+
+		:where(figure) {
+			margin: 0 0 0;
+		}
+	}
+
+}
+
+@media (max-width: $break-large) {
+
+	.dswp-vertical-cards {
+		display: block !important;
+	}
+}
