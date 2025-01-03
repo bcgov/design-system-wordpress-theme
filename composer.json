@@ -41,8 +41,7 @@
             "npm run fix:js",
             "npm run fix:css",
             "npm run test",
-            "npm run build",
-            "composer test"
+            "npm run build"
         ],
         "phpcs": [
             "Bcgov\\Script\\Standards::phpcs"
