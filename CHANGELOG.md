@@ -8,7 +8,8 @@
 - Added dswp-horizontal-card-large-img-left pattern
 - Added dswp-horizontal-card-large-img-right pattern
 - Added dswp-vertical-card pattern
-- 
+- Added dswp-information-contact-socials
+
 ## 1.3.0 October 15, 2024
 
 - Integrate reusable unit tests from WordPress utils ([DESCW-2664](https://apps.itsm.gov.bc.ca/jira/browse/DESCW-2664))
