@@ -26,7 +26,7 @@
                         <!-- /wp:paragraph -->
 
                         <!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"0"}}}} -->
-                        <p style="margin-top:0;margin-bottom:0"><a href="https://localhost/ticorp/test2/" data-type="page" data-id="15259">Neque porro quisquam</a></p>
+                        <p style="margin-top:0;margin-bottom:0"><a href="#example" data-type="page" data-id="15259">Neque porro quisquam</a></p>
                         <!-- /wp:paragraph -->
                     </div>
                     <!-- /wp:group -->
@@ -55,7 +55,7 @@
                         <!-- /wp:paragraph -->
 
                         <!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"0"}}}} -->
-                        <p style="margin-top:0;margin-bottom:0"><a href="https://localhost/ticorp/test2/" data-type="page" data-id="15259">Neque porro quisquam</a></p>
+                        <p style="margin-top:0;margin-bottom:0"><a href="#example" data-type="page" data-id="15259">Neque porro quisquam</a></p>
                         <!-- /wp:paragraph -->
                     </div>
                     <!-- /wp:group -->
@@ -84,7 +84,7 @@
                         <!-- /wp:paragraph -->
 
                         <!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"0"}}}} -->
-                        <p style="margin-top:0;margin-bottom:0"><a href="https://localhost/ticorp/test2/" data-type="page" data-id="15259">Neque porro quisquam</a></p>
+                        <p style="margin-top:0;margin-bottom:0"><a href="#example" data-type="page" data-id="15259">Neque porro quisquam</a></p>
                         <!-- /wp:paragraph -->
                     </div>
                     <!-- /wp:group -->
@@ -113,7 +113,7 @@
                         <!-- /wp:paragraph -->
 
                         <!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"0"}}}} -->
-                        <p style="margin-top:0;margin-bottom:0"><a href="https://localhost/ticorp/test2/" data-type="page" data-id="15259">Neque porro quisquam</a></p>
+                        <p style="margin-top:0;margin-bottom:0"><a href="#example" data-type="page" data-id="15259">Neque porro quisquam</a></p>
                         <!-- /wp:paragraph -->
                     </div>
                     <!-- /wp:group -->
