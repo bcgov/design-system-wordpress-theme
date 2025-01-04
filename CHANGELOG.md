@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.4.0 December 5, 2024
+## 1.4.0 January 3, 2024
 
 - Added card-with-hyperlink-list pattern
 - Added horizontal-card pattern
@@ -9,6 +9,7 @@
 - Added dswp-horizontal-card-large-img-right pattern
 - Added dswp-vertical-card pattern
 - Added dswp-information-contact-socials
+- Added dswp-team-pattern
 
 ## 1.3.0 October 15, 2024
 
