@@ -201,30 +201,35 @@
                     "name": "Banner background dark"
                 },
                 {
-                    "slug": "header-color-background",
-                    "color": "var(--dswp-surface-color-background-white)",
-                    "name": "Header background color"
-                },
-                {
-                    "slug": "menu-color-background",
-                    "color": "var(--dswp-surface-color-menus-default)",
-                    "name": "Menu background color"
-                },
-                {
                     "slug": "typography-primary-color",
                     "color": "var(--dswp-theme-primary-blue)",
                     "name": "Primary color"
-                },
+                }, 
                 {
-                    "slug": "foreground",
-                    "color": "var(--dswp-theme-gray-white)",
-                    "name": "Foreground"
-                },
-                {
-                    "slug": "background",
+                    "slug": "background-white",
                     "color": "var(--dswp-surface-color-background-white)",
-                    "name": "Background"
-                }
+                    "name": "Background White" 
+                },
+                {
+                    "slug": "background-light-gray",
+                    "color": "var(--dswp-surface-color-background-light-gray)",
+                    "name": "Background light gray"
+                },
+                {
+                    "slug": "medium-gray",
+                    "color": "var(--dswp-medium-gray)",
+                    "name": "Medium gray"
+                },
+                {
+                    "slug": "border-default",
+                    "color": "var(--dswp-surface-color-border-default)",
+                    "name": "Border default"
+                },
+                {
+                    "slug": "background-light-gray-blue",
+                    "color": "var(--dswp-surface-color-background-light-gray-blue)",
+                    "name": "Background Light Gray Blue"
+                } 
             ]
         }
     }
