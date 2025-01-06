@@ -10,6 +10,7 @@
 - Added dswp-vertical-card pattern
 - Added dswp-information-contact-socials
 - Added dswp-team-pattern
+- Added hero image patterns, enhancements and bug fixes.
 
 ## 1.3.0 October 15, 2024
 
