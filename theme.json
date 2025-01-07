@@ -206,11 +206,6 @@
                     "name": "Primary color"
                 }, 
                 {
-                    "slug": "background-white",
-                    "color": "var(--dswp-surface-color-background-white)",
-                    "name": "Background White" 
-                },
-                {
                     "slug": "background-light-gray",
                     "color": "var(--dswp-surface-color-background-light-gray)",
                     "name": "Background light gray"
@@ -229,7 +224,7 @@
                     "slug": "background-light-gray-blue",
                     "color": "var(--dswp-surface-color-background-light-gray-blue)",
                     "name": "Background Light Gray Blue"
-                } 
+                }
             ]
         }
     }

@@ -66,3 +66,77 @@ function dswp_restrict_locking_unlocking_blocks( $settings ) {
 	return $settings;
 }
 add_filter( 'block_editor_settings_all', 'dswp_restrict_locking_unlocking_blocks', 10, 2 );
+
+
+/**
+ * Disables the default patterns from WordPress.
+ *
+ */
+
+function disable_default_block_patterns() {
+    remove_theme_support('core-block-patterns');
+}
+add_action('init', 'disable_default_block_patterns');
+
+
+/**
+ * Combines any child theme's color palette with the Design System Theme Color palette.
+ *
+ */
+function custom_wp_theme_json_theme( $theme_json ) {
+    $theme_json_data = $theme_json->get_data();
+
+    $theme_title = $theme_json_data['title'];
+    
+    // If the theme_json_data is from the design system theme, this is not a child theme so exit without change.
+    if("Design System Wordpress Theme" === $theme_title) return $theme_json;
+
+    // Get the parent theme
+    $theme = wp_get_theme( "design-system-wordpress-theme" );
+
+    // Get the path to the theme.json file using the theme's stylesheet
+    $theme_json_path = $theme->get_theme_root() . '/' . $theme->get_stylesheet() . '/theme.json';
+
+    // Initialize parent palette
+    $parent_palette = array();
+
+    // Check if the theme.json file exists and read it
+    if ( file_exists( $theme_json_path ) ) {
+        $parent_theme_json_content = file_get_contents( $theme_json_path );
+        $parent_theme_json_data = json_decode( $parent_theme_json_content, true );
+
+        // Check if the parent theme has a color palette
+        if ( isset( $parent_theme_json_data['settings']['color']['palette'] ) && is_array( $parent_theme_json_data['settings']['color']['palette'] ) ) {
+            $parent_palette = $parent_theme_json_data['settings']['color']['palette'];
+        }
+    } else {
+        error_log( 'theme.json not found at: ' . $theme_json_path );
+    }
+
+    // Initialize child palette
+    $child_palette = array();
+
+    // Check if the child theme has its own color palette
+    if ( isset( $theme_json_data['settings']['color']['palette'] ) && is_array( $theme_json_data['settings']['color']['palette'] ) ) {
+        $child_palette = $theme_json_data['settings']['color']['palette'];
+    }
+
+    // Merge the parent palette with the child palette
+    $merged_palette = array_merge($parent_palette, $child_palette['theme']);
+
+     
+    // Prepare the new data with the validated palette
+    $new_data = array(
+        'version'  => 3, // Ensure the version matches the latest
+        'settings' => array(
+            'color' => array(
+                'palette' => $merged_palette, // Use the validated palette
+            ),
+        ),
+    );
+
+
+    // Update the theme JSON with the new data
+    return $theme_json->update_with( $new_data );
+}
+add_filter( 'wp_theme_json_data_theme', 'custom_wp_theme_json_theme' );
