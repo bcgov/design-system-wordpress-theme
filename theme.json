@@ -1,7 +1,7 @@
 {
     "$schema": "https://schemas.wp.org/trunk/theme.json",
     "version": 3,
-    "title": "Design System Wordpress Theme",
+    "title": "Design System WordPress Theme",
     "templateParts": [
         {
             "name": "header",
@@ -201,30 +201,45 @@
                     "name": "Banner background dark"
                 },
                 {
-                    "slug": "header-color-background",
-                    "color": "var(--dswp-surface-color-background-white)",
-                    "name": "Header background color"
-                },
-                {
-                    "slug": "menu-color-background",
-                    "color": "var(--dswp-surface-color-menus-default)",
-                    "name": "Menu background color"
-                },
-                {
                     "slug": "typography-primary-color",
                     "color": "var(--dswp-theme-primary-blue)",
                     "name": "Primary color"
+                }, 
+                {
+                    "slug": "background-light-gray",
+                    "color": "var(--dswp-surface-color-background-light-gray)",
+                    "name": "Background light gray"
                 },
                 {
-                    "slug": "foreground",
-                    "color": "var(--dswp-theme-gray-white)",
-                    "name": "Foreground"
+                    "slug": "border-default",
+                    "color": "var(--dswp-surface-color-border-default)",
+                    "name": "Border default"
                 },
                 {
-                    "slug": "background",
+                    "slug": "background-light-gray-blue",
+                    "color": "var(--dswp-surface-color-background-light-gray-blue)",
+                    "name": "Background Light Gray Blue"
+                },
+                {
+                    "slug": "background-white",
                     "color": "var(--dswp-surface-color-background-white)",
-                    "name": "Background"
-                }
+                    "name": "Background White"
+                },
+                {
+                    "slug": "font dark",
+                    "color": "var(--dswp-font-dark)",
+                    "name": "Font Dark"
+                },
+                {
+                    "slug": "border-dark",
+                    "color": "var(--dswp-theme-gray-110)",
+                    "name": "Border Dark"
+                },
+                {
+                    "slug": "background-medium-gray",
+                    "color": "var(--bcds-theme-gray-70)",
+                    "name": "Background medium gray"
+                }          
             ]
         }
     }
