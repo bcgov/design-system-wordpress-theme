@@ -31,14 +31,9 @@ jobs:
             exit 1
           fi
 
-      - name: Run PHPCS
+      - name: Run Production
         run: |
-         OUTPUT=$(/usr/bin/php ./vendor/bin/phpcs \
-            -ps \
-            --standard=./vendor/bcgov/wordpress-utils/wordpress.xml \
-            --exclude=Generic.Commenting.Todo \
-            --colors ./ \
-            --no-check-publish 2>&1)
+          OUTPUT=$(composer production --no-check-publish 2>&1)
           echo "$OUTPUT" | tee phpcs_output.log
           if grep -q 'ERROR' <<< "$OUTPUT"; then
             echo "PHPCS found errors. Check phpcs_output.log for details."
