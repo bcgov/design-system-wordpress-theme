@@ -135,4 +135,4 @@ function design_system_combine_parent_child_theme_json( $theme_json ) {
     // Update the theme JSON with the new data.
     return $theme_json->update_with( $new_data );
 }
-add_filter( 'wp_theme_json_data_theme', 'combine_parent_child_theme_json' );
+add_filter( 'wp_theme_json_data_theme', 'design_system_combine_parent_child_theme_json' );
