@@ -62,20 +62,20 @@ design_system_include_block_style_variations( $dir_path );
  *
  * @param array $settings Default editor settings.
  */
-function dswp_restrict_locking_unlocking_blocks( $settings ) {
+function design_system_restrict_locking_unlocking_blocks( $settings ) {
     $settings['canLockBlocks'] = current_user_can( 'activate_plugins' );
     return $settings;
 }
-add_filter( 'block_editor_settings_all', 'dswp_restrict_locking_unlocking_blocks', 10, 2 );
+add_filter( 'block_editor_settings_all', 'design_system_restrict_locking_unlocking_blocks', 10, 2 );
 
 
 /**
  * Disables the default patterns from WordPress.
  */
-function disable_default_block_patterns() {
+function design_system_disable_default_block_patterns() {
     remove_theme_support( 'core-block-patterns' );
 }
-add_action( 'init', 'disable_default_block_patterns' );
+add_action( 'init', 'design_system_disable_default_block_patterns' );
 
 
 /**
@@ -83,7 +83,7 @@ add_action( 'init', 'disable_default_block_patterns' );
  *
  * @param object $theme_json The theme.json schema.
  */
-function custom_wp_theme_json_theme( $theme_json ) {
+function design_system_combine_parent_child_theme_json( $theme_json ) {
     $theme_json_data = $theme_json->get_data();
 
     $theme_title = $theme_json_data['title'];
@@ -135,4 +135,4 @@ function custom_wp_theme_json_theme( $theme_json ) {
     // Update the theme JSON with the new data.
     return $theme_json->update_with( $new_data );
 }
-add_filter( 'wp_theme_json_data_theme', 'custom_wp_theme_json_theme' );
+add_filter( 'wp_theme_json_data_theme', 'combine_parent_child_theme_json' );
