@@ -86,10 +86,8 @@ add_action( 'init', 'design_system_disable_default_block_patterns' );
 function design_system_combine_parent_child_theme_json( $theme_json ) {
     $theme_json_data = $theme_json->get_data();
 
-    $theme_title = $theme_json_data['title'];
-
     // If the theme_json_data is from the design system theme, this is not a child theme so exit without change.
-    if ( 'Design System WordPress Theme' === $theme_title ) {
+    if ( ! is_child_theme() ) {
         return $theme_json;
     }
     // Get the parent theme.
@@ -102,7 +100,7 @@ function design_system_combine_parent_child_theme_json( $theme_json ) {
     $parent_palette = array();
 
     // Check if the theme.json file exists and read it.
-    if ( file_exists( $theme_json_path ) ) {  //TODO Improve the way you get the file contents.
+    if ( file_exists( $theme_json_path ) ) {  // TODO Improve the way you get the file contents.
         $parent_theme_json_content = implode( '', file( $theme_json_path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES ) );
         $parent_theme_json_data    = json_decode( $parent_theme_json_content, true );
 
