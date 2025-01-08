@@ -1,6 +1,6 @@
 @media (max-width: $break-medium) {
 
-	.dswp-large-image-text {
+	.dswp-horizontal-card {
 
 		img {
 			width: 100% !important;
@@ -13,7 +13,7 @@
 	}
 }
 
-.dswp-large-image-text {
+.dswp-horizontal-card {
 
 	// Base styles
 	transition: box-shadow 0.3s ease-in; // Transition for the default state
@@ -33,7 +33,6 @@
 		height: 222px;
 		border-radius: 8px 0 0 8px;
 		padding: 1rem;
-		background: var(--dswp-theme-gray-10);
 	}
 
 	:where(figure) {

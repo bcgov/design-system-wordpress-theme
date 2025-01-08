@@ -211,11 +211,6 @@
                     "name": "Background light gray"
                 },
                 {
-                    "slug": "medium-gray",
-                    "color": "var(--dswp-medium-gray)",
-                    "name": "Medium gray"
-                },
-                {
                     "slug": "border-default",
                     "color": "var(--dswp-surface-color-border-default)",
                     "name": "Border default"
@@ -224,7 +219,27 @@
                     "slug": "background-light-gray-blue",
                     "color": "var(--dswp-surface-color-background-light-gray-blue)",
                     "name": "Background Light Gray Blue"
-                }
+                },
+                {
+                    "slug": "background-white",
+                    "color": "var(--dswp-surface-color-background-white)",
+                    "name": "Background White"
+                },
+                {
+                    "slug": "font dark",
+                    "color": "var(--dswp-font-dark)",
+                    "name": "Font Dark"
+                },
+                {
+                    "slug": "border-dark",
+                    "color": "var(--dswp-theme-gray-110)",
+                    "name": "Border Dark"
+                },
+                {
+                    "slug": "background-medium-gray",
+                    "color": "var(--bcds-theme-gray-70)",
+                    "name": "Background medium gray"
+                }          
             ]
         }
     }
