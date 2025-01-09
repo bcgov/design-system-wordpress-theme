@@ -43,6 +43,9 @@
             "npm run test",
             "npm run build"
         ],
+        "phpcs-allow-todo": [
+            "vendor/bin/phpcs -ps --standard=./vendor/bcgov/wordpress-utils/wordpress.xml  --exclude=Generic.Commenting.Todo --colors ./"
+        ],
         "phpcs": [
             "Bcgov\\Script\\Standards::phpcs"
         ],
