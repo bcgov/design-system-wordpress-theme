@@ -1,0 +1,19 @@
+.dswp-card-with-hyperlink-list {
+
+	.dswp-column-group {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+
+		.dswp-flex-box {
+			display: flex;
+			justify-content: space-between;
+			flex-direction: column;
+			flex: 1;
+
+			> .wp-block-group {
+				align-content: flex-end;
+			}
+		}
+	}
+}

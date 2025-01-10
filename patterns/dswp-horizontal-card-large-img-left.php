@@ -7,9 +7,9 @@
  * @package Design-System-WordPress-Theme
  */
 ?>
-<!-- wp:group {"templateLock":false,"lock":{"move":false,"remove":false},"style":{"spacing":{"padding":{"right":"0","left":"0"}}},"layout":{"type":"constrained"},"metadata":{"categories":["text"],"patternName":"design-system-wordpress-theme/dswp-horizontal-card","name":"DSWP Horizontal Card Large Img"}} -->
-<div class="wp-block-group" style="padding-right:0;padding-left:0"><!-- wp:columns {"templateLock":false,"lock":{"move":false,"remove":false},"align":"wide","style":{"border":{"width":"0px","style":"none"}},"className":"dswp-horizontal-card-large-img"} -->
-    <div class="wp-block-columns alignwide dswp-horizontal-card-large-img" style="border-style:none;border-width:0px"><!-- wp:column {"verticalAlignment":"top","width":"40%","templateLock":false,"lock":{"move":false,"remove":false},"style":{"spacing":{"padding":{"top":"0","bottom":"0","left":"0","right":"0"}}},"className":"dswp-image-column","layout":{"type":"default"}} -->
+<!-- wp:group {"templateLock":false,"lock":{"move":false,"remove":false},"metadata":{"categories":["text"],"patternName":"design-system-wordpress-theme/dswp-horizontal-card-large-img-left","name":"DSWP Horizontal Card Large Img"},"style":{"spacing":{"padding":{"right":"0","left":"0"},"margin":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--50);margin-bottom:var(--wp--preset--spacing--50);padding-right:0;padding-left:0"><!-- wp:columns {"templateLock":false,"lock":{"move":false,"remove":false},"align":"wide","className":"dswp-horizontal-card-large-img","style":{"border":{"width":"0px","style":"none"}}} -->
+    <div class="wp-block-columns alignwide dswp-horizontal-card-large-img" style="border-style:none;border-width:0px"><!-- wp:column {"verticalAlignment":"top","width":"40%","templateLock":false,"lock":{"move":false,"remove":false},"className":"dswp-image-column","style":{"spacing":{"padding":{"top":"0","bottom":"0","left":"0","right":"0"}}},"layout":{"type":"default"}} -->
         <div class="wp-block-column is-vertically-aligned-top dswp-image-column" style="padding-top:0;padding-right:0;padding-bottom:0;padding-left:0;flex-basis:40%"><!-- wp:image {"id":15586,"className":"size-full"} -->
             <figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/square-512.png' ); ?>" alt="" class="wp-image-15586" /></figure>
             <!-- /wp:image -->
@@ -21,7 +21,7 @@
             <div style="height:1rem" aria-hidden="true" class="wp-block-spacer"></div>
             <!-- /wp:spacer -->
 
-            <!-- wp:heading {"level":5,"style":{"spacing":{"margin":{"top":"0","bottom":"0"}},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}}},"textColor":"font dark","className":"is-style-default"} -->
+            <!-- wp:heading {"level":5,"className":"is-style-default","style":{"spacing":{"margin":{"top":"0","bottom":"0"}},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}}},"textColor":"font dark"} -->
             <h5 class="wp-block-heading is-style-default has-font-dark-color has-text-color has-link-color" style="margin-top:0;margin-bottom:0">Neque porro quisquam</h5>
             <!-- /wp:heading -->
 
@@ -42,7 +42,7 @@
             <!-- /wp:spacer -->
 
             <!-- wp:buttons -->
-            <div class="wp-block-buttons"><!-- wp:button {"textColor":"font dark","style":{"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}}},"className":"is-style-outline"} -->
+            <div class="wp-block-buttons"><!-- wp:button {"textColor":"font dark","className":"is-style-outline","style":{"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}}}} -->
                 <div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-font-dark-color has-text-color has-link-color wp-element-button">Lorem Ipsum</a></div>
                 <!-- /wp:button -->
             </div>
