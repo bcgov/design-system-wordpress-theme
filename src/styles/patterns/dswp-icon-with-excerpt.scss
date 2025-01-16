@@ -1,17 +1,16 @@
-.dswp-excerpt-img-group {
-	display: flex;
-	justify-content: center;
+.dswp-icon-with-excerpt {
 
-	> figure {
-		height: 90px;
-		width: 90px;
-		align-content: center;
-		text-align: center;
-	}
-
-	.dswp-excerpt-img {
-		border-radius: 50%;
-		background-color: var(--dswp-surface-color-background-light-gray);
+	.dswp-excerpt {
+		margin-left: 4.3rem;
 	}
 }
 
+@media (max-width: $break-medium) {
+
+	.dswp-icon-with-excerpt {
+
+		.dswp-excerpt {
+			margin-left: 0;
+		}
+	}
+}
