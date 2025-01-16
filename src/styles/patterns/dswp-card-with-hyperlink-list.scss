@@ -7,13 +7,18 @@
 
 		.dswp-flex-box {
 			display: flex;
-			justify-content: space-between;
+			justify-content: flex-end;
 			flex-direction: column;
 			flex: 1;
+
 
 			> .wp-block-group {
 				align-content: flex-end;
 			}
 		}
 	}
+}
+
+.dswp-links-list {
+	margin-top: auto;
 }

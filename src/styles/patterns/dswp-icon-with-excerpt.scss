@@ -1,18 +1,17 @@
-.dswp-icon-with-excerpt {
+.dswp-excerpt-img-group {
+	display: flex;
+	justify-content: center;
 
-	img {
+	> figure {
+		height: 90px;
+		width: 90px;
+		align-content: center;
+		text-align: center;
+	}
+
+	.dswp-excerpt-img {
+		border-radius: 50%;
 		background-color: var(--dswp-surface-color-background-light-gray);
-		object-fit: contain;
-		width: 73px !important;
 	}
 }
 
-@media (max-width: $break-medium) {
-
-	.dswp-icon-with-excerpt {
-
-		.dswp-excerpt {
-			padding-left: 0 !important;
-		}
-	}
-}

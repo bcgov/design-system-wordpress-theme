@@ -7,3 +7,25 @@
 	}
 }
 
+
+.dswp-information-contact-socials-card-img-group {
+	display: flex;
+	justify-content: center;
+
+	> figure {
+		height: 70px;
+		width: 70px;
+		align-content: center;
+		text-align: center;
+	}
+
+	.dswp-information-contact-socials-card-img {
+		border-radius: 50%;
+		border: solid 2px var(--dswp-medium-gray);
+
+		img {
+			width: 45px;
+		}
+	}
+}
+

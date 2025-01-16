@@ -1,0 +1,40 @@
+@media (max-width: $break-medium) {
+
+	.dswp-horizontal-card-large-img-no-shadow {
+
+		img {
+			width: 100% !important;
+		}
+
+		&.dswp-image-stack-reverse {
+			flex-wrap: wrap-reverse !important;
+		}
+	}
+}
+
+.dswp-horizontal-card-large-img-no-shadow {
+
+	gap: 0;
+	overflow: hidden;
+
+	.dswp-image-column {
+		align-self: inherit;
+
+		figure,
+		.components-resizable-box__container {
+			display: flex;
+			height: 100%;
+			margin: 0;
+		}
+
+		.components-resizable-box__container {
+			flex-shrink: inherit !important;
+			display: inherit !important;
+		}
+
+		img {
+			object-fit: cover;
+			border-radius: 24px;
+		}
+	}
+}
