@@ -7,14 +7,17 @@
  * @package Design-System-WordPress-Theme
  */
 ?>
-<!-- wp:group {"templateLock":false,"lock":{"move":false,"remove":false},"metadata":{"categories":["text"],"patternName":"design-system-wordpress-theme/dswp-icon-with-excerpt","name":"DSWP Icon with excerpt"},"className":"dswp-icon-with-excerpt","style":{"spacing":{"padding":{"right":"0","left":"0"},"margin":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group dswp-icon-with-excerpt" style="margin-top:var(--wp--preset--spacing--50);margin-bottom:var(--wp--preset--spacing--50);padding-right:0;padding-left:0"><!-- wp:columns -->
-    <div class="wp-block-columns"><!-- wp:column -->
+<!-- wp:group {"templateLock":false,"lock":{"move":false,"remove":false},"metadata":{"categories":["text"],"patternName":"design-system-wordpress-theme/dswp-icon-with-excerpt","name":"DSWP Icon with excerpt"},"className":"dswp-icon-with-excerpt","style":{"spacing":{"padding":{"right":"var:preset|spacing|70","left":"var:preset|spacing|70"},"margin":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group dswp-icon-with-excerpt" style="margin-top:var(--wp--preset--spacing--60);margin-bottom:var(--wp--preset--spacing--60);padding-right:var(--wp--preset--spacing--70);padding-left:var(--wp--preset--spacing--70)"><!-- wp:columns {"style":{"spacing":{"padding":{"right":"0","left":"0"}}}} -->
+    <div class="wp-block-columns" style="padding-right:0;padding-left:0"><!-- wp:column -->
         <div class="wp-block-column"><!-- wp:group {"layout":{"type":"flex","orientation":"vertical"}} -->
             <div class="wp-block-group"><!-- wp:group {"style":{"spacing":{"padding":{"top":"0","bottom":"0"}}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
-                <div class="wp-block-group" style="padding-top:0;padding-bottom:0"><!-- wp:image {"id":15470,"className":"size-full is-resized is-style-rounded"} -->
-                    <figure class="wp-block-image size-full is-resized is-style-rounded"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/square-256.png' ); ?>" alt="" class="wp-image-15470" /></figure>
-                    <!-- /wp:image -->
+                <div class="wp-block-group" style="padding-top:0;padding-bottom:0"><!-- wp:group {"className":"dswp-excerpt-img-group","layout":{"type":"constrained"}} -->
+                    <div class="wp-block-group dswp-excerpt-img-group"><!-- wp:image {"id":15469,"sizeSlug":"full","linkDestination":"none","className":"dswp-excerpt-img size-full is-resized is-style-default"} -->
+                        <figure class="wp-block-image size-full dswp-excerpt-img is-resized is-style-default"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/square-256.png' ); ?>" alt="" class="wp-image-15469" /></figure>
+                        <!-- /wp:image -->
+                    </div>
+                    <!-- /wp:group -->
 
                     <!-- wp:heading {"level":5,"style":{"spacing":{"margin":{"top":"0","bottom":"0"}},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}}},"textColor":"font dark"} -->
                     <h5 class="wp-block-heading has-font-dark-color has-text-color has-link-color" style="margin-top:0;margin-bottom:0">Neque porro quisquam</h5>
@@ -36,9 +39,12 @@
         <!-- wp:column -->
         <div class="wp-block-column"><!-- wp:group {"layout":{"type":"flex","orientation":"vertical"}} -->
             <div class="wp-block-group"><!-- wp:group {"style":{"spacing":{"padding":{"top":"0","bottom":"0"}}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
-                <div class="wp-block-group" style="padding-top:0;padding-bottom:0"><!-- wp:image {"id":15470,"className":"size-full is-resized is-style-rounded"} -->
-                    <figure class="wp-block-image size-full is-resized is-style-rounded"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/square-256.png' ); ?>" alt="" class="wp-image-15470" /></figure>
-                    <!-- /wp:image -->
+                <div class="wp-block-group" style="padding-top:0;padding-bottom:0"><!-- wp:group {"className":"dswp-excerpt-img-group","layout":{"type":"constrained"}} -->
+                    <div class="wp-block-group dswp-excerpt-img-group"><!-- wp:image {"id":16439,"sizeSlug":"full","linkDestination":"none","className":"dswp-excerpt-img size-full is-resized is-style-default"} -->
+                        <figure class="wp-block-image size-full dswp-excerpt-img is-resized is-style-default"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/square-256.png' ); ?>" alt="" class="wp-image-16439" /></figure>
+                        <!-- /wp:image -->
+                    </div>
+                    <!-- /wp:group -->
 
                     <!-- wp:heading {"level":5,"style":{"spacing":{"margin":{"top":"0","bottom":"0"}},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}}},"textColor":"font dark"} -->
                     <h5 class="wp-block-heading has-font-dark-color has-text-color has-link-color" style="margin-top:0;margin-bottom:0">Neque porro quisquam</h5>

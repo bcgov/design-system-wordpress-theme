@@ -1,11 +1,17 @@
-.dswp-vertical-cards {
+.dswp-vertical-cards-with-icon {
 	gap: 1rem;
 
-	.dswp-vertical-card {
+	.dswp-vertical-card-with-icon {
 		border-radius: 8px !important;
 		height: 100%;
 		display: flex;
 		flex-direction: column;
+		border: solid 2px var(--dswp-medium-gray) !important;
+
+		.wp-block-columns {
+			flex-wrap: nowrap !important;
+			border-radius: inherit;
+		}
 
 		.dswp-flex-box {
 			display: flex;
@@ -18,10 +24,15 @@
 			}
 		}
 
-		img {
-			height: 250px;
-			object-fit: cover;
+		figure {
+			justify-self: center;
+
+			img {
+				object-fit: cover;
+				width: 100px;
+			}
 		}
+
 
 		:where(figure) {
 			margin: 0 0 0;
@@ -32,7 +43,7 @@
 
 @media (max-width: $break-large) {
 
-	.dswp-vertical-cards {
+	.dswp-vertical-cards-with-icon {
 		display: block !important;
 	}
 }
