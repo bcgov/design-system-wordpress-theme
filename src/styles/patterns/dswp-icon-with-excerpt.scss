@@ -6,6 +6,15 @@
 			background: var(--dswp-theme-gray-30);
 			padding: 16px;
 			border-radius: 100%;
+			display: flex;
+			aspect-ratio: 1;
+			justify-content: center;
+			flex-direction: column;
+
+			img {
+				width: 36px !important;
+				height: auto !important;
+			}
 		}
 	}
 
