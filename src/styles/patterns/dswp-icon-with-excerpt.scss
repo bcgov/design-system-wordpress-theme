@@ -1,7 +1,16 @@
 .dswp-icon-with-excerpt {
 
+	.dswp-image-container {
+
+		figure {
+			background: var(--dswp-theme-gray-30);
+			padding: 16px;
+			border-radius: 100%;
+		}
+	}
+
 	.dswp-excerpt {
-		margin-left: 4.3rem;
+		margin-left: 5.2rem;
 	}
 }
 
