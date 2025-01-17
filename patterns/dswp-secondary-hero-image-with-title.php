@@ -7,11 +7,22 @@
  * @package Design-System-WordPress-Theme
  */
 ?>
-<!-- wp:cover {"overlayColor":"typography-primary-color","minHeight":239,"minHeightUnit":"px","style":{"color":{"duotone":"unset"}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-cover" style="min-height:239px"><span aria-hidden="true" class="wp-block-cover__background has-typography-primary-color-background-color has-background-dim-100 has-background-dim"></span>
-    <div class="wp-block-cover__inner-container"><!-- wp:heading {"textAlign":"left","fontSize":"large"} -->
-        <h2 class="wp-block-heading has-text-align-left has-large-font-size">Lorem ipsum dolor sit amet</h2>
-        <!-- /wp:heading -->
+<!-- wp:group {"className":"dswp-secondary-hero-image-with-title","style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"0","bottom":"0"}}},"backgroundColor":"typography-primary-color","layout":{"type":"constrained"}} -->
+<div class="wp-block-group dswp-secondary-hero-image-with-title has-typography-primary-color-background-color has-background" style="margin-top:0;margin-bottom:0;padding-top:0;padding-bottom:0"><!-- wp:columns {"style":{"spacing":{"padding":{"right":"0","left":"0","top":"0","bottom":"0"},"margin":{"top":"0","bottom":"0"}}}} -->
+    <div class="wp-block-columns" style="margin-top:0;margin-bottom:0;padding-top:0;padding-right:0;padding-bottom:0;padding-left:0"><!-- wp:column {"verticalAlignment":"center","width":"30%"} -->
+        <div class="wp-block-column is-vertically-aligned-center" style="flex-basis:30%"><!-- wp:heading {"textAlign":"left","style":{"elements":{"link":{"color":{"text":"var:preset|color|background-white"}}}},"textColor":"background-white","fontSize":"large"} -->
+            <h2 class="wp-block-heading has-text-align-left has-background-white-color has-text-color has-link-color has-large-font-size"><strong>Lorem</strong></h2>
+            <!-- /wp:heading -->
+        </div>
+        <!-- /wp:column -->
+
+        <!-- wp:column {"width":"70%","className":"dswp-image-container","style":{"spacing":{"padding":{"top":"0","bottom":"0"}}}} -->
+        <div class="wp-block-column dswp-image-container" style="padding-top:0;padding-bottom:0;flex-basis:70%"><!-- wp:image {"id":16680,"width":"auto","height":"216px","sizeSlug":"full","linkDestination":"none","align":"right","style":{"spacing":{"margin":{"top":"0","bottom":"0","left":"0","right":"0"}}}} -->
+            <figure class="wp-block-image alignright size-full is-resized" style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/square-512.png' ); ?>" alt="" class="wp-image-16680" style="width:auto;height:216px" title="" /></figure>
+            <!-- /wp:image -->
+        </div>
+        <!-- /wp:column -->
     </div>
+    <!-- /wp:columns -->
 </div>
-<!-- /wp:cover -->
+<!-- /wp:group -->
