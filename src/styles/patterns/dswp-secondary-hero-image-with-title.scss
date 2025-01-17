@@ -1,0 +1,21 @@
+.dswp-secondary-hero-image-with-title {
+	height: 13.6rem;
+	align-content: center;
+
+	.dswp-image-container {
+
+		img {
+			height: 216px;
+		}
+	}
+}
+
+@media (max-width: $break-medium) {
+
+	.dswp-secondary-hero-image-with-title {
+
+		.dswp-image-container {
+			display: none !important;
+		}
+	}
+}
