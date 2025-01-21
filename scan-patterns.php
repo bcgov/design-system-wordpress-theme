@@ -96,6 +96,13 @@ if ( ! empty( $img_failures ) || ! empty( $href_failures ) ) {
 
 echo "\n"; // Final newline for better output separation.
 
+// Exit with appropriate status.
+if ( $failed_checks > 0 ) {
+    exit( 1 ); // Non-zero exit code indicates failure.
+} else {
+    exit( 0 ); // Zero exit code indicates success.
+}
+
 /**
  * Escape output for security.
  *
