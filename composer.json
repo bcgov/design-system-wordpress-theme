@@ -28,6 +28,7 @@
         }
     },
     "scripts": {
+        "scan-patterns": "@php scan-patterns.php",
         "update-version":[ 
             "bash update-version.sh" 
         ],

@@ -37,7 +37,7 @@
             <!-- /wp:spacer -->
 
             <!-- wp:paragraph {"style":{"spacing":{"padding":{"top":"0","bottom":"0"}}}} -->
-            <p style="padding-top:0;padding-bottom:0"><a href="#" data-type="page" data-id="15259">Neque porro quisquan</a></p>
+            <p style="padding-top:0;padding-bottom:0"><a href="local" data-type="page" data-id="15259">Neque porro quisquan</a></p>
             <!-- /wp:paragraph -->
         </div>
         <!-- /wp:column -->
