@@ -1,17 +1,21 @@
-.dswp-vertical-cards-with-icon {
+.dswp-vertical-card-with-icon {
+
+	figure {
+		justify-self: center;
+
+		img {
+			height: auto;
+			width: 65px !important;
+		}
+	}
+
 	gap: 1rem;
 
-	.dswp-vertical-card-with-icon {
+	.dswp-vertical-card {
 		border-radius: 8px !important;
 		height: 100%;
 		display: flex;
 		flex-direction: column;
-		border: solid 2px var(--dswp-medium-gray) !important;
-
-		.wp-block-columns {
-			flex-wrap: nowrap !important;
-			border-radius: inherit;
-		}
 
 		.dswp-flex-box {
 			display: flex;
@@ -21,15 +25,6 @@
 			> .wp-block-group {
 				align-content: flex-end;
 				justify-content: space-between;
-			}
-		}
-
-		figure {
-			justify-self: center;
-
-			img {
-				object-fit: cover;
-				width: 100px;
 			}
 		}
 
@@ -43,7 +38,7 @@
 
 @media (max-width: $break-large) {
 
-	.dswp-vertical-cards-with-icon {
+	.dswp-vertical-cards {
 		display: block !important;
 	}
 }
