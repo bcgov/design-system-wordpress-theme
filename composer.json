@@ -28,6 +28,7 @@
         }
     },
     "scripts": {
+        "scan-wp-patterns": "@php scan-wp-patterns.php",
         "update-version":[ 
             "bash update-version.sh" 
         ],
@@ -38,6 +39,7 @@
             "composer validate",
             "composer phpcbf",
             "composer phpcs",
+            "composer scan-wp-patterns",
             "npm run fix:js",
             "npm run fix:css",
             "npm run test",
