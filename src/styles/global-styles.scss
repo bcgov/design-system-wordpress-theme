@@ -1,0 +1,18 @@
+@media (max-width: $break-medium) {
+	// Right aligns container in mobile.
+	.dswp-align-right-desktop-left-mobile {
+		justify-content: flex-start !important;
+	}
+
+}
+
+// Left aligns container in desktop.
+.dswp-align-right-desktop-left-mobile {
+	justify-content: flex-end;
+}
+
+// Allows the container to grow to the full size of the largest container in the flex box.
+.dswp-flex-grow-even-container {
+	display: flex;
+	flex: 1;
+}
