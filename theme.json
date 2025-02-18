@@ -7,7 +7,7 @@
             "name": "header",
             "title": "Header",
             "area": "header"
-        },   
+        },
         {
             "name": "footer",
             "title": "footer",
@@ -15,17 +15,51 @@
         }
     ],
     "styles": {
-        "blocks":{
-           "core/button": {
-				"variations": {
-					"outline": {
-						"css":"&:hover{background-color:var(--dswp-surface-color-secondary-button-hover)}",
-                        "border": {"color": "var(--dswp-surface-color-border-dark)",
-                        "radius": "4px",
-                        "width": "1px"}
-					}
-				}
-			}
+        "blocks": {
+            "core/button": {
+                "variations": {
+                    "outline": {
+                        "css": "&:hover{background-color:var(--dswp-surface-color-secondary-button-hover)}",
+                        "border": {
+                            "color": "var(--dswp-surface-color-border-dark)",
+                            "radius": "4px",
+                            "width": "1px"
+                        }
+                    }
+                }
+            },
+            "core/paragraph": {
+                "spacing": {
+                    "margin": {
+                        "top": "0",
+                        "bottom": "0",
+                        "left": "0",
+                        "right": "0"
+                    },
+                    "padding": {
+                        "top": "0",
+                        "bottom": "0",
+                        "left": "0",
+                        "right": "0"
+                    }
+                }
+            },
+            "core/heading": {
+                "spacing": {
+                    "margin": {
+                        "top": "0",
+                        "bottom": "0",
+                        "left": "0",
+                        "right": "0"
+                    },
+                    "padding": {
+                        "top": "0",
+                        "bottom": "0",
+                        "left": "0",
+                        "right": "0"
+                    }
+                }
+            }
         },
         "color": {
             "text": "var(--dswp-typography-color-primary)",
@@ -52,19 +86,19 @@
             },
             "button": {
                 ":hover": {
-					"color": {
-						"background": "var(--dswp-surface-color-primary-button-hover)"
-					}
-				},
+                    "color": {
+                        "background": "var(--dswp-surface-color-primary-button-hover)"
+                    }
+                },
                 "color": {
                     "text": "var(--dswp-theme-gray-white)",
                     "background": "var(--dswp-surface-color-primary-button-default)"
                 },
                 "border": {
-						"color": "var(--dswp-surface-color-border-dark)",
-                        "radius": "4px",
-                        "width": "1px"
-			    },
+                    "color": "var(--dswp-surface-color-border-dark)",
+                    "radius": "4px",
+                    "width": "1px"
+                },
                 "typography": {
                     "fontSize": "var(--dswp-typography-font-size-body)"
                 }
@@ -75,7 +109,9 @@
                 }
             },
             "link": {
-                "color": { "text": "var(--dswp-typography-color-link)" }
+                "color": {
+                    "text": "var(--dswp-typography-color-link)"
+                }
             },
             "h6": {
                 "typography": {
@@ -102,7 +138,6 @@
                     "fontSize": "var(--dswp-typography-font-size-h2)"
                 }
             },
-
             "h1": {
                 "typography": {
                     "fontSize": "var(--dswp-typography-font-size-h1)"
@@ -204,7 +239,7 @@
                     "slug": "typography-primary-color",
                     "color": "var(--dswp-theme-primary-blue)",
                     "name": "Primary color"
-                }, 
+                },
                 {
                     "slug": "background-light-gray",
                     "color": "var(--dswp-surface-color-background-light-gray)",
@@ -239,7 +274,7 @@
                     "slug": "background-medium-gray",
                     "color": "var(--bcds-theme-gray-70)",
                     "name": "Background medium gray"
-                }          
+                }
             ]
         }
     }

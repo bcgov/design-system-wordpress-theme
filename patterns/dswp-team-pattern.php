@@ -7,6 +7,7 @@
  * @package Design-System-WordPress-Theme
  */
 ?>
+
 <!-- wp:group {"metadata":{"categories":["text"],"patternName":"design-system-wordpress-theme/dswp-team-pattern","name":"DSWP Team Pattern"},"align":"full","className":"dswp-team-pattern","style":{"spacing":{"margin":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"},"padding":{"top":"0","bottom":"0","left":"0","right":"0"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull dswp-team-pattern" style="margin-top:var(--wp--preset--spacing--50);margin-bottom:var(--wp--preset--spacing--50);padding-top:0;padding-right:0;padding-bottom:0;padding-left:0"><!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"0","bottom":"0"}}},"layout":{"type":"default"}} -->
     <div class="wp-block-group alignfull" style="padding-top:0;padding-bottom:0"><!-- wp:group {"style":{"spacing":{"padding":{"right":"var:preset|spacing|60","left":"var:preset|spacing|60","top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"}}},"layout":{"type":"constrained"}} -->
@@ -28,17 +29,20 @@
                         <p class="has-font-dark-color has-text-color has-link-color has-bcds-h-6-font-size" style="padding-bottom:var(--wp--preset--spacing--40)"><em>Subtitle</em></p>
                         <!-- /wp:paragraph -->
 
-                        <!-- wp:paragraph {"align":"left","style":{"typography":{"lineHeight":"1.7"},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}}},"textColor":"font dark","fontSize":"bcds-body"} -->
-                        <p class="has-text-align-left has-font-dark-color has-text-color has-link-color has-bcds-body-font-size" style="line-height:1.7">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat vulputate rhoncus. Vestibulum volutpat egestas posuere. Nam dignissim interdum consequat. Aenean sagittis pharetra ex nec tincidunt. Curabitur eget sapien dignissim, euismod sapien vel, hendrerit lacus. Quisque quis orci vel augue convallis faucibus.</p>
-                        <!-- /wp:paragraph -->
+                        <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"constrained"}} -->
+                        <div class="wp-block-group"><!-- wp:paragraph {"align":"left","style":{"typography":{"lineHeight":"1.7"},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}}},"textColor":"font dark","fontSize":"bcds-body"} -->
+                            <p class="has-text-align-left has-font-dark-color has-text-color has-link-color has-bcds-body-font-size" style="line-height:1.7">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat vulputate rhoncus. Vestibulum volutpat egestas posuere. Nam dignissim interdum consequat. Aenean sagittis pharetra ex nec tincidunt. Curabitur eget sapien dignissim, euismod sapien vel, hendrerit lacus. Quisque quis orci vel augue convallis faucibus.</p>
+                            <!-- /wp:paragraph -->
 
-                        <!-- wp:paragraph {"align":"left","style":{"typography":{"lineHeight":"1.7"},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}},"spacing":{"padding":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}},"textColor":"font dark"} -->
-                        <p class="has-text-align-left has-font-dark-color has-text-color has-link-color" style="padding-top:var(--wp--preset--spacing--20);padding-bottom:var(--wp--preset--spacing--20);line-height:1.7">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat vulputate rhoncus. Vestibulum volutpat egestas posuere. Nam dignissim interdum consequat. Aenean sagittis pharetra ex nec tincidunt. Curabitur eget sapien dignissim, euismod sapien vel, hendrerit lacus. Quisque quis orci vel augue convallis faucibus.</p>
-                        <!-- /wp:paragraph -->
+                            <!-- wp:paragraph {"align":"left","style":{"typography":{"lineHeight":"1.7"},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}},"spacing":{"padding":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}},"textColor":"font dark"} -->
+                            <p class="has-text-align-left has-font-dark-color has-text-color has-link-color" style="padding-top:var(--wp--preset--spacing--20);padding-bottom:var(--wp--preset--spacing--20);line-height:1.7">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat vulputate rhoncus. Vestibulum volutpat egestas posuere. Nam dignissim interdum consequat. Aenean sagittis pharetra ex nec tincidunt. Curabitur eget sapien dignissim, euismod sapien vel, hendrerit lacus. Quisque quis orci vel augue convallis faucibus.</p>
+                            <!-- /wp:paragraph -->
 
-                        <!-- wp:paragraph {"align":"left","style":{"typography":{"lineHeight":"1.7"},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}}},"textColor":"font dark"} -->
-                        <p class="has-text-align-left has-font-dark-color has-text-color has-link-color" style="line-height:1.7">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat vulputate rhoncus. Vestibulum volutpat egestas posuere. Nam dignissim interdum consequat. Aenean sagittis pharetra ex nec tincidunt. Curabitur eget sapien dignissim, euismod sapien vel, hendrerit lacus. Quisque quis orci vel augue convallis faucibus.</p>
-                        <!-- /wp:paragraph -->
+                            <!-- wp:paragraph {"align":"left","style":{"typography":{"lineHeight":"1.7"},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}}},"textColor":"font dark"} -->
+                            <p class="has-text-align-left has-font-dark-color has-text-color has-link-color" style="line-height:1.7">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat vulputate rhoncus. Vestibulum volutpat egestas posuere. Nam dignissim interdum consequat. Aenean sagittis pharetra ex nec tincidunt. Curabitur eget sapien dignissim, euismod sapien vel, hendrerit lacus. Quisque quis orci vel augue convallis faucibus.</p>
+                            <!-- /wp:paragraph -->
+                        </div>
+                        <!-- /wp:group -->
                     </div>
                     <!-- /wp:group -->
                 </div>
@@ -70,17 +74,20 @@
                         <p class="has-font-dark-color has-text-color has-link-color has-bcds-h-6-font-size" style="padding-bottom:var(--wp--preset--spacing--40)"><em>Subtitle</em></p>
                         <!-- /wp:paragraph -->
 
-                        <!-- wp:paragraph {"align":"left","style":{"typography":{"lineHeight":"1.7"},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}}},"textColor":"font dark","fontSize":"bcds-body"} -->
-                        <p class="has-text-align-left has-font-dark-color has-text-color has-link-color has-bcds-body-font-size" style="line-height:1.7">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat vulputate rhoncus. Vestibulum volutpat egestas posuere. Nam dignissim interdum consequat. Aenean sagittis pharetra ex nec tincidunt. Curabitur eget sapien dignissim, euismod sapien vel, hendrerit lacus. Quisque quis orci vel augue convallis faucibus.</p>
-                        <!-- /wp:paragraph -->
+                        <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"constrained"}} -->
+                        <div class="wp-block-group"><!-- wp:paragraph {"align":"left","style":{"typography":{"lineHeight":"1.7"},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}}},"textColor":"font dark","fontSize":"bcds-body"} -->
+                            <p class="has-text-align-left has-font-dark-color has-text-color has-link-color has-bcds-body-font-size" style="line-height:1.7">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat vulputate rhoncus. Vestibulum volutpat egestas posuere. Nam dignissim interdum consequat. Aenean sagittis pharetra ex nec tincidunt. Curabitur eget sapien dignissim, euismod sapien vel, hendrerit lacus. Quisque quis orci vel augue convallis faucibus.</p>
+                            <!-- /wp:paragraph -->
 
-                        <!-- wp:paragraph {"align":"left","style":{"typography":{"lineHeight":"1.7"},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}},"spacing":{"padding":{"right":"0","left":"0","top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}},"textColor":"font dark"} -->
-                        <p class="has-text-align-left has-font-dark-color has-text-color has-link-color" style="padding-top:var(--wp--preset--spacing--20);padding-right:0;padding-bottom:var(--wp--preset--spacing--20);padding-left:0;line-height:1.7">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat vulputate rhoncus. Vestibulum volutpat egestas posuere. Nam dignissim interdum consequat. Aenean sagittis pharetra ex nec tincidunt. Curabitur eget sapien dignissim, euismod sapien vel, hendrerit lacus. Quisque quis orci vel augue convallis faucibus.</p>
-                        <!-- /wp:paragraph -->
+                            <!-- wp:paragraph {"align":"left","style":{"typography":{"lineHeight":"1.7"},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}},"spacing":{"padding":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}},"textColor":"font dark"} -->
+                            <p class="has-text-align-left has-font-dark-color has-text-color has-link-color" style="padding-top:var(--wp--preset--spacing--20);padding-bottom:var(--wp--preset--spacing--20);line-height:1.7">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat vulputate rhoncus. Vestibulum volutpat egestas posuere. Nam dignissim interdum consequat. Aenean sagittis pharetra ex nec tincidunt. Curabitur eget sapien dignissim, euismod sapien vel, hendrerit lacus. Quisque quis orci vel augue convallis faucibus.</p>
+                            <!-- /wp:paragraph -->
 
-                        <!-- wp:paragraph {"align":"left","style":{"typography":{"lineHeight":"1.7"},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}}},"textColor":"font dark"} -->
-                        <p class="has-text-align-left has-font-dark-color has-text-color has-link-color" style="line-height:1.7">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat vulputate rhoncus. Vestibulum volutpat egestas posuere. Nam dignissim interdum consequat. Aenean sagittis pharetra ex nec tincidunt. Curabitur eget sapien dignissim, euismod sapien vel, hendrerit lacus. Quisque quis orci vel augue convallis faucibus.</p>
-                        <!-- /wp:paragraph -->
+                            <!-- wp:paragraph {"align":"left","style":{"typography":{"lineHeight":"1.7"},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}}},"textColor":"font dark"} -->
+                            <p class="has-text-align-left has-font-dark-color has-text-color has-link-color" style="line-height:1.7">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat vulputate rhoncus. Vestibulum volutpat egestas posuere. Nam dignissim interdum consequat. Aenean sagittis pharetra ex nec tincidunt. Curabitur eget sapien dignissim, euismod sapien vel, hendrerit lacus. Quisque quis orci vel augue convallis faucibus.</p>
+                            <!-- /wp:paragraph -->
+                        </div>
+                        <!-- /wp:group -->
                     </div>
                     <!-- /wp:group -->
                 </div>
@@ -112,17 +119,20 @@
                         <p class="has-font-dark-color has-text-color has-link-color has-bcds-h-6-font-size" style="padding-bottom:var(--wp--preset--spacing--40)"><em>Subtitle</em></p>
                         <!-- /wp:paragraph -->
 
-                        <!-- wp:paragraph {"align":"left","style":{"typography":{"lineHeight":"1.7"},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}}},"textColor":"font dark","fontSize":"bcds-body"} -->
-                        <p class="has-text-align-left has-font-dark-color has-text-color has-link-color has-bcds-body-font-size" style="line-height:1.7">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat vulputate rhoncus. Vestibulum volutpat egestas posuere. Nam dignissim interdum consequat. Aenean sagittis pharetra ex nec tincidunt. Curabitur eget sapien dignissim, euismod sapien vel, hendrerit lacus. Quisque quis orci vel augue convallis faucibus.</p>
-                        <!-- /wp:paragraph -->
+                        <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"constrained"}} -->
+                        <div class="wp-block-group"><!-- wp:paragraph {"align":"left","style":{"typography":{"lineHeight":"1.7"},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}}},"textColor":"font dark","fontSize":"bcds-body"} -->
+                            <p class="has-text-align-left has-font-dark-color has-text-color has-link-color has-bcds-body-font-size" style="line-height:1.7">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat vulputate rhoncus. Vestibulum volutpat egestas posuere. Nam dignissim interdum consequat. Aenean sagittis pharetra ex nec tincidunt. Curabitur eget sapien dignissim, euismod sapien vel, hendrerit lacus. Quisque quis orci vel augue convallis faucibus.</p>
+                            <!-- /wp:paragraph -->
 
-                        <!-- wp:paragraph {"align":"left","style":{"typography":{"lineHeight":"1.7"},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}},"spacing":{"padding":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}},"textColor":"font dark"} -->
-                        <p class="has-text-align-left has-font-dark-color has-text-color has-link-color" style="padding-top:var(--wp--preset--spacing--20);padding-bottom:var(--wp--preset--spacing--20);line-height:1.7">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat vulputate rhoncus. Vestibulum volutpat egestas posuere. Nam dignissim interdum consequat. Aenean sagittis pharetra ex nec tincidunt. Curabitur eget sapien dignissim, euismod sapien vel, hendrerit lacus. Quisque quis orci vel augue convallis faucibus.</p>
-                        <!-- /wp:paragraph -->
+                            <!-- wp:paragraph {"align":"left","style":{"typography":{"lineHeight":"1.7"},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}},"spacing":{"padding":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}},"textColor":"font dark"} -->
+                            <p class="has-text-align-left has-font-dark-color has-text-color has-link-color" style="padding-top:var(--wp--preset--spacing--20);padding-bottom:var(--wp--preset--spacing--20);line-height:1.7">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat vulputate rhoncus. Vestibulum volutpat egestas posuere. Nam dignissim interdum consequat. Aenean sagittis pharetra ex nec tincidunt. Curabitur eget sapien dignissim, euismod sapien vel, hendrerit lacus. Quisque quis orci vel augue convallis faucibus.</p>
+                            <!-- /wp:paragraph -->
 
-                        <!-- wp:paragraph {"align":"left","style":{"typography":{"lineHeight":"1.7"},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}}},"textColor":"font dark"} -->
-                        <p class="has-text-align-left has-font-dark-color has-text-color has-link-color" style="line-height:1.7">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat vulputate rhoncus. Vestibulum volutpat egestas posuere. Nam dignissim interdum consequat. Aenean sagittis pharetra ex nec tincidunt. Curabitur eget sapien dignissim, euismod sapien vel, hendrerit lacus. Quisque quis orci vel augue convallis faucibus.</p>
-                        <!-- /wp:paragraph -->
+                            <!-- wp:paragraph {"align":"left","style":{"typography":{"lineHeight":"1.7"},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}}},"textColor":"font dark"} -->
+                            <p class="has-text-align-left has-font-dark-color has-text-color has-link-color" style="line-height:1.7">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat vulputate rhoncus. Vestibulum volutpat egestas posuere. Nam dignissim interdum consequat. Aenean sagittis pharetra ex nec tincidunt. Curabitur eget sapien dignissim, euismod sapien vel, hendrerit lacus. Quisque quis orci vel augue convallis faucibus.</p>
+                            <!-- /wp:paragraph -->
+                        </div>
+                        <!-- /wp:group -->
                     </div>
                     <!-- /wp:group -->
                 </div>
@@ -154,17 +164,20 @@
                         <p class="has-font-dark-color has-text-color has-link-color has-bcds-h-6-font-size" style="padding-bottom:var(--wp--preset--spacing--40)"><em>Subtitle</em></p>
                         <!-- /wp:paragraph -->
 
-                        <!-- wp:paragraph {"align":"left","style":{"typography":{"lineHeight":"1.7"},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}}},"textColor":"font dark","fontSize":"bcds-body"} -->
-                        <p class="has-text-align-left has-font-dark-color has-text-color has-link-color has-bcds-body-font-size" style="line-height:1.7">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat vulputate rhoncus. Vestibulum volutpat egestas posuere. Nam dignissim interdum consequat. Aenean sagittis pharetra ex nec tincidunt. Curabitur eget sapien dignissim, euismod sapien vel, hendrerit lacus. Quisque quis orci vel augue convallis faucibus.</p>
-                        <!-- /wp:paragraph -->
+                        <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"constrained"}} -->
+                        <div class="wp-block-group"><!-- wp:paragraph {"align":"left","style":{"typography":{"lineHeight":"1.7"},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}}},"textColor":"font dark","fontSize":"bcds-body"} -->
+                            <p class="has-text-align-left has-font-dark-color has-text-color has-link-color has-bcds-body-font-size" style="line-height:1.7">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat vulputate rhoncus. Vestibulum volutpat egestas posuere. Nam dignissim interdum consequat. Aenean sagittis pharetra ex nec tincidunt. Curabitur eget sapien dignissim, euismod sapien vel, hendrerit lacus. Quisque quis orci vel augue convallis faucibus.</p>
+                            <!-- /wp:paragraph -->
 
-                        <!-- wp:paragraph {"align":"left","style":{"typography":{"lineHeight":"1.7"},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}},"spacing":{"padding":{"right":"0","left":"0","top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}},"textColor":"font dark"} -->
-                        <p class="has-text-align-left has-font-dark-color has-text-color has-link-color" style="padding-top:var(--wp--preset--spacing--20);padding-right:0;padding-bottom:var(--wp--preset--spacing--20);padding-left:0;line-height:1.7">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat vulputate rhoncus. Vestibulum volutpat egestas posuere. Nam dignissim interdum consequat. Aenean sagittis pharetra ex nec tincidunt. Curabitur eget sapien dignissim, euismod sapien vel, hendrerit lacus. Quisque quis orci vel augue convallis faucibus.</p>
-                        <!-- /wp:paragraph -->
+                            <!-- wp:paragraph {"align":"left","style":{"typography":{"lineHeight":"1.7"},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}},"spacing":{"padding":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}},"textColor":"font dark"} -->
+                            <p class="has-text-align-left has-font-dark-color has-text-color has-link-color" style="padding-top:var(--wp--preset--spacing--20);padding-bottom:var(--wp--preset--spacing--20);line-height:1.7">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat vulputate rhoncus. Vestibulum volutpat egestas posuere. Nam dignissim interdum consequat. Aenean sagittis pharetra ex nec tincidunt. Curabitur eget sapien dignissim, euismod sapien vel, hendrerit lacus. Quisque quis orci vel augue convallis faucibus.</p>
+                            <!-- /wp:paragraph -->
 
-                        <!-- wp:paragraph {"align":"left","style":{"typography":{"lineHeight":"1.7"},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}}},"textColor":"font dark"} -->
-                        <p class="has-text-align-left has-font-dark-color has-text-color has-link-color" style="line-height:1.7">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat vulputate rhoncus. Vestibulum volutpat egestas posuere. Nam dignissim interdum consequat. Aenean sagittis pharetra ex nec tincidunt. Curabitur eget sapien dignissim, euismod sapien vel, hendrerit lacus. Quisque quis orci vel augue convallis faucibus.</p>
-                        <!-- /wp:paragraph -->
+                            <!-- wp:paragraph {"align":"left","style":{"typography":{"lineHeight":"1.7"},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}}},"textColor":"font dark"} -->
+                            <p class="has-text-align-left has-font-dark-color has-text-color has-link-color" style="line-height:1.7">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat vulputate rhoncus. Vestibulum volutpat egestas posuere. Nam dignissim interdum consequat. Aenean sagittis pharetra ex nec tincidunt. Curabitur eget sapien dignissim, euismod sapien vel, hendrerit lacus. Quisque quis orci vel augue convallis faucibus.</p>
+                            <!-- /wp:paragraph -->
+                        </div>
+                        <!-- /wp:group -->
                     </div>
                     <!-- /wp:group -->
                 </div>
