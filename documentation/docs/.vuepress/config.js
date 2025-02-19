@@ -17,6 +17,7 @@ export default defineUserConfig( {
         lastUpdated: false,
         repo: 'bcgov/design-system-wordpress-theme',
         repoLabel: 'Github',
+        sidebarDepth: 2,  // 
         navbar: [
             {
                 text: 'Home',
@@ -31,6 +32,7 @@ export default defineUserConfig( {
                 text: 'Site Editor',
                 collapsible: true,
                 children: [
+                     "/guide/SiteEditor/TemplateParts",
                      "/guide/SiteEditor/Patterns"
                 ],
             },
