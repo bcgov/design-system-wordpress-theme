@@ -12,3 +12,4 @@ scripts           export-ignore
 documentation     export-ignore
 Tests             export-ignore
 checklist.md      export-ignore
+scan-wp-patterns.php export-ignore

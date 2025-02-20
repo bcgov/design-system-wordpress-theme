@@ -1,0 +1,34 @@
+.dswp-team-pattern {
+
+	.wp-block-columns {
+
+		figure {
+
+			img {
+				max-width: 179px !important;
+			}
+		}
+	}
+}
+
+@media (max-width: $break-xlarge) {
+
+	.dswp-team-pattern {
+
+		.wp-block-columns {
+			gap: 0;
+			flex-wrap: wrap;
+			flex-direction: column;
+
+			figure {
+
+				img {
+					height: 179px !important;
+					width: 179px !important;
+				}
+			}
+
+		}
+	}
+}
+

@@ -1,7 +1,7 @@
 {
-    "name": "bcgov-theme/alphagov-wordpress-theme",
-    "description": "Alpha Gov WordPress Theme",
-    "version": "1.2.0",
+    "name": "bcgov-theme/design-system-wordpress-theme",
+    "description": "Design System WordPress Theme",
+    "version": "1.6.0",
     "type": "wordpress-theme",
     "license": "Apache-2.0",
     "repositories": [
@@ -11,11 +11,12 @@
         }
     ],
     "require-dev": {
-        "bcgov/wordpress-scripts": "2.1.2"
+        "bcgov/wordpress-utils": "2.4.0",
+        "yoast/phpunit-polyfills": "^1.0"
     },
     "autoload": {
         "psr-4": {
-            "Bcgov\\Theme\\AlphaGov\\": [
+            "Bcgov\\Theme\\DesignSystem\\": [
                 "src",
                 "inc"
             ]
@@ -23,17 +24,29 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Bcgov\\Theme\\AlphaGov\\Tests\\": "Tests/"
+            "Bcgov\\Theme\\DesignSystem\\Tests\\": "Tests/"
         }
     },
     "scripts": {
+        "scan-wp-patterns": "@php scan-wp-patterns.php",
+        "update-version":[ 
+            "bash update-version.sh" 
+        ],
+        "test-setup":[ 
+            "bash vendor/bcgov/wordpress-utils/bin/install-wp-tests.sh wordpress_test root 'rootpassword' 0.0.0.0 latest"
+        ],
         "production": [
             "composer validate",
-            "Bcgov\\Script\\Checklists::postProductionChecks"
+            "composer phpcbf",
+            "composer phpcs",
+            "composer scan-wp-patterns",
+            "npm run fix:js",
+            "npm run fix:css",
+            "npm run test",
+            "npm run build"
         ],
-        "checklist": [
-            "composer validate",
-            "Bcgov\\Script\\Checklists::postProductionChecks"
+        "phpcs-allow-todo": [
+            "vendor/bin/phpcs -ps --standard=./vendor/bcgov/wordpress-utils/wordpress.xml  --exclude=Generic.Commenting.Todo --colors ./"
         ],
         "phpcs": [
             "Bcgov\\Script\\Standards::phpcs"
@@ -42,7 +55,7 @@
             "Bcgov\\Script\\Standards::phpcbf"
         ],
         "test": [
-            "Bcgov\\Script\\Tests::phpunit"
+            "vendor/bin/phpunit --configuration vendor/bcgov/wordpress-utils/phpunit.xml.dist"
         ],
         "coverage": [
             "./vendor/bin/phpunit --coverage-html ./coverage/php/"

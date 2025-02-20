@@ -1,0 +1,59 @@
+:root {
+	// Typography
+	--dswp-typography-font-families-bc-sans: var(--bcds-typography-font-families-bc-sans);
+	--dswp-typography-font-size-label: var(--bcds-typography-font-size-label);
+	--dswp-typography-font-size-small-body: var(--bcds-typography-font-size-small-body);
+	--dswp-typography-font-size-body: var(--bcds-typography-font-size-body);
+	--dswp-typography-font-size-large-body: var(--bcds-typography-font-size-large-body);
+	--dswp-typography-font-size-h6: var(--bcds-typography-font-size-large-body);
+	--dswp-typography-font-size-h5: var(--bcds-typography-font-size-h5);
+	--dswp-typography-font-size-h4: var(--bcds-typography-font-size-h4);
+	--dswp-typography-font-size-h3: var(--bcds-typography-font-size-h3);
+	--dswp-typography-font-size-h2: var(--bcds-typography-font-size-h2);
+	--dswp-typography-font-size-h1: var(--bcds-typography-font-size-h1);
+	--dswp-typography-font-size-display: var(--bcds-typography-font-size-display);
+	// Colors
+	--dswp-surface-color-background-white: var(--bcds-surface-color-background-white);
+	--dswp-surface-color-menus-default: var(--bcds-surface-color-menus-default);
+	--dswp-theme-primary-blue: var(--bcds-theme-primary-blue);
+	--dswp-theme-gray-white: var(--bcds-theme-gray-white);
+	--dswp-typography-color-link: var(--bcds-typography-color-link);
+	--dswp-typography-color-primary: var(--bcds-typography-color-primary);
+	--dswp-surface-color-primary-button-default: var(--bcds-surface-color-primary-button-default);
+	--dswp-surface-color-primary-button-hover: var(--bcds-surface-color-primary-button-hover);
+	--dswp-surface-color-secondary-button-default: var(--bcds-surface-color-secondary-button-default);
+	--dswp-surface-color-secondary-button-hover: var(--bcds-surface-color-secondary-button-hover);
+	--dswp-banner-background-dark: #292929;
+	--dswp-surface-color-border-dark: var(--bcds-surface-color-border-dark);
+	--dswp-font-dark: #201f1e;
+	--dswp-theme-primary-gold: var(--bcds-theme-primary-gold);
+	--dswp-icons-color-info: var(--bcds-icons-color-info);
+	--dswp-icons-color-danger: var(--bcds-icons-color-danger);
+	--dswp-icons-color-success: var(--bcds-icons-color-success);
+	--dswp-icons-color-warning: var(--bcds-icons-color-warning);
+	--dswp-surface-color-border-default: var(--bcds-surface-color-border-default);
+	--dswp-theme-gray-10: var(--bcds-theme-gray-10);
+	--dswp-theme-gray-30: var(--bcds-theme-gray-30);
+	--dswp-theme-gray-70: var(--bcds-theme-gray-70);
+	--dswp-theme-gray-110: var(--bcds-theme-gray-110);
+	--dswp-surface-color-background-light-gray: var(--bcds-surface-color-background-light-gray);
+	--dswp-medium-gray: #f5f5f5;
+	--dswp-surface-color-background-light-gray-blue: #ddedf2;
+	// Layout
+	--dswp-layout-content-size: 1200px;
+	--dswp-layout-padding-none: var(--bcds-layout-padding-none);
+	--dswp-layout-margin-xlarge: var(--bcds-layout-margin-xlarge);
+	// Appearance
+	--dswp-layout-border-radius-large: var(--bcds-layout-border-radius-large);
+}
+
+//WordPress Screen Viewports (@wordpress/base-styles https://github.com/WordPress/gutenberg/blob/07c7821b07e5d2b2abaa86f6737dd486da26383e/packages/base-styles/_breakpoints.scss#L6)
+// $break-xhuge: 1920px;
+// $break-huge: 1440px;
+// $break-wide: 1280px;
+// $break-xlarge: 1080px;
+// $break-large: 960px;	// admin sidebar auto folds
+// $break-medium: 782px;	// adminbar goes big
+// $break-small: 600px;
+// $break-mobile: 480px;
+// $break-zoomed-in: 280px;

@@ -1,0 +1,50 @@
+.pattern-card {
+  border: 2px solid #e9e4e4;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: left;
+  margin: 5rem 0;
+
+  .pattern-card-content {
+    margin-inline-end: 40px;
+    margin-inline-start: 40px;
+  }
+
+  ul {
+    padding: 0px;
+    list-style-type: none;
+    display: inline-block;
+    /* Allow left alignment within the centered container */
+    text-align: left;
+    /* Align text to the left */
+  }
+
+
+  .image-caption {
+    margin-inline-end: 0px;
+    margin-inline-start: 0px;
+    position: relative;
+    /* Establishes a positioning context for the caption */
+    display: inline-block;
+    /* Allows the figure to wrap around the image */
+  }
+
+  .image-caption img {
+    display: block;
+    /* Removes bottom space under the image */
+    width: 100%;
+    /* Optional: makes the image responsive */
+    height: auto;
+    /* Maintains aspect ratio */
+  }
+
+  .image-caption figcaption {
+    background-color: rgb(0 0 0 / 16%);
+    color: #2f2f2f;
+    padding: 5px;
+    font-size: 17px;
+    width: 100%;
+    font-weight: bold;
+    font-style: italic;
+  }
+}
