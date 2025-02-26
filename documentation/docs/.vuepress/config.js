@@ -32,10 +32,27 @@ export default defineUserConfig( {
                 text: 'Site Editor',
                 collapsible: true,
                 children: [
-                     "/guide/SiteEditor/TemplateParts",
-                     "/guide/SiteEditor/Patterns"
+                     {
+                        text: 'Patterns',
+                        collapsible: true,
+                        children: [
+                            {text:"How to use patterns", link: "/guide/SiteEditor/Patterns/HowToUsePatterns", children:[
+                                {text:"DSWP Card With Hyper Link List", link: "/guide/SiteEditor/Patterns/DSWPCardWithHyperLinkList"},
+
+                            ]},
+                            "/guide/SiteEditor/Patterns/PatternsOverview",
+                        ]
+                    }
                 ],
             },
+            {
+                text: 'Developers',
+                collapsible: true,
+                children: [
+                    "/guide/Developers/Patterns/PatternsTroubleShooting",
+                    "/guide/Developers/TemplateParts",
+                ]
+            }
         ],
     } ),
     plugins: [
