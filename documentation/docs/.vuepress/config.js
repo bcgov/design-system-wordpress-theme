@@ -38,7 +38,7 @@ export default defineUserConfig( {
                         children: [
                             {text:"How to use patterns", link: "/guide/SiteEditor/Patterns/HowToUsePatterns", children:[
                                 {text:"DSWP Card With Hyper Link List", link: "/guide/SiteEditor/Patterns/DSWPCardWithHyperLinkList"},
-
+                                {text:"DSWP Vertical Cards", link: "/guide/SiteEditor/Patterns/DSWPVerticalCards"},                                
                             ]},
                             "/guide/SiteEditor/Patterns/PatternsOverview",
                         ]
