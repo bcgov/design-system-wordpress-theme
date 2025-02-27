@@ -45,7 +45,3 @@ This theme is exclusively for use on BC Government WordPress sites hosted by GDX
 - **Responsive Design**: All patterns are mobile-friendly
 - **Accessibility**: Built with WCAG compliance in mind
 - **Child Theme Support**: Create custom themes while maintaining design system consistency
-
-## Development
-
-### Local Setup
