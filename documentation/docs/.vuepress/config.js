@@ -1,16 +1,16 @@
 import { defaultTheme } from '@vuepress/theme-default';
 
 import { defineUserConfig } from 'vuepress';
-import { searchPlugin } from '@vuepress/plugin-search';
+import { searchPlugin } from '@vuepress/plugin-search'
 import { viteBundler } from '@vuepress/bundler-vite';
 
-export default defineUserConfig( {
+export default defineUserConfig({
     base: '/design-system-wordpress-theme/',
     lang: 'en-US',
     title: 'Design System WordPress Theme',
     description: 'Developer Documentation for Design System WordPress Theme',
-    bundler: viteBundler( {} ),
-    theme: defaultTheme( {
+    bundler: viteBundler({}),
+    theme: defaultTheme({
         logo: '/images/BCID_H_rgb_pos.png',
         logoDark: '/images/BCID_H_rgb_rev.png',
         editLink: false,
@@ -32,14 +32,17 @@ export default defineUserConfig( {
                 text: 'Site Editor',
                 collapsible: true,
                 children: [
-                     {
+                    {
                         text: 'Patterns',
                         collapsible: true,
                         children: [
-                            {text:"How to use patterns", link: "/guide/SiteEditor/Patterns/HowToUsePatterns", children:[
-                                {text:"DSWP Card With Hyper Link List", link: "/guide/SiteEditor/Patterns/DSWPCardWithHyperLinkList"},
-                                {text:"DSWP Vertical Cards", link: "/guide/SiteEditor/Patterns/DSWPVerticalCards"},                                
-                            ]},
+                            {
+                                text: "How to use patterns", link: "/guide/SiteEditor/Patterns/HowToUsePatterns", children: [
+                                    { text: "DSWP Card With Hyper Link List", link: "/guide/SiteEditor/Patterns/DSWPCardWithHyperLinkList" },
+                                    { text: "DSWP Vertical Cards", link: "/guide/SiteEditor/Patterns/DSWPVerticalCards" },
+                                    { text: "DSWP Default Heading", link: "/guide/SiteEditor/Patterns/DSWPDefaultHeading" },
+                                ]
+                            },
                             "/guide/SiteEditor/Patterns/PatternsOverview",
                         ]
                     }
@@ -54,10 +57,14 @@ export default defineUserConfig( {
                 ]
             }
         ],
-    } ),
+    }),
     plugins: [
-        searchPlugin( {
-            // options
-        } ),
-    ],
-} );
+        searchPlugin({
+          locales: {
+            '/': {
+              placeholder: 'Search...',
+            },
+          },
+        }),
+      ],
+});
