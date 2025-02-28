@@ -41,6 +41,8 @@ export default defineUserConfig({
                                     { text: "DSWP Card With Hyper Link List", link: "/guide/SiteEditor/Patterns/DSWPCardWithHyperLinkList" },
                                     { text: "DSWP Vertical Cards", link: "/guide/SiteEditor/Patterns/DSWPVerticalCards" },
                                     { text: "DSWP Default Heading", link: "/guide/SiteEditor/Patterns/DSWPDefaultHeading" },
+                                    { text: "DSWP Footer With Territorial Acknowledgement", link: "/guide/SiteEditor/Patterns/DSWPFooterWithTerritorialAcknowledgement" },
+                                    { text: "DSWP Heading with Paragraph(s)", link: "/guide/SiteEditor/Patterns/DSWPHeadingWithParagraphs" },
                                 ]
                             },
                             "/guide/SiteEditor/Patterns/PatternsOverview",
