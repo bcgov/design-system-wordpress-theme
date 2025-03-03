@@ -8,88 +8,65 @@ Each pattern consists of several blocks. Only adjust the content and color block
 :::
 
 ## Pattern Components
-![Pattern Components](/images/patterns/dswp-information-contact-socials/components.png)
+![Pattern Components](/images/patterns/dswp-information-contact-socials/a.png)
 
 The pattern consists of:
 1. **Header Section**
    - Light gray-blue background
-   - H4 heading with 50px side padding
-   - 30px vertical padding
+   - H4 heading
 
-2. **Cards Container**
-   - 1px border (border-default color)
-   - 60px vertical margins
-   - 50px horizontal padding
+2. **icon**
+   - 28px wide
 
-3. **Information Cards (2x2 grid)**
-   - Each card contains:
-     - 28px width icon
-     - H6 heading
-     - Description paragraph
-     - Link
-   - 40px gap between icon and content
-   - 80px gap between columns
+3. **Heading**
+   - H6 heading
 
-## Spacing Details
-![Spacing Details](/images/patterns/dswp-information-contact-socials/spacing.png)
+4. **Paragraph**
+   - 1.7 line height for readability
 
-Key measurements:
-- Container spacing:
-  - Top/Bottom margin: 60
-  - Left/Right padding: 60
-- Header padding:
-  - Top/Bottom: 30
-  - Left/Right: 50
-- Card grid:
-  - Column gap: 80
-  - Row margin: 50 (top/bottom)
-- Card content:
-  - Icon width: 28px
-  - Element gap: 40
+5. **Link**
 
 ## Common Tasks
 
-### Adding the Pattern
-1. Click the plus button to add a new block
-2. Select "All" from the block menu
-3. Choose "dswp-information-contact-socials" pattern
-
-### Customizing Elements
 #### Header Modification:
 1. Click to edit the H4 heading
-2. Maintains light gray-blue background
-![Header editing](/images/patterns/dswp-information-contact-socials/header-edit.png)
 
-#### Card Customization:
-1. **Icons:**
-   - Select image block
-   - Click "Replace"
-   - Upload 28px square icon
-![Icon replacement](/images/patterns/dswp-information-contact-socials/icon-replace.png)
+![Header editing](/images/patterns/dswp-information-contact-socials/b.gif)
 
-2. **Content:**
-   - Edit H6 heading
-   - Update description text
-   - Modify link URL and text
-![Card editing](/images/patterns/dswp-information-contact-socials/card-edit.png)
+#### Change Icon:
+1. Select image block
+2. Click "Replace"
+3. Upload or select a 28px square icon (If you upload a larger size, it will scale down to 28px)
+![Icon replacement](/images/patterns/dswp-information-contact-socials/c.gif)
+
+### Modifying the Heading:
+1. Click on the heading text
+2. Type your new heading
+3. The styling will automatically apply
+
+![Modifying the Heading](/images/patterns/dswp-information-contact-socials/d.gif)
+   
+#### Modifying the Paragraph:
+1. Click to edit paragraph text
+2. Start Typing new content
+
+![Modifying the Paragraph](/images/patterns/dswp-information-contact-socials/e.gif)
+
+#### Updating Link:
+1. Select the link text
+2. Update URL and text as needed
+
+![Modifying the Paragraph](/images/patterns/dswp-information-contact-socials/f.gif)
 
 ### Layout Considerations
 - Desktop: 2x2 grid
 - Tablet: 2x2 grid maintained
 - Mobile: Stacks to single column
-![Responsive behavior](/images/patterns/dswp-information-contact-socials/responsive.png)
+![Responsive behavior](/images/patterns/dswp-information-contact-socials/g.gif)
 
-## Style Classes
-Important classes:
-- `dswp-information-contact-socials-cards`: Main container
-- `dswp-information-contact-socials-card`: Individual card
-- `dswp-information-contact-socials-card-img-group`: Icon container
-- `dswp-information-contact-socials-card-content`: Content wrapper
 
 ## Block Documentation
 For detailed instructions on modifying specific blocks, refer to WordPress's official documentation:
-- [Group Block](https://wordpress.com/support/wordpress-editor/blocks/group-block/)
-- [Columns Block](https://wordpress.com/support/wordpress-editor/blocks/columns-block/)
 - [Heading Block](https://wordpress.com/support/wordpress-editor/blocks/heading-block/)
 - [Image Block](https://wordpress.com/support/wordpress-editor/blocks/image-block/)
 - [Paragraph Block](https://wordpress.com/support/wordpress-editor/blocks/paragraph-block/)
