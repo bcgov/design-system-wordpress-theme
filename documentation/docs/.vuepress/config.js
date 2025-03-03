@@ -43,6 +43,8 @@ export default defineUserConfig({
                                     { text: "DSWP Default Heading", link: "/guide/SiteEditor/Patterns/DSWPDefaultHeading" },
                                     { text: "DSWP Footer With Territorial Acknowledgement", link: "/guide/SiteEditor/Patterns/DSWPFooterWithTerritorialAcknowledgement" },
                                     { text: "DSWP Heading with Paragraph(s)", link: "/guide/SiteEditor/Patterns/DSWPHeadingWithParagraphs" },
+                                    { text: "DSWP Horizontal Card No Shadow", link: "/guide/SiteEditor/Patterns/DSWPHorizontalCardNoShadow" },
+                                    { text: "DSWP Icon with Excerpt", link: "/guide/SiteEditor/Patterns/DSWPIconWithExcerpt" },
                                 ]
                             },
                             "/guide/SiteEditor/Patterns/PatternsOverview",
