@@ -45,6 +45,8 @@ export default defineUserConfig({
                                     { text: "DSWP Heading with Paragraph(s)", link: "/guide/SiteEditor/Patterns/DSWPHeadingWithParagraphs" },
                                     { text: "DSWP Horizontal Card No Shadow", link: "/guide/SiteEditor/Patterns/DSWPHorizontalCardNoShadow" },
                                     { text: "DSWP Icon with Excerpt", link: "/guide/SiteEditor/Patterns/DSWPIconWithExcerpt" },
+                                    { text: "DSWP Hero Image with Title", link: "/guide/SiteEditor/Patterns/DSWPHeroImageWithTitle" },
+                                    { text: "DSWP Horizontal Card", link: "/guide/SiteEditor/Patterns/DSWPHorizontalCard" },
                                 ]
                             },
                             "/guide/SiteEditor/Patterns/PatternsOverview",
