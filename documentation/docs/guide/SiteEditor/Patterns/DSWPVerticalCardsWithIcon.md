@@ -1,14 +1,14 @@
 # DSWP Vertical Cards With Icon
 
 ## Overview
-This pattern creates a grid of vertical cards, each featuring an icon, heading, and a list of links. The cards have a distinctive gold top border and light gray background, with a consistent layout and spacing.
+This pattern creates a grid of vertical cards, each featuring an icon, heading, and a list of links. The cards have a distinctive gold top border and light gray background (both which can be changed), with a consistent layout and spacing.
 
 ::: warning Important Note
 The structural settings (padding, margins, borders) are pre-configured for responsiveness. Only modify content and colors to maintain design consistency.
 :::
 
 ## Pattern Components
-![Pattern Components](/images/patterns/dswp-vertical-cards-with-icon/components.png)
+![Pattern Components](/images/patterns/dswp-vertical-cards-with-icon/a.png)
 
 Each card contains:
 1. **Container**
@@ -19,86 +19,63 @@ Each card contains:
 
 2. **Icon Section**
    - Square image (256px)
-   - Full width
-   - Zero margins
    - Light gray background
 
-3. **Content Section**
+3. **Heading Section**
    - H5 heading (xx-large font size)
-   - Three linked items
-   - 60px side padding
-   - Vertical flex layout
-
-## Spacing Details
-![Spacing Details](/images/patterns/dswp-vertical-cards-with-icon/spacing.png)
-
-Key measurements:
-- Card Container:
-  - Border radius: 7px
-  - Top border: 9px
-  - Padding: 60px (top/bottom), 80px (sides)
-  
-- Content Area:
-  - Heading margin-top: 50
-  - Link group margins: 40 (top/bottom)
-  - Link padding: 20 (top/bottom)
-  - Line height: 1.2
-
-- Grid Gap:
-  - Horizontal: 40
-  - Vertical: 40
+   
+4. **Links Section** 
+   - Three linked items (default, can add more)
 
 ## Common Tasks
 
-### Adding the Pattern
-1. Click the plus button to add a new block
-2. Select "All" from the block menu
-3. Choose "dswp-vertical-card-with-icon" pattern
+#### Modifying border color:
+1. Click on the heading text
+2. Type your new heading
+3. The styling will automatically apply
 
-### Customizing Elements
+![Modifying border color](/images/patterns/dswp-vertical-cards-with-icon/b.gif)
+
 #### Icon Replacement:
 1. Select the image block
 2. Click "Replace"
-3. Upload square image
-4. Maintains full width alignment
-![Icon replacement](/images/patterns/dswp-vertical-cards-with-icon/icon-replace.png)
+3. Upload or select image
+![Icon replacement](/images/patterns/dswp-vertical-cards-with-icon/c.gif)
 
-#### Content Modification:
-1. **Heading:**
-   - Edit H5 text
-   - Maintains dark font color
-   - XX-large font size
-![Heading editing](/images/patterns/dswp-vertical-cards-with-icon/heading-edit.png)
+#### Modifying the Heading:
+1. Click on the heading text
+2. Type your new heading
+3. The styling will automatically apply
 
-2. **Links:**
-   - Edit link text
-   - Update href attributes
-   - Maintains 1.2 line height
-![Link editing](/images/patterns/dswp-vertical-cards-with-icon/link-edit.png)
+![Modifying the Heading](/images/patterns/dswp-vertical-cards-with-icon/d.gif)
+   
+#### Updating Link:
+1. Select the link text
+2. Update URL and text as needed
 
-### Layout Considerations
-- Desktop: 2x2 grid
-- Tablet: 2x2 maintained
+![Updating Link](/images/patterns/dswp-vertical-cards-with-icon/e.gif)
+
+
+#### To Add a Card:
+1. Click the ellipses (⋮) next to any card (see gif below)
+2. Select "Duplicate"
+
+![Updating Link](/images/patterns/dswp-vertical-cards-with-icon/h.gif)
+
+#### Removing a card:
+1. Click the ellipses (⋮) next to any card (see gif below)
+2. Select "Delete"
+
+![Updating Link](/images/patterns/dswp-vertical-cards-with-icon/g.gif)
+
+### Layout
+- Desktop: 3x2 grid
 - Mobile: Single column
-![Responsive behavior](/images/patterns/dswp-vertical-cards-with-icon/responsive.png)
+![Layout](/images/patterns/dswp-vertical-cards-with-icon/i.gif)
 
-## Style Classes
-Important classes:
-- `dswp-vertical-card-with-icon`: Main container
-- `dswp-vertical-card`: Card wrapper
-- `dswp-flex-box`: Content container
-- `is-style-default`: Image style
-
-## Theme Integration
-- Uses `dswp-theme-primary-gold` for top border
-- Uses `background-light-gray` for card background
-- Uses `font dark` for text color
-- Uses `dswp-surface-color-border-default` for card border
 
 ## Block Documentation
 For detailed instructions on modifying specific blocks, refer to WordPress's official documentation:
-- [Group Block](https://wordpress.com/support/wordpress-editor/blocks/group-block/)
-- [Columns Block](https://wordpress.com/support/wordpress-editor/blocks/columns-block/)
 - [Image Block](https://wordpress.com/support/wordpress-editor/blocks/image-block/)
 - [Heading Block](https://wordpress.com/support/wordpress-editor/blocks/heading-block/)
 - [Paragraph Block](https://wordpress.com/support/wordpress-editor/blocks/paragraph-block/)
