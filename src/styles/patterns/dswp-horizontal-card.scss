@@ -14,17 +14,6 @@
 }
 
 .dswp-horizontal-card {
-
-	// Base styles
-	transition: box-shadow 0.3s ease-in; // Transition for the default state
-
-	&:hover {
-		transition: box-shadow 0.5s ease-out; // Transition for hover state
-		box-shadow:
-			0 1.2px 3.6px 0 rgba(0, 0, 0, 0.1),
-			0 6.4px 14.4px 0 rgba(0, 0, 0, 0.13); // New box-shadow on hover
-	}
-
 	gap: 0;
 	border-radius: 8px;
 	border: 1px solid var(--dswp-surface-color-border-default) !important;
