@@ -47,6 +47,15 @@ export default defineUserConfig({
                                     { text: "DSWP Icon with Excerpt", link: "/guide/SiteEditor/Patterns/DSWPIconWithExcerpt" },
                                     { text: "DSWP Hero Image with Title", link: "/guide/SiteEditor/Patterns/DSWPHeroImageWithTitle" },
                                     { text: "DSWP Horizontal Card", link: "/guide/SiteEditor/Patterns/DSWPHorizontalCard" },
+                                    { text: "DSWP Horizontal Card Large Image Left", link: "/guide/SiteEditor/Patterns/DSWPHorizontalCardLargeImageLeft" },
+                                    { text: "DSWP Horizontal Card Large Image Right", link: "/guide/SiteEditor/Patterns/DSWPHorizontalCardLargeImageRight" },
+                                    { text: "DSWP Image And Text", link: "/guide/SiteEditor/Patterns/DSWPImageAndText" },
+                                    { text: "DSWP Image And Text Flipped", link: "/guide/SiteEditor/Patterns/DSWPImageAndTextFlipped" },
+                                    { text: "DSWP Information Contact Socials", link: "/guide/SiteEditor/Patterns/DSWPInformationContactSocials" },
+                                    { text: "DSWP Link With Arrow", link: "/guide/SiteEditor/Patterns/DSWPLinkWithArrow" },
+                                    { text: "DSWP Secondary Hero Image With Title", link: "/guide/SiteEditor/Patterns/DSWPSecondaryHeroImageWithTitle" },
+                                    { text: "DSWP Team Pattern", link: "/guide/SiteEditor/Patterns/DSWPTeamPattern" },
+                                    { text: "DSWP Vertical Cards With Icon", link: "/guide/SiteEditor/Patterns/DSWPVerticalCardsWithIcon" }
                                 ]
                             },
                             "/guide/SiteEditor/Patterns/PatternsOverview",
