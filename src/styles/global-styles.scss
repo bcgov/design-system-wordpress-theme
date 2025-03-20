@@ -28,3 +28,10 @@
 			0 6.4px 14.4px 0 rgba(0, 0, 0, 0.13);
 	}
 }
+
+@media (max-width: $break-medium) {
+	.dswp-flex-wrap-reverse {
+		flex-wrap: wrap-reverse !important;
+	}
+}
+
