@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Title: DSWP Horizontal Card Reversed
  * Slug: design-system-wordpress-theme/dswp-horizontal-card-reversed

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Title: DSWP Icon with Excerpt
  * Slug: design-system-wordpress-theme/dswp-icon-with-excerpt
