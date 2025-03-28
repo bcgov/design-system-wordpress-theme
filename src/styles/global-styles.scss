@@ -4,6 +4,10 @@
 		justify-content: flex-start !important;
 	}
 
+	.dswp-flex-wrap-reverse {
+		flex-wrap: wrap-reverse !important;
+	}
+
 }
 
 // Left aligns container in desktop.
@@ -28,3 +32,8 @@
 			0 6.4px 14.4px 0 rgba(0, 0, 0, 0.13);
 	}
 }
+
+.dswp-align-self-center {
+	align-self: center !important;
+}
+

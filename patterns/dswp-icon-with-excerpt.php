@@ -8,7 +8,7 @@
  */
 ?>
 <!-- wp:group {"templateLock":false,"lock":{"move":false,"remove":false},"metadata":{"categories":["text"],"patternName":"design-system-wordpress-theme/dswp-icon-with-excerpt","name":"DSWP Icon with excerpt"},"className":"dswp-icon-with-excerpt","style":{"spacing":{"padding":{"right":"var:preset|spacing|50","left":"var:preset|spacing|50"},"margin":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group dswp-icon-with-excerpt" style="margin-top:var(--wp--preset--spacing--60);margin-bottom:var(--wp--preset--spacing--60);padding-right:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)"><!-- wp:columns {"style":{"spacing":{"padding":{"right":"0","left":"0"}}}} -->
+<div class="wp-block-group dswp-icon-with-excerpt" style="margin-top:var(--wp--preset--spacing--60);margin-bottom:var(--wp--preset--spacing--60);padding-right:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)"><!-- wp:columns {"style":{"spacing":{"padding":{"right":"0","left":"0"},"blockGap":{"top":"var:preset|spacing|60"}}}} -->
     <div class="wp-block-columns" style="padding-right:0;padding-left:0"><!-- wp:column -->
         <div class="wp-block-column"><!-- wp:group {"layout":{"type":"flex","orientation":"vertical"}} -->
             <div class="wp-block-group"><!-- wp:group {"style":{"spacing":{"padding":{"top":"0","bottom":"0"}}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
@@ -19,8 +19,8 @@
                     </div>
                     <!-- /wp:group -->
 
-                    <!-- wp:heading {"level":5,"style":{"spacing":{"margin":{"top":"0","bottom":"0","left":"var:preset|spacing|20","right":"var:preset|spacing|20"}},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}}},"textColor":"font dark"} -->
-                    <h5 class="wp-block-heading has-font-dark-color has-text-color has-link-color" style="margin-top:0;margin-right:var(--wp--preset--spacing--20);margin-bottom:0;margin-left:var(--wp--preset--spacing--20)">Neque porro quisquam</h5>
+                    <!-- wp:heading {"level":5,"style":{"spacing":{"margin":{"top":"0","bottom":"0","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}}},"textColor":"font dark"} -->
+                    <h5 class="wp-block-heading has-font-dark-color has-text-color has-link-color" id="neque-porro-quisquam" style="margin-top:0;margin-right:var(--wp--preset--spacing--40);margin-bottom:0;margin-left:var(--wp--preset--spacing--40)">Neque porro quisquam</h5>
                     <!-- /wp:heading -->
                 </div>
                 <!-- /wp:group -->
@@ -46,8 +46,8 @@
                     </div>
                     <!-- /wp:group -->
 
-                    <!-- wp:heading {"level":5,"style":{"spacing":{"margin":{"top":"0","bottom":"0","left":"var:preset|spacing|20","right":"var:preset|spacing|20"}},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}}},"textColor":"font dark"} -->
-                    <h5 class="wp-block-heading has-font-dark-color has-text-color has-link-color" style="margin-top:0;margin-right:var(--wp--preset--spacing--20);margin-bottom:0;margin-left:var(--wp--preset--spacing--20)">Neque porro quisquam</h5>
+                    <!-- wp:heading {"level":5,"style":{"spacing":{"margin":{"top":"0","bottom":"0","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}}},"textColor":"font dark"} -->
+                    <h5 class="wp-block-heading has-font-dark-color has-text-color has-link-color" id="neque-porro-quisquam" style="margin-top:0;margin-right:var(--wp--preset--spacing--40);margin-bottom:0;margin-left:var(--wp--preset--spacing--40)">Neque porro quisquam</h5>
                     <!-- /wp:heading -->
                 </div>
                 <!-- /wp:group -->
