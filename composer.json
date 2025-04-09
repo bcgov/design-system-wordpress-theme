@@ -7,11 +7,11 @@
     "repositories": [
         {
             "type": "composer",
-            "url": "https://apps.itsm.gov.bc.ca/satis"
+            "url": "https://blog.gov.bc.ca/satis"
         }
     ],
     "require-dev": {
-        "bcgov/wordpress-utils": "2.4.0",
+        "bcgov/wordpress-utils": "2.5.0",
         "yoast/phpunit-polyfills": "^1.0"
     },
     "autoload": {
@@ -28,11 +28,11 @@
         }
     },
     "scripts": {
-        "scan-wp-patterns": "@php scan-wp-patterns.php",
-        "update-version":[ 
-            "bash update-version.sh" 
+        "scan-wp-patterns": "@php vendor/bin/scan-wp-patterns.php",
+        "update-version":[
+            "bash update-version.sh"
         ],
-        "test-setup":[ 
+        "test-setup":[
             "bash vendor/bcgov/wordpress-utils/bin/install-wp-tests.sh wordpress_test root 'rootpassword' 0.0.0.0 latest"
         ],
         "production": [
