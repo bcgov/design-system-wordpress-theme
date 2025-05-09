@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Title: DSWP Call to Action
  * Slug: design-system-wordpress-theme/dswp-call-to-action

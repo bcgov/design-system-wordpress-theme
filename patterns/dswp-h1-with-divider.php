@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Title: DSWP H1 with Divider
  * Slug: design-system-wordpress-theme/dswp-h1-with-divider
