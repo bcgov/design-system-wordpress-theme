@@ -1,6 +1,11 @@
 .dswp-information-contact-socials-cards {
 	border-radius: var(--dswp-layout-border-radius-large) !important;
 
+	.dswp-box-header {
+		border-top-right-radius: inherit;
+		border-top-left-radius: inherit;
+	}
+
 	.dswp-information-contact-socials-card {
 		margin-top: 1rem !important;
 		margin-bottom: 1rem !important;
@@ -13,7 +18,7 @@
 	display: flex;
 	justify-content: center;
 
-	> figure {
+	>figure {
 		height: 70px;
 		width: 70px;
 		align-content: center;
@@ -29,4 +34,3 @@
 		}
 	}
 }
-
