@@ -226,6 +226,46 @@
             "defaultPalette": false,
             "palette": [
                 {
+                    "slug": "bar-color",
+                    "color": "var(--dswp-surface-color-border-default)",
+                    "name": "Bar Color"
+                },
+                {
+                    "slug": "typography-color-primary",
+                    "color": "var(--dswp-theme-primary-blue)",
+                    "name": "Typography Color Primary"
+                },
+                {
+                    "slug": "typography-color-secondary",
+                    "color": "var(--dswp-typography-color-secondary)",
+                    "name": "Typography Color Secondary"
+                },
+                {
+                    "slug": "primary-color",
+                    "color": "var(--dswp-theme-primary-blue:)",
+                    "name": "Primary Color"
+                },
+                {
+                    "slug": "primary-color-footer",
+                    "color": "var(--dswp-footer-color-primary)",
+                    "name": "Footer Color Primary "
+                },
+                {
+                    "slug": "secondary-color-footer",
+                    "color": "var(--dswp-footer-color-secondary)",
+                    "name": "Footer Color Secondary"
+                },
+                {
+                    "slug": "tertiary",
+                    "color": "var(--dswp-tertiary-color)",
+                    "name": "Tertiary"
+                },
+                {
+                    "slug": "accent-primary",
+                    "color": "var(--dswp-theme-primary-gold)",
+                    "name": "Accent Primary"
+                },
+                {
                     "slug": "bcgov-gold-accent",
                     "color": "var(--dswp-theme-primary-gold)",
                     "name": "BCGov Gold Accent"
