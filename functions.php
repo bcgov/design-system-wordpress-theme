@@ -135,3 +135,8 @@ function design_system_combine_parent_child_theme_json( $theme_json ) {
     return $theme_json->update_with( $new_data );
 }
 add_filter( 'wp_theme_json_data_theme', 'design_system_combine_parent_child_theme_json' );
+
+/**
+ * Add excerpt support to pages.
+ */
+add_post_type_support( 'page', 'excerpt' );
