@@ -22,3 +22,13 @@ coverage
 documentation/docs/.vuepress/.temp
 documentation/docs/.vuepress/.cache
 documentation/node_modules
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
+
+# Environment variables
+.env
