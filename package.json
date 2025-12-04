@@ -33,7 +33,10 @@
     "@bcgov/bc-sans": "^2.1.0",
     "@bcgov/wordpress-eslint": "git+https://github.com/bcgov/wordpress-eslint.git#semver:1.x",
     "@bcgov/wordpress-stylelintrc": "git+https://github.com/bcgov/wordpress-stylelintrc.git#semver:1.x",
+    "@playwright/test": "1.56.1",
     "@wordpress/base-styles": "^5.7.0",
+    "@wordpress/e2e-test-utils-playwright": "^1.35.0",
+    "@wordpress/env": "^10.35.0",
     "@wordpress/scripts": "28.6.0"
   },
   "scripts": {
@@ -50,7 +53,10 @@
     "packages-update": "wp-scripts packages-update",
     "start": "wp-scripts start --output-path=dist",
     "test:e2e": "wp-scripts test-e2e --passWithNoTests",
+    "test:screenshot": "npx playwright test",
+    "test:screenshot:update": "npx playwright test --update-snapshots",
     "test:unit": "wp-scripts test-unit-js --passWithNoTests",
-    "test": "npm run test:unit"
+    "test": "npm run test:unit",
+    "wp-env": "wp-env"
   }
 }
