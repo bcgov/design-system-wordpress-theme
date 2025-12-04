@@ -20,7 +20,7 @@
                     <div class="wp-block-group dswp-image-container">
                         <!-- wp:image {"id":15470,"width":"36px","height":"auto","sizeSlug":"full","linkDestination":"none","align":"center","className":"size-full is-resized is-style-default"} -->
                         <figure class="wp-block-image aligncenter size-full is-resized is-style-default"><img
-                                src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/square-256.png'); ?>"
+                                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/square-256.png' ); ?>"
                                 alt="" class="wp-image-15470" style="width:36px;height:auto" /></figure>
                         <!-- /wp:image -->
                     </div>
@@ -60,7 +60,7 @@
                     <div class="wp-block-group dswp-image-container">
                         <!-- wp:image {"id":15470,"width":"36px","height":"auto","sizeSlug":"full","linkDestination":"none","align":"center","className":"size-full is-resized is-style-default"} -->
                         <figure class="wp-block-image aligncenter size-full is-resized is-style-default"><img
-                                src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/square-256.png'); ?>"
+                                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/square-256.png' ); ?>"
                                 alt="" class="wp-image-15470" style="width:36px;height:auto" /></figure>
                         <!-- /wp:image -->
                     </div>
