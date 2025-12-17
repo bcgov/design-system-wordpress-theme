@@ -11,7 +11,7 @@ const overrides = [
             "tabWidth": 4,
             "htmlWhitespaceSensitivity": "strict",
             "singleAttributePerLine": true,
-            "printWidth": 80
+            "printWidth": 999999
         }
     }
 ];
