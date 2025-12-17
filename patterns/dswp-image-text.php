@@ -10,14 +10,7 @@
 <!-- wp:group {"style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70","left":"var:preset|spacing|70","right":"var:preset|spacing|70"}}},"className":"dswp-text-image-block-custom-layout","layout":{"type":"constrained"},"metadata":{"categories":["banner"],"patternName":"design-system-wordpress-theme/dswp-image-text","name":"DSWP Image \u0026 Text"}} -->
 <div
     class="wp-block-group dswp-text-image-block-custom-layout"
-    style="
-        margin-top: 0;
-        margin-bottom: 0;
-        padding-top: var(--wp--preset--spacing--70);
-        padding-right: var(--wp--preset--spacing--70);
-        padding-bottom: var(--wp--preset--spacing--70);
-        padding-left: var(--wp--preset--spacing--70);
-    "
+    style="margin-top: 0; margin-bottom: 0; padding-top: var(--wp--preset--spacing--70); padding-right: var(--wp--preset--spacing--70); padding-bottom: var(--wp--preset--spacing--70); padding-left: var(--wp--preset--spacing--70)"
     ><!-- wp:columns {"align":"wide","style":{"spacing":{"padding":{"right":"0em","left":"0em"},"blockGap":{"top":"0","left":"0"}}}} -->
     <div
         class="wp-block-columns alignwide"
@@ -32,13 +25,7 @@
         <!-- wp:column {"width":"26%","style":{"spacing":{"padding":{"right":"0","left":"0","top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"},"blockGap":"0"}},"layout":{"type":"default"}} -->
         <div
             class="wp-block-column"
-            style="
-                padding-top: var(--wp--preset--spacing--60);
-                padding-right: 0;
-                padding-bottom: var(--wp--preset--spacing--60);
-                padding-left: 0;
-                flex-basis: 26%;
-            "
+            style="padding-top: var(--wp--preset--spacing--60); padding-right: 0; padding-bottom: var(--wp--preset--spacing--60); padding-left: 0; flex-basis: 26%"
             ><!-- wp:image {"id":83,"width":"198px","sizeSlug":"full","linkDestination":"none"} -->
             <figure class="wp-block-image size-full is-resized"
                 ><img
@@ -71,12 +58,7 @@
                 <p
                     class="has-text-align-left has-font-dark-color has-text-color has-link-color"
                     style="line-height: 2"
-                    >Lorem ipsum dolor sit amet. Non rerum repudiandae ut rerum
-                    dignissimos ut eveniet autem ex quae internos ut ducimus
-                    recusandae. Est nisi explicabo in accusantium consequatur ea
-                    minima quam qui accusantium molestias. Est odit sint vel
-                    molestiae ullam est repellat odit eum amet quibusdam est
-                    galisum veritatis eum sunt autem.</p
+                    >Lorem ipsum dolor sit amet. Non rerum repudiandae ut rerum dignissimos ut eveniet autem ex quae internos ut ducimus recusandae. Est nisi explicabo in accusantium consequatur ea minima quam qui accusantium molestias. Est odit sint vel molestiae ullam est repellat odit eum amet quibusdam est galisum veritatis eum sunt autem.</p
                 >
                 <!-- /wp:paragraph -->
             </div>
