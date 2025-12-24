@@ -12,6 +12,15 @@
             "name": "footer",
             "title": "footer",
             "area": "footer"
+        },
+        {
+            "name": "search-with-search-plugin",
+            "title": "Search with Search Plugin",
+            "area": "general"
+        },
+        {
+            "name": "search",
+            "title": "Standard Search"
         }
     ],
     "styles": {
