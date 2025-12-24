@@ -20,7 +20,8 @@
         },
         {
             "name": "search",
-            "title": "Standard Search"
+            "title": "Standard Search",
+            "area": "general"
         }
     ],
     "styles": {
