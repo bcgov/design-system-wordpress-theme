@@ -27,8 +27,8 @@ jobs:
       - name: Start wp-env
         run: npm run wp-env start
 
-      - name: Run e2e tests
-        run: npm run test:e2e:screenshot:update
+      - name: Run screenshot updates
+        run: npm run test:screenshot:update
       
       - name: Commit and push updated snapshots
         uses: stefanzweifel/git-auto-commit-action@v5
