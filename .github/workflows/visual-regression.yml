@@ -1,0 +1,36 @@
+name: Visual regression snapshot update
+
+on: [pull_request]
+
+permissions:
+  contents: read
+
+jobs:
+  visual-regression:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Node.js ${{ inputs.node_version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ inputs.node_version }}
+          cache: 'npm'
+
+      - name: Install node dependencies
+        run: npm ci
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      - name: Start wp-env
+        run: npm run wp-env start
+
+      - name: Run e2e tests
+        run: npm run test:e2e:screenshot:update
+      
+      - name: Commit and push updated snapshots
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'Update e2e snapshots'
