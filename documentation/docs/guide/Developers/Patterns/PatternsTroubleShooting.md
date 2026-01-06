@@ -1,6 +1,7 @@
 # Patterns Troubleshooting
 
 ### Common Issues
+
 1. **Images Not Loading**
    - Verify image path in PHP function 
   

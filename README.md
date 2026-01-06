@@ -15,11 +15,12 @@ npm run start
 ## Build
 
 ```bash
-npm run build:production 
-composer checklist 
+npm run build:production
+composer checklist
 ```
 
 ## Visual Regression Testing
+
 This project uses Playwright to perform visual regression testing of patterns to help catch unintended changes.
 
 ```bash
@@ -37,6 +38,6 @@ npm run wp-env start # Unless already running
 npm run test:screenshot:update
 ```
 
-## Child Themes 
+## Child Themes
 
 ### Super Intendent's Office <https://github.com/bcgov/design-system-wordpress-child-theme-superintendent>

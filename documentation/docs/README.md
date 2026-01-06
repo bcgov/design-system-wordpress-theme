@@ -5,6 +5,7 @@ A WordPress theme built with the BC Government Design System, providing a compre
 ## Overview
 
 The Design System WordPress Theme is a powerful tool that allows you to:
+
 - Build complete websites using drag-and-drop patterns
 - Maintain BC Government design consistency
 - Leverage BC Government design tokens and styling
