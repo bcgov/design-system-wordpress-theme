@@ -26,17 +26,17 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-      
-      - name: PHP Setup 
+
+      - name: PHP Setup
         uses: shivammathur/setup-php@v2
         with:
           # Update the specific version of PHP to match the version used on your server.
           php-version: '7.4'
 
-      - name: Install Node.js 20
+      - name: Install Node.js 24
         uses: actions/setup-node@v3
         with:
-          node-version: '20'
+          node-version: '24'
 
       - name: Install dependencies
         run: |
@@ -44,14 +44,14 @@ jobs:
           npm install
 
       - name: Install SVN
-        run: sudo apt-get update && sudo apt-get install -y subversion    
-          
+        run: sudo apt-get update && sudo apt-get install -y subversion
+
       - name: Configure Tests
         run: composer test-setup
 
       - name: Run PHPUnit tests
         run: vendor/bin/phpunit --configuration vendor/bcgov/wordpress-utils/phpunit.xml.dist
-     
+
       - name: Run tests
         run: |
           npm run test
