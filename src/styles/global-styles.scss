@@ -1,3 +1,5 @@
+@use "@wordpress/base-styles/breakpoints" as *;
+
 @media (max-width: $break-medium) {
 	// Right aligns container in mobile.
 	.dswp-align-right-desktop-left-mobile {
