@@ -13,7 +13,7 @@ test.describe('style book', () => {
             'pagination',
             'post-template',
             'query-total',
-            'spacer'
+            'spacer',
         ];
 
         await admin.visitAdminPage(
