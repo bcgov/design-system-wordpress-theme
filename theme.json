@@ -12,6 +12,21 @@
             "name": "footer",
             "title": "footer",
             "area": "footer"
+        },
+        {
+            "name": "search-with-search-plugin",
+            "title": "Search with Search Plugin",
+            "area": "uncategorized"
+        },
+        {
+            "name": "search",
+            "title": "Standard Search",
+            "area": "uncategorized"
+        },
+        {
+            "name": "taxonomy-filters",
+            "title": "Search Taxonomy Filters",
+            "area": "uncategorized"
         }
     ],
     "styles": {
