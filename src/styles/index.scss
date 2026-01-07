@@ -1,17 +1,17 @@
-// Imports are deprecated in favor of @use rules below
-@use "@bcgov/design-tokens/css-prefixed/variables" as *;
-@use "@wordpress/base-styles/breakpoints" as *;
-@use "./variables";
-@use "./block-overrides";
-@use "./patterns/dswp-horizontal-card";
-@use "./patterns/dswp-icon-with-excerpt";
-@use "./patterns/dswp-horizontal-card-large-img";
-@use "./patterns/dswp-vertical-card";
-@use "./patterns/dswp-information-contact-socials";
-@use "./patterns/dswp-card-with-hyperlink-list";
-@use "./patterns/dswp-vertical-cards-with-icon";
-@use "./patterns/dswp-horizontal-card-large-img-right-no-shadow";
-@use "./patterns/dswp-secondary-hero-image-with-title";
-@use "./patterns/dswp-team-pattern";
-@use "./patterns/dswp-bullet-list";
-@use "./global-styles";
+@import "@bcgov/design-tokens/css-prefixed/variables.css"; // import BCgov design system tokens npm package
+@import "node_modules/@wordpress/base-styles/breakpoints";
+@import "./variables"; // import your variables.scss file
+@import "@bcgov/bc-sans/css/BC_Sans.css";
+@import "./block-overrides";
+@import "./patterns/dswp-horizontal-card";
+@import "./patterns/dswp-icon-with-excerpt";
+@import "./patterns/dswp-horizontal-card-large-img";
+@import "./patterns/dswp-vertical-card";
+@import "./patterns/dswp-information-contact-socials";
+@import "./patterns/dswp-card-with-hyperlink-list";
+@import "./patterns/dswp-vertical-cards-with-icon";
+@import "./patterns/dswp-horizontal-card-large-img-right-no-shadow";
+@import "./patterns/dswp-secondary-hero-image-with-title";
+@import "./patterns/dswp-team-pattern";
+@import "./patterns/dswp-bullet-list";
+@import "./global-styles"
