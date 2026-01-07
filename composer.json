@@ -5,8 +5,8 @@
     "license": "Apache-2.0",
     "repositories": [
         {
-            "type": "composer",
-            "url": "https://blog.gov.bc.ca/satis"
+            "type": "vcs",
+            "url": "https://github.com/bcgov/wordpress-utils"
         }
     ],
     "require-dev": {
