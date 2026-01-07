@@ -21,8 +21,7 @@
     "email": "govwordpress@gov.bc.ca"
   },
   "engines": {
-    "npm": ">= 10.8.2",
-    "node": ">=20.18.2"
+    "node": "^24.12.0"
   },
   "main": "index.js",
   "dependencies": {
@@ -31,8 +30,8 @@
   },
   "devDependencies": {
     "@bcgov/bc-sans": "^2.1.0",
-    "@bcgov/wordpress-eslint": "git+https://github.com/bcgov/wordpress-eslint.git#semver:1.x",
-    "@bcgov/wordpress-stylelintrc": "git+https://github.com/bcgov/wordpress-stylelintrc.git#semver:1.x",
+    "@bcgov/wordpress-eslint": "github:bcgov/wordpress-eslint#semver:1.x",
+    "@bcgov/wordpress-stylelintrc": "github:bcgov/wordpress-stylelintrc#semver:1.x",
     "@playwright/test": "1.56.1",
     "@wordpress/base-styles": "^5.7.0",
     "@wordpress/e2e-test-utils-playwright": "^1.35.0",
@@ -46,8 +45,8 @@
     "lint:css": "wp-scripts lint-style 'src/**/*.scss' --allow-empty-input",
     "fix:css": "wp-scripts lint-style 'src/**/*.scss' --fix --allow-empty-input",
     "fix:html": "npx prettier ./{parts,patterns,templates}/**/* --write",
-    "lint:js": "wp-scripts lint-js {src/scripts,tests/}",
-    "fix:js": "wp-scripts lint-js {src/scripts,tests/} --fix",
+    "lint:js": "wp-scripts lint-js '{src,tests}/**/*.{js,ts}'",
+    "fix:js": "wp-scripts lint-js '{src,tests}/**/*.{js,ts}' --fix",
     "format": "wp-scripts format src/",
     "lint:md": "wp-scripts lint-md-docs --config .markdownlint.json --ignore-path .markdownlintignore",
     "fix:md": "wp-scripts lint-md-docs --fix",
