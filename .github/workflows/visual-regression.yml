@@ -12,10 +12,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Install Node.js 20
+      - name: Install Node.js 24
         uses: actions/setup-node@v3
         with:
-          node-version: 20
+          node-version: 24
           cache: 'npm'
 
       - name: Install node dependencies
@@ -29,7 +29,7 @@ jobs:
 
       - name: Run screenshot updates
         run: npm run test:screenshot:update
-      
+
       - name: Commit and push updated snapshots
         uses: stefanzweifel/git-auto-commit-action@v7.1.0
         with:
