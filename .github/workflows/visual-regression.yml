@@ -31,6 +31,6 @@ jobs:
         run: npm run test:screenshot:update
       
       - name: Commit and push updated snapshots
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@v7.1.0
         with:
-          commit_message: 'Update e2e snapshots'
+          commit_message: 'Update e2e snapshots (committed automatically via Visual Regression workflow)'
