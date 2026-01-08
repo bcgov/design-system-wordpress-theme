@@ -29,7 +29,6 @@
     "@wordpress/icons": "^11.4.0"
   },
   "devDependencies": {
-    "@babel/runtime": "^7.26.0",
     "@bcgov/bc-sans": "^2.1.0",
     "@bcgov/wordpress-eslint": "github:bcgov/wordpress-eslint#semver:1.x",
     "@bcgov/wordpress-stylelintrc": "github:bcgov/wordpress-stylelintrc#semver:1.x",
