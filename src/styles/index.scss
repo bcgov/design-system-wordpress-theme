@@ -1,5 +1,5 @@
 @import "@bcgov/design-tokens/css-prefixed/variables.css"; // import BCgov design system tokens npm package
-@import "node_modules/@wordpress/base-styles/breakpoints";
+@import "@wordpress/base-styles/breakpoints";
 @import "./variables"; // import your variables.scss file
 @import "./block-overrides";
 @import "./patterns/dswp-horizontal-card";
@@ -13,4 +13,4 @@
 @import "./patterns/dswp-secondary-hero-image-with-title";
 @import "./patterns/dswp-team-pattern";
 @import "./patterns/dswp-bullet-list";
-@import "./global-styles"
+@import "./global-styles";
