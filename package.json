@@ -26,18 +26,23 @@
   "main": "index.js",
   "dependencies": {
     "@bcgov/design-tokens": "^3.0.1",
-    "@wordpress/icons": "^10.3.0"
+    "@wordpress/icons": "^11.4.0"
   },
   "devDependencies": {
+    "@babel/runtime": "^7.26.0",
     "@bcgov/bc-sans": "^2.1.0",
     "@bcgov/wordpress-eslint": "github:bcgov/wordpress-eslint#semver:1.x",
     "@bcgov/wordpress-stylelintrc": "github:bcgov/wordpress-stylelintrc#semver:1.x",
-    "@playwright/test": "1.56.1",
+    "@playwright/test": "^1.57.0",
     "@wordpress/base-styles": "^5.7.0",
     "@wordpress/e2e-test-utils-playwright": "^1.35.0",
     "@wordpress/env": "^10.35.0",
-    "@wordpress/scripts": "28.6.0",
+    "@wordpress/scripts": "31.2.0",
+    "eslint": "^8.57.1",
     "prettier": "^3.7.4"
+  },
+  "overrides": {
+    "typescript": "~5.3.3"
   },
   "scripts": {
     "build": "wp-scripts build --output-path=dist",
