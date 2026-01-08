@@ -99,14 +99,13 @@ function design_system_combine_parent_child_theme_json( $theme_json ) {
     // Initialize parent palette.
     $parent_palette = array();
 
-    // Check if the theme.json file exists and read it.
+    // Check if the theme.json file exists and read it using WordPress' JSON helper when available.
+    if ( is_readable( $theme_json_path ) ) {
+        $parent_theme_json_data = function_exists( 'wp_json_file_decode' )
+            ? wp_json_file_decode( $theme_json_path, array( 'associative' => true ) )
+            : json_decode( file_get_contents( $theme_json_path ), true ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents -- Local file fallback when wp_json_file_decode is unavailable.
 
-    if ( file_exists( $theme_json_path ) ) {   // TODO Improve the way you get the file contents.
-        $parent_theme_json_content = implode( '', file( $theme_json_path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES ) );
-        $parent_theme_json_data    = json_decode( $parent_theme_json_content, true );
-
-        // Check if the parent theme has a color palette.
-        if ( isset( $parent_theme_json_data['settings']['color']['palette'] ) && is_array( $parent_theme_json_data['settings']['color']['palette'] ) ) {
+        if ( ! is_wp_error( $parent_theme_json_data ) && isset( $parent_theme_json_data['settings']['color']['palette'] ) && is_array( $parent_theme_json_data['settings']['color']['palette'] ) ) {
             $parent_palette = $parent_theme_json_data['settings']['color']['palette'];
         }
     }
