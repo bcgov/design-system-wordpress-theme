@@ -105,7 +105,11 @@ function design_system_combine_parent_child_theme_json( $theme_json ) {
             ? wp_json_file_decode( $theme_json_path, array( 'associative' => true ) )
             : json_decode( file_get_contents( $theme_json_path ), true ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents -- Local file fallback when wp_json_file_decode is unavailable.
 
-        if ( ! is_wp_error( $parent_theme_json_data ) && isset( $parent_theme_json_data['settings']['color']['palette'] ) && is_array( $parent_theme_json_data['settings']['color']['palette'] ) ) {
+        if ( ! is_wp_error( $parent_theme_json_data )
+            && is_array( $parent_theme_json_data )
+            && isset( $parent_theme_json_data['settings']['color']['palette'] )
+            && is_array( $parent_theme_json_data['settings']['color']['palette'] )
+        ) {
             $parent_palette = $parent_theme_json_data['settings']['color']['palette'];
         }
     }
