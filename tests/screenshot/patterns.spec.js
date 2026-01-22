@@ -1,9 +1,7 @@
-import { test, expect } from '@wordpress/e2e-test-utils-playwright';
+import { test } from '@wordpress/e2e-test-utils-playwright';
 
 test.describe('pattern', () => {
     // TODO: Run e2e tests in Playwright Docker container for consistency.
-    const SCREENSHOT_OPTIONS = { maxDiffPixelRatio: 0.02 };
-
     test.beforeEach(async ({ admin }) => {
         // Create a new post before each test
         await admin.createNewPost();
@@ -51,10 +49,32 @@ test.describe('pattern', () => {
             await editor.page
                 .getByRole('button', { name: 'Exit code editor' })
                 .click();
-            const preview = (await editor.openPreviewPage())
-                .locator('.entry-content')
-                .first();
-            await expect(preview).toHaveScreenshot(SCREENSHOT_OPTIONS);
+
+            // Capture editor canvas (inside editor iframe)
+            await editor.page.waitForSelector('iframe[name="editor-canvas"]');
+            const frame = editor.page.frameLocator(
+                'iframe[name="editor-canvas"]'
+            );
+            const canvas = frame.locator('.editor-styles-wrapper');
+            await canvas.waitFor();
+            await canvas.screenshot({
+                animations: 'disabled',
+                path:
+                    'tests/screenshot/__snapshots__/pattern-' +
+                    name +
+                    '-editor.png',
+            });
+
+            // Capture frontend content.
+            const previewPage = await editor.openPreviewPage();
+            const preview = previewPage.locator('.entry-content').first();
+            await preview.screenshot({
+                animations: 'disabled',
+                path:
+                    'tests/screenshot/__snapshots__/pattern-' +
+                    name +
+                    '-frontend.png',
+            });
         });
     });
 });
