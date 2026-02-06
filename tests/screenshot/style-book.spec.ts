@@ -14,6 +14,10 @@ test.describe('style book', () => {
             'post-template',
             'query-total',
             'spacer',
+            'rss',
+            'video',
+            'calendar',
+            'latest-comments',
         ];
 
         await admin.visitAdminPage(
