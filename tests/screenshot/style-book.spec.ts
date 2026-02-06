@@ -17,8 +17,7 @@ test.describe('style book', () => {
             'rss',
             'video',
             'calendar',
-            'latest-comments'
-
+            'latest-comments',
         ];
 
         await admin.visitAdminPage(
