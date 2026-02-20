@@ -20,9 +20,14 @@
             "area": "footer"
         },
         {
-            "name": "header-with-search-plugin",
-            "title": "Header with Search Plugin",
-            "area": "header"
+            "name": "search-bar",
+            "title": "Search Bar (Core)",
+            "area": "uncategorized"
+        },
+        {
+            "name": "search-bar-with-search-plugin",
+            "title": "Search Bar with Search Plugin",
+            "area": "uncategorized"
         },
         {
             "name": "search-with-search-plugin",
