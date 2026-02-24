@@ -27,6 +27,21 @@ jobs:
       - name: Start wp-env
         run: npm run wp-env start
 
+      - name: Wait for WordPress REST API
+        run: |
+          WP_BASE_URL="${WP_BASE_URL:-http://localhost:8889}"
+          echo "Waiting for WordPress at $WP_BASE_URL ..."
+          for i in $(seq 1 60); do
+            if curl -sf -o /dev/null -w '%{http_code}' "$WP_BASE_URL/wp-json" | grep -q 200; then
+              echo "REST API is ready."
+              exit 0
+            fi
+            echo "Attempt $i/60: REST API not ready yet."
+            sleep 5
+          done
+          echo "Timeout waiting for WordPress REST API."
+          exit 1
+
       - name: Run screenshot updates
         run: npm run test:screenshot:update
 
