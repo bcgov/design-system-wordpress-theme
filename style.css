@@ -13,3 +13,12 @@ License URI: LICENSE
 Text Domain: design-system-wordpress-theme
 Tags:
 */
+
+/* Plugin-required banner (front end when Design System Plugin is inactive). */
+.design-system-theme-plugin-required-banner {
+	background: #f0b849;
+	color: #000;
+	padding: 0.75rem 1rem;
+	text-align: center;
+	font-size: 0.875rem;
+}
