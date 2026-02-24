@@ -14,17 +14,16 @@ function design_system_wordpress_theme_required_plugin() {
 	return 'design-system-wordpress-plugin/design-system-wordpress-plugin.php';
 }
 
-add_action( 'after_switch_theme', 'design_system_theme_activate_plugin_on_switch', 10, 3 );
+add_action( 'after_switch_theme', 'design_system_theme_activate_plugin_on_switch', 10, 2 );
 add_action( 'after_setup_theme', 'design_system_theme_register_plugin_required_notices', 5 );
 
 /**
  * Auto-activate plugin when this theme is switched to; admins can disable it later.
  *
  * @param string   $old_name  Previous theme name.
- * @param WP_Theme $old_theme Previous theme instance.
  * @param WP_Theme $new_theme New theme instance (the one just activated).
  */
-function design_system_theme_activate_plugin_on_switch( $old_name, $old_theme, $new_theme ) {
+function design_system_theme_activate_plugin_on_switch( $old_name, $new_theme ) {
 	if ( 'design-system-wordpress-theme' !== $new_theme->get_template() ) {
 		return;
 	}
