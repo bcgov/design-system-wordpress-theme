@@ -39,45 +39,23 @@ function design_system_theme_activate_plugin_on_switch( $old_name, $old_theme ) 
 	}
 }
 
-/** Register admin notice and frontend banner when plugin is inactive. */
+/** Register admin notice when plugin is inactive. */
 function design_system_theme_register_plugin_required_notices() {
-	if ( function_exists( 'design_system_register_blocks' ) ) {
+	require_once ABSPATH . 'wp-admin/includes/plugin.php';
+	if ( is_plugin_active( design_system_wordpress_theme_required_plugin() ) ) {
 		return;
 	}
-	add_action(
-        'admin_notices',
-        function () {
-			design_system_theme_plugin_required_notice( 'admin' );
-		}
-    );
-	add_action(
-        'wp_body_open',
-        function () {
-			design_system_theme_plugin_required_notice( 'front' );
-		},
-        1
-    );
+	add_action( 'admin_notices', 'design_system_theme_plugin_required_notice' );
 }
 
-/**
- * Outputs the "plugin required" notice in admin or frontend.
- *
- * @param string $context Either 'admin' or 'front'.
- */
-function design_system_theme_plugin_required_notice( $context ) {
-	if ( function_exists( 'design_system_register_blocks' ) ) {
-		return;
-	}
+/** Outputs the "plugin required" notice in the admin. */
+function design_system_theme_plugin_required_notice() {
 	$msg = __( 'This theme will not work correctly without the Design System Plugin. Please enable it.', 'design-system-wordpress-theme' );
-	if ( 'admin' === $context ) {
-		echo '<div class="notice notice-warning is-dismissible"><p><strong>' . esc_html__( 'Design System Theme', 'design-system-wordpress-theme' ) . ':</strong> ' . esc_html( $msg );
-		if ( current_user_can( 'activate_plugins' ) ) {
-			echo ' <a href="' . esc_url( admin_url( 'plugins.php' ) ) . '">' . esc_html__( 'Go to Plugins', 'design-system-wordpress-theme' ) . '</a>';
-		}
-		echo '</p></div>';
-	} else {
-		echo '<div class="design-system-theme-plugin-required-banner" role="alert">' . esc_html( $msg . ' ' . __( 'Enable it in the WordPress admin.', 'design-system-wordpress-theme' ) ) . '</div>';
+	echo '<div class="notice notice-warning is-dismissible"><p><strong>' . esc_html__( 'Design System Theme', 'design-system-wordpress-theme' ) . ':</strong> ' . esc_html( $msg );
+	if ( current_user_can( 'activate_plugins' ) ) {
+		echo ' <a href="' . esc_url( admin_url( 'plugins.php' ) ) . '">' . esc_html__( 'Go to Plugins', 'design-system-wordpress-theme' ) . '</a>';
 	}
+	echo '</p></div>';
 }
 
 /**
@@ -86,9 +64,9 @@ function design_system_theme_plugin_required_notice( $context ) {
  * @since 1.3.0
  */
 function design_system_public_enqueue_global_styles() {
-	$version = filemtime( get_template_directory() . '/dist/index.css' );
+	$asset_file = get_template_directory() . '/dist/index.asset.php';
+	$version    = file_exists( $asset_file ) ? ( include $asset_file )['version'] : filemtime( get_template_directory() . '/dist/index.css' );
 	wp_enqueue_style( 'design-system-styles', get_template_directory_uri() . '/dist/index.css', array(), $version );
-	wp_enqueue_style( 'design-system-theme', get_stylesheet_uri(), array( 'design-system-styles' ), filemtime( get_stylesheet_directory() . '/style.css' ) );
 }
 
 add_action( 'enqueue_block_assets', 'design_system_public_enqueue_global_styles' );
@@ -241,3 +219,4 @@ function design_system_register_templates() {
 		],
 	);
 }
+
