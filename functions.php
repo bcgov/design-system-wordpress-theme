@@ -224,12 +224,14 @@ add_post_type_support( 'page', 'excerpt' );
 
 
 // WordPress Design System Theme
-// This is the fallback (default), and is used to bring in the template part `search.html`.
+// Search template uses template-part slug "search". When the wordpress-search plugin is active,
+// that slug is swapped to "search-with-search-plugin" via render_block_data in the plugin.
 add_action( 'init', 'design_system_register_templates', 1 );
 /**
  * Registers the Design System Theme search template.
  *
- * This is the fallback (default) template used to bring in the template part `search.html`.
+ * Uses template part slug "search". The wordpress-search plugin swaps this to
+ * "search-with-search-plugin" via render_block_data when active.
  */
 function design_system_register_templates() {
 	register_block_template(
