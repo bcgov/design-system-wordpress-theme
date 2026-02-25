@@ -19,11 +19,8 @@ add_action( 'after_setup_theme', 'design_system_theme_register_plugin_required_n
 
 /**
  * Auto-activate plugin when this theme is switched to; admins can disable it later.
- *
- * @param string   $old_name  Previous theme name.
- * @param WP_Theme $old_theme WP_Theme instance of the old theme (the one that was active before the switch).
  */
-function design_system_theme_activate_plugin_on_switch( $old_name, $old_theme ) {
+function design_system_theme_activate_plugin_on_switch() {
 	$new_theme = wp_get_theme( get_stylesheet() );
 	if ( 'design-system-wordpress-theme' !== $new_theme->get_template() ) {
 		return;
