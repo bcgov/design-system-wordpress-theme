@@ -219,4 +219,3 @@ function design_system_register_templates() {
 		],
 	);
 }
-
