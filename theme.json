@@ -345,7 +345,12 @@
                     "slug": "background-medium-gray",
                     "color": "var(--bcds-theme-gray-70)",
                     "name": "Background medium gray"
-                }
+                },
+                {
+                    "slug": "background-dark-blue",
+                    "color": "var(--dswp-surface-color-background-dark-blue)",
+                    "name": "Background dark blue"
+                }                
             ]
         }
     }
