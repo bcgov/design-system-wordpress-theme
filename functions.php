@@ -224,7 +224,6 @@ add_post_type_support( 'page', 'excerpt' );
 
 
 // WordPress Design System Theme
- << << << < Updated upstream
 // Search template uses template-part slug "search". When the wordpress-search plugin is active,
 // that slug is swapped to "search-with-search-plugin" via render_block_data in the plugin.
 add_action( 'init', 'design_system_register_templates', 1 );
@@ -244,9 +243,6 @@ function design_system_register_templates() {
 		],
 	);
 }
-=== === =
 // Search uses templates/search.html, which has template-part slug "search". When the
 // wordpress-search plugin is active, that slug is swapped to "search-with-search-plugin" via
 // render_block_data in the plugin. No PHP template registration needed.
-
->> >> >> > Stashed changes
