@@ -196,23 +196,3 @@ add_filter( 'wp_theme_json_data_theme', 'design_system_combine_parent_child_them
  * Add excerpt support to pages.
  */
 add_post_type_support( 'page', 'excerpt' );
-
-
-// WordPress Design System Theme
-// This is the fallback (default), and is used to bring in the template part `search.html`.
-add_action( 'init', 'design_system_register_templates', 1 );
-/**
- * Registers the Design System Theme search template.
- *
- * This is the fallback (default) template used to bring in the template part `search.html`.
- */
-function design_system_register_templates() {
-	register_block_template(
-		'design-system-wordpress-theme//search-content',
-		[
-			'title'       => 'Design System Theme Search Template',
-			'description' => 'Search results',
-			'content'     => '<!-- wp:template-part {"slug":"search","area":"uncategorized"} /-->',
-		],
-	);
-}
