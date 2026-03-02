@@ -64,6 +64,12 @@ function design_system_public_enqueue_global_styles() {
 	$asset_file = get_template_directory() . '/dist/index.asset.php';
 	$version    = file_exists( $asset_file ) ? ( include $asset_file )['version'] : filemtime( get_template_directory() . '/dist/index.css' );
 	wp_enqueue_style( 'design-system-styles', get_template_directory_uri() . '/dist/index.css', array(), $version );
+	wp_enqueue_style(
+		'design-system-query-pagination',
+		get_template_directory_uri() . '/assets/query-pagination.css',
+		array( 'design-system-styles' ),
+		filemtime( get_template_directory() . '/assets/query-pagination.css' )
+	);
 }
 
 add_action( 'enqueue_block_assets', 'design_system_public_enqueue_global_styles' );
