@@ -11,7 +11,7 @@
  * @return string Plugin basename path.
  */
 function design_system_wordpress_theme_required_plugin() {
-	return 'design-system-wordpress-plugin/design-system-wordpress-plugin.php';
+    return 'design-system-wordpress-plugin/design-system-wordpress-plugin.php';
 }
 
 add_action( 'after_switch_theme', 'design_system_theme_activate_plugin_on_switch', 10, 2 );
@@ -21,38 +21,38 @@ add_action( 'after_setup_theme', 'design_system_theme_register_plugin_required_n
  * Auto-activate plugin when this theme is switched to; admins can disable it later.
  */
 function design_system_theme_activate_plugin_on_switch() {
-	$new_theme = wp_get_theme( get_stylesheet() );
-	if ( 'design-system-wordpress-theme' !== $new_theme->get_template() ) {
-		return;
-	}
-	$plugin = design_system_wordpress_theme_required_plugin();
-	$path   = WP_PLUGIN_DIR . '/' . $plugin;
-	if ( ! file_exists( $path ) ) {
-		return;
-	}
-	require_once ABSPATH . 'wp-admin/includes/plugin.php';
-	if ( ! is_plugin_active( $plugin ) ) {
-		activate_plugin( $plugin, '', false, true );
-	}
+    $new_theme = wp_get_theme( get_stylesheet() );
+    if ( 'design-system-wordpress-theme' !== $new_theme->get_template() ) {
+        return;
+    }
+    $plugin = design_system_wordpress_theme_required_plugin();
+    $path   = WP_PLUGIN_DIR . '/' . $plugin;
+    if ( ! file_exists( $path ) ) {
+        return;
+    }
+    require_once ABSPATH . 'wp-admin/includes/plugin.php';
+    if ( ! is_plugin_active( $plugin ) ) {
+        activate_plugin( $plugin, '', false, true );
+    }
 }
 
 /** Register admin notice when plugin is inactive. */
 function design_system_theme_register_plugin_required_notices() {
-	require_once ABSPATH . 'wp-admin/includes/plugin.php';
-	if ( is_plugin_active( design_system_wordpress_theme_required_plugin() ) ) {
-		return;
-	}
-	add_action( 'admin_notices', 'design_system_theme_plugin_required_notice' );
+    require_once ABSPATH . 'wp-admin/includes/plugin.php';
+    if ( is_plugin_active( design_system_wordpress_theme_required_plugin() ) ) {
+        return;
+    }
+    add_action( 'admin_notices', 'design_system_theme_plugin_required_notice' );
 }
 
 /** Outputs the "plugin required" notice in the admin. */
 function design_system_theme_plugin_required_notice() {
-	$msg = __( 'This theme will not work correctly without the Design System Plugin. Please enable it.', 'design-system-wordpress-theme' );
-	echo '<div class="notice notice-warning is-dismissible"><p><strong>' . esc_html__( 'Design System Theme', 'design-system-wordpress-theme' ) . ':</strong> ' . esc_html( $msg );
-	if ( current_user_can( 'activate_plugins' ) ) {
-		echo ' <a href="' . esc_url( admin_url( 'plugins.php' ) ) . '">' . esc_html__( 'Go to Plugins', 'design-system-wordpress-theme' ) . '</a>';
-	}
-	echo '</p></div>';
+    $msg = __( 'This theme will not work correctly without the Design System Plugin. Please enable it.', 'design-system-wordpress-theme' );
+    echo '<div class="notice notice-warning is-dismissible"><p><strong>' . esc_html__( 'Design System Theme', 'design-system-wordpress-theme' ) . ':</strong> ' . esc_html( $msg );
+    if ( current_user_can( 'activate_plugins' ) ) {
+        echo ' <a href="' . esc_url( admin_url( 'plugins.php' ) ) . '">' . esc_html__( 'Go to Plugins', 'design-system-wordpress-theme' ) . '</a>';
+    }
+    echo '</p></div>';
 }
 
 /**
@@ -61,9 +61,9 @@ function design_system_theme_plugin_required_notice() {
  * @since 1.3.0
  */
 function design_system_public_enqueue_global_styles() {
-	$asset_file = get_template_directory() . '/dist/index.asset.php';
-	$version    = file_exists( $asset_file ) ? ( include $asset_file )['version'] : filemtime( get_template_directory() . '/dist/index.css' );
-	wp_enqueue_style( 'design-system-styles', get_template_directory_uri() . '/dist/index.css', array(), $version );
+    $asset_file = get_template_directory() . '/dist/index.asset.php';
+    $version    = file_exists( $asset_file ) ? ( include $asset_file )['version'] : filemtime( get_template_directory() . '/dist/index.css' );
+    wp_enqueue_style( 'design-system-styles', get_template_directory_uri() . '/dist/index.css', array(), $version );
 }
 
 add_action( 'enqueue_block_assets', 'design_system_public_enqueue_global_styles' );
