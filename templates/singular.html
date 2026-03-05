@@ -1,11 +1,20 @@
 <!-- wp:template-part {"slug":"header","area":"header"} /-->
 
-<!-- wp:group {"style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"default"}} -->
-<div
-    class="wp-block-group"
-    style="margin-top: 0; margin-bottom: 0"
-    ><!-- wp:post-content {"layout":{"type":"default"}} /--></div
->
+<!-- wp:group {"tagName":"main","align":"full","className":"bcgov-body-content","style":{"border":{"top":{"color":"var:preset|color|banner-background-dark","width":"2px"},"right":[],"bottom":[],"left":[]},"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"2rem"}}},"layout":{"type":"constrained"}} -->
+<main class="wp-block-group alignfull bcgov-body-content"
+    style="border-top-color:var(--wp--preset--color--banner-background-dark);border-top-width:2px;padding-top:var(--wp--preset--spacing--50);padding-bottom:2rem">
+    <!-- wp:group {"style":{"spacing":{"padding":{"bottom":"2.25rem"},"blockGap":"var:preset|spacing|50"}},"layout":{"inherit":true,"type":"constrained"}} -->
+    <div class="wp-block-group" style="padding-bottom:2.25rem">
+        <!-- wp:post-title {"level":1,"style":{"spacing":{"padding":{"top":"1.75rem","bottom":"1.5rem"}},"border":{"bottom":{"color":"var:preset|color|bar-color","width":"1px"}}}} /-->
+
+        <!-- wp:post-date {"style":{"typography":{"fontStyle":"normal","fontWeight":"700"}}} /-->
+
+        <!-- wp:post-terms {"term":"category"} /-->
+
+        <!-- wp:post-content /-->
+    </div>
+    <!-- /wp:group -->
+</main>
 <!-- /wp:group -->
 
 <!-- wp:template-part {"slug":"footer","area":"footer"} /-->
