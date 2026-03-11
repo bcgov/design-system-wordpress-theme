@@ -6,22 +6,28 @@
     style="padding-right: 1rem; padding-left: 1rem"
     ><!-- wp:group {"layout":{"type":"default"}} -->
     <div class="wp-block-group"
-        ><!-- wp:heading {"level":1,"style":{"spacing":{"margin":{"top":"1.5rem","bottom":"1.5rem"}}}} -->
+        ><!-- wp:heading {"level":1,"style":{"border":{"bottom":{"color":"var:preset|color|bar-color","width":"1px"}},"spacing":{"padding":{"top":"1.5rem","bottom":"1.5rem"},"margin":{"bottom":"1.5rem"}}}} -->
         <h1
             class="wp-block-heading"
-            style="margin-top: 1.5rem; margin-bottom: 1.5rem"
+            style="border-bottom-color: var(--wp--preset--color--bar-color); border-bottom-width: 1px; margin-bottom: 1.5rem; padding-top: 1.5rem; padding-bottom: 1.5rem"
             >404 - The page you’re looking for can’t be found</h1
         >
         <!-- /wp:heading -->
 
-        <!-- wp:paragraph -->
-        <p>The page you’re looking for might have been removed, moved, or is temporarily unavailable.<br />You can try:</p>
+        <!-- wp:paragraph {"style":{"spacing":{"margin":{"bottom":"1rem"}}}} -->
+        <p style="margin-bottom: 1rem">The page you’re looking for might have been removed, moved, or is temporarily unavailable.</p>
         <!-- /wp:paragraph -->
 
-        <!-- wp:list -->
-        <ul class="wp-block-list"
-            ><!-- wp:list-item -->
-            <li>Checking that the web URL has been entered correctly</li>
+        <!-- wp:paragraph {"style":{"spacing":{"margin":{"bottom":"1rem"}}}} -->
+        <p style="margin-bottom: 1rem">You can try:</p>
+        <!-- /wp:paragraph -->
+
+        <!-- wp:list {"style":{"typography":{"lineHeight":"2.1"},"spacing":{"margin":{"bottom":"1.5rem"}}}} -->
+        <ul
+            style="margin-bottom: 1.5rem; line-height: 2.1"
+            class="wp-block-list"
+            ><!-- wp:list-item {"style":{"spacing":{"padding":{"top":"0","bottom":"0"}}}} -->
+            <li style="padding-top: 0; padding-bottom: 0">Checking that the web URL has been entered correctly</li>
             <!-- /wp:list-item -->
 
             <!-- wp:list-item -->
