@@ -1,3 +1,10 @@
+/* Post Title: style variation to add underline (use in templates where desired) */
+.wp-block-post-title.is-style-underline-title,
+.wp-block-post-title.is-style-underline-title a,
+.wp-block-post-title.is-style-underline-title .wp-block-post-title__link {
+	text-decoration: underline;
+}
+
 .is-style-navigation-separator {
 
 	.wp-block-navigation__container.block-editor-block-list__layout {

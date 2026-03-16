@@ -112,6 +112,22 @@ function design_system_include_block_style_variations( $dir_path ) {
 $dir_path = get_template_directory() . '/blocks/core/style-variations';
 design_system_include_block_style_variations( $dir_path );
 
+/**
+ * Registers the post title block styles (e.g. Underline).
+ *
+ * @since 1.3.0
+ */
+function design_system_register_post_title_block_styles() {
+	$block_name       = 'core/post-title';
+	$style_properties = array(
+		'name'         => 'underline-title',
+		'label'        => __( 'Underline' ),
+		'isDefault'    => false,
+		'style_handle' => 'design-system-styles',
+	);
+	register_block_style( $block_name, $style_properties );
+}
+add_action( 'init', 'design_system_register_post_title_block_styles' );
 
 /**
  * Restrict access to the locking UI to Administrators.
