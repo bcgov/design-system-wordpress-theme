@@ -196,3 +196,23 @@ add_filter( 'wp_theme_json_data_theme', 'design_system_combine_parent_child_them
  * Add excerpt support to pages.
  */
 add_post_type_support( 'page', 'excerpt' );
+
+
+/**
+ * Register "No underline" style variation for Post Title block.
+ * Default is underlined (theme.json); this variation removes the underline.
+ */
+add_action(
+    'init',
+    function () {
+        if ( function_exists( 'register_block_style' ) ) {
+            register_block_style(
+                'core/post-title',
+                array(
+                    'name'  => 'no-underline-title',
+                    'label' => __( 'No underline', 'design-system-wordpress-theme' ),
+                )
+            );
+        }
+    }
+);

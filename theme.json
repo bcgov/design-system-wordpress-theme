@@ -90,6 +90,11 @@
                         "right": "0"
                     }
                 }
+            },
+            "core/post-title": {
+                "typography": {
+                    "textDecoration": "underline"
+                }
             }
         },
         "color": {
