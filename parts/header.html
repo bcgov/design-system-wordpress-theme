@@ -1,10 +1,8 @@
-<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"20px","bottom":"20px"}}},"backgroundColor":"base","layout":{"type":"constrained"}} -->
-<div
-    class="wp-block-group alignwide has-base-background-color has-background"
-    style="padding-top: 20px; padding-bottom: 20px"
+<!-- wp:group {"align":"wide","backgroundColor":"base","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignwide has-base-background-color has-background"
     ><!-- wp:group {"align":"wide","layout":{"type":"flex","justifyContent":"space-between","flexWrap":"wrap"}} -->
     <div class="wp-block-group alignwide"
-        ><!-- wp:site-logo {"width":167} /-->
+        ><!-- wp:site-logo /-->
 
         <!-- wp:design-system-wordpress-plugin/navigation {"overlayMenu":"always","ref":123,"menuId":123,"mobileBreakpoint":555,"showInDesktop":false,"showInMobile":true} /-->
 
@@ -12,10 +10,20 @@
     >
     <!-- /wp:group -->
 
-    <!-- wp:group {"align":"full","layout":{"type":"constrained"}} -->
-    <div class="wp-block-group alignfull"><!-- wp:design-system-wordpress-plugin/navigation {"ref":123,"menuId":123,"mobileBreakpoint":555} /--></div>
+    <!-- wp:group {"align":"full","style":{"border":{"top":{"color":"var:preset|color|bar-color","width":"1px"},"bottom":{"color":"var:preset|color|bar-color","width":"1px"}}},"layout":{"type":"constrained"}} -->
+    <div
+        class="wp-block-group alignfull"
+        style="border-top-color: var(--wp--preset--color--bar-color); border-top-width: 1px; border-bottom-color: var(--wp--preset--color--bar-color); border-bottom-width: 1px"
+        ><!-- wp:design-system-wordpress-plugin/navigation {"ref":123,"menuId":123,"mobileBreakpoint":555,"style":{"typography":{"fontSize":"16px"}}} /--></div
+    >
     <!-- /wp:group -->
 
-    <!-- wp:design-system-wordpress-plugin/breadcrumb /--></div
+    <!-- wp:group {"align":"full","style":{"border":{"bottom":{"color":"var:preset|color|bar-color","width":"1px"},"top":{},"right":{},"left":{}}},"layout":{"type":"constrained"}} -->
+    <div
+        class="wp-block-group alignfull"
+        style="border-bottom-color: var(--wp--preset--color--bar-color); border-bottom-width: 1px"
+        ><!-- wp:design-system-wordpress-plugin/breadcrumb /--></div
+    >
+    <!-- /wp:group --></div
 >
 <!-- /wp:group -->
