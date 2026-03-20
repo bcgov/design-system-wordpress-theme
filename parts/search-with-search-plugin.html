@@ -37,11 +37,14 @@
             <!-- wp:wordpress-search/search-modal {"buttonText":"Sort and Filter","buttonStyle":"secondary"} -->
             <div class="wp-block-wordpress-search-search-modal" data-mobile-breakpoint="768"
                 data-button-text="Sort and Filter" data-button-style="secondary" style="--mobile-breakpoint:768px">
-                <div><!-- wp:heading {"level":4} -->
-                    <h4 class="wp-block-heading">Sort and Filter</h4>
+                <div><!-- wp:heading {"level":4,"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|50"}}}} -->
+                    <h4 class="wp-block-heading" style="margin-bottom:var(--wp--preset--spacing--50)">Sort and Filter
+                    </h4>
                     <!-- /wp:heading -->
 
-                    <!-- wp:template-part {"slug":"taxonomy-filters","area":"uncategorized"} /-->
+                    <!-- wp:wordpress-search/searchresultssort /-->
+
+                    <!-- wp:template-part {"slug":"taxonomy-filters","theme":"design-system-wordpress-theme","area":"uncategorized"} /-->
                 </div>
             </div>
             <!-- /wp:wordpress-search/search-modal -->
