@@ -21,28 +21,32 @@
     "email": "govwordpress@gov.bc.ca"
   },
   "engines": {
-    "npm": ">= 10.8.2",
-    "node": ">=20.18.2"
+    "node": "^24.12.0"
   },
   "main": "index.js",
   "dependencies": {
     "@bcgov/design-tokens": "^3.0.1",
-    "@wordpress/icons": "^10.3.0"
+    "@wordpress/icons": "^11.4.0"
   },
   "devDependencies": {
     "@bcgov/bc-sans": "^2.1.0",
-    "@bcgov/wordpress-eslint": "git+https://github.com/bcgov/wordpress-eslint.git#semver:1.x",
-    "@bcgov/wordpress-stylelintrc": "git+https://github.com/bcgov/wordpress-stylelintrc.git#semver:1.x",
+    "@bcgov/wordpress-eslint": "github:bcgov/wordpress-eslint#semver:1.x",
+    "@bcgov/wordpress-stylelintrc": "github:bcgov/wordpress-stylelintrc#semver:1.x",
+    "@playwright/test": "^1.57.0",
     "@wordpress/base-styles": "^5.7.0",
-    "@wordpress/scripts": "28.6.0"
+    "@wordpress/e2e-test-utils-playwright": "^1.35.0",
+    "@wordpress/env": "^10.35.0",
+    "@wordpress/scripts": "^31.2.0",
+    "prettier": "^3.7.4"
   },
   "scripts": {
     "build": "wp-scripts build --output-path=dist",
     "build:production": "npm ci && npm run fix:js && npm run fix:css && npm run fix:md && npm run test:unit && npm run build",
     "lint:css": "wp-scripts lint-style 'src/**/*.scss' --allow-empty-input",
     "fix:css": "wp-scripts lint-style 'src/**/*.scss' --fix --allow-empty-input",
-    "lint:js": "wp-scripts lint-js src/scripts",
-    "fix:js": "wp-scripts lint-js src/scripts --fix",
+    "fix:html": "npx prettier ./{parts,patterns,templates}/**/* --write",
+    "lint:js": "wp-scripts lint-js '{src,tests}/**/*.{js,ts}'",
+    "fix:js": "wp-scripts lint-js '{src,tests}/**/*.{js,ts}' --fix",
     "format": "wp-scripts format src/",
     "lint:md": "wp-scripts lint-md-docs --config .markdownlint.json --ignore-path .markdownlintignore",
     "fix:md": "wp-scripts lint-md-docs --fix",
@@ -50,7 +54,10 @@
     "packages-update": "wp-scripts packages-update",
     "start": "wp-scripts start --output-path=dist",
     "test:e2e": "wp-scripts test-e2e --passWithNoTests",
+    "test:screenshot": "npx playwright test",
+    "test:screenshot:update": "npx playwright test --update-snapshots",
     "test:unit": "wp-scripts test-unit-js --passWithNoTests",
-    "test": "npm run test:unit"
+    "test": "npm run test:unit",
+    "wp-env": "wp-env"
   }
 }

@@ -1,0 +1,8 @@
+# Ignore artifacts:
+build
+dist
+
+# Ignore all non-html php files:
+blocks/*.php
+src/*.php
+tests/*.php

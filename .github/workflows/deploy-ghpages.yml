@@ -15,9 +15,9 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: "20.15.1"
+          node-version: "24"
 
-      - name: Install and Build 🔧 
+      - name: Install and Build 🔧
         run: |
           cd documentation
           npm install

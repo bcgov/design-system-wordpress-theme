@@ -1,4 +1,59 @@
 <?php
+/**
+ * Design System Plugin dependency: auto-activate on theme switch, allow admins to disable, show notice when inactive.
+ *
+ * @package Design_System_WordPress_Theme
+ */
+
+/**
+ * Plugin path (relative to wp-content/plugins) required by this theme.
+ *
+ * @return string Plugin basename path.
+ */
+function design_system_wordpress_theme_required_plugin() {
+    return 'design-system-wordpress-plugin/design-system-wordpress-plugin.php';
+}
+
+add_action( 'after_switch_theme', 'design_system_theme_activate_plugin_on_switch', 10, 2 );
+add_action( 'after_setup_theme', 'design_system_theme_register_plugin_required_notices', 5 );
+
+/**
+ * Auto-activate plugin when this theme is switched to; admins can disable it later.
+ */
+function design_system_theme_activate_plugin_on_switch() {
+    $new_theme = wp_get_theme( get_stylesheet() );
+    if ( 'design-system-wordpress-theme' !== $new_theme->get_template() ) {
+        return;
+    }
+    $plugin = design_system_wordpress_theme_required_plugin();
+    $path   = WP_PLUGIN_DIR . '/' . $plugin;
+    if ( ! file_exists( $path ) ) {
+        return;
+    }
+    require_once ABSPATH . 'wp-admin/includes/plugin.php';
+    if ( ! is_plugin_active( $plugin ) ) {
+        activate_plugin( $plugin, '', false, true );
+    }
+}
+
+/** Register admin notice when plugin is inactive. */
+function design_system_theme_register_plugin_required_notices() {
+    require_once ABSPATH . 'wp-admin/includes/plugin.php';
+    if ( is_plugin_active( design_system_wordpress_theme_required_plugin() ) ) {
+        return;
+    }
+    add_action( 'admin_notices', 'design_system_theme_plugin_required_notice' );
+}
+
+/** Outputs the "plugin required" notice in the admin. */
+function design_system_theme_plugin_required_notice() {
+    $msg = __( 'This theme will not work correctly without the Design System Plugin. Please enable it.', 'design-system-wordpress-theme' );
+    echo '<div class="notice notice-warning is-dismissible"><p><strong>' . esc_html__( 'Design System Theme', 'design-system-wordpress-theme' ) . ':</strong> ' . esc_html( $msg );
+    if ( current_user_can( 'activate_plugins' ) ) {
+        echo ' <a href="' . esc_url( admin_url( 'plugins.php' ) ) . '">' . esc_html__( 'Go to Plugins', 'design-system-wordpress-theme' ) . '</a>';
+    }
+    echo '</p></div>';
+}
 
 /**
  * Enqueues the design system CSS stylesheet on the frontend of the WordPress site.
@@ -6,7 +61,8 @@
  * @since 1.3.0
  */
 function design_system_public_enqueue_global_styles() {
-    $version = filemtime( get_template_directory() . '/dist/index.css' );
+    $asset_file = get_template_directory() . '/dist/index.asset.php';
+    $version    = file_exists( $asset_file ) ? ( include $asset_file )['version'] : filemtime( get_template_directory() . '/dist/index.css' );
     wp_enqueue_style( 'design-system-styles', get_template_directory_uri() . '/dist/index.css', array(), $version );
 }
 
@@ -56,6 +112,22 @@ function design_system_include_block_style_variations( $dir_path ) {
 $dir_path = get_template_directory() . '/blocks/core/style-variations';
 design_system_include_block_style_variations( $dir_path );
 
+/**
+ * Registers the post title block styles (e.g. Underline).
+ *
+ * @since 1.3.0
+ */
+function design_system_register_post_title_block_styles() {
+	$block_name       = 'core/post-title';
+	$style_properties = array(
+		'name'         => 'underline-title',
+		'label'        => __( 'Underline' ),
+		'isDefault'    => false,
+		'style_handle' => 'design-system-styles',
+	);
+	register_block_style( $block_name, $style_properties );
+}
+add_action( 'init', 'design_system_register_post_title_block_styles' );
 
 /**
  * Restrict access to the locking UI to Administrators.
@@ -101,7 +173,7 @@ function design_system_combine_parent_child_theme_json( $theme_json ) {
 
     // Check if the theme.json file exists and read it.
 
-    if ( file_exists( $theme_json_path ) ) {   // TODO Improve the way you get the file contents.
+    if ( file_exists( $theme_json_path ) ) {
         $parent_theme_json_content = implode( '', file( $theme_json_path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES ) );
         $parent_theme_json_data    = json_decode( $parent_theme_json_content, true );
 

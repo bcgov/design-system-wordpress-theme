@@ -2,6 +2,12 @@
     "$schema": "https://schemas.wp.org/trunk/theme.json",
     "version": 3,
     "title": "Design System WordPress Theme",
+    "customTemplates": [
+        {
+            "name": "secondary",
+            "title": "Pages Secondary"
+        }
+    ],
     "templateParts": [
         {
             "name": "header",
@@ -12,6 +18,16 @@
             "name": "footer",
             "title": "footer",
             "area": "footer"
+        },
+        {
+            "name": "search-bar",
+            "title": "Search Bar (Core)",
+            "area": "uncategorized"
+        },
+        {
+            "name": "search-bar-with-search-plugin",
+            "title": "Search Bar with Search Plugin",
+            "area": "uncategorized"
         },
         {
             "name": "search-with-search-plugin",
@@ -329,7 +345,12 @@
                     "slug": "background-medium-gray",
                     "color": "var(--bcds-theme-gray-70)",
                     "name": "Background medium gray"
-                }
+                },
+                {
+                    "slug": "background-dark-blue",
+                    "color": "var(--dswp-surface-color-background-dark-blue)",
+                    "name": "Background dark blue"
+                }                
             ]
         }
     }

@@ -1,0 +1,61 @@
+/**
+ * Query pagination block – design system style
+ * Active page: dark blue pill, inactive numbers and arrows: link blue, horizontal layout.
+ */
+
+.wp-block-query-pagination {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.5rem 1rem;
+
+	&-previous,
+	&-next {
+		display: inline-flex;
+		align-items: center;
+		color: var(--wp--preset--color--typography-color-primary, var(--dswp-typography-color-link));
+		text-decoration: none;
+		font-weight: 500;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	&-previous-arrow,
+	&-next-arrow {
+		display: inline-block;
+	}
+
+	&-numbers {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.25rem 0.5rem;
+
+		.page-numbers {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			min-width: 2.25rem;
+			padding: 0.375rem 0.75rem;
+			border-radius: 4px;
+			text-decoration: none;
+			font-weight: 500;
+			transition: background-color 0.15s ease, color 0.15s ease;
+
+			&:not(.current) {
+				color: var(--wp--preset--color--typography-color-primary, var(--dswp-typography-color-link));
+
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+
+			&.current {
+				background-color: var(--wp--preset--color--background-dark-blue, var(--dswp-surface-color-background-dark-blue));
+				color: var(--dswp-theme-gray-white, #fff);
+			}
+		}
+	}
+}
