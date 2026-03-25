@@ -183,6 +183,38 @@
             "contentSize": "var(--dswp-layout-content-size)",
             "wideSize": "var(--dswp-layout-content-size)"
         },
+        "custom": {
+            "dswp": {
+                "surfaceColorPrimaryButtonDefault": "var(--dswp-surface-color-primary-button-default)",
+                "surfaceColorPrimaryButtonHover": "var(--dswp-surface-color-primary-button-hover)",
+                "surfaceColorSecondaryButtonDefault": "var(--dswp-surface-color-secondary-button-default)",
+                "surfaceColorSecondaryButtonHover": "var(--dswp-surface-color-secondary-button-hover)",
+                "surfaceColorMenusDefault": "var(--dswp-surface-color-menus-default)",
+                "surfaceColorMenusHover": "var(--dswp-surface-color-menus-hover)",
+                "surfaceColorPrimaryDefault": "var(--dswp-surface-color-primary-default)",
+                "surfaceColorSecondaryDefault": "var(--dswp-surface-color-secondary-default)",
+                "surfaceColorBackgroundPrimary": "var(--dswp-surface-color-background-light-gray)",
+                "surfaceColorBackgroundSecondary": "var(--dswp-surface-color-background-light-blue)",
+                "surfaceColorBackgroundTeritiary": "var(--dswp-surface-color-background-white)",
+                "surfaceColorBackgroundDark": "var(--dswp-surface-color-background-dark-blue)",
+                "surfaceColorBorderDefault": "var(--dswp-surface-color-border-default)",
+                "surfaceColorBorderMedium": "var(--dswp-surface-color-border-medium)",
+                "surfaceColorBorderDark": "var(--dswp-surface-color-border-dark)",
+                "surfaceColorOverlayDefault": "var(--dswp-surface-color-overlay-default)",
+                "typographyColorPrimary": "var(--dswp-typography-color-primary)",
+                "typographyColorSecondary": "var(--dswp-typography-color-secondary)",
+                "typographyColorDisabled": "var(--dswp-typography-color-disabled)",
+                "typographyColorLinkDefault": "var(--dswp-typography-color-link)",
+                "typographyColorLinkHover": "var(--dswp-theme-blue-80)",
+                "typographyColorLinkPressed": "var(--dswp-theme-blue-100)",
+                "typographyColorButtonPrimaryDefault": "var(--dswp-typography-color-primary-invert)",
+                "typographyColorButtonPrimaryHover": "var(--dswp-typography-color-primary-invert)",
+                "typographyColorButtonPrimaryPressed": "var(--dswp-typography-color-primary-invert)",
+                "typographyColorButtonSecondaryDefault": "var(--dswp-surface-color-primary-default)",
+                "typographyColorButtonSecondaryHover": "var(--dswp-surface-color-primary-hover)",
+                "typographyColorButtonSecondaryPressed": "var(--dswp-surface-color-primary-pressed)"
+            }
+        },
         "typography": {
             "fontFamilies": [
                 {
