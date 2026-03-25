@@ -1,26 +1,10 @@
-<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"right":"1rem","left":"1rem"}}},"backgroundColor":"base","layout":{"type":"constrained"}} -->
+<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"right":"1rem","left":"1rem"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignwide has-base-background-color has-background"
     style="padding-right:1rem;padding-left:1rem">
-    <!-- wp:group {"align":"wide","layout":{"type":"flex","justifyContent":"space-between","flexWrap":"wrap"}} -->
-    <div class="wp-block-group alignwide"><!-- wp:site-logo /-->
+    <!-- wp:template-part {"slug":"top-header-row","theme":"design-system-wordpress-theme"} /-->
 
-        <!-- wp:design-system-wordpress-plugin/navigation {"overlayMenu":"always","ref":123,"menuId":123,"mobileBreakpoint":555,"showInDesktop":false,"showInMobile":true} /-->
+    <!-- wp:template-part {"slug":"desktop-navigation","theme":"design-system-wordpress-theme"} /-->
 
-        <!-- wp:template-part {"slug":"search-bar","area":"uncategorized"} /-->
-    </div>
-    <!-- /wp:group -->
-
-    <!-- wp:group {"align":"full","style":{"border":{"top":{"color":"var:preset|color|bar-color","width":"1px"},"bottom":{"color":"var:preset|color|bar-color","width":"1px"}},"spacing":{"padding":{"right":"0px","left":"0px"}}},"layout":{"type":"constrained"}} -->
-    <div class="wp-block-group alignfull"
-        style="border-top-color:var(--wp--preset--color--bar-color);border-top-width:1px;border-bottom-color:var(--wp--preset--color--bar-color);border-bottom-width:1px;padding-right:0px;padding-left:0px">
-        <!-- wp:design-system-wordpress-plugin/navigation {"ref":123,"menuId":123,"mobileBreakpoint":555,"style":{"typography":{"fontSize":"16px"}}} /-->
-    </div>
-    <!-- /wp:group -->
-
-    <!-- wp:group {"align":"full","style":{"border":{"bottom":{"color":"var:preset|color|bar-color","width":"1px"},"top":[],"right":[],"left":[]},"spacing":{"padding":{"right":"1rem","left":"1rem"}}},"layout":{"type":"constrained"}} -->
-    <div class="wp-block-group alignfull"
-        style="border-bottom-color:var(--wp--preset--color--bar-color);border-bottom-width:1px;padding-right:1rem;padding-left:1rem">
-        <!-- wp:design-system-wordpress-plugin/breadcrumb /--></div>
-    <!-- /wp:group -->
+    <!-- wp:template-part {"slug":"breadcrumb","theme":"design-system-wordpress-theme"} /-->
 </div>
 <!-- /wp:group -->
