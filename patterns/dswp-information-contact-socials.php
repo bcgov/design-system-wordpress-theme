@@ -12,17 +12,17 @@
 <div
     class="wp-block-group"
     style="margin-top: var(--wp--preset--spacing--60); margin-bottom: var(--wp--preset--spacing--60); padding-right: var(--wp--preset--spacing--60); padding-left: var(--wp--preset--spacing--60)"
-    ><!-- wp:group {"className":"dswp-information-contact-socials-cards","style":{"spacing":{"padding":{"right":"0","left":"0"}},"border":{"radius":"0px","width":"1px"}},"borderColor":"border-default","layout":{"type":"constrained"}} -->
+    ><!-- wp:group {"className":"dswp-information-contact-socials-cards","style":{"spacing":{"padding":{"right":"0","left":"0"}},"border":{"radius":"0px","width":"1px"}},"layout":{"type":"constrained"}} -->
     <div
         class="wp-block-group dswp-information-contact-socials-cards has-border-color has-border-default-border-color"
         style="border-width: 1px; border-radius: 0px; padding-right: 0; padding-left: 0"
-        ><!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"}}},"backgroundColor":"background-light-gray-blue","layout":{"type":"flex","orientation":"vertical"}} -->
+        ><!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"}}},"layout":{"type":"flex","orientation":"vertical"}} -->
         <div
-            class="wp-block-group has-background-light-gray-blue-background-color has-background"
+            class="wp-block-group has-background"
             style="padding-top: var(--wp--preset--spacing--30); padding-bottom: var(--wp--preset--spacing--30)"
-            ><!-- wp:heading {"level":4,"style":{"spacing":{"padding":{"right":"var:preset|spacing|50","left":"var:preset|spacing|50"}},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}}},"textColor":"font dark"} -->
+            ><!-- wp:heading {"level":4,"style":{"spacing":{"padding":{"right":"var:preset|spacing|50","left":"var:preset|spacing|50"}}}} -->
             <h4
-                class="wp-block-heading has-font-dark-color has-text-color has-link-color"
+                class="wp-block-heading"
                 style="padding-right: var(--wp--preset--spacing--50); padding-left: var(--wp--preset--spacing--50)"
                 >Lorem Ipsum</h4
             >
@@ -70,16 +70,16 @@
 
                                 <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|40"}},"layout":{"type":"flex","orientation":"vertical"}} -->
                                 <div class="wp-block-group"
-                                    ><!-- wp:heading {"level":6,"style":{"spacing":{"margin":{"top":"0","bottom":"0"}},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}}},"textColor":"font dark"} -->
+                                    ><!-- wp:heading {"level":6,"style":{"spacing":{"margin":{"top":"0","bottom":"0"}}}} -->
                                     <h6
-                                        class="wp-block-heading has-font-dark-color has-text-color has-link-color"
+                                        class="wp-block-heading"
                                         style="margin-top: 0; margin-bottom: 0"
                                         >Lorem Ipsum</h6
                                     >
                                     <!-- /wp:heading -->
 
-                                    <!-- wp:paragraph {"align":"left","style":{"layout":{"selfStretch":"fit","flexSize":null},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}}},"textColor":"font dark"} -->
-                                    <p class="has-text-align-left has-font-dark-color has-text-color has-link-color">Lorem ipsum dolor sit amet. Vel alias assumenda qui velit quaerat sed aliquid nihil ut cumque voluptas.</p>
+                                    <!-- wp:paragraph {"align":"left","style":{"layout":{"selfStretch":"fit","flexSize":null}}} -->
+                                    <p class="has-text-align-left">Lorem ipsum dolor sit amet. Vel alias assumenda qui velit quaerat sed aliquid nihil ut cumque voluptas.</p>
                                     <!-- /wp:paragraph -->
 
                                     <!-- wp:paragraph -->
@@ -129,16 +129,16 @@
 
                                 <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|40"}},"layout":{"type":"flex","orientation":"vertical"}} -->
                                 <div class="wp-block-group"
-                                    ><!-- wp:heading {"level":6,"style":{"spacing":{"margin":{"top":"0","bottom":"0"}},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}}},"textColor":"font dark"} -->
+                                    ><!-- wp:heading {"level":6,"style":{"spacing":{"margin":{"top":"0","bottom":"0"}}}} -->
                                     <h6
-                                        class="wp-block-heading has-font-dark-color has-text-color has-link-color"
+                                        class="wp-block-heading"
                                         style="margin-top: 0; margin-bottom: 0"
                                         >Lorem Ipsum</h6
                                     >
                                     <!-- /wp:heading -->
 
-                                    <!-- wp:paragraph {"align":"left","style":{"layout":{"selfStretch":"fit","flexSize":null},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}}},"textColor":"font dark"} -->
-                                    <p class="has-text-align-left has-font-dark-color has-text-color has-link-color">Lorem ipsum dolor sit amet. Vel alias assumenda qui velit quaerat sed aliquid nihil ut cumque voluptas.</p>
+                                    <!-- wp:paragraph {"align":"left","style":{"layout":{"selfStretch":"fit","flexSize":null}}} -->
+                                    <p class="has-text-align-left">Lorem ipsum dolor sit amet. Vel alias assumenda qui velit quaerat sed aliquid nihil ut cumque voluptas.</p>
                                     <!-- /wp:paragraph -->
 
                                     <!-- wp:paragraph -->
@@ -200,16 +200,16 @@
 
                                 <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|40"}},"layout":{"type":"flex","orientation":"vertical"}} -->
                                 <div class="wp-block-group"
-                                    ><!-- wp:heading {"level":6,"style":{"spacing":{"margin":{"top":"0","bottom":"0"}},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}}},"textColor":"font dark"} -->
+                                    ><!-- wp:heading {"level":6,"style":{"spacing":{"margin":{"top":"0","bottom":"0"}}}} -->
                                     <h6
-                                        class="wp-block-heading has-font-dark-color has-text-color has-link-color"
+                                        class="wp-block-heading"
                                         style="margin-top: 0; margin-bottom: 0"
                                         >Lorem Ipsum</h6
                                     >
                                     <!-- /wp:heading -->
 
-                                    <!-- wp:paragraph {"align":"left","style":{"layout":{"selfStretch":"fit","flexSize":null},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}}},"textColor":"font dark"} -->
-                                    <p class="has-text-align-left has-font-dark-color has-text-color has-link-color">Lorem ipsum dolor sit amet. Vel alias assumenda qui velit quaerat sed aliquid nihil ut cumque voluptas.</p>
+                                    <!-- wp:paragraph {"align":"left","style":{"layout":{"selfStretch":"fit","flexSize":null}}} -->
+                                    <p class="has-text-align-left">Lorem ipsum dolor sit amet. Vel alias assumenda qui velit quaerat sed aliquid nihil ut cumque voluptas.</p>
                                     <!-- /wp:paragraph -->
 
                                     <!-- wp:paragraph -->
@@ -259,16 +259,16 @@
 
                                 <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|40"}},"layout":{"type":"flex","orientation":"vertical"}} -->
                                 <div class="wp-block-group"
-                                    ><!-- wp:heading {"level":6,"style":{"spacing":{"margin":{"top":"0","bottom":"0"}},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}}},"textColor":"font dark"} -->
+                                    ><!-- wp:heading {"level":6,"style":{"spacing":{"margin":{"top":"0","bottom":"0"}}}} -->
                                     <h6
-                                        class="wp-block-heading has-font-dark-color has-text-color has-link-color"
+                                        class="wp-block-heading"
                                         style="margin-top: 0; margin-bottom: 0"
                                         >Lorem Ipsum</h6
                                     >
                                     <!-- /wp:heading -->
 
-                                    <!-- wp:paragraph {"align":"left","style":{"layout":{"selfStretch":"fit","flexSize":null},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}}},"textColor":"font dark"} -->
-                                    <p class="has-text-align-left has-font-dark-color has-text-color has-link-color">Lorem ipsum dolor sit amet. Vel alias assumenda qui velit quaerat sed aliquid nihil ut cumque voluptas.</p>
+                                    <!-- wp:paragraph {"align":"left","style":{"layout":{"selfStretch":"fit","flexSize":null}}} -->
+                                    <p class="has-text-align-left">Lorem ipsum dolor sit amet. Vel alias assumenda qui velit quaerat sed aliquid nihil ut cumque voluptas.</p>
                                     <!-- /wp:paragraph -->
 
                                     <!-- wp:paragraph -->

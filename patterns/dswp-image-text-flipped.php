@@ -30,17 +30,17 @@
             <div
                 class="wp-block-group"
                 style="padding-right: 0; padding-left: 0"
-                ><!-- wp:heading {"textAlign":"left","level":5,"style":{"typography":{"lineHeight":"2"},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}}},"textColor":"font dark"} -->
+                ><!-- wp:heading {"textAlign":"left","level":5,"style":{"typography":{"lineHeight":"2"}}} -->
                 <h5
-                    class="wp-block-heading has-text-align-left has-font-dark-color has-text-color has-link-color"
+                    class="wp-block-heading has-text-align-left"
                     style="line-height: 2"
                     >Lorem ipsum dolor sit amet</h5
                 >
                 <!-- /wp:heading -->
 
-                <!-- wp:paragraph {"align":"left","style":{"typography":{"lineHeight":"2"},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}}},"textColor":"font dark"} -->
+                <!-- wp:paragraph {"align":"left","style":{"typography":{"lineHeight":"2"}}} -->
                 <p
-                    class="has-text-align-left has-font-dark-color has-text-color has-link-color"
+                    class="has-text-align-left"
                     style="line-height: 2"
                     >Lorem ipsum dolor sit amet. Non rerum repudiandae ut rerum dignissimos ut eveniet autem ex quae internos ut ducimus recusandae. Est nisi explicabo in accusantium consequatur ea minima quam qui accusantium molestias. Est odit sint vel molestiae ullam est repellat odit eum amet quibusdam est galisum veritatis eum sunt autem.</p
                 >

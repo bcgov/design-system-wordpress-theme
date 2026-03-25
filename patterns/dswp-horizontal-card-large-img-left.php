@@ -35,33 +35,33 @@
         <div
             class="wp-block-column is-vertically-aligned-stretch"
             style="padding-top: var(--wp--preset--spacing--50); padding-right: var(--wp--preset--spacing--50); padding-bottom: var(--wp--preset--spacing--50); padding-left: var(--wp--preset--spacing--50); flex-basis: 60%"
-            ><!-- wp:heading {"level":3,"className":"is-style-default","style":{"spacing":{"margin":{"top":"0","bottom":"0"}},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}}},"textColor":"font dark"} -->
+            ><!-- wp:heading {"level":3,"className":"is-style-default","style":{"spacing":{"margin":{"top":"0","bottom":"0"}}}} -->
             <h3
-                class="wp-block-heading is-style-default has-font-dark-color has-text-color has-link-color"
+                class="wp-block-heading is-style-default"
                 style="margin-top: 0; margin-bottom: 0"
                 >Neque porro quisquam</h3
             >
             <!-- /wp:heading -->
 
-            <!-- wp:paragraph {"style":{"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}},"typography":{"lineHeight":"1.7"}},"textColor":"font dark"} -->
+            <!-- wp:paragraph {"style":{"typography":{"lineHeight":"1.7"}}} -->
             <p
-                class="has-font-dark-color has-text-color has-link-color"
+               
                 style="line-height: 1.7"
                 >Sed bibendum posuere metus, et tincidunt dui aliquam et. Donec eu dolor elit. Vestibulum sit amet tempor metus, id dignissim turpis. In hac habitasse platea dictumst. Curabitur hendrerit nibh sit amet consectetur tempus. Integer vitae turpis at lorem placerat tempor ac a felis.</p
             >
             <!-- /wp:paragraph -->
 
-            <!-- wp:paragraph {"style":{"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}},"typography":{"lineHeight":"1.7"}},"textColor":"font dark"} -->
+            <!-- wp:paragraph {"style":{"typography":{"lineHeight":"1.7"}}} -->
             <p
-                class="has-font-dark-color has-text-color has-link-color"
+               
                 style="line-height: 1.7"
                 >Sed bibendum posuere metus, et tincidunt dui aliquam et. Donec eu dolor elit. Vestibulum sit amet tempor metus, id dignissim turpis. In hac habitasse platea dictumst. Curabitur hendrerit nibh sit amet consectetur tempus. Integer vitae turpis at lorem placerat tempor ac a felis.</p
             >
             <!-- /wp:paragraph -->
 
-            <!-- wp:paragraph {"style":{"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}},"typography":{"lineHeight":"1.7"}},"textColor":"font dark"} -->
+            <!-- wp:paragraph {"style":{"typography":{"lineHeight":"1.7"}}} -->
             <p
-                class="has-font-dark-color has-text-color has-link-color"
+               
                 style="line-height: 1.7"
                 >Sed bibendum posuere metus, et tincidunt dui aliquam et. Donec eu dolor elit. Vestibulum sit amet tempor metus, id dignissim turpis. In hac habitasse platea dictumst. Curabitur hendrerit nibh sit amet consectetur tempus. Integer vitae turpis at lorem placerat tempor ac a felis.</p
             >
@@ -69,8 +69,8 @@
 
             <!-- wp:buttons {"style":{"spacing":{"blockGap":{"top":"0"}}}} -->
             <div class="wp-block-buttons"
-                ><!-- wp:button {"textColor":"font dark","className":"is-style-outline","style":{"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}}}} -->
-                <div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-font-dark-color has-text-color has-link-color wp-element-button">Lorem Ipsum</a></div>
+                ><!-- wp:button {"className":"is-style-outline"} -->
+                <div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button">Lorem Ipsum</a></div>
                 <!-- /wp:button -->
             </div>
             <!-- /wp:buttons -->
