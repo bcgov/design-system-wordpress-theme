@@ -20,6 +20,31 @@
             "area": "footer"
         },
         {
+            "name": "copyright",
+            "title": "Copyright",
+            "area": "footer"
+        },
+        {
+            "name": "footer-info-text",
+            "title": "Footer Info Text",
+            "area": "footer"
+        },
+        {
+            "name": "footer-logo",
+            "title": "Footer Logo",
+            "area": "footer"
+        },
+        {
+            "name": "footer-navigation",
+            "title": "Footer Navigation",
+            "area": "footer"
+        },
+        {
+            "name": "territorial-acknowledgement",
+            "title": "Territorial Acknowledgement",
+            "area": "footer"
+        },
+        {
             "name": "search-bar",
             "title": "Search Bar (Core)",
             "area": "uncategorized"
