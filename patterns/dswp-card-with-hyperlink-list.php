@@ -39,9 +39,9 @@
                         /></figure>
                         <!-- /wp:image -->
 
-                        <!-- wp:heading {"textAlign":"left","level":3,"style":{"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}},"spacing":{"padding":{"right":"var:preset|spacing|20","left":"var:preset|spacing|20"}}},"textColor":"font dark","fontSize":"medium"} -->
+                        <!-- wp:heading {"textAlign":"left","level":3,"style":{"spacing":{"padding":{"right":"var:preset|spacing|20","left":"var:preset|spacing|20"}}},"fontSize":"medium"} -->
                         <h3
-                            class="wp-block-heading has-text-align-left has-font-dark-color has-text-color has-link-color has-medium-font-size"
+                            class="wp-block-heading has-text-align-left has-medium-font-size"
                             style="padding-right: var(--wp--preset--spacing--20); padding-left: var(--wp--preset--spacing--20)"
                             >Lorem ipsum dolor sit</h3
                         >
@@ -60,9 +60,9 @@
                     <div
                         class="wp-block-group alignfull dswp-card-content"
                         style="padding-right: 0; padding-left: 0"
-                        ><!-- wp:paragraph {"align":"left","style":{"spacing":{"margin":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"0","right":"0"},"padding":{"right":"0","left":"0"}},"typography":{"lineHeight":"1.7"},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}}},"textColor":"font dark"} -->
+                        ><!-- wp:paragraph {"align":"left","style":{"spacing":{"margin":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"0","right":"0"},"padding":{"right":"0","left":"0"}},"typography":{"lineHeight":"1.7"}}} -->
                         <p
-                            class="has-text-align-left has-font-dark-color has-text-color has-link-color"
+                            class="has-text-align-left"
                             style="margin-top: var(--wp--preset--spacing--40); margin-right: 0; margin-bottom: var(--wp--preset--spacing--40); margin-left: 0; padding-right: 0; padding-left: 0; line-height: 1.7"
                             >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus molestie a mi eu dictum. Sed eget dictum massaLorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus molestie a mi eu dictum. Sed eget dictum massa</p
                         >
@@ -117,8 +117,8 @@
                         <div
                             class="wp-block-buttons alignwide"
                             style="margin-top: 0; margin-bottom: 0"
-                            ><!-- wp:button {"textColor":"font dark","width":75,"className":"is-style-outline","style":{"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}}}} -->
-                            <div class="wp-block-button has-custom-width wp-block-button__width-75 is-style-outline"><a class="wp-block-button__link has-font-dark-color has-text-color has-link-color wp-element-button">Lorem</a></div>
+                            ><!-- wp:button {"width":75,"className":"is-style-outline"} -->
+                            <div class="wp-block-button has-custom-width wp-block-button__width-75 is-style-outline"><a class="wp-block-button__link wp-element-button">Lorem</a></div>
                             <!-- /wp:button -->
                         </div>
                         <!-- /wp:buttons -->
@@ -150,9 +150,9 @@
                         /></figure>
                         <!-- /wp:image -->
 
-                        <!-- wp:heading {"textAlign":"left","level":3,"style":{"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}},"spacing":{"padding":{"right":"var:preset|spacing|20","left":"var:preset|spacing|20"}}},"textColor":"font dark","fontSize":"medium"} -->
+                        <!-- wp:heading {"textAlign":"left","level":3,"style":{"spacing":{"padding":{"right":"var:preset|spacing|20","left":"var:preset|spacing|20"}}},"fontSize":"medium"} -->
                         <h3
-                            class="wp-block-heading has-text-align-left has-font-dark-color has-text-color has-link-color has-medium-font-size"
+                            class="wp-block-heading has-text-align-left has-medium-font-size"
                             style="padding-right: var(--wp--preset--spacing--20); padding-left: var(--wp--preset--spacing--20)"
                             >Lorem ipsum dolor sit</h3
                         >
@@ -171,9 +171,9 @@
                     <div
                         class="wp-block-group alignfull dswp-card-content"
                         style="padding-right: 0; padding-left: 0"
-                        ><!-- wp:paragraph {"align":"left","style":{"spacing":{"margin":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"0","right":"0"},"padding":{"right":"0","left":"0"}},"typography":{"lineHeight":"1.7"},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}}},"textColor":"font dark"} -->
+                        ><!-- wp:paragraph {"align":"left","style":{"spacing":{"margin":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"0","right":"0"},"padding":{"right":"0","left":"0"}},"typography":{"lineHeight":"1.7"}}} -->
                         <p
-                            class="has-text-align-left has-font-dark-color has-text-color has-link-color"
+                            class="has-text-align-left"
                             style="margin-top: var(--wp--preset--spacing--40); margin-right: 0; margin-bottom: var(--wp--preset--spacing--40); margin-left: 0; padding-right: 0; padding-left: 0; line-height: 1.7"
                             >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus molestie a mi eu dictum. Sed eget dictum massaLorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus molestie a mi eu dictum. Sed eget dictum massa</p
                         >
@@ -228,8 +228,8 @@
                         <div
                             class="wp-block-buttons alignwide"
                             style="margin-top: 0; margin-bottom: 0"
-                            ><!-- wp:button {"textColor":"font dark","width":75,"className":"is-style-outline","style":{"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}}}} -->
-                            <div class="wp-block-button has-custom-width wp-block-button__width-75 is-style-outline"><a class="wp-block-button__link has-font-dark-color has-text-color has-link-color wp-element-button">Lorem</a></div>
+                            ><!-- wp:button {"width":75,"className":"is-style-outline"} -->
+                            <div class="wp-block-button has-custom-width wp-block-button__width-75 is-style-outline"><a class="wp-block-button__link wp-element-button">Lorem</a></div>
                             <!-- /wp:button -->
                         </div>
                         <!-- /wp:buttons -->
@@ -261,9 +261,9 @@
                         /></figure>
                         <!-- /wp:image -->
 
-                        <!-- wp:heading {"textAlign":"left","level":3,"style":{"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}},"spacing":{"padding":{"right":"var:preset|spacing|20","left":"var:preset|spacing|20"}}},"textColor":"font dark","fontSize":"medium"} -->
+                        <!-- wp:heading {"textAlign":"left","level":3,"style":{"spacing":{"padding":{"right":"var:preset|spacing|20","left":"var:preset|spacing|20"}}},"fontSize":"medium"} -->
                         <h3
-                            class="wp-block-heading has-text-align-left has-font-dark-color has-text-color has-link-color has-medium-font-size"
+                            class="wp-block-heading has-text-align-left has-medium-font-size"
                             style="padding-right: var(--wp--preset--spacing--20); padding-left: var(--wp--preset--spacing--20)"
                             >Lorem ipsum dolor sit</h3
                         >
@@ -282,9 +282,9 @@
                     <div
                         class="wp-block-group alignfull dswp-card-content"
                         style="padding-right: 0; padding-left: 0"
-                        ><!-- wp:paragraph {"align":"left","style":{"spacing":{"margin":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"0","right":"0"},"padding":{"right":"0","left":"0"}},"typography":{"lineHeight":"1.7"},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}}},"textColor":"font dark"} -->
+                        ><!-- wp:paragraph {"align":"left","style":{"spacing":{"margin":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"0","right":"0"},"padding":{"right":"0","left":"0"}},"typography":{"lineHeight":"1.7"}}} -->
                         <p
-                            class="has-text-align-left has-font-dark-color has-text-color has-link-color"
+                            class="has-text-align-left"
                             style="margin-top: var(--wp--preset--spacing--40); margin-right: 0; margin-bottom: var(--wp--preset--spacing--40); margin-left: 0; padding-right: 0; padding-left: 0; line-height: 1.7"
                             >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus molestie a mi eu dictum. Sed eget dictum massaLorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus molestie a mi eu dictum. Sed eget dictum massa</p
                         >
@@ -339,8 +339,8 @@
                         <div
                             class="wp-block-buttons alignwide"
                             style="margin-top: 0; margin-bottom: 0"
-                            ><!-- wp:button {"textColor":"font dark","width":75,"className":"is-style-outline","style":{"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}}}} -->
-                            <div class="wp-block-button has-custom-width wp-block-button__width-75 is-style-outline"><a class="wp-block-button__link has-font-dark-color has-text-color has-link-color wp-element-button">Lorem</a></div>
+                            ><!-- wp:button {"width":75,"className":"is-style-outline"} -->
+                            <div class="wp-block-button has-custom-width wp-block-button__width-75 is-style-outline"><a class="wp-block-button__link wp-element-button">Lorem</a></div>
                             <!-- /wp:button -->
                         </div>
                         <!-- /wp:buttons -->
@@ -372,9 +372,9 @@
                         /></figure>
                         <!-- /wp:image -->
 
-                        <!-- wp:heading {"textAlign":"left","level":3,"style":{"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}},"spacing":{"padding":{"right":"var:preset|spacing|20","left":"var:preset|spacing|20"}}},"textColor":"font dark","fontSize":"medium"} -->
+                        <!-- wp:heading {"textAlign":"left","level":3,"style":{"spacing":{"padding":{"right":"var:preset|spacing|20","left":"var:preset|spacing|20"}}},"fontSize":"medium"} -->
                         <h3
-                            class="wp-block-heading has-text-align-left has-font-dark-color has-text-color has-link-color has-medium-font-size"
+                            class="wp-block-heading has-text-align-left has-medium-font-size"
                             style="padding-right: var(--wp--preset--spacing--20); padding-left: var(--wp--preset--spacing--20)"
                             >Lorem ipsum dolor sit</h3
                         >
@@ -393,9 +393,9 @@
                     <div
                         class="wp-block-group alignfull dswp-card-content"
                         style="padding-right: 0; padding-left: 0"
-                        ><!-- wp:paragraph {"align":"left","style":{"spacing":{"margin":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"0","right":"0"},"padding":{"right":"0","left":"0"}},"typography":{"lineHeight":"1.7"},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}}},"textColor":"font dark"} -->
+                        ><!-- wp:paragraph {"align":"left","style":{"spacing":{"margin":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"0","right":"0"},"padding":{"right":"0","left":"0"}},"typography":{"lineHeight":"1.7"}}} -->
                         <p
-                            class="has-text-align-left has-font-dark-color has-text-color has-link-color"
+                            class="has-text-align-left"
                             style="margin-top: var(--wp--preset--spacing--40); margin-right: 0; margin-bottom: var(--wp--preset--spacing--40); margin-left: 0; padding-right: 0; padding-left: 0; line-height: 1.7"
                             >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus molestie a mi eu dictum. Sed eget dictum massaLorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus molestie a mi eu dictum. Sed eget dictum massa</p
                         >
@@ -450,8 +450,8 @@
                         <div
                             class="wp-block-buttons alignwide"
                             style="margin-top: 0; margin-bottom: 0"
-                            ><!-- wp:button {"textColor":"font dark","width":75,"className":"is-style-outline","style":{"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}}}} -->
-                            <div class="wp-block-button has-custom-width wp-block-button__width-75 is-style-outline"><a class="wp-block-button__link has-font-dark-color has-text-color has-link-color wp-element-button">Lorem</a></div>
+                            ><!-- wp:button {"width":75,"className":"is-style-outline"} -->
+                            <div class="wp-block-button has-custom-width wp-block-button__width-75 is-style-outline"><a class="wp-block-button__link wp-element-button">Lorem</a></div>
                             <!-- /wp:button -->
                         </div>
                         <!-- /wp:buttons -->

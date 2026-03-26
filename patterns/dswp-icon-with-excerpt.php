@@ -39,9 +39,9 @@
                     </div>
                     <!-- /wp:group -->
 
-                    <!-- wp:heading {"level":5,"style":{"spacing":{"margin":{"top":"0","bottom":"0","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}}},"textColor":"font dark"} -->
+                    <!-- wp:heading {"level":5,"style":{"spacing":{"margin":{"top":"0","bottom":"0","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}}} -->
                     <h5
-                        class="wp-block-heading has-font-dark-color has-text-color has-link-color"
+                        class="wp-block-heading"
                         id="neque-porro-quisquam"
                         style="margin-top: 0; margin-right: var(--wp--preset--spacing--40); margin-bottom: 0; margin-left: var(--wp--preset--spacing--40)"
                     >
@@ -56,8 +56,8 @@
                     class="wp-block-group dswp-excerpt"
                     style="margin-top: 0; margin-bottom: 0; padding-top: 0; padding-right: 0; padding-left: 0"
                 >
-                    <!-- wp:paragraph {"align":"left","style":{"layout":{"selfStretch":"fit","flexSize":null},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}}},"textColor":"font dark"} -->
-                    <p class="has-text-align-left has-font-dark-color has-text-color has-link-color">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi bibendum rhoncus aliquam. Morbi at libero pellentesque, fermentum erat at, tincidunt nunc. Proin pulvinar turpis vel turpis maximus fermentum. Phasellus ut sagittis nisi, vel accumsan velit.</p>
+                    <!-- wp:paragraph {"align":"left","style":{"layout":{"selfStretch":"fit","flexSize":null}}} -->
+                    <p class="has-text-align-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi bibendum rhoncus aliquam. Morbi at libero pellentesque, fermentum erat at, tincidunt nunc. Proin pulvinar turpis vel turpis maximus fermentum. Phasellus ut sagittis nisi, vel accumsan velit.</p>
                     <!-- /wp:paragraph -->
                 </div>
                 <!-- /wp:group -->
@@ -89,9 +89,9 @@
                     </div>
                     <!-- /wp:group -->
 
-                    <!-- wp:heading {"level":5,"style":{"spacing":{"margin":{"top":"0","bottom":"0","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}}},"textColor":"font dark"} -->
+                    <!-- wp:heading {"level":5,"style":{"spacing":{"margin":{"top":"0","bottom":"0","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}}} -->
                     <h5
-                        class="wp-block-heading has-font-dark-color has-text-color has-link-color"
+                        class="wp-block-heading"
                         id="neque-porro-quisquam"
                         style="margin-top: 0; margin-right: var(--wp--preset--spacing--40); margin-bottom: 0; margin-left: var(--wp--preset--spacing--40)"
                     >
@@ -106,8 +106,8 @@
                     class="wp-block-group dswp-excerpt"
                     style="margin-top: 0; margin-bottom: 0; padding-top: 0; padding-right: 0; padding-left: 0"
                 >
-                    <!-- wp:paragraph {"align":"left","style":{"layout":{"selfStretch":"fit","flexSize":null},"elements":{"link":{"color":{"text":"var:preset|color|font dark"}}}},"textColor":"font dark"} -->
-                    <p class="has-text-align-left has-font-dark-color has-text-color has-link-color">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi bibendum rhoncus aliquam. Morbi at libero pellentesque, fermentum erat at, tincidunt nunc. Proin pulvinar turpis vel turpis maximus fermentum. Phasellus ut sagittis nisi, vel accumsan velit.</p>
+                    <!-- wp:paragraph {"align":"left","style":{"layout":{"selfStretch":"fit","flexSize":null}}} -->
+                    <p class="has-text-align-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi bibendum rhoncus aliquam. Morbi at libero pellentesque, fermentum erat at, tincidunt nunc. Proin pulvinar turpis vel turpis maximus fermentum. Phasellus ut sagittis nisi, vel accumsan velit.</p>
                     <!-- /wp:paragraph -->
                 </div>
                 <!-- /wp:group -->
