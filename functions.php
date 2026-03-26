@@ -18,6 +18,17 @@ add_action( 'after_switch_theme', 'design_system_theme_activate_plugin_on_switch
 add_action( 'after_setup_theme', 'design_system_theme_register_plugin_required_notices', 5 );
 
 /**
+ * Theme feature includes.
+ */
+require_once get_template_directory() . '/inc/legacy-patterns.php';
+
+/**
+ * Legacy patterns.
+ */
+$legacy_patterns = new DesignSystemLegacyPatterns();
+$legacy_patterns->init();
+
+/**
  * Auto-activate plugin when this theme is switched to; admins can disable it later.
  */
 function design_system_theme_activate_plugin_on_switch() {
