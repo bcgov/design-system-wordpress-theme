@@ -25,7 +25,7 @@ require_once get_template_directory() . '/inc/legacy-patterns.php';
 /**
  * Legacy patterns.
  */
-$legacy_patterns = new DesignSystemLegacyPatterns();
+$legacy_patterns = new \DesignSystemWordPressTheme\LegacyPatterns();
 $legacy_patterns->init();
 
 /**
