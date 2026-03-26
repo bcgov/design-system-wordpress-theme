@@ -187,11 +187,9 @@ class LegacyPatterns {
                 if ( '' !== $legacy_base && $legacy_base === $current_base ) {
                     return true;
                 }
-            } else {
+            } elseif ( strtolower( $legacy_site ) === strtolower( $current_host ) ) {
                 // Hostnames only (no path allowed without a scheme).
-                if ( strtolower( $legacy_site ) === strtolower( $current_host ) ) {
-                    return true;
-                }
+                return true;
             }
         }
 
