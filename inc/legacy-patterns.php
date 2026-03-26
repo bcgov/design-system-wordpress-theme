@@ -189,7 +189,7 @@ class LegacyPatterns {
                 }
             } else {
                 // Hostnames only (no path allowed without a scheme).
-                ( strtolower( $legacy_site ) === strtolower( $current_host ) ) {
+                if ( strtolower( $legacy_site ) === strtolower( $current_host ) ) {
                     return true;
                 }
             }
