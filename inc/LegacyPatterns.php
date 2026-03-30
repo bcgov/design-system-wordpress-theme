@@ -1,16 +1,17 @@
 <?php
 /**
- * Register archived legacy patterns only for admins/super-admins or allowlisted sites.
+ * Register archived legacy patterns only when explicitly enabled.
  *
  * @package Design_System_WordPress_Theme
  */
-namespace DesignSystemWordPressTheme;
+
+namespace Bcgov\Theme\DesignSystem;
 
 /**
  * Conditionally registers archived block patterns.
  *
  * Archived patterns live in `patterns/archive/` so they don't appear by default.
- * They are only registered for admins/super-admins, or for allowlisted sites.
+ * They are only registered when enabled via the `dswp_legacy_pattern_allow` filter.
  *
  * @package Design_System_WordPress_Theme
  */
@@ -133,66 +134,6 @@ class LegacyPatterns {
      * @return bool
      */
     private function can_show_legacy_patterns() {
-        if ( \current_user_can( 'manage_options' ) ) {
-            return true;
-        }
-
-        if ( \is_multisite() && \is_super_admin() ) {
-            return true;
-        }
-
-        // Allowlist sites that can access archived patterns (non-admin users).
-        // Accepts either hostnames (e.g. 'example.com') or full URLs (e.g. 'https://example.com/subsite').
-        $legacy_sites = \apply_filters(
-            'dswp_legacy_pattern_sites',
-            array()
-        );
-
-        if ( ! is_array( $legacy_sites ) || empty( $legacy_sites ) ) {
-            return false;
-        }
-
-        $current_blog_id = (int) \get_current_blog_id();
-        $current_home    = (string) \home_url();
-
-        $current_host = (string) \wp_parse_url( $current_home, PHP_URL_HOST );
-        $current_path = (string) \wp_parse_url( $current_home, PHP_URL_PATH );
-        $current_base = strtolower( rtrim( $current_host . $current_path, '/' ) );
-
-        foreach ( $legacy_sites as $legacy_site ) {
-            if ( is_int( $legacy_site ) || ctype_digit( (string) $legacy_site ) ) {
-                if ( $current_blog_id === (int) $legacy_site ) {
-                    return true;
-                }
-                continue;
-            }
-
-            if ( ! is_string( $legacy_site ) ) {
-                continue;
-            }
-
-            $legacy_site = trim( $legacy_site );
-            if ( '' === $legacy_site ) {
-                continue;
-            }
-
-            // Allow entries like:
-            // - example.com (hostname only).
-            // - https://example.com/subsite (full URL; host+path supported).
-            if ( str_contains( $legacy_site, '://' ) ) {
-                $legacy_host = (string) \wp_parse_url( $legacy_site, PHP_URL_HOST );
-                $legacy_path = (string) \wp_parse_url( $legacy_site, PHP_URL_PATH );
-                $legacy_base = strtolower( rtrim( $legacy_host . $legacy_path, '/' ) );
-
-                if ( '' !== $legacy_base && $legacy_base === $current_base ) {
-                    return true;
-                }
-            } elseif ( strtolower( $legacy_site ) === strtolower( $current_host ) ) {
-                // Hostnames only (no path allowed without a scheme).
-                return true;
-            }
-        }
-
-        return false;
+        return (bool) \apply_filters( 'dswp_legacy_pattern_allow', false );
     }
 }

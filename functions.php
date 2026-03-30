@@ -4,6 +4,7 @@
  *
  * @package Design_System_WordPress_Theme
  */
+use Bcgov\Theme\DesignSystem\LegacyPatterns;
 
 /**
  * Plugin path (relative to wp-content/plugins) required by this theme.
@@ -18,15 +19,20 @@ add_action( 'after_switch_theme', 'design_system_theme_activate_plugin_on_switch
 add_action( 'after_setup_theme', 'design_system_theme_register_plugin_required_notices', 5 );
 
 /**
- * Theme feature includes.
+ * Composer autoload.
  */
-require_once get_template_directory() . '/inc/legacy-patterns.php';
+$autoloader_path = __DIR__ . '/vendor/autoload.php';
+if ( file_exists( $autoloader_path ) ) {
+    require_once $autoloader_path;
+}
 
 /**
  * Legacy patterns.
  */
-$legacy_patterns = new \DesignSystemWordPressTheme\LegacyPatterns();
-$legacy_patterns->init();
+if ( class_exists( 'Bcgov\\Theme\\DesignSystem\\LegacyPatterns' ) ) {
+    $legacy_patterns = new LegacyPatterns();
+    $legacy_patterns->init();
+}
 
 /**
  * Auto-activate plugin when this theme is switched to; admins can disable it later.
