@@ -211,8 +211,21 @@
         }
     },
     "settings": {
-        "appearanceTools": true,
+        "appearanceTools": false,
         "useRootPaddingAwareAlignments": true,
+        "blocks": {
+            "core/button": {
+                "border": {
+                    "radius": false
+                }
+            },
+            "core/image": {
+                "spacing": {
+                    "margin": false,
+                    "padding": false
+                }
+            }
+        },
         "layout": {
             "contentSize": "var(--dswp-layout-content-size)",
             "wideSize": "var(--dswp-layout-content-size)"
@@ -249,7 +262,26 @@
                 "typographyColorButtonSecondaryPressed": "var(--bcds-surface-color-primary-pressed)"
             }
         },
+        "shadow": {
+            "defaultPresets": false,
+            "presets": []
+        },
+        "border": {
+            "radius": false
+        },
         "typography": {
+            "customFontFamily": false,
+            "defaultFontFamilies": false,
+            "customFontSize": false,
+            "defaultFontSizes": false,
+            "dropCap": false,
+            "lineHeight": false,
+            "letterSpacing": false,
+            "fontStyle": false,
+            "fontWeight": false,
+            "textTransform": false,
+            "textDecoration": false,
+            "writingMode": false,
             "fontFamilies": [
                 {
                     "fontFamily": "var(--dswp-typography-font-families-bc-sans), Noto Sans, Verdana, Arial, sans-serif",
@@ -317,9 +349,20 @@
         },
         "spacing": {
             "blockGap": true,
-            "margin": true
+            "margin": false,
+            "padding": false
         },
         "color": {
+            "background": false,
+            "text": false,
+            "link": false,
+            "gradients": [],
+            "duotone": [],
+            "custom": false,
+            "customGradient": false,
+            "customDuotone": false,
+            "defaultDuotone": false,
+            "defaultGradients": false,
             "defaultPalette": false,
             "palette": [
                 {
