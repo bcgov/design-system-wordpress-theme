@@ -232,6 +232,13 @@
         },
         "custom": {
             "dswp": {
+                "surface":{
+                    "color":{
+                        "border":{
+                            "default": "var(--bcds-surface-color-border-default)"
+                        }
+                    }
+                },
                 "surfaceColorPrimaryButtonDefault": "var(--bcds-surface-color-primary-button-default)",
                 "surfaceColorPrimaryButtonHover": "var(--bcds-surface-color-primary-button-hover)",
                 "surfaceColorSecondaryButtonDefault": "var(--bcds-surface-color-secondary-button-default)",
@@ -244,7 +251,6 @@
                 "surfaceColorBackgroundSecondary": "var(--bcds-surface-color-background-light-blue)",
                 "surfaceColorBackgroundTeritiary": "var(--bcds-surface-color-background-white)",
                 "surfaceColorBackgroundDark": "var(--bcds-surface-color-background-dark-blue)",
-                "surfaceColorBorderDefault": "var(--bcds-surface-color-border-default)",
                 "surfaceColorBorderMedium": "var(--bcds-surface-color-border-medium)",
                 "surfaceColorBorderDark": "var(--bcds-surface-color-border-dark)",
                 "surfaceColorOverlayDefault": "var(--bcds-surface-color-overlay-default)",
