@@ -1,0 +1,12 @@
+/*
+ * Reusable utility classes shared across theme and plugins.
+ * Add future generic classes here.
+ */
+
+.dswp-border-frame {
+	border: 1px solid var(--wp--custom--dswp--surface--color--border--default, #dadbdd);
+}
+
+.dswp-border-divider {
+	border-bottom: 1px solid var(--wp--custom--dswp--surface--color--border--default, #dadbdd);
+}
