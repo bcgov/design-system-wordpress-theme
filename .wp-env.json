@@ -2,7 +2,16 @@
     "core": "WordPress/WordPress#6.8",
     "phpVersion": "7.4",
     "themes": [ "." ],
+    "plugins": [
+        "../../plugins/design-system-wordpress-plugin"
+    ],
+    "config": {
+        "WP_ENVIRONMENT_TYPE": "local",
+        "WP_DEBUG": true,
+        "WP_DEBUG_DISPLAY": true,
+        "SCRIPT_DEBUG": true
+    },
     "lifecycleScripts": {
-        "afterStart": "wp-env run tests-cli wp theme activate design-system-wordpress-theme"
+        "afterStart": "wp-env run tests-cli sh /var/www/html/wp-content/themes/design-system-wordpress-theme/scripts/wp-env-bootstrap.sh && wp-env run tests-cli sh /var/www/html/wp-content/themes/design-system-wordpress-theme/scripts/wp-env-bootstrap.sh && wp-env run cli sh /var/www/html/wp-content/themes/design-system-wordpress-theme/scripts/wp-env-bootstrap.sh && wp-env run tests-cli sh /var/www/html/wp-content/themes/design-system-wordpress-theme/scripts/wp-env-bootstrap.sh"
     }
 }
