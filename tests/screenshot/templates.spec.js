@@ -42,10 +42,10 @@ async function createNavigationMenu(requestUtils, menuData) {
 }
 
 async function cleanupRegressionFixtures(requestUtils) {
-    const deleteMatchingItems = async (path, slugPrefixes) => {
+    const deleteMatchingItems = async (endpoint, slugPrefixes) => {
         const items = await requestUtils.rest({
             method: 'GET',
-            path,
+            path: endpoint,
             params: {
                 per_page: 100,
                 context: 'edit',
@@ -60,7 +60,7 @@ async function cleanupRegressionFixtures(requestUtils) {
 
             await requestUtils.rest({
                 method: 'DELETE',
-                path: `${path}/${item.id}`,
+                path: `${endpoint}/${item.id}`,
                 params: { force: true },
             });
         }
