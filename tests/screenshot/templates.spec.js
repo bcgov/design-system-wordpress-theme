@@ -1,8 +1,13 @@
 import { expect, test } from '@wordpress/e2e-test-utils-playwright';
 import fs from 'fs';
+import path from 'path';
 
 const SNAPSHOT_DIR = 'tests/screenshot/__snapshots__';
 const KEEP_DEBUG_FIXTURES = false;
+const DESKTOP_NAV_PATH = path.resolve(
+    __dirname,
+    '../../parts/desktop-navigation.html'
+);
 
 function toRelativePath(link) {
     return new URL(link).pathname;
@@ -216,9 +221,7 @@ test.describe('template shell regression', () => {
         });
 
         // Update the navigation block to use the created wp_navigation post.
-        const desktopNavPath =
-            '/Users/robrien/Development/dev-wp/wp-content/themes/design-system-wordpress-theme/parts/desktop-navigation.html';
-        let desktopNavContent = fs.readFileSync(desktopNavPath, 'utf8');
+        let desktopNavContent = fs.readFileSync(DESKTOP_NAV_PATH, 'utf8');
         desktopNavContent = desktopNavContent.replace(
             /"ref":\d+/g,
             `"ref":${fixtureState.navigationId}`
@@ -227,7 +230,7 @@ test.describe('template shell regression', () => {
             /"menuId":\d+/g,
             `"menuId":${fixtureState.navigationId}`
         );
-        fs.writeFileSync(desktopNavPath, desktopNavContent);
+        fs.writeFileSync(DESKTOP_NAV_PATH, desktopNavContent);
 
         routes.page = toRelativePath(page.link);
         routes.singular = toRelativePath(post.link);
@@ -271,9 +274,7 @@ test.describe('template shell regression', () => {
         }
 
         // Revert the navigation block
-        const desktopNavPath =
-            '/Users/robrien/Development/dev-wp/wp-content/themes/design-system-wordpress-theme/parts/desktop-navigation.html';
-        let desktopNavContent = fs.readFileSync(desktopNavPath, 'utf8');
+        let desktopNavContent = fs.readFileSync(DESKTOP_NAV_PATH, 'utf8');
         desktopNavContent = desktopNavContent.replace(
             /"ref":\d+/g,
             '"ref":123'
@@ -282,7 +283,7 @@ test.describe('template shell regression', () => {
             /"menuId":\d+/g,
             '"menuId":123'
         );
-        fs.writeFileSync(desktopNavPath, desktopNavContent);
+        fs.writeFileSync(DESKTOP_NAV_PATH, desktopNavContent);
 
         // Delete the wp_navigation fixture
         if (fixtureState.navigationId) {
