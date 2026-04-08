@@ -24,6 +24,9 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
+      - name: Clone design-system-wordpress-plugin
+        run: git clone https://github.com/bcgov/design-system-wordpress-plugin.git ./wp-content/plugins/design-system-wordpress-plugin
+
       - name: Start wp-env
         run: npm run wp-env start
 
