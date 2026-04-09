@@ -43,14 +43,21 @@ jobs:
           }
           EOF
 
-      - name: Verify override file
+      - name: Verify override file and bootstrap script
         run: |
           pwd
           ls -la .wp-env.override.json
           cat .wp-env.override.json
+          test -f scripts/wp-env-bootstrap.sh
+          ls -la scripts/wp-env-bootstrap.sh
 
       - name: Start wp-env
         run: npm run wp-env start
+
+      - name: Verify bootstrap script in wp-env
+        run: |
+          npx wp-env run tests-cli sh -c 'test -f /var/www/html/wp-content/themes/design-system-wordpress-theme/scripts/wp-env-bootstrap.sh'
+          npx wp-env run tests-cli ls -la /var/www/html/wp-content/themes/design-system-wordpress-theme/scripts/wp-env-bootstrap.sh
 
       - name: Run screenshot updates
         run: npm run test:screenshot:update
