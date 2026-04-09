@@ -12,6 +12,6 @@
         "SCRIPT_DEBUG": true
     },
     "lifecycleScripts": {
-        "afterStart": "wp-env run tests-cli sh /var/www/html/wp-content/themes/design-system-wordpress-theme/scripts/wp-env-bootstrap.sh && wp-env run tests-cli sh /var/www/html/wp-content/themes/design-system-wordpress-theme/scripts/wp-env-bootstrap.sh && wp-env run cli sh /var/www/html/wp-content/themes/design-system-wordpress-theme/scripts/wp-env-bootstrap.sh && wp-env run tests-cli sh /var/www/html/wp-content/themes/design-system-wordpress-theme/scripts/wp-env-bootstrap.sh"
+        "afterStart": "wp-env run tests-cli sh /var/www/html/wp-content/themes/design-system-wordpress-theme/scripts/wp-env-bootstrap.sh && wp-env run cli sh /var/www/html/wp-content/themes/design-system-wordpress-theme/scripts/wp-env-bootstrap.sh"
     }
 }

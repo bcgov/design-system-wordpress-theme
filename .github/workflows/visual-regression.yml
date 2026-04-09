@@ -35,7 +35,7 @@ jobs:
           cat > .wp-env.override.json <<'EOF'
           {
             "plugins": [
-              "bcgov/design-system-wordpress-plugin"
+              "./ci/plugins/design-system-wordpress-plugin"
             ],
             "lifecycleScripts": {
                 "afterStart": "wp-env run tests-cli sh /var/www/html/wp-content/themes/design-system-wordpress-theme/scripts/wp-env-bootstrap.sh"
