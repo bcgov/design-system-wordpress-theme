@@ -43,6 +43,12 @@ jobs:
           }
           EOF
 
+      - name: Verify override file
+        run: |
+          pwd
+          ls -la .wp-env.override.json
+          cat .wp-env.override.json
+
       - name: Start wp-env
         run: npm run wp-env start
 
