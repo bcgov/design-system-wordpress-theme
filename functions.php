@@ -4,6 +4,7 @@
  *
  * @package Design_System_WordPress_Theme
  */
+use Bcgov\Theme\DesignSystem\ExternalLinkIcons;
 use Bcgov\Theme\DesignSystem\LegacyPatterns;
 
 /**
@@ -32,6 +33,14 @@ if ( file_exists( $autoloader_path ) ) {
 if ( class_exists( 'Bcgov\\Theme\\DesignSystem\\LegacyPatterns' ) ) {
     $legacy_patterns = new LegacyPatterns();
     $legacy_patterns->init();
+}
+
+/**
+ * External link icon class injection for rendered block content.
+ */
+if ( class_exists( 'Bcgov\\Theme\\DesignSystem\\ExternalLinkIcons' ) ) {
+    $external_link_icons = new ExternalLinkIcons();
+    $external_link_icons->init();
 }
 
 /**

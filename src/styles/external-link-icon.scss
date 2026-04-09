@@ -1,0 +1,32 @@
+
+// Show icon for links marked as external by PHP/JS (or target="_blank" as fallback).
+a.dswp-external-link-icon::after,
+.wp-block-button__link.dswp-external-link-icon::after,
+.editor-styles-wrapper a.dswp-external-link-icon::after,
+.editor-styles-wrapper .wp-block-button__link.dswp-external-link-icon::after,
+.wp-block-post-content a[target="_blank"]::after,
+.editor-styles-wrapper a[target="_blank"]::after {
+	content: "";
+	display: inline-block;
+	width: 1.1em;
+	height: 1.1em;
+	margin-left: 0.625rem;
+	vertical-align: text-top;
+	background-color: currentcolor;
+	/* stylelint-disable-next-line function-url-quotes */
+	-webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3Cpath%20d='M14%203v2h3.59l-9.83%209.83%201.41%201.41L19%206.41V10h2V3z'/%3E%3Cpath%20d='M5%205h6V3H5c-1.1%200-2%20.9-2%202v14c0%201.1.9%202%202%202h14c1.1%200%202-.9%202-2v-6h-2v6H5z'/%3E%3C/svg%3E");
+	/* stylelint-disable-next-line function-url-quotes */
+	mask-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3Cpath%20d='M14%203v2h3.59l-9.83%209.83%201.41%201.41L19%206.41V10h2V3z'/%3E%3Cpath%20d='M5%205h6V3H5c-1.1%200-2%20.9-2%202v14c0%201.1.9%202%202%202h14c1.1%200%202-.9%202-2v-6h-2v6H5z'/%3E%3C/svg%3E");
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	-webkit-mask-size: contain;
+	mask-size: contain;
+}
+
+.wp-block-button__link.dswp-external-link-icon,
+.editor-styles-wrapper .wp-block-button__link.dswp-external-link-icon,
+.wp-block-post-content .wp-block-button__link[target="_blank"],
+.editor-styles-wrapper .wp-block-button__link[target="_blank"] {
+	display: inline-flex;
+	align-items: center;
+}
