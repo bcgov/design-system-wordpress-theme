@@ -17,12 +17,15 @@ function isExternalHref(href, origin) {
     }
 
     const normalizedHref = href.trim();
+    const normalizedScheme = normalizedHref.toLowerCase();
     if (
         normalizedHref.startsWith('#') ||
-        normalizedHref.startsWith('mailto:') ||
-        normalizedHref.startsWith('tel:') ||
-        normalizedHref.startsWith('sms:') ||
-        normalizedHref.startsWith('javascript:')
+        normalizedScheme.startsWith('mailto:') ||
+        normalizedScheme.startsWith('tel:') ||
+        normalizedScheme.startsWith('sms:') ||
+        normalizedScheme.startsWith('javascript:') ||
+        normalizedScheme.startsWith('data:') ||
+        normalizedScheme.startsWith('vbscript:')
     ) {
         return false;
     }
