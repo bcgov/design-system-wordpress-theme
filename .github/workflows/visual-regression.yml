@@ -30,6 +30,11 @@ jobs:
           repository: bcgov/design-system-wordpress-plugin
           path: ci/plugins/design-system-wordpress-plugin
 
+      - name: Install plugin dependencies
+        run: |
+          cd ci/plugins/design-system-wordpress-plugin
+          composer install
+
       - name: Configure wp-env plugin path for CI
         run: |
           cat > .wp-env.override.json <<'EOF'
