@@ -1,6 +1,14 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+
 import { expect, test } from '@wordpress/e2e-test-utils-playwright';
 
 const SNAPSHOT_DIR = 'tests/screenshot/__snapshots__';
+const NAVIGATION_TEMPLATE_PARTS = [
+    path.join(process.cwd(), 'parts', 'desktop-navigation.html'),
+    path.join(process.cwd(), 'parts', 'mobile-navigation.html'),
+];
+const originalNavigationTemplatePartContent = new Map();
 
 const FIXTURE_PREFIXES = {
     navigation: ['regression-navigation-'],
@@ -109,30 +117,31 @@ async function cleanupRegressionFixtures(requestUtils) {
     ]);
 }
 
-async function mockNavigationResponse(page, fixtureState) {
-    await page.route('**/wp-json/wp/v2/navigation*', async (route) => {
-        const requestUrl = route.request().url();
+async function syncNavigationTemplateParts(navigationId) {
+    await Promise.all(
+        NAVIGATION_TEMPLATE_PARTS.map(async (filePath) => {
+            const originalContent = await fs.readFile(filePath, 'utf8');
 
-        if (!requestUrl.includes(`navigation/${fixtureState.navigationId}`)) {
-            await route.continue();
-            return;
-        }
+            if (!originalNavigationTemplatePartContent.has(filePath)) {
+                originalNavigationTemplatePartContent.set(filePath, originalContent);
+            }
 
-        await route.fulfill({
-            status: 200,
-            contentType: 'application/json',
-            body: JSON.stringify({
-                id: fixtureState.navigationId,
-                title: {
-                    rendered: `Regression Navigation ${fixtureState.suffix}`,
-                },
-                content: {
-                    rendered: '<nav>Test Navigation Menu</nav>',
-                },
-                status: 'publish',
-            }),
-        });
-    });
+            const updatedContent = originalContent.replace(
+                /"ref":\d+,"menuId":\d+/,
+                `"ref":${navigationId},"menuId":${navigationId}`
+            );
+
+            await fs.writeFile(filePath, updatedContent);
+        })
+    );
+}
+
+async function restoreNavigationTemplateParts() {
+    await Promise.all(
+        Array.from(originalNavigationTemplatePartContent.entries()).map(
+            ([filePath, content]) => fs.writeFile(filePath, content)
+        )
+    );
 }
 
 async function assertTemplateChrome(page) {
@@ -159,6 +168,7 @@ test.describe('template regression', () => {
         postId: null,
         categoryId: null,
         navigationId: null,
+        navigationItems: [],
         suffix: null,
     };
 
@@ -215,14 +225,18 @@ test.describe('template regression', () => {
         });
         fixtureState.postId = post.id;
 
+        fixtureState.navigationItems = [
+            { title: 'Home', url: '/' },
+            { title: 'Services', url: toRelativePath(parentPage.link) },
+            { title: 'Apply for Benefit', url: toRelativePath(page.link) },
+        ];
+
         fixtureState.navigationId = await createNavigationMenu(requestUtils, {
             title: `Regression Navigation ${suffix}`,
-            items: [
-                { title: 'Home', url: '/' },
-                { title: 'Services', url: toRelativePath(parentPage.link) },
-                { title: 'Apply for Benefit', url: toRelativePath(page.link) },
-            ],
+            items: fixtureState.navigationItems,
         });
+
+        await syncNavigationTemplateParts(fixtureState.navigationId);
 
         // Set up routes
         routes.page = toRelativePath(page.link);
@@ -240,6 +254,8 @@ test.describe('template regression', () => {
      * Cleans up test fixtures after running template regression tests
      */
     test.afterAll(async ({ requestUtils }) => {
+        await restoreNavigationTemplateParts();
+
         // Skip cleanup in debug mode
         if (process.env.KEEP_DEBUG_FIXTURES === 'true') {
             return;
@@ -280,12 +296,20 @@ test.describe('template regression', () => {
 
     templates.forEach(({ name, getUrl }) => {
         test(`template ${name}`, async ({ page }) => {
-            await mockNavigationResponse(page, fixtureState);
-
             const url = getUrl();
             await page.goto(url, { waitUntil: 'networkidle' });
 
             const site = await assertTemplateChrome(page);
+            const desktopNavigation = site
+                .locator('.dswp-block-navigation-is-never-overlay')
+                .first();
+
+            await expect(desktopNavigation).toBeVisible();
+            await expect(
+                desktopNavigation.locator('.wp-block-navigation-item__label')
+            ).toHaveText(
+                fixtureState.navigationItems.map((item) => item.title)
+            );
 
             await site.screenshot({
                 animations: 'disabled',
