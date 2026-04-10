@@ -22,3 +22,6 @@ artifacts
 documentation/docs/.vuepress/.temp
 documentation/docs/.vuepress/.cache
 documentation/node_modules
+
+# wp-env overrides (CI-specific)
+.wp-env.override.json

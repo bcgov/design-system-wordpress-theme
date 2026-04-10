@@ -35,7 +35,7 @@ jobs:
           cd ci/plugins/design-system-wordpress-plugin
           composer install
 
-      - name: Configure wp-env plugin path for CI
+      - name: Create wp-env override file
         run: |
           cat > .wp-env.override.json <<'EOF'
           {
@@ -48,24 +48,14 @@ jobs:
           }
           EOF
 
-      - name: Verify override file and bootstrap script
-        run: |
-          pwd
-          ls -la .wp-env.override.json
-          cat .wp-env.override.json
-          test -f scripts/wp-env-bootstrap.sh
-          ls -la scripts/wp-env-bootstrap.sh
-
       - name: Start wp-env
         run: npm run wp-env start
 
-      - name: Verify bootstrap script in wp-env
-        run: |
-          npx wp-env run tests-cli sh -c 'test -f /var/www/html/wp-content/themes/design-system-wordpress-theme/scripts/wp-env-bootstrap.sh'
-          npx wp-env run tests-cli ls -la /var/www/html/wp-content/themes/design-system-wordpress-theme/scripts/wp-env-bootstrap.sh
-
       - name: Run screenshot updates
         run: npm run test:screenshot:update
+
+      - name: Clean up CI override file
+        run: rm .wp-env.override.json
 
       - name: Commit and push updated snapshots
         uses: stefanzweifel/git-auto-commit-action@v7.1.0
