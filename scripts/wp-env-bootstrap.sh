@@ -1,4 +1,8 @@
 #!/bin/sh
+# Bootstrap script for wp-env to set up a deterministic local environment for development and visual regression testing.
+
+# install dependencies for the plugin to ensure autoloading is available in wp-env
+cd wp-content/plugins/design-system-wordpress-plugin && composer dump-autoload && cd ../../../
 
 set -eu
 

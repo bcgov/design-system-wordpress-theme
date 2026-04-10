@@ -3,7 +3,7 @@
     "phpVersion": "7.4",
     "themes": [ "." ],
     "plugins": [
-        "../../plugins/design-system-wordpress-plugin"
+        "bcgov/design-system-wordpress-plugin"
     ],
     "config": {
         "WP_ENVIRONMENT_TYPE": "local",

@@ -24,30 +24,6 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      - name: Checkout design-system-wordpress-plugin
-        uses: actions/checkout@v4
-        with:
-          repository: bcgov/design-system-wordpress-plugin
-          path: ci/plugins/design-system-wordpress-plugin
-
-      - name: Install plugin dependencies
-        run: |
-          cd ci/plugins/design-system-wordpress-plugin
-          composer install
-
-      - name: Create wp-env override file
-        run: |
-          cat > .wp-env.override.json <<'EOF'
-          {
-            "plugins": [
-              "./ci/plugins/design-system-wordpress-plugin"
-            ],
-            "lifecycleScripts": {
-                "afterStart": "wp-env run tests-cli sh /var/www/html/wp-content/themes/design-system-wordpress-theme/scripts/wp-env-bootstrap.sh"
-            }
-          }
-          EOF
-
       - name: Start wp-env
         run: npm run wp-env start
 
