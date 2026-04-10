@@ -30,9 +30,6 @@ jobs:
       - name: Run screenshot updates
         run: npm run test:screenshot:update
 
-      - name: Clean up CI override file
-        run: rm .wp-env.override.json
-
       - name: Commit and push updated snapshots
         uses: stefanzweifel/git-auto-commit-action@v7.1.0
         with:
