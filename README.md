@@ -22,6 +22,8 @@ npm run wp-env start
 
 This will start a local WordPress site at <http://localhost:8888> with the theme activated and a static homepage configured.
 
+On startup, wp-env also bootstraps both the `cli` and `tests-cli` environments so local development and screenshot tests use the same deterministic WordPress settings.
+
 You can access the WordPress admin at <http://localhost:8888/wp-admin>.
 
 To stop the environment:
@@ -30,7 +32,7 @@ To stop the environment:
 npm run wp-env stop
 ```
 
-Make changes to theme files and see them reflected in the local site. The environment includes deterministic setup for consistent development.
+Make changes to theme files and see them reflected in the local site. The bootstrap step applies consistent rewrite rules, timezone settings, and a static home page across both wp-env CLI environments.
 
 ## Build
 
@@ -41,14 +43,14 @@ composer checklist
 
 ## Visual Regression Testing
 
-This project uses Playwright to perform visual regression testing of patterns and template shells to help catch unintended changes.
+This project uses Playwright to perform visual regression testing of patterns and templates to help catch unintended changes.
 
 ```bash
 npm run wp-env start # Unless already running
 npm run test:screenshot
 ```
 
-**Note**: When creating a new pattern it must be added to `tests/screenshot/patterns.spec.js` in order to be included in regression tests. Template shell tests are in `tests/screenshot/templates.spec.js`.
+**Note**: When creating a new pattern it must be added to `tests/screenshot/patterns.spec.js` in order to be included in regression tests. Template tests are in `tests/screenshot/templates.spec.js`.
 
 ### Updating Screenshots
 
