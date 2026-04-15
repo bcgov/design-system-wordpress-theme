@@ -1,4 +1,4 @@
-<!-- wp:template-part {"slug":"header","area":"header"} /-->
+<!-- wp:template-part {"slug":"header",""area":"header"} /-->
 
 <!-- wp:group {"tagName":"main","align":"full","className":"bcgov-body-content","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"2rem","right":"var:preset|spacing|40","left":"1rem"}}},"layout":{"type":"constrained"}} -->
 <main
@@ -12,11 +12,13 @@
     >
     <!-- /wp:heading -->
 
-    <!-- wp:template-part {"slug":"query-loop-no-results","area":"uncategorized"} /-->
-
     <!-- wp:query {"queryId":1,"query":{"perPage":10,"pages":"100","offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","sticky":"","inherit":true}} -->
     <div class="wp-block-query"
-        ><!-- wp:post-template {"layout":{"type":"default"}} -->
+        ><!-- wp:query-no-results -->
+        <!-- wp:template-part {"slug":"query-loop-no-results",""area":"uncategorized"} /-->
+        <!-- /wp:query-no-results -->
+
+        <!-- wp:post-template {"layout":{"type":"default"}} -->
         <!-- wp:group {"style":{"border":{"top":{"color":"var:preset|color|bar-color","width":"1px"},"right":[],"bottom":[],"left":[]},"spacing":{"padding":{"bottom":"2.25rem"},"blockGap":"var:preset|spacing|50"}},"layout":{"inherit":true,"type":"constrained"}} -->
         <div
             class="wp-block-group"
@@ -50,4 +52,4 @@
 >
 <!-- /wp:group -->
 
-<!-- wp:template-part {"slug":"footer","area":"footer"} /-->
+<!-- wp:template-part {"slug":"footer",""area":"footer"} /-->
