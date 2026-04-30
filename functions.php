@@ -268,11 +268,7 @@ add_filter( 'get_block_type_variations', 'custom_cover_variation', 10, 2 );
 /**
  * Adds a custom variation for the core/cover block.
  *
- * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-variations/#registering-block-variations
- * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-variations/#block-variation-attributes
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-variations
- * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-variations/#block-variation-template
- * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-variations/#setting-a-default-block-variation
  *
  * @param array         $variations Existing block variations.
  * @param WP_Block_Type $block_type Block type being filtered.
@@ -318,7 +314,7 @@ function custom_cover_variation( $variations, $block_type ) {
                     ],
                 ],
                 [
-                    // This group is used to create a colored background behind the title, description, and action button.
+                    // This group is used to create a 70% opaque dark blue background behind the title, description, and call-to-action button.
                     [
                         'core/group',
                         [
@@ -350,13 +346,13 @@ function custom_cover_variation( $variations, $block_type ) {
                         ],
                         [
                             [
-                                // a Title block to use the post title directly, but could also be a Heading block if you want to type in a custom title instead of using the post title.
-                                'core/post-title',
+                                // a Homepage Title - Required.
+                                'core/heading',
                                 [
                                     'metadata'    => [
-                                        'name' => 'Title',
+                                        'name' => 'Home Page Title (Required)',
                                     ],
-                                    'placeholder' => 'Title',
+                                    'placeholder' => 'Home Page Title (Required)',
                                     'level'       => 1,
                                     'style'       => [
                                         'spacing' => [
@@ -373,9 +369,9 @@ function custom_cover_variation( $variations, $block_type ) {
                                 'core/paragraph',
                                 [
                                     'metadata'    => [
-                                        'name' => '(optional) Description',
+                                        'name' => 'Website Description (Optional)',
                                     ],
-                                    'placeholder' => 'Description (optional):' . "\n" . '1–2 short sentences,  20–40 words total.' . "\n" . '120–200 characters is a very safe target.',
+                                    'placeholder' => 'Description, under 160 characters.',
                                     'style'       => [
                                         'spacing'    => [
                                             'padding' => [
@@ -400,7 +396,7 @@ function custom_cover_variation( $variations, $block_type ) {
                                             'className'   => 'is-style-link',
                                             'placeholder' => 'Action >',
                                             'metadata'    => [
-                                                'name' => '(optinal) Call to Action Button',
+                                                'name' => 'Call to Action Button (Optional)',
                                             ],
                                             'style'       => [
                                                 'spacing' => [
@@ -427,7 +423,7 @@ function custom_cover_variation( $variations, $block_type ) {
 }
 
 /**
- * Register link block style for button.
+ * Register the custom button style for this cover image variation
  *
  * @return void
  */
