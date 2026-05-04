@@ -2,7 +2,10 @@
     "core": "WordPress/WordPress#6.8",
     "phpVersion": "7.4",
     "themes": [ "." ],
+    "plugins": [
+        "bcgov/design-system-wordpress-plugin"
+    ],
     "lifecycleScripts": {
-        "afterStart": "wp-env run tests-cli wp theme activate design-system-wordpress-theme"
+        "afterStart": "node ./scripts/wp-env-bootstrap.js cli tests-cli"
     }
 }
