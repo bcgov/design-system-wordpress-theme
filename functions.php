@@ -274,7 +274,7 @@ add_filter( 'get_block_type_variations', 'custom_cover_variation', 10, 2 );
  * @param WP_Block_Type $block_type Block type being filtered.
  * @return array Modified block variations.
  */
-function custom_cover_variation( $variations, $block_type ) {
+function design_system_hero_cover_variation( $variations, $block_type ) {
     // Only modify variations for the cover block.
     if ( 'core/cover' !== $block_type->name ) {
         return $variations;
