@@ -263,7 +263,7 @@ add_filter( 'wp_theme_json_data_theme', 'design_system_enable_appearance_tools_f
  * Add excerpt support to pages.
  */
 add_post_type_support( 'page', 'excerpt' );
-add_filter( 'get_block_type_variations', 'custom_cover_variation', 10, 2 );
+add_filter( 'get_block_type_variations', 'design_system_hero_cover_variation', 10, 2 );
 
 /**
  * Adds a custom variation for the core/cover block.
@@ -283,8 +283,8 @@ function design_system_hero_cover_variation( $variations, $block_type ) {
     // Add a custom variation.
     $variations[] = [
         'name'        => 'hero-image',
-        'title'       => __( 'Hero Image (16:9)', 'design-system-wordpress-theme' ),
-        'description' => __( 'Use a 16:9 (HD) image, e.g. 1920x1080, for best results.', 'design-system-wordpress-theme' ),
+        'title'       => __( 'Hero Image', 'design-system-wordpress-theme' ),
+        'description' => __( 'For best results, use a 16:9 (HD) image, e.g. 1920x1080.', 'design-system-wordpress-theme' ),
         'isActive'    => [ 'minHeight' ],
         'scope'       => [ 'inserter' ],
         'isDefault'   => false,
@@ -422,29 +422,29 @@ function design_system_hero_cover_variation( $variations, $block_type ) {
     return $variations;
 }
 
-/**
- * Register the custom button style for this cover image variation
- *
- * @return void
- */
-function custom_register_block_styles() {
-    // Use the Link button style from the DSWP theme.
-    register_block_style(
-        'core/button',
-        [
-            'name'         => 'link',
-            'label'        => __( 'Link', 'themeslug' ),
-            'inline_style' => '.wp-block-button.is-style-link > * {
-                background: none;
-                border: none;
-                padding: 0;
-                font: inherit;
-                cursor: pointer;
-                outline: inherit;
-                text-decoration: underline;
-		    }',
-        ]
-    );
-}
+// /**
+//  * Register the custom button style for this cover image variation
+//  *
+//  * @return void
+//  */
+// function register_link_button_block_style() {
+//     // Use the Link button style from the DSWP theme.
+//     register_block_style(
+//         'core/button',
+//         [
+//             'name'         => 'link',
+//             'label'        => __( 'Link', 'design-system-wordpress-theme' ),
+//             'inline_style' => '.wp-block-button.is-style-link > * {
+//                 background: none;
+//                 border: none;
+//                 padding: 0;
+//                 font: inherit;
+//                 cursor: pointer;
+//                 outline: inherit;
+//                 text-decoration: underline;
+// 		    }',
+//         ]
+//     );
+// }
 
-add_action( 'init', 'custom_register_block_styles' );
+// add_action( 'init', 'register_link_button_block_style' );
