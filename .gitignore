@@ -22,3 +22,6 @@ artifacts
 documentation/docs/.vuepress/.temp
 documentation/docs/.vuepress/.cache
 documentation/node_modules
+
+# development files
+.wp-env.override.json

@@ -4,6 +4,7 @@
  *
  * @package Design_System_WordPress_Theme
  */
+
 use Bcgov\Theme\DesignSystem\LegacyPatterns;
 
 /**
@@ -145,14 +146,14 @@ design_system_include_block_style_variations( $dir_path );
  * @since 1.3.0
  */
 function design_system_register_post_title_block_styles() {
-	$block_name       = 'core/post-title';
-	$style_properties = array(
-		'name'         => 'underline-title',
-		'label'        => __( 'Underline' ),
-		'isDefault'    => false,
-		'style_handle' => 'design-system-styles',
-	);
-	register_block_style( $block_name, $style_properties );
+    $block_name       = 'core/post-title';
+    $style_properties = array(
+        'name'         => 'underline-title',
+        'label'        => __( 'Underline' ),
+        'isDefault'    => false,
+        'style_handle' => 'design-system-styles',
+    );
+    register_block_style( $block_name, $style_properties );
 }
 add_action( 'init', 'design_system_register_post_title_block_styles' );
 
@@ -262,3 +263,188 @@ add_filter( 'wp_theme_json_data_theme', 'design_system_enable_appearance_tools_f
  * Add excerpt support to pages.
  */
 add_post_type_support( 'page', 'excerpt' );
+add_filter( 'get_block_type_variations', 'design_system_hero_cover_variation', 10, 2 );
+
+/**
+ * Adds a custom variation for the core/cover block.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-variations
+ *
+ * @param array         $variations Existing block variations.
+ * @param WP_Block_Type $block_type Block type being filtered.
+ * @return array Modified block variations.
+ */
+function design_system_hero_cover_variation( $variations, $block_type ) {
+    // Only modify variations for the cover block.
+    if ( 'core/cover' !== $block_type->name ) {
+        return $variations;
+    }
+
+    // Add a custom variation.
+    $variations[] = [
+        'name'        => 'hero-image',
+        'title'       => __( 'Hero Image', 'design-system-wordpress-theme' ),
+        'description' => __( 'For best results, use a 16:9 (HD) image, e.g. 1920x1080.', 'design-system-wordpress-theme' ),
+        'isActive'    => [ 'minHeight' ],
+        'scope'       => [ 'inserter' ],
+        'isDefault'   => false,
+        'attributes'  => [
+            'metadata'     => [
+                'name' => 'Hero image',
+            ],
+            'layout'       => [
+                'type' => 'constrained',
+            ],
+            'templateLock' => 'contentOnly',
+            'isDark'       => true,
+        ],
+        'icon'        => 'cover-image',
+        'innerBlocks' => [
+            // This group sets up a centered layout for the content and adds a name to the block for easier identification in the editor.
+            [
+                'core/group',
+                [
+                    'metadata' => [
+                        'name' => 'Layout Container to center content and set width',
+                    ],
+                    'layout'   => [
+                        'type'           => 'constrained',
+                        'contentSize'    => '468px',
+                        'justifyContent' => 'left',
+                    ],
+                ],
+                [
+                    // This group is used to create a 70% opaque dark blue background behind the title, description, and call-to-action button.
+                    [
+                        'core/group',
+                        [
+                            'metadata' => [
+                                'name' => 'Card Container',
+                            ],
+                            'style'    => [
+                                'color'   => [
+                                    'background' => ' #013366B2', // dswp-surface-color-background-dark-blue, but with 70% opacity.
+                                    'text'       => 'var:preset|color|white',
+                                ],
+                                'border'  => [
+                                    'left'   => [
+                                        'width' => '0.5rem',
+                                        'color' => 'var:preset|color|accent-primary',
+                                        'style' => 'solid',
+                                    ],
+                                    'radius' => '4px',
+                                ],
+                                'spacing' => [
+                                    'padding' => [
+                                        'top'    => '0.5rem',
+                                        'right'  => '2rem',
+                                        'bottom' => '1rem',
+                                        'left'   => '2rem',
+                                    ],
+                                ],
+                            ],
+                        ],
+                        [
+                            [
+                                // a Homepage Title - Required.
+                                'core/heading',
+                                [
+                                    'metadata'    => [
+                                        'name' => 'Home Page Title (Required)',
+                                    ],
+                                    'placeholder' => 'Home Page Title (Required)',
+                                    'level'       => 1,
+                                    'style'       => [
+                                        'spacing' => [
+                                            'padding' => [
+                                                'top'    => '1.5rem',
+                                                'bottom' => '1.5rem',
+                                            ],
+                                        ],
+                                    ],
+                                ],
+                            ],
+                            [
+                                // An optional description block.
+                                'core/paragraph',
+                                [
+                                    'metadata'    => [
+                                        'name' => 'Website Description (Optional)',
+                                    ],
+                                    'placeholder' => 'Description, under 160 characters.',
+                                    'style'       => [
+                                        'spacing'    => [
+                                            'padding' => [
+                                                'bottom' => '1rem',
+                                            ],
+                                        ],
+                                        'typography' => [
+                                            'fontSize'   => '1.125rem',
+                                            'lineHeight' => '1.7',
+                                        ],
+
+                                    ],
+                                ],
+                            ],
+                            [
+                                'core/buttons',
+                                [],
+                                [
+                                    [
+                                        'core/button',
+                                        [
+                                            'className'   => 'is-style-link',
+                                            'placeholder' => 'Action >',
+                                            'metadata'    => [
+                                                'name' => 'Call to Action Button (Optional)',
+                                            ],
+                                            'style'       => [
+                                                'spacing' => [
+                                                    'padding'  => [
+                                                        'top'    => 0,
+                                                        'right'  => '1.5rem',
+                                                        'bottom' => '1rem',
+                                                        'left'   => 0,
+                                                    ],
+                                                ],
+                                            ],
+                                        ],
+                                    ],
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ],
+    ];
+
+    return $variations;
+}
+
+/**
+ * Register the custom button style for this cover image variation
+ *
+ * @return void
+ */
+function design_system_register_link_button_block_style() {
+    // Use the Link button style from the DSWP theme.
+    register_block_style(
+        'core/button',
+        [
+            'name'         => 'link',
+            'label'        => __( 'Link', 'design-system-wordpress-theme' ),
+            'inline_style' => '.wp-block-button.is-style-link > * {
+                background: none;
+                border: none;
+                padding: 0;
+                font: inherit;
+                cursor: pointer;
+                outline: inherit;
+                text-decoration: underline;
+		    }',
+        ]
+    );
+}
+
+add_action( 'init', 'design_system_register_link_button_block_style' );
