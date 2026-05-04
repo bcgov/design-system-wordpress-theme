@@ -422,29 +422,29 @@ function design_system_hero_cover_variation( $variations, $block_type ) {
     return $variations;
 }
 
-// /**
-//  * Register the custom button style for this cover image variation
-//  *
-//  * @return void
-//  */
-// function register_link_button_block_style() {
-//     // Use the Link button style from the DSWP theme.
-//     register_block_style(
-//         'core/button',
-//         [
-//             'name'         => 'link',
-//             'label'        => __( 'Link', 'design-system-wordpress-theme' ),
-//             'inline_style' => '.wp-block-button.is-style-link > * {
-//                 background: none;
-//                 border: none;
-//                 padding: 0;
-//                 font: inherit;
-//                 cursor: pointer;
-//                 outline: inherit;
-//                 text-decoration: underline;
-// 		    }',
-//         ]
-//     );
-// }
+/**
+ * Register the custom button style for this cover image variation
+ *
+ * @return void
+ */
+function register_link_button_block_style() {
+    // Use the Link button style from the DSWP theme.
+    register_block_style(
+        'core/button',
+        [
+            'name'         => 'link',
+            'label'        => __( 'Link', 'design-system-wordpress-theme' ),
+            'inline_style' => '.wp-block-button.is-style-link > * {
+                background: none;
+                border: none;
+                padding: 0;
+                font: inherit;
+                cursor: pointer;
+                outline: inherit;
+                text-decoration: underline;
+		    }',
+        ]
+    );
+}
 
-// add_action( 'init', 'register_link_button_block_style' );
+add_action( 'init', 'register_link_button_block_style' );
