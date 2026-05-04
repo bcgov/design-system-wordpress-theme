@@ -7,49 +7,36 @@ test.describe('Hero Image block variation', () => {
         await admin.createNewPost();
     });
 
-    // 'Happy Path' test for the Hero Image (16:9) block variation.
     test('test that we can create a Hero Image block with all fields filled', async ({
         page,
     }) => {
-        await page.goto('http://localhost:8889/');
-        await page.getByRole('menuitem', { name: ' Edit Page' }).click();
+        // The editor is already open on a new post!
         await page.getByRole('button', { name: 'Block Inserter' }).click();
         await page.getByRole('option', { name: ' Hero Image' }).click();
-        await page
-            .locator('iframe[name="editor-canvas"]')
-            .contentFrame()
+        const frame = await page.frameLocator('iframe[name="editor-canvas"]');
+        await frame
             .getByRole('document', { name: 'Block: Heading' })
             .first()
             .click();
-        await page
-            .locator('iframe[name="editor-canvas"]')
-            .contentFrame()
+        await frame
             .getByRole('document', { name: 'Block: Heading' })
             .first()
             .fill('Home Page Title');
-        await page
-            .locator('iframe[name="editor-canvas"]')
-            .contentFrame()
+        await frame
             .getByRole('document', { name: 'Block: Cover' })
             .getByLabel('Empty block; start writing or')
             .first()
             .click();
-        await page
-            .locator('iframe[name="editor-canvas"]')
-            .contentFrame()
+        await frame
             .getByRole('document', { name: 'Block: Cover' })
             .getByLabel('Empty block; start writing or')
             .first()
             .fill('Description, under 200 characters');
-        await page
-            .locator('iframe[name="editor-canvas"]')
-            .contentFrame()
+        await frame
             .getByRole('textbox', { name: 'Button text' })
             .first()
             .click();
-        await page
-            .locator('iframe[name="editor-canvas"]')
-            .contentFrame()
+        await frame
             .getByRole('textbox', { name: 'Button text' })
             .first()
             .fill('Learn More');
@@ -62,12 +49,32 @@ test.describe('Hero Image block variation', () => {
             .getByLabel('Editor content')
             .getByRole('button', { name: 'Submit' })
             .click();
-        await page.getByRole('button', { name: 'Save', exact: true }).click();
+
+        // Open the publish panel
         await page
-            .getByTestId('snackbar')
-            .getByRole('link', { name: 'View Page' })
+            .getByRole('button', { name: 'Publish', exact: true })
+            .first()
             .click();
-        await page.getByRole('heading', { name: 'Home Page Title' }).click();
+
+        // Wait for the confirmation button to appear and click it
+        await page
+            .getByRole('button', { name: 'Publish', exact: true })
+            .nth(1)
+            .waitFor();
+        await page
+            .getByRole('button', { name: 'Publish', exact: true })
+            .nth(1)
+            .click();
+
+        // Get the "View Post" link (appears after publishing)
+        const snackbar = page.getByTestId('snackbar');
+        const viewPostLink = snackbar.getByRole('link', { name: /View Post/ });
+        const postUrl = await viewPostLink.getAttribute('href');
+
+        // Visit the front-end
+        await page.goto(postUrl!);
+
+        // Assert that the title, description, and button are visible and that the link is correct
         await expect(
             page.getByRole('heading', { name: 'Home Page Title' })
         ).toBeVisible();
@@ -78,41 +85,53 @@ test.describe('Hero Image block variation', () => {
             page.getByRole('link', { name: 'Learn More' })
         ).toBeVisible();
         await expect(page.locator('#main-content')).toMatchAriaSnapshot(`
-    - heading "Home Page Title" [level=1]
-    - paragraph: /Description, under \\d+ characters/
-    - link "Learn More":
-      - /url: http://www.test.com
-    `);
+            - heading "Home Page Title" [level=1]
+            - paragraph: /Description, under \\d+ characters/
+            - link "Learn More":
+              - /url: http://www.test.com
+        `);
     });
 
-    // This test verifies that the Hero Image block can be created with only a title, and that the description and action button are optional.
     test('test that we can create a Hero Image block with only a title', async ({
         page,
     }) => {
-        await page.goto('http://localhost:8889/');
-        await page.getByRole('menuitem', { name: ' Edit Page' }).click();
         await page.getByRole('button', { name: 'Block Inserter' }).click();
         await page.getByRole('option', { name: ' Hero Image' }).click();
-        await page
-            .locator('iframe[name="editor-canvas"]')
-            .contentFrame()
+        const frame = await page.frameLocator('iframe[name="editor-canvas"]');
+        await frame
             .getByRole('document', { name: 'Block: Heading' })
             .first()
             .click();
-        await page
-            .locator('iframe[name="editor-canvas"]')
-            .contentFrame()
+        await frame
             .getByRole('document', { name: 'Block: Heading' })
             .first()
             .fill('No Description or Action Button');
-        await page.getByRole('button', { name: 'Save', exact: true }).click();
+
+        // Open the publish panel
         await page
-            .getByTestId('snackbar')
-            .getByRole('link', { name: 'View Page' })
+            .getByRole('button', { name: 'Publish', exact: true })
+            .first()
             .click();
+
+        // Wait for the confirmation button to appear and click it
         await page
-            .getByRole('heading', { name: 'No Description or Action Button' })
+            .getByRole('button', { name: 'Publish', exact: true })
+            .nth(1)
+            .waitFor();
+        await page
+            .getByRole('button', { name: 'Publish', exact: true })
+            .nth(1)
             .click();
+
+        // Get the "View Post" link (appears after publishing)
+        const snackbar = page.getByTestId('snackbar');
+        const viewPostLink = snackbar.getByRole('link', { name: /View Post/ });
+        const postUrl = await viewPostLink.getAttribute('href');
+
+        // Visit the front-end
+        await page.goto(postUrl!);
+
+        // Assert that the title is visible and that the description and button are not rendered
         await expect(
             page.getByRole('heading', {
                 name: 'No Description or Action Button',
@@ -121,7 +140,7 @@ test.describe('Hero Image block variation', () => {
         await expect(page.locator('.wp-block-cover p').first()).toBeEmpty();
         await expect(page.locator('.wp-block-buttons').first()).toBeEmpty();
         await expect(page.locator('#main-content')).toMatchAriaSnapshot(`
-    - heading "No Description or Action Button" [level=1]
-    `);
+            - heading "No Description or Action Button" [level=1]
+        `);
     });
 });
