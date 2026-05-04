@@ -447,4 +447,4 @@ function design_system_register_link_button_block_style() {
     );
 }
 
-add_action( 'init', 'register_link_button_block_style' );
+add_action( 'init', 'design_system_register_link_button_block_style' );
