@@ -427,7 +427,7 @@ function design_system_hero_cover_variation( $variations, $block_type ) {
  *
  * @return void
  */
-function register_link_button_block_style() {
+function design_system_register_link_button_block_style() {
     // Use the Link button style from the DSWP theme.
     register_block_style(
         'core/button',
