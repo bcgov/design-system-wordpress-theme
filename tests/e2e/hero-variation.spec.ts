@@ -1,15 +1,35 @@
 import { test, expect } from '@playwright/test';
 
+
+
+test.beforeEach(async ({ page }) => {
+  await page.goto('http://localhost:8889/');
+  await page.getByRole('menuitem', { name: ' Edit Page' }).click();
+  await page.getByRole('button', { name: 'Document Overview' }).click();
+
+  // Loop to delete all Hero blocks (adjust the selector as needed for your editor)
+  while (await page.locator('td').filter({ hasText: /Hero imageBlock/ }).getByRole('link').first().isVisible({ timeout: 1000 }).catch(() => false)) {
+    await page.locator('td').filter({ hasText: /Hero imageBlock/ }).getByRole('link').first().click();
+    await page.getByRole('link', { name: 'Hero image' }).click();
+    // Click the delete button (adjust the selector as needed)
+    await page.getByRole('row', { name: 'Hero image Options' }).getByLabel('Options').click();
+    await page.getByRole('menuitem', { name: 'Delete ⇧⌘Backspace' }).click();
+    await page.getByRole('button', { name: 'Save', exact: true }).click();
+    // Optionally, re-open Document Overview if needed
+    await page.getByRole('button', { name: 'Document Overview' }).click();
+  }
+});
+
 // 'Happy Path' test for the Hero Image (16:9) block variation.
 test('test that we can create a Hero Image block with all fields filled', async ({ page }) => {
   await page.goto('http://localhost:8889/');
   await page.getByRole('menuitem', { name: ' Edit Page' }).click();
   await page.getByRole('button', { name: 'Block Inserter' }).click();
-  await page.getByRole('option', { name: ' Hero Image (16:9)' }).click();
+  await page.getByRole('option', { name: ' Hero Image' }).click();
   await page.locator('iframe[name="editor-canvas"]').contentFrame().getByRole('document', { name: 'Block: Heading' }).first().click();
   await page.locator('iframe[name="editor-canvas"]').contentFrame().getByRole('document', { name: 'Block: Heading' }).first().fill('Home Page Title');
   await page.locator('iframe[name="editor-canvas"]').contentFrame().getByRole('document', { name: 'Block: Cover' }).getByLabel('Empty block; start writing or').first().click();
-  await page.locator('iframe[name="editor-canvas"]').contentFrame().getByRole('document', { name: 'Block: Cover' }).getByLabel('Empty block; start writing or').fill('Description, under 200 characters');
+  await page.locator('iframe[name="editor-canvas"]').contentFrame().getByRole('document', { name: 'Block: Cover' }).getByLabel('Empty block; start writing or').first().fill('Description, under 200 characters');
   await page.locator('iframe[name="editor-canvas"]').contentFrame().getByRole('textbox', { name: 'Button text' }).first().click();
   await page.locator('iframe[name="editor-canvas"]').contentFrame().getByRole('textbox', { name: 'Button text' }).first().fill('Learn More');
   await page.getByRole('button', { name: 'Link' }).first().click();
@@ -34,7 +54,7 @@ test('test that we can create a Hero Image block with only a title', async ({ pa
   await page.goto('http://localhost:8889/');
   await page.getByRole('menuitem', { name: ' Edit Page' }).click();
   await page.getByRole('button', { name: 'Block Inserter' }).click();
-  await page.getByRole('option', { name: ' Hero Image (16:9)' }).click();
+  await page.getByRole('option', { name: ' Hero Image' }).click();
   await page.locator('iframe[name="editor-canvas"]').contentFrame().getByRole('document', { name: 'Block: Heading' }).first().click();
   await page.locator('iframe[name="editor-canvas"]').contentFrame().getByRole('document', { name: 'Block: Heading' }).first().fill('No Description or Action Button');
   await page.getByRole('button', { name: 'Save', exact: true }).click();
