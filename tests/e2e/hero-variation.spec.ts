@@ -1,13 +1,14 @@
 import { test, expect } from '@playwright/test';
 
-test('test', async ({ page }) => {
+// 'Happy Path' test for the Hero Image (16:9) block variation.
+test('test that we can create a Hero Image block with all fields filled', async ({ page }) => {
   await page.goto('http://localhost:8889/');
   await page.getByRole('menuitem', { name: ' Edit Page' }).click();
   await page.getByRole('button', { name: 'Block Inserter' }).click();
   await page.getByRole('option', { name: ' Hero Image (16:9)' }).click();
   await page.locator('iframe[name="editor-canvas"]').contentFrame().getByRole('document', { name: 'Block: Heading' }).first().click();
   await page.locator('iframe[name="editor-canvas"]').contentFrame().getByRole('document', { name: 'Block: Heading' }).first().fill('Home Page Title');
-  await page.locator('iframe[name="editor-canvas"]').contentFrame().getByRole('document', { name: 'Block: Cover' }).getByLabel('Empty block; start writing or').click();
+  await page.locator('iframe[name="editor-canvas"]').contentFrame().getByRole('document', { name: 'Block: Cover' }).getByLabel('Empty block; start writing or').first().click();
   await page.locator('iframe[name="editor-canvas"]').contentFrame().getByRole('document', { name: 'Block: Cover' }).getByLabel('Empty block; start writing or').fill('Description, under 200 characters');
   await page.locator('iframe[name="editor-canvas"]').contentFrame().getByRole('textbox', { name: 'Button text' }).first().click();
   await page.locator('iframe[name="editor-canvas"]').contentFrame().getByRole('textbox', { name: 'Button text' }).first().fill('Learn More');
@@ -27,3 +28,24 @@ test('test', async ({ page }) => {
       - /url: http://www.test.com
     `);
 });
+
+// This test verifies that the Hero Image block can be created with only a title, and that the description and action button are optional.
+test('test that we can create a Hero Image block with only a title', async ({ page }) => {
+  await page.goto('http://localhost:8889/');
+  await page.getByRole('menuitem', { name: ' Edit Page' }).click();
+  await page.getByRole('button', { name: 'Block Inserter' }).click();
+  await page.getByRole('option', { name: ' Hero Image (16:9)' }).click();
+  await page.locator('iframe[name="editor-canvas"]').contentFrame().getByRole('document', { name: 'Block: Heading' }).first().click();
+  await page.locator('iframe[name="editor-canvas"]').contentFrame().getByRole('document', { name: 'Block: Heading' }).first().fill('No Description or Action Button');
+  await page.getByRole('button', { name: 'Save', exact: true }).click();
+  await page.getByTestId('snackbar').getByRole('link', { name: 'View Page' }).click();
+  await page.getByRole('heading', { name: 'No Description or Action Button' }).click();
+  await expect(page.getByRole('heading', { name: 'No Description or Action Button' })).toBeVisible();
+  await expect(page.locator('.wp-block-cover p').first()).toBeEmpty();
+  await expect(page.locator('.wp-block-buttons').first()).toBeEmpty();
+  await expect(page.locator('#main-content')).toMatchAriaSnapshot(`
+    - heading "No Description or Action Button" [level=1]
+    `);
+});
+
+
