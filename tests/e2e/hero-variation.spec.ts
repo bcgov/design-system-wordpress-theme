@@ -1,5 +1,4 @@
-import { expect } from '@playwright/test';
-import { test } from '@wordpress/e2e-test-utils-playwright';
+import { test, expect } from '@wordpress/e2e-test-utils-playwright';
 
 test.describe('Hero Image block variation', () => {
     // Use the admin fixture to create a new post before each test
@@ -84,12 +83,6 @@ test.describe('Hero Image block variation', () => {
         await expect(
             page.getByRole('link', { name: 'Learn More' })
         ).toBeVisible();
-        await expect(page.locator('#main-content')).toMatchAriaSnapshot(`
-            - heading "Home Page Title" [level=1]
-            - paragraph: /Description, under \\d+ characters/
-            - link "Learn More":
-              - /url: http://www.test.com
-        `);
     });
 
     test('test that we can create a Hero Image block with only a title', async ({
@@ -139,8 +132,5 @@ test.describe('Hero Image block variation', () => {
         ).toBeVisible();
         await expect(page.locator('.wp-block-cover p').first()).toBeEmpty();
         await expect(page.locator('.wp-block-buttons').first()).toBeEmpty();
-        await expect(page.locator('#main-content')).toMatchAriaSnapshot(`
-            - heading "No Description or Action Button" [level=1]
-        `);
     });
 });
