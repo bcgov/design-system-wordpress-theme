@@ -19,9 +19,18 @@ const UI_LABELS = {
     editorContentLabel: 'Editor content',
 };
 
+function isNotFoundError(error: unknown): boolean {
+    return error instanceof Error && /404|not found/i.test(error.message);
+}
+
 async function configureHeroImage(
     editor: Editor,
-    opts: { title: string; description?: string; buttonText?: string; link?: string }
+    opts: {
+        title: string;
+        description?: string;
+        buttonText?: string;
+        link?: string;
+    }
 ) {
     const [heading, descriptionField, buttonTextField] = [
         SELECTORS.heading,
@@ -63,14 +72,39 @@ async function configureHeroImage(
 
 test.describe('Hero Image block variation', () => {
     test.beforeEach(async ({ admin, requestUtils, editor }) => {
-        const [heroImageTemplatePart] = await requestUtils.rest<
-            { id: number; slug: string }[]
-        >({
-            path: `/wp/v2/template-parts?slug=${SLUG}&context=edit&_fields=id,slug,content`,
-        });
+        let templateParts: { id: number; slug: string }[] = [];
+
+        try {
+            templateParts = await requestUtils.rest<
+                { id: number; slug: string }[]
+            >({
+                path: `/wp/v2/template-parts?slug=${SLUG}&context=edit&_fields=id,slug,content`,
+            });
+        } catch (error) {
+            if (!isNotFoundError(error)) {
+                throw error;
+            }
+
+            // Fallback for environments where wp_template_part uses its CPT rest base.
+            templateParts = await requestUtils.rest<
+                { id: number; slug: string }[]
+            >({
+                path: `/wp/v2/wp_template_part?slug=${SLUG}&context=edit&_fields=id,slug,content`,
+            });
+        }
+
+        const heroImageTemplatePart = templateParts.find(
+            (t) => t.slug === SLUG
+        );
+
+        if (!heroImageTemplatePart) {
+            throw new Error(
+                `Template part "${SLUG}" not found. Ensure the theme is active and the template part exists.`
+            );
+        }
 
         await admin.visitSiteEditor({
-            postId: heroImageTemplatePart?.id,
+            postId: heroImageTemplatePart.id,
             postType: 'wp_template_part',
             canvas: 'edit',
         });
