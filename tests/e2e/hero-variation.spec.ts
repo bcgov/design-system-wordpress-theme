@@ -10,8 +10,7 @@ test.describe('Hero Image block variation', () => {
         page, editor
     }) => {
         // The editor is already open on a new post!
-        await page.getByRole('button', { name: 'Block Inserter' }).click();
-        await page.getByRole('option', { name: ' Hero Image' }).click();
+        await editor.insertBlock(<block to insert>);
         const frame = await page.frameLocator('iframe[name="editor-canvas"]');
         await frame
             .getByRole('document', { name: 'Block: Heading' })
