@@ -7,7 +7,7 @@ test.describe('Hero Image block variation', () => {
     });
 
     test('test that we can create a Hero Image block with all fields filled', async ({
-        page,
+        page, editor
     }) => {
         // The editor is already open on a new post!
         await page.getByRole('button', { name: 'Block Inserter' }).click();
