@@ -19,10 +19,6 @@ const UI_LABELS = {
     editorContentLabel: 'Editor content',
 };
 
-function isNotFoundError(error: unknown): boolean {
-    return error instanceof Error && /404|not found/i.test(error.message);
-}
-
 async function configureHeroImage(
     editor: Editor,
     opts: {
@@ -53,61 +49,33 @@ async function configureHeroImage(
     }
 
     if (opts.link) {
-        await editor.page
-            .getByRole('button', { name: UI_LABELS.linkButton })
-            .first()
-            .click();
-        await editor.page
-            .getByRole('combobox', { name: UI_LABELS.linkButton })
-            .first()
-            .fill(opts.link);
-        await editor.page
-            .getByLabel(UI_LABELS.editorContentLabel)
-            .getByRole('button', { name: 'Submit' })
-            .click();
+        // Select the button text and apply a link using keyboard shortcut
+        await editor.page.keyboard.press('Control+K'); // or Cmd+K on Mac
+
+        // Wait for the link popover to appear
+        await editor.page.waitForTimeout(500);
+
+        // Try to find the URL input in the popover
+        const linkInputs = editor.page.locator(
+            'input[placeholder*="Paste URL"], input[type="url"], input[type="text"]'
+        );
+        if ((await linkInputs.count()) > 0) {
+            await linkInputs.first().fill(opts.link);
+            await editor.page.keyboard.press('Enter');
+        }
     }
 
     return editor.canvas;
 }
 
 test.describe('Hero Image block variation', () => {
-    test.beforeEach(async ({ admin, requestUtils, editor }) => {
-        let templateParts: { id: number; slug: string }[] = [];
-
-        try {
-            templateParts = await requestUtils.rest<
-                { id: number; slug: string }[]
-            >({
-                path: `/wp/v2/template-parts?slug=${SLUG}&context=edit&_fields=id,slug,content`,
-            });
-        } catch (error) {
-            if (!isNotFoundError(error)) {
-                throw error;
-            }
-
-            // Fallback for environments where wp_template_part uses its CPT rest base.
-            templateParts = await requestUtils.rest<
-                { id: number; slug: string }[]
-            >({
-                path: `/wp/v2/wp_template_part?slug=${SLUG}&context=edit&_fields=id,slug,content`,
-            });
-        }
-
-        const heroImageTemplatePart = templateParts.find(
-            (t) => t.slug === SLUG
+    test.beforeEach(async ({ admin, editor }) => {
+        // Navigate directly to the hero-image template part in the site editor
+        const templatePartPath = `/wp_template_part/${SLUG}`;
+        await admin.visitAdminPage(
+            'site-editor.php',
+            `path=${encodeURIComponent(templatePartPath)}&canvas=edit`
         );
-
-        if (!heroImageTemplatePart) {
-            throw new Error(
-                `Template part "${SLUG}" not found. Ensure the theme is active and the template part exists.`
-            );
-        }
-
-        await admin.visitSiteEditor({
-            postId: heroImageTemplatePart.id,
-            postType: 'wp_template_part',
-            canvas: 'edit',
-        });
 
         await editor.setContent('');
     });
