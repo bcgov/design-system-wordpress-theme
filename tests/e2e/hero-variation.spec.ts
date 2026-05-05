@@ -1,130 +1,121 @@
-import { test, expect } from '@wordpress/e2e-test-utils-playwright';
+import {
+    test,
+    expect,
+    type Editor,
+} from '@wordpress/e2e-test-utils-playwright';
 
-test.describe('Hero Image block variation', () => {
-    // Use the admin fixture to create a new post before each test
-    test.beforeEach(async ({ admin }) => {
-        await admin.createNewPost();
-    });
+const SLUG = 'hero-image';
+const SELECTORS = {
+    heading: '.wp-block-heading[contenteditable="true"]',
+    description: '.wp-block-paragraph[contenteditable="true"]',
+    button: '.wp-block-button__link[contenteditable="true"]',
+    coverParagraph: '.wp-block-cover p',
+    buttons: '.wp-block-buttons',
+};
 
-    test('test that we can create a Hero Image block with all fields filled', async ({
-        page, editor
-    }) => {
-        // The editor is already open on a new post!
-        await editor.insertBlock(<block to insert>);
-        const frame = await page.frameLocator('iframe[name="editor-canvas"]');
-        const heading = await frame.getByRole('document', { name: 'Block: Heading' }).first();
-        await heading.click();
-        await heading.fill('Home Page Title');
-        await frame
-            .getByRole('document', { name: 'Block: Cover' })
-            .getByLabel('Empty block; start writing or')
+const UI_LABELS = {
+    blockInserter: /Block Inserter/i,
+    linkButton: 'Link',
+    editorContentLabel: 'Editor content',
+};
+
+async function configureHeroImage(
+    editor: Editor,
+    opts: { title: string; description?: string; buttonText?: string; link?: string }
+) {
+    const [heading, descriptionField, buttonTextField] = [
+        SELECTORS.heading,
+        SELECTORS.description,
+        SELECTORS.button,
+    ].map((s) => editor.canvas.locator(s).first());
+
+    await editor.page
+        .getByRole('button', { name: UI_LABELS.blockInserter })
+        .click();
+    await editor.page.getByRole('option', { name: /Hero Image/i }).click();
+    await editor.page.keyboard.press('Escape');
+
+    await heading.fill(opts.title);
+    if (opts.description !== undefined) {
+        await descriptionField.fill(opts.description);
+    }
+    if (opts.buttonText !== undefined) {
+        await buttonTextField.fill(opts.buttonText);
+    }
+
+    if (opts.link) {
+        await editor.page
+            .getByRole('button', { name: UI_LABELS.linkButton })
             .first()
             .click();
-        await frame
-            .getByRole('document', { name: 'Block: Cover' })
-            .getByLabel('Empty block; start writing or')
+        await editor.page
+            .getByRole('combobox', { name: UI_LABELS.linkButton })
             .first()
-            .fill('Description, under 200 characters');
-        await frame
-            .getByRole('textbox', { name: 'Button text' })
-            .first()
-            .click();
-        await frame
-            .getByRole('textbox', { name: 'Button text' })
-            .first()
-            .fill('Learn More');
-        await page.getByRole('button', { name: 'Link' }).first().click();
-        await page
-            .getByRole('combobox', { name: 'Link' })
-            .first()
-            .fill('www.test.com');
-        await page
-            .getByLabel('Editor content')
+            .fill(opts.link);
+        await editor.page
+            .getByLabel(UI_LABELS.editorContentLabel)
             .getByRole('button', { name: 'Submit' })
             .click();
+    }
 
-        // Open the publish panel
-        await page
-            .getByRole('button', { name: 'Publish', exact: true })
-            .first()
-            .click();
+    return editor.canvas;
+}
 
-        // Wait for the confirmation button to appear and click it
-        await page
-            .getByRole('button', { name: 'Publish', exact: true })
-            .nth(1)
-            .waitFor();
-        await page
-            .getByRole('button', { name: 'Publish', exact: true })
-            .nth(1)
-            .click();
+test.describe('Hero Image block variation', () => {
+    test.beforeEach(async ({ admin, requestUtils, editor }) => {
+        const [heroImageTemplatePart] = await requestUtils.rest<
+            { id: number; slug: string }[]
+        >({
+            path: `/wp/v2/template-parts?slug=${SLUG}&context=edit&_fields=id,slug,content`,
+        });
 
-        // Get the "View Post" link (appears after publishing)
-        const snackbar = page.getByTestId('snackbar');
-        const viewPostLink = snackbar.getByRole('link', { name: /View Post/ });
-        const postUrl = await viewPostLink.getAttribute('href');
+        await admin.visitSiteEditor({
+            postId: heroImageTemplatePart?.id,
+            postType: 'wp_template_part',
+            canvas: 'edit',
+        });
 
-        // Visit the front-end
-        await page.goto(postUrl!);
-
-        // Assert that the title, description, and button are visible and that the link is correct
-        await expect(
-            page.getByRole('heading', { name: 'Home Page Title' })
-        ).toBeVisible();
-        await expect(
-            page.getByText('Description, under 200').first()
-        ).toBeVisible();
-        await expect(
-            page.getByRole('link', { name: 'Learn More' })
-        ).toBeVisible();
+        await editor.setContent('');
     });
 
-    test('test that we can create a Hero Image block with only a title', async ({
-        page,
+    test('renders heading, description, and button with link when all fields are filled', async ({
+        admin,
     }) => {
-        await page.getByRole('button', { name: 'Block Inserter' }).click();
-        await page.getByRole('option', { name: ' Hero Image' }).click();
-        const frame = await page.frameLocator('iframe[name="editor-canvas"]');
-        await frame
-            .getByRole('document', { name: 'Block: Heading' })
-            .first()
-            .click();
-        await frame
-            .getByRole('document', { name: 'Block: Heading' })
-            .first()
-            .fill('No Description or Action Button');
+        const editor = admin.editor;
+        const frame = await configureHeroImage(editor, {
+            title: 'Home Page Title',
+            description: 'Description, under 200 characters',
+            buttonText: 'Learn More',
+            link: 'www.test.com',
+        });
 
-        // Open the publish panel
-        await page
-            .getByRole('button', { name: 'Publish', exact: true })
-            .first()
-            .click();
-
-        // Wait for the confirmation button to appear and click it
-        await page
-            .getByRole('button', { name: 'Publish', exact: true })
-            .nth(1)
-            .waitFor();
-        await page
-            .getByRole('button', { name: 'Publish', exact: true })
-            .nth(1)
-            .click();
-
-        // Get the "View Post" link (appears after publishing)
-        const snackbar = page.getByTestId('snackbar');
-        const viewPostLink = snackbar.getByRole('link', { name: /View Post/ });
-        const postUrl = await viewPostLink.getAttribute('href');
-
-        // Visit the front-end
-        await page.goto(postUrl!);
-
-        // Assert that the title is visible and that the description and button are not rendered
+        await expect(frame.getByText('Home Page Title')).toBeVisible();
         await expect(
-            page.getByRole('heading', {
-                name: 'No Description or Action Button',
-            })
+            frame.getByText('Description, under 200 characters')
         ).toBeVisible();
-        await expect(page.locator('.wp-block-cover p').first()).toBeEmpty();
-        await expect(page.locator('.wp-block-buttons').first()).toBeEmpty();
+
+        const edited = await editor.getEditedPostContent();
+        await expect(edited).toContain('>Learn More<');
+        await expect(edited).toContain('href="http://www.test.com"');
+    });
+
+    test('renders only the title when description and button are empty', async ({
+        admin,
+    }) => {
+        const editor = admin.editor;
+        const frame = await configureHeroImage(editor, {
+            title: 'No Description or Action Button',
+            description: '',
+            buttonText: '',
+        });
+
+        await expect(
+            frame.getByText('No Description or Action Button')
+        ).toBeVisible();
+        await expect(
+            frame.locator(SELECTORS.coverParagraph).first()
+        ).toBeEmpty();
+        await expect(frame.locator(SELECTORS.buttons).first()).toBeEmpty();
+        await expect(frame.locator(SELECTORS.button).first()).toBeEmpty();
     });
 });
