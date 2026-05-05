@@ -12,14 +12,9 @@ test.describe('Hero Image block variation', () => {
         // The editor is already open on a new post!
         await editor.insertBlock(<block to insert>);
         const frame = await page.frameLocator('iframe[name="editor-canvas"]');
-        await frame
-            .getByRole('document', { name: 'Block: Heading' })
-            .first()
-            .click();
-        await frame
-            .getByRole('document', { name: 'Block: Heading' })
-            .first()
-            .fill('Home Page Title');
+        const heading = await frame.getByRole('document', { name: 'Block: Heading' }).first();
+        await heading.click();
+        await heading.fill('Home Page Title');
         await frame
             .getByRole('document', { name: 'Block: Cover' })
             .getByLabel('Empty block; start writing or')
