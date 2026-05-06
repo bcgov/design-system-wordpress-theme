@@ -21,11 +21,13 @@ async function configureHeroImage(
         name: 'design-system-wordpress-plugin/hero-image',
     });
 
-    // Fill heading
-    await frame
+    // Fill heading and capture its data-block id so tests can target the exact element
+    const headingLocator = frame
         .getByRole('document', { name: 'Block: Heading' })
-        .first()
-        .fill(opts.title);
+        .first();
+
+    await headingLocator.fill(opts.title);
+    const headingBlockId = (await headingLocator.getAttribute('data-block')) ?? '';
 
     // Fill description if provided
     if (opts.description) {
@@ -44,7 +46,7 @@ async function configureHeroImage(
             .fill(opts.buttonText);
     }
 
-    return frame;
+    return { frame, headingBlockId };
 }
 
 test.describe('Hero Image block variation', () => {
@@ -63,7 +65,7 @@ test.describe('Hero Image block variation', () => {
         admin,
     }) => {
         const editor = admin.editor;
-        const frame = await configureHeroImage(editor, {
+        const { frame } = await configureHeroImage(editor, {
             title: 'Home Page Title',
             description: 'Description, under 200 characters',
             buttonText: 'Learn More',
@@ -99,12 +101,13 @@ test.describe('Hero Image block variation', () => {
         admin,
     }) => {
         const editor = admin.editor;
-        const frame = await configureHeroImage(editor, {
+        const { frame, headingBlockId } = await configureHeroImage(editor, {
             title: 'No Description or Action Button',
         });
 
-        await expect(
-            frame.getByRole('document', { name: 'Block: Heading' }).first()
-        ).toContainText('No Description or Action Button');
+        const headingLocator = frame.locator(`[data-block="${headingBlockId}"]`).first();
+        const headingText = (await headingLocator.textContent()) ?? '';
+        const normalize = (s: string) => s.replace(/\uFEFF/g, '').trim();
+        expect(normalize(headingText)).toContain('No Description or Action Button');
     });
 });
