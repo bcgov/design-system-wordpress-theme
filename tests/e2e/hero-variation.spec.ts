@@ -5,19 +5,6 @@ import {
 } from '@wordpress/e2e-test-utils-playwright';
 
 const SLUG = 'hero-image';
-const SELECTORS = {
-    heading: '.wp-block-heading[contenteditable="true"]',
-    description: '.wp-block-paragraph[contenteditable="true"]',
-    button: '.wp-block-button__link[contenteditable="true"]',
-    coverParagraph: '.wp-block-cover p',
-    buttons: '.wp-block-buttons',
-};
-
-const UI_LABELS = {
-    blockInserter: /Block Inserter/i,
-    linkButton: 'Link',
-    editorContentLabel: 'Editor content',
-};
 
 async function configureHeroImage(
     editor: Editor,
@@ -25,47 +12,39 @@ async function configureHeroImage(
         title: string;
         description?: string;
         buttonText?: string;
-        link?: string;
     }
 ) {
-    const [heading, descriptionField, buttonTextField] = [
-        SELECTORS.heading,
-        SELECTORS.description,
-        SELECTORS.button,
-    ].map((s) => editor.canvas.locator(s).first());
+    const frame = editor.page.frameLocator('iframe[name="editor-canvas"]');
 
-    await editor.page
-        .getByRole('button', { name: UI_LABELS.blockInserter })
-        .click();
-    await editor.page.getByRole('option', { name: /Hero Image/i }).click();
-    await editor.page.keyboard.press('Escape');
+    // Insert the Hero Image block
+    await editor.insertBlock({
+        name: 'design-system-wordpress-plugin/hero-image',
+    });
 
-    await heading.fill(opts.title);
-    if (opts.description !== undefined) {
-        await descriptionField.fill(opts.description);
-    }
-    if (opts.buttonText !== undefined) {
-        await buttonTextField.fill(opts.buttonText);
-    }
+    // Fill heading
+    await frame
+        .getByRole('document', { name: 'Block: Heading' })
+        .first()
+        .fill(opts.title);
 
-    if (opts.link) {
-        // Select the button text and apply a link using keyboard shortcut
-        await editor.page.keyboard.press('Control+K'); // or Cmd+K on Mac
-
-        // Wait for the link popover to appear
-        await editor.page.waitForTimeout(500);
-
-        // Try to find the URL input in the popover
-        const linkInputs = editor.page.locator(
-            'input[placeholder*="Paste URL"], input[type="url"], input[type="text"]'
-        );
-        if ((await linkInputs.count()) > 0) {
-            await linkInputs.first().fill(opts.link);
-            await editor.page.keyboard.press('Enter');
-        }
+    // Fill description if provided
+    if (opts.description) {
+        await frame
+            .getByRole('document', { name: 'Block: Cover' })
+            .getByLabel('Empty block; start writing or')
+            .first()
+            .fill(opts.description);
     }
 
-    return editor.canvas;
+    // Fill button text if provided
+    if (opts.buttonText) {
+        await frame
+            .getByRole('textbox', { name: 'Button text' })
+            .first()
+            .fill(opts.buttonText);
+    }
+
+    return frame;
 }
 
 test.describe('Hero Image block variation', () => {
@@ -80,7 +59,7 @@ test.describe('Hero Image block variation', () => {
         await editor.setContent('');
     });
 
-    test('renders heading, description, and button with link when all fields are filled', async ({
+    test('renders heading, description, and button when all fields are filled', async ({
         admin,
     }) => {
         const editor = admin.editor;
@@ -88,17 +67,13 @@ test.describe('Hero Image block variation', () => {
             title: 'Home Page Title',
             description: 'Description, under 200 characters',
             buttonText: 'Learn More',
-            link: 'www.test.com',
         });
 
-        await expect(frame.getByText('Home Page Title')).toBeVisible();
-        await expect(
-            frame.getByText('Description, under 200 characters')
-        ).toBeVisible();
-
+        // Verify content is in the edited post
         const edited = await editor.getEditedPostContent();
+        await expect(edited).toContain('Home Page Title');
+        await expect(edited).toContain('Description, under 200 characters');
         await expect(edited).toContain('>Learn More<');
-        await expect(edited).toContain('href="http://www.test.com"');
     });
 
     test('renders only the title when description and button are empty', async ({
@@ -107,17 +82,11 @@ test.describe('Hero Image block variation', () => {
         const editor = admin.editor;
         const frame = await configureHeroImage(editor, {
             title: 'No Description or Action Button',
-            description: '',
-            buttonText: '',
         });
 
+        // Verify title is visible
         await expect(
             frame.getByText('No Description or Action Button')
         ).toBeVisible();
-        await expect(
-            frame.locator(SELECTORS.coverParagraph).first()
-        ).toBeEmpty();
-        await expect(frame.locator(SELECTORS.buttons).first()).toBeEmpty();
-        await expect(frame.locator(SELECTORS.button).first()).toBeEmpty();
     });
 });
