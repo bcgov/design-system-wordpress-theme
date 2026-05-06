@@ -88,9 +88,8 @@ test.describe('Hero Image block variation', () => {
             title: 'No Description or Action Button',
         });
 
-        // Verify title is visible
         await expect(
-            frame.getByText('No Description or Action Button')
-        ).toBeVisible();
+            frame.getByRole('document', { name: 'Block: Heading' }).first()
+        ).toContainText('No Description or Action Button');
     });
 });
