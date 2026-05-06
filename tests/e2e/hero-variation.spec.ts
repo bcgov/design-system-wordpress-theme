@@ -69,15 +69,30 @@ test.describe('Hero Image block variation', () => {
             buttonText: 'Learn More',
         });
 
-        await expect(
-            frame.getByRole('document', { name: 'Block: Heading' }).first()
-        ).toContainText('Home Page Title');
-        await expect(
-            frame.getByRole('document', { name: 'Block: Paragraph' }).first()
-        ).toContainText('Description, under 200 characters');
-        await expect(
-            frame.getByRole('document', { name: 'Block: Button' }).first()
-        ).toContainText('Learn More');
+        // Read textContent and normalize invisible chars (BOM / zero-width)
+        const headingText =
+            (await frame
+                .getByRole('document', { name: 'Block: Heading' })
+                .first()
+                .textContent()) ?? '';
+        const paragraphText =
+            (await frame
+                .getByRole('document', { name: 'Block: Paragraph' })
+                .first()
+                .textContent()) ?? '';
+        const buttonText =
+            (await frame
+                .getByRole('document', { name: 'Block: Button' })
+                .first()
+                .textContent()) ?? '';
+
+        const normalize = (s: string) => s.replace(/\uFEFF/g, '').trim();
+
+        expect(normalize(headingText)).toContain('Home Page Title');
+        expect(normalize(paragraphText)).toContain(
+            'Description, under 200 characters'
+        );
+        expect(normalize(buttonText)).toContain('Learn More');
     });
 
     test('renders only the title when description and button are empty', async ({
