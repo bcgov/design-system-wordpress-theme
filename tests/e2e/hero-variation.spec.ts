@@ -3,57 +3,13 @@ import type { Page } from '@playwright/test';
 
 const BLOCK_NAME = 'core/cover';
 const BLOCK_CLASS = 'wp-block-cover__inner-container';
-const HERO_VARIATION_NAME = 'hero-image';
 
-async function insertHeroImageVariation(
-    page: Page,
-    baseBlockName: string
-): Promise<void> {
-    await page.evaluate(
-        ({ blockName, variationName }) => {
-            const { blocks, data } = window.wp;
-
-            // Read inserter-visible variations for the base block, then pick Hero Image.
-            const variation = blocks
-                .getBlockVariations(blockName, 'inserter')
-                .find((item: { name: string }) => item.name === variationName);
-
-            // Fail fast if theme/plugin registration changed.
-            if (!variation) {
-                throw new Error(
-                    `Could not find ${blockName} variation: ${variationName}`
-                );
-            }
-
-            type InnerBlockTuple = [
-                string,
-                Record<string, unknown>,
-                InnerBlockTuple[]?,
-            ];
-
-            // Convert variation tuple format into real block objects recursively.
-            const createInnerBlocks = (
-                innerBlocks: InnerBlockTuple[] = []
-            ): unknown[] =>
-                innerBlocks.map(([name, attributes = {}, nested = []]) =>
-                    blocks.createBlock(
-                        name,
-                        attributes,
-                        createInnerBlocks(nested)
-                    )
-                );
-
-            const block = blocks.createBlock(
-                blockName,
-                variation.attributes || {},
-                createInnerBlocks(variation.innerBlocks || [])
-            );
-
-            // Insert hydrated variation block into editor canvas.
-            data.dispatch('core/block-editor').insertBlock(block);
-        },
-        { blockName: baseBlockName, variationName: HERO_VARIATION_NAME }
-    );
+async function insertHeroImageVariation(page: Page): Promise<void> {
+    // Open the block inserter and select Hero Image by its UI label.
+    await page.getByRole('button', { name: 'Block Inserter' }).click();
+    await page.getByRole('option', { name: 'Hero Image' }).click();
+    // Close the inserter so its popover doesn't intercept subsequent clicks.
+    await page.getByRole('button', { name: 'Close Block Inserter' }).click();
 }
 
 test('test that we can create a Hero Image block with all fields filled', async ({
@@ -63,7 +19,7 @@ test('test that we can create a Hero Image block with all fields filled', async 
 }) => {
     await admin.createNewPost();
 
-    await insertHeroImageVariation(page, BLOCK_NAME);
+    await insertHeroImageVariation(page);
 
     const block = editor.canvas.locator(`[data-type="${BLOCK_NAME}"]`).first();
 
@@ -113,7 +69,9 @@ test('test that we can create a Hero Image block with all fields filled', async 
     ).toContainText('Learn More');
 
     // Screenshot: editor canvas (desktop).
-    const editorContent = editor.page.frameLocator('iframe[name="editor-canvas"]').locator('.editor-styles-wrapper');
+    const editorContent = editor.page
+        .frameLocator('iframe[name="editor-canvas"]')
+        .locator('.editor-styles-wrapper');
     await editorContent.waitFor();
     await editorContent.screenshot({
         animations: 'disabled',
@@ -122,7 +80,9 @@ test('test that we can create a Hero Image block with all fields filled', async 
 
     // Screenshot: frontend (desktop + mobile).
     const previewPageAllFields = await editor.openPreviewPage();
-    const frontendAllFields = previewPageAllFields.locator('.entry-content').first();
+    const frontendAllFields = previewPageAllFields
+        .locator('.entry-content')
+        .first();
     await frontendAllFields.screenshot({
         animations: 'disabled',
         path: 'tests/screenshot/__snapshots__/hero-image-all-fields-frontend.png',
@@ -142,7 +102,7 @@ test('test that we can create a Hero Image block with only a title', async ({
 }) => {
     await admin.createNewPost();
 
-    await insertHeroImageVariation(page, BLOCK_NAME);
+    await insertHeroImageVariation(page);
 
     const block = editor.canvas.locator(`[data-type="${BLOCK_NAME}"]`).first();
 
@@ -168,7 +128,9 @@ test('test that we can create a Hero Image block with only a title', async ({
     ).toBeEmpty();
 
     // Screenshot: editor canvas (desktop).
-    const editorContentTitleOnly = editor.page.frameLocator('iframe[name="editor-canvas"]').locator('.editor-styles-wrapper');
+    const editorContentTitleOnly = editor.page
+        .frameLocator('iframe[name="editor-canvas"]')
+        .locator('.editor-styles-wrapper');
     await editorContentTitleOnly.waitFor();
     await editorContentTitleOnly.screenshot({
         animations: 'disabled',
@@ -177,7 +139,9 @@ test('test that we can create a Hero Image block with only a title', async ({
 
     // Screenshot: frontend (desktop + mobile).
     const previewPageTitleOnly = await editor.openPreviewPage();
-    const frontendTitleOnly = previewPageTitleOnly.locator('.entry-content').first();
+    const frontendTitleOnly = previewPageTitleOnly
+        .locator('.entry-content')
+        .first();
     await frontendTitleOnly.screenshot({
         animations: 'disabled',
         path: 'tests/screenshot/__snapshots__/hero-image-title-only-frontend.png',
