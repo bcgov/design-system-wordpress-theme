@@ -111,6 +111,28 @@ test('test that we can create a Hero Image block with all fields filled', async 
     await expect(
         editor.canvas.getByRole('textbox', { name: 'Button text' }).first()
     ).toContainText('Learn More');
+
+    // Screenshot: editor canvas (desktop).
+    const editorContent = editor.page.frameLocator('iframe[name="editor-canvas"]').locator('.editor-styles-wrapper');
+    await editorContent.waitFor();
+    await editorContent.screenshot({
+        animations: 'disabled',
+        path: 'tests/screenshot/__snapshots__/hero-image-all-fields-editor.png',
+    });
+
+    // Screenshot: frontend (desktop + mobile).
+    const previewPageAllFields = await editor.openPreviewPage();
+    const frontendAllFields = previewPageAllFields.locator('.entry-content').first();
+    await frontendAllFields.screenshot({
+        animations: 'disabled',
+        path: 'tests/screenshot/__snapshots__/hero-image-all-fields-frontend.png',
+    });
+    await previewPageAllFields.setViewportSize({ width: 390, height: 844 });
+    await frontendAllFields.screenshot({
+        animations: 'disabled',
+        path: 'tests/screenshot/__snapshots__/hero-image-all-fields-frontend-mobile.png',
+    });
+    await previewPageAllFields.close();
 });
 
 test('test that we can create a Hero Image block with only a title', async ({
@@ -144,4 +166,26 @@ test('test that we can create a Hero Image block with only a title', async ({
     await expect(
         editor.canvas.locator('.wp-block-buttons').first()
     ).toBeEmpty();
+
+    // Screenshot: editor canvas (desktop).
+    const editorContentTitleOnly = editor.page.frameLocator('iframe[name="editor-canvas"]').locator('.editor-styles-wrapper');
+    await editorContentTitleOnly.waitFor();
+    await editorContentTitleOnly.screenshot({
+        animations: 'disabled',
+        path: 'tests/screenshot/__snapshots__/hero-image-title-only-editor.png',
+    });
+
+    // Screenshot: frontend (desktop + mobile).
+    const previewPageTitleOnly = await editor.openPreviewPage();
+    const frontendTitleOnly = previewPageTitleOnly.locator('.entry-content').first();
+    await frontendTitleOnly.screenshot({
+        animations: 'disabled',
+        path: 'tests/screenshot/__snapshots__/hero-image-title-only-frontend.png',
+    });
+    await previewPageTitleOnly.setViewportSize({ width: 390, height: 844 });
+    await frontendTitleOnly.screenshot({
+        animations: 'disabled',
+        path: 'tests/screenshot/__snapshots__/hero-image-title-only-frontend-mobile.png',
+    });
+    await previewPageTitleOnly.close();
 });
