@@ -48,6 +48,23 @@ async function configureHeroImage(
 }
 
 test.describe('Hero Image block variation', () => {
+    const headingContent = (
+        frame: ReturnType<Editor['page']['frameLocator']>
+    ) =>
+        frame.locator(
+            'h1.wp-block-heading, h1.block-editor-rich-text__editable'
+        );
+
+    const paragraphContent = (
+        frame: ReturnType<Editor['page']['frameLocator']>
+    ) =>
+        frame.locator(
+            'p.wp-block-paragraph, p.block-editor-rich-text__editable'
+        );
+
+    const buttonContent = (frame: ReturnType<Editor['page']['frameLocator']>) =>
+        frame.locator('.wp-block-button__link');
+
     test.beforeEach(async ({ admin, editor }) => {
         // Navigate directly to the hero-image template part in the site editor
         const templatePartPath = `/wp_template_part/${SLUG}`;
@@ -69,30 +86,13 @@ test.describe('Hero Image block variation', () => {
             buttonText: 'Learn More',
         });
 
-        // Read textContent and normalize invisible chars (BOM / zero-width)
-        const headingText =
-            (await frame
-                .getByRole('document', { name: 'Block: Heading' })
-                .first()
-                .textContent()) ?? '';
-        const paragraphText =
-            (await frame
-                .getByRole('document', { name: 'Block: Paragraph' })
-                .first()
-                .textContent()) ?? '';
-        const buttonText =
-            (await frame
-                .getByRole('document', { name: 'Block: Button' })
-                .first()
-                .textContent()) ?? '';
-
-        const normalize = (s: string) => s.replace(/\uFEFF/g, '').trim();
-
-        expect(normalize(headingText)).toContain('Home Page Title');
-        expect(normalize(paragraphText)).toContain(
+        await expect(headingContent(frame).first()).toContainText(
+            'Home Page Title'
+        );
+        await expect(paragraphContent(frame).first()).toContainText(
             'Description, under 200 characters'
         );
-        expect(normalize(buttonText)).toContain('Learn More');
+        await expect(buttonContent(frame).first()).toContainText('Learn More');
     });
 
     test('renders only the title when description and button are empty', async ({
@@ -103,13 +103,7 @@ test.describe('Hero Image block variation', () => {
             title: 'No Description or Action Button',
         });
 
-        const headingText =
-            (await frame
-                .getByRole('document', { name: 'Block: Heading' })
-                .first()
-                .textContent()) ?? '';
-        const normalize = (s: string) => s.replace(/\uFEFF/g, '').trim();
-        expect(normalize(headingText)).toContain(
+        await expect(headingContent(frame).first()).toContainText(
             'No Description or Action Button'
         );
     });
