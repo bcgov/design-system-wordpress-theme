@@ -103,11 +103,14 @@ test.describe('Hero Image block variation', () => {
             title: 'No Description or Action Button',
         });
 
-        const headingText = (await frame
-            .getByRole('document', { name: 'Block: Heading' })
-            .first()
-            .textContent()) ?? '';
+        const headingText =
+            (await frame
+                .getByRole('document', { name: 'Block: Heading' })
+                .first()
+                .textContent()) ?? '';
         const normalize = (s: string) => s.replace(/\uFEFF/g, '').trim();
-        expect(normalize(headingText)).toContain('No Description or Action Button');
+        expect(normalize(headingText)).toContain(
+            'No Description or Action Button'
+        );
     });
 });
