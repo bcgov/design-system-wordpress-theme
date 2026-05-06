@@ -25,3 +25,7 @@ documentation/node_modules
 
 # development files
 .wp-env.override.json
+
+# copilot files
+.agents/**
+skills-lock.json
