@@ -69,11 +69,15 @@ test.describe('Hero Image block variation', () => {
             buttonText: 'Learn More',
         });
 
-        // Verify content is in the edited post
-        const edited = await editor.getEditedPostContent();
-        await expect(edited).toContain('Home Page Title');
-        await expect(edited).toContain('Description, under 200 characters');
-        await expect(edited).toContain('>Learn More<');
+        await expect(
+            frame.getByRole('document', { name: 'Block: Heading' }).first()
+        ).toContainText('Home Page Title');
+        await expect(
+            frame.getByRole('document', { name: 'Block: Paragraph' }).first()
+        ).toContainText('Description, under 200 characters');
+        await expect(
+            frame.getByRole('document', { name: 'Block: Button' }).first()
+        ).toContainText('Learn More');
     });
 
     test('renders only the title when description and button are empty', async ({
