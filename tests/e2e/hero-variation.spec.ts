@@ -1,110 +1,145 @@
-import {
-    test,
-    expect,
-    type Editor,
-} from '@wordpress/e2e-test-utils-playwright';
+import { test, expect } from '@wordpress/e2e-test-utils-playwright';
+import type { Page } from '@playwright/test';
 
-const SLUG = 'hero-image';
+const BLOCK_NAME = 'core/cover';
+const BLOCK_CLASS = 'wp-block-cover__inner-container';
+const HERO_VARIATION_NAME = 'hero-image';
 
-async function configureHeroImage(
-    editor: Editor,
-    opts: {
-        title: string;
-        description?: string;
-        buttonText?: string;
-    }
-) {
-    const frame = editor.page.frameLocator('iframe[name="editor-canvas"]');
+async function insertHeroImageVariation(
+    page: Page,
+    baseBlockName: string
+): Promise<void> {
+    await page.evaluate(
+        ({ blockName, variationName }) => {
+            const { blocks, data } = window.wp;
 
-    // Insert the Hero Image block
-    await editor.insertBlock({
-        name: 'design-system-wordpress-plugin/hero-image',
-    });
+            // Read inserter-visible variations for the base block, then pick Hero Image.
+            const variation = blocks
+                .getBlockVariations(blockName, 'inserter')
+                .find((item: { name: string }) => item.name === variationName);
 
-    // Fill heading
-    await frame
-        .getByRole('document', { name: 'Block: Heading' })
-        .first()
-        .fill(opts.title);
+            // Fail fast if theme/plugin registration changed.
+            if (!variation) {
+                throw new Error(
+                    `Could not find ${blockName} variation: ${variationName}`
+                );
+            }
 
-    // Fill description if provided
-    if (opts.description) {
-        await frame
-            .getByRole('document', { name: 'Block: Cover' })
-            .getByLabel('Empty block; start writing or')
-            .first()
-            .fill(opts.description);
-    }
+            type InnerBlockTuple = [
+                string,
+                Record<string, unknown>,
+                InnerBlockTuple[]?,
+            ];
 
-    // Fill button text if provided
-    if (opts.buttonText) {
-        await frame
-            .getByRole('textbox', { name: 'Button text' })
-            .first()
-            .fill(opts.buttonText);
-    }
+            // Convert variation tuple format into real block objects recursively.
+            const createInnerBlocks = (
+                innerBlocks: InnerBlockTuple[] = []
+            ): unknown[] =>
+                innerBlocks.map(([name, attributes = {}, nested = []]) =>
+                    blocks.createBlock(
+                        name,
+                        attributes,
+                        createInnerBlocks(nested)
+                    )
+                );
 
-    return frame;
+            const block = blocks.createBlock(
+                blockName,
+                variation.attributes || {},
+                createInnerBlocks(variation.innerBlocks || [])
+            );
+
+            // Insert hydrated variation block into editor canvas.
+            data.dispatch('core/block-editor').insertBlock(block);
+        },
+        { blockName: baseBlockName, variationName: HERO_VARIATION_NAME }
+    );
 }
 
-test.describe('Hero Image block variation', () => {
-    const headingContent = (
-        frame: ReturnType<Editor['page']['frameLocator']>
-    ) =>
-        frame.locator(
-            'h1.wp-block-heading, h1.block-editor-rich-text__editable'
-        );
+test('test that we can create a Hero Image block with all fields filled', async ({
+    admin,
+    editor,
+    page,
+}) => {
+    await admin.createNewPost();
 
-    const paragraphContent = (
-        frame: ReturnType<Editor['page']['frameLocator']>
-    ) =>
-        frame.locator(
-            'p.wp-block-paragraph, p.block-editor-rich-text__editable'
-        );
+    await insertHeroImageVariation(page, BLOCK_NAME);
 
-    const buttonContent = (frame: ReturnType<Editor['page']['frameLocator']>) =>
-        frame.locator('.wp-block-button__link');
+    const block = editor.canvas.locator(`[data-type="${BLOCK_NAME}"]`).first();
 
-    test.beforeEach(async ({ admin, editor }) => {
-        // Navigate directly to the hero-image template part in the site editor
-        const templatePartPath = `/wp_template_part/${SLUG}`;
-        await admin.visitAdminPage(
-            'site-editor.php',
-            `path=${encodeURIComponent(templatePartPath)}&canvas=edit`
-        );
+    await expect(block).toBeVisible();
+    await expect(
+        editor.canvas.locator(`.${BLOCK_CLASS}`).first()
+    ).toBeVisible();
 
-        await editor.setContent('');
-    });
+    // Fill heading field.
+    const headingBlock = editor.canvas
+        .getByRole('document', { name: 'Block: Heading' })
+        .first();
+    await expect(headingBlock).toBeVisible();
+    await headingBlock.fill('Home Page Title');
 
-    test('renders heading, description, and button when all fields are filled', async ({
-        admin,
-    }) => {
-        const editor = admin.editor;
-        const frame = await configureHeroImage(editor, {
-            title: 'Home Page Title',
-            description: 'Description, under 200 characters',
-            buttonText: 'Learn More',
-        });
+    // Fill paragraph field.
+    const paragraphBlock = editor.canvas
+        .getByLabel('Empty block; start writing or')
+        .first();
+    await expect(paragraphBlock).toBeVisible();
+    await paragraphBlock.fill('Description, under 200 characters');
 
-        await expect(headingContent(frame).first()).toContainText(
-            'Home Page Title'
-        );
-        await expect(paragraphContent(frame).first()).toContainText(
-            'Description, under 200 characters'
-        );
-        await expect(buttonContent(frame).first()).toContainText('Learn More');
-    });
+    // Fill CTA button text field.
+    const buttonBlock = editor.canvas
+        .getByRole('textbox', { name: 'Button text' })
+        .first();
+    await expect(buttonBlock).toBeVisible();
+    await buttonBlock.fill('Learn More');
 
-    test('renders only the title when description and button are empty', async ({
-        admin,
-    }) => {
-        const editor = admin.editor;
-        const frame = await configureHeroImage(editor, {
-            title: 'No Description or Action Button',
-        });
+    await page.getByRole('button', { name: 'Link' }).first().click();
+    await page
+        .getByRole('combobox', { name: 'Link' })
+        .first()
+        .fill('www.test.com');
+    await page
+        .getByLabel('Editor content')
+        .getByRole('button', { name: 'Submit' })
+        .click();
 
-        await expect(headingContent(frame).first()).toContainText(
-            'No Description or Action Button'
-        );
-    });
+    // Assert nested block content.
+    await expect(headingBlock).toContainText('Home Page Title');
+    await expect(
+        editor.canvas.getByLabel('Block: Paragraph').first()
+    ).toContainText(
+        'Description, under 200 characters'
+    );
+    await expect(
+        editor.canvas.getByRole('textbox', { name: 'Button text' }).first()
+    ).toContainText('Learn More');
+});
+
+test('test that we can create a Hero Image block with only a title', async ({
+    admin,
+    editor,
+    page,
+}) => {
+    await admin.createNewPost();
+
+    await insertHeroImageVariation(page, BLOCK_NAME);
+
+    const block = editor.canvas.locator(`[data-type="${BLOCK_NAME}"]`).first();
+
+    await expect(block).toBeVisible();
+    await expect(
+        editor.canvas.locator(`.${BLOCK_CLASS}`).first()
+    ).toBeVisible();
+
+    // Fill heading field.
+    const headingBlock = editor.canvas
+        .getByRole('document', { name: 'Block: Heading' })
+        .first();
+    await expect(headingBlock).toBeVisible();
+    await headingBlock.fill('Home Page Title');
+
+    // Assert title-only state.
+    await expect(headingBlock).toContainText('Home Page Title');
+    await expect(editor.canvas.locator('.wp-block-cover p').first()).toBeEmpty();
+    await expect(editor.canvas.locator('.wp-block-buttons').first()).toBeEmpty();
 });
