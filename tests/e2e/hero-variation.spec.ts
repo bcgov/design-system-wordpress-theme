@@ -107,9 +107,7 @@ test('test that we can create a Hero Image block with all fields filled', async 
     await expect(headingBlock).toContainText('Home Page Title');
     await expect(
         editor.canvas.getByLabel('Block: Paragraph').first()
-    ).toContainText(
-        'Description, under 200 characters'
-    );
+    ).toContainText('Description, under 200 characters');
     await expect(
         editor.canvas.getByRole('textbox', { name: 'Button text' }).first()
     ).toContainText('Learn More');
@@ -140,6 +138,10 @@ test('test that we can create a Hero Image block with only a title', async ({
 
     // Assert title-only state.
     await expect(headingBlock).toContainText('Home Page Title');
-    await expect(editor.canvas.locator('.wp-block-cover p').first()).toBeEmpty();
-    await expect(editor.canvas.locator('.wp-block-buttons').first()).toBeEmpty();
+    await expect(
+        editor.canvas.locator('.wp-block-cover p').first()
+    ).toBeEmpty();
+    await expect(
+        editor.canvas.locator('.wp-block-buttons').first()
+    ).toBeEmpty();
 });
