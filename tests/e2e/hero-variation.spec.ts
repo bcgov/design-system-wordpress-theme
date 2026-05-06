@@ -21,13 +21,11 @@ async function configureHeroImage(
         name: 'design-system-wordpress-plugin/hero-image',
     });
 
-    // Fill heading and capture its data-block id so tests can target the exact element
-    const headingLocator = frame
+    // Fill heading
+    await frame
         .getByRole('document', { name: 'Block: Heading' })
-        .first();
-
-    await headingLocator.fill(opts.title);
-    const headingBlockId = (await headingLocator.getAttribute('data-block')) ?? '';
+        .first()
+        .fill(opts.title);
 
     // Fill description if provided
     if (opts.description) {
@@ -46,7 +44,7 @@ async function configureHeroImage(
             .fill(opts.buttonText);
     }
 
-    return { frame, headingBlockId };
+    return frame;
 }
 
 test.describe('Hero Image block variation', () => {
@@ -65,7 +63,7 @@ test.describe('Hero Image block variation', () => {
         admin,
     }) => {
         const editor = admin.editor;
-        const { frame } = await configureHeroImage(editor, {
+        const frame = await configureHeroImage(editor, {
             title: 'Home Page Title',
             description: 'Description, under 200 characters',
             buttonText: 'Learn More',
@@ -101,12 +99,14 @@ test.describe('Hero Image block variation', () => {
         admin,
     }) => {
         const editor = admin.editor;
-        const { frame, headingBlockId } = await configureHeroImage(editor, {
+        const frame = await configureHeroImage(editor, {
             title: 'No Description or Action Button',
         });
 
-        const headingLocator = frame.locator(`[data-block="${headingBlockId}"]`).first();
-        const headingText = (await headingLocator.textContent()) ?? '';
+        const headingText = (await frame
+            .getByRole('document', { name: 'Block: Heading' })
+            .first()
+            .textContent()) ?? '';
         const normalize = (s: string) => s.replace(/\uFEFF/g, '').trim();
         expect(normalize(headingText)).toContain('No Description or Action Button');
     });
