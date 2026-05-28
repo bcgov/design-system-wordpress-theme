@@ -8,11 +8,6 @@
             "type": "composer",
             "url": "https://blog.gov.bc.ca/satis"
         }
-        ,
-        {
-            "type": "vcs",
-            "url": "https://github.com/bcgov/wordpress-utils"
-        }
     ],
     "require-dev": {
         "bcgov/wordpress-utils": "2.5.0",
