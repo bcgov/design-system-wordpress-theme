@@ -8,14 +8,19 @@ const { spawnSync } = require('child_process');
  * Tests are structured to create temporary workspaces with fixture files, run the validator script, and assert on the results.
  */
 
-const validatorScriptPath = path.resolve(__dirname, '../../scripts/validate-template-parts.js');
+const validatorScriptPath = path.resolve(
+    __dirname,
+    '../../scripts/validate-template-parts.js'
+);
 const validationSuccessMessage = 'no theme attributes found';
 const validationFailureMessage = 'Template Part Validation Failed';
 
 const temporaryWorkspaces = [];
 
 const createTempWorkspace = () => {
-    const workspacePath = fs.mkdtempSync(path.join(os.tmpdir(), 'template-part-validator-'));
+    const workspacePath = fs.mkdtempSync(
+        path.join(os.tmpdir(), 'template-part-validator-')
+    );
     temporaryWorkspaces.push(workspacePath);
 
     return workspacePath;
@@ -61,19 +66,23 @@ describe('validate-template-parts script', () => {
         const workspacePath = createTempWorkspace();
 
         writeFixtureFiles(workspacePath, {
-            'parts/header.html': '<!-- wp:template-part {"slug":"breadcrumb","align":"full"} /-->',
+            'parts/header.html':
+                '<!-- wp:template-part {"slug":"breadcrumb","align":"full"} /-->',
         });
 
         const validatorResult = runValidator(workspacePath);
 
         expectValidatorSuccess(validatorResult);
+        // explicit assertion for eslint jest/expect-expect rule
+        expect(validatorResult.status).toBe(0);
     });
 
     test('fails when any template-part block includes theme attribute (single-line and multiline)', () => {
         const workspacePath = createTempWorkspace();
 
         writeFixtureFiles(workspacePath, {
-            'parts/one.html': '<!-- wp:template-part {"slug":"one","theme":"t"} /-->',
+            'parts/one.html':
+                '<!-- wp:template-part {"slug":"one","theme":"t"} /-->',
             'parts/two.html': [
                 '<!-- wp:template-part {',
                 '  "slug": "two",',
