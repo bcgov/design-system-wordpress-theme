@@ -40,7 +40,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          composer install
+          composer install --prefer-source
           npm install
 
       - name: Install SVN
