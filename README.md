@@ -19,6 +19,28 @@ npm run build:production
 composer checklist
 ```
 
+## E2E Testing
+
+This project uses Playwright with `@wordpress/e2e-test-utils-playwright` for end-to-end tests that run against a live WordPress environment. Tests are located in `tests/e2e/`.
+
+```bash
+npm run wp-env start # Unless already running
+npm run test:e2e
+```
+
+To run a single test file:
+
+```bash
+npm run wp-env start # Unless already running
+npx playwright test tests/e2e/copyright-shortcode.spec.ts
+```
+
+To step through each test in headed mode for debugging:
+
+```bash
+npx playwright test tests/e2e/ --debug
+```
+
 ## Visual Regression Testing
 
 This project uses Playwright to perform visual regression testing of patterns to help catch unintended changes.
