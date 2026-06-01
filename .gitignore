@@ -29,3 +29,4 @@ documentation/node_modules
 # copilot files
 .agents/**
 skills-lock.json
+copilot-instructions.md

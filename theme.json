@@ -16,7 +16,7 @@
         },
         {
             "name": "footer",
-            "title": "footer",
+            "title": "Footer",
             "area": "footer"
         },
         {
@@ -95,34 +95,14 @@
             },
             "core/paragraph": {
                 "spacing": {
-                    "margin": {
-                        "top": "0",
-                        "bottom": "0",
-                        "left": "0",
-                        "right": "0"
-                    },
-                    "padding": {
-                        "top": "0",
-                        "bottom": "0",
-                        "left": "0",
-                        "right": "0"
-                    }
+                    "margin": "0",
+                    "padding": "0"
                 }
             },
             "core/heading": {
                 "spacing": {
-                    "margin": {
-                        "top": "0",
-                        "bottom": "0",
-                        "left": "0",
-                        "right": "0"
-                    },
-                    "padding": {
-                        "top": "0",
-                        "bottom": "0",
-                        "left": "0",
-                        "right": "0"
-                    }
+                    "margin": "0",
+                    "padding": "0"
                 }
             }
         },
@@ -228,13 +208,13 @@
         },
         "layout": {
             "contentSize": "var(--dswp-layout-content-size)",
-            "wideSize": "var(--dswp-layout-content-size)"
+            "wideSize": "var(--dswp-layout-wide-size)"
         },
         "custom": {
             "dswp": {
-                "surface":{
-                    "color":{
-                        "border":{
+                "surface": {
+                    "color": {
+                        "border": {
                             "default": "var(--bcds-surface-color-border-default)"
                         }
                     }
@@ -249,7 +229,7 @@
                 "surfaceColorSecondaryDefault": "var(--bcds-surface-color-secondary-default)",
                 "surfaceColorBackgroundPrimary": "var(--bcds-surface-color-background-light-gray)",
                 "surfaceColorBackgroundSecondary": "var(--bcds-surface-color-background-light-blue)",
-                "surfaceColorBackgroundTeritiary": "var(--bcds-surface-color-background-white)",
+                "surfaceColorBackgroundTertiary": "var(--bcds-surface-color-background-white)",
                 "surfaceColorBackgroundDark": "var(--bcds-surface-color-background-dark-blue)",
                 "surfaceColorBorderMedium": "var(--bcds-surface-color-border-medium)",
                 "surfaceColorBorderDark": "var(--bcds-surface-color-border-dark)",
@@ -372,11 +352,6 @@
             "defaultPalette": false,
             "palette": [
                 {
-                    "slug": "bar-color",
-                    "color": "var(--dswp-surface-color-border-default)",
-                    "name": "Bar Color"
-                },
-                {
                     "slug": "typography-color-primary",
                     "color": "var(--dswp-theme-primary-blue)",
                     "name": "Typography Color Primary"
@@ -385,11 +360,6 @@
                     "slug": "typography-color-secondary",
                     "color": "var(--dswp-typography-color-secondary)",
                     "name": "Typography Color Secondary"
-                },
-                {
-                    "slug": "primary-color",
-                    "color": "var(--dswp-theme-primary-blue:)",
-                    "name": "Primary Color"
                 },
                 {
                     "slug": "primary-color-footer",
@@ -405,11 +375,6 @@
                     "slug": "tertiary",
                     "color": "var(--dswp-tertiary-color)",
                     "name": "Tertiary"
-                },
-                {
-                    "slug": "accent-primary",
-                    "color": "var(--dswp-theme-primary-gold)",
-                    "name": "Accent Primary"
                 },
                 {
                     "slug": "bcgov-gold-accent",
@@ -465,7 +430,7 @@
                     "slug": "background-dark-blue",
                     "color": "var(--dswp-surface-color-background-dark-blue)",
                     "name": "Background dark blue"
-                }                
+                }
             ]
         }
     }

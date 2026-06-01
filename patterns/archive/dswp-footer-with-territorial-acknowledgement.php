@@ -127,7 +127,7 @@
         </div>
         <!-- /wp:columns -->
 
-        <!-- wp:group {"style":{"border":{"top":{"color":"var:preset|color|font dark","width":"1px"}},"spacing":{"padding":{"top":"0","bottom":"0"},"margin":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|50"}}},"layout":{"type":"constrained"}} -->
+        <!-- wp:group {"style":{"border":{"top":{"color":"var:preset|color|font-dark","width":"1px"}},"spacing":{"padding":{"top":"0","bottom":"0"},"margin":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|50"}}},"layout":{"type":"constrained"}} -->
         <div
             class="wp-block-group"
             style="border-top-color: var(--wp--preset--color--font-dark); border-top-width: 1px; margin-top: var(--wp--preset--spacing--60); margin-bottom: var(--wp--preset--spacing--50); padding-top: 0; padding-bottom: 0"
