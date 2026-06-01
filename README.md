@@ -63,3 +63,21 @@ npm run test:screenshot:update
 
 ## Child Themes
 
+### Template Part Override Guidelines
+
+To ensure child themes can properly override template parts, parent theme template-part blocks **must not** include a `theme` attribute. Including the `theme` attribute prevents child themes from overwriting the template part.
+
+**Incorrect (prevents child theme overrides):**
+
+```html
+<!-- wp:template-part {"slug":"breadcrumb","align":"full","theme":"design-system-wordpress-theme"} /-->
+```
+
+**Correct (allows child theme overrides):**
+
+```html
+<!-- wp:template-part {"slug":"breadcrumb","align":"full"} /-->
+```
+
+Run `npm run lint:template-parts` to validate locally. This check also runs automatically on pull requests as part of the linting workflow.
+

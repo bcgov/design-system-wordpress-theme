@@ -40,7 +40,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          composer install
+          # Workaround for a 403 error when installing dependencies from the satis repository.
+          composer install --prefer-source
           npm install
 
       - name: Install SVN
