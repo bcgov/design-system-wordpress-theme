@@ -132,6 +132,43 @@ add_action( 'enqueue_block_editor_assets', 'design_system_enqueue_global_js_scri
 add_action( 'wp_enqueue_scripts', 'design_system_enqueue_global_js_scripts' );
 
 /**
+ * Returns the current year for the [current_year] shortcode.
+ *
+ * @return string Current year in the site timezone.
+ */
+function design_system_current_year_shortcode() {
+    return esc_html( wp_date( 'Y' ) );
+}
+
+/**
+ * Registers shortcodes used by this theme.
+ */
+function design_system_register_shortcodes() {
+    add_shortcode( 'current_year', 'design_system_current_year_shortcode' );
+}
+
+add_action( 'init', 'design_system_register_shortcodes' );
+
+/**
+ * Expands [current_year] when it appears in rendered block content.
+ *
+ * Shortcodes are not parsed automatically inside all block HTML contexts,
+ * so this keeps template-part text content server-rendered.
+ *
+ * @param string $block_content Rendered HTML for the current block.
+ * @return string
+ */
+function design_system_render_current_year_in_blocks( $block_content ) {
+    if ( false === strpos( $block_content, '[current_year]' ) ) {
+        return $block_content;
+    }
+
+    return do_shortcode( $block_content );
+}
+
+add_filter( 'render_block', 'design_system_render_current_year_in_blocks' );
+
+/**
  * Retrieve asset metadata (dependencies and version) for built assets.
  *
  * Resolves script dependencies and version from the asset metadata file

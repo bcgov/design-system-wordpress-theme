@@ -142,7 +142,7 @@
             <p
                 class="has-text-align-left has-text-color-color has-text-color"
                 style="padding-top: 0.5rem; padding-left: 0rem"
-                >© 2026 Government of British Columbia.</p
+                >© [current_year] Government of British Columbia.</p
             >
             <!-- /wp:paragraph -->
         </div>
