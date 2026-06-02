@@ -38,51 +38,61 @@ jobs:
           set -euo pipefail
           mkdir -p "$PLAYWRIGHT_BROWSERS_PATH"
 
+          chromium_exists="false"
+          chromium_shell_exists="false"
+
           if compgen -G "$PLAYWRIGHT_BROWSERS_PATH/chromium-*/chrome-linux/chrome" > /dev/null; then
-            echo "Chromium already in cache, skipping install."
+            chromium_exists="true"
+          fi
+
+          if compgen -G "$PLAYWRIGHT_BROWSERS_PATH/chromium_headless_shell-*/chrome-headless-shell-linux64/chrome-headless-shell" > /dev/null; then
+            chromium_shell_exists="true"
+          fi
+
+          if [[ "$chromium_exists" == "true" && "$chromium_shell_exists" == "true" ]]; then
+            echo "Chromium and headless shell already in cache, skipping install."
             npx playwright install --list || true
             exit 0
           fi
 
-          if timeout 180s npx playwright install chromium; then
-            echo "Playwright Chromium installed via native installer."
-          else
-            echo "Native installer timed out/failed, using manual zip extraction fallback."
-            dry_run_output="$(npx playwright install --dry-run chromium 2>&1)"
-            download_url="$(printf '%s\n' "$dry_run_output" | grep -Eo 'https://[^ ]+/chromium-linux.zip' | head -n1)"
-            build_id="$(printf '%s\n' "$download_url" | sed -n 's#.*/chromium/\([0-9][0-9]*\)/chromium-linux.zip#\1#p')"
+          echo "Installing Chromium via manual zip extraction."
+          dry_run_output="$(npx playwright install --dry-run chromium 2>&1)"
+          download_url="$(printf '%s\n' "$dry_run_output" | grep -Eo 'https://[^ ]+/chromium-linux.zip' | head -n1)"
+          build_id="$(printf '%s\n' "$download_url" | sed -n 's#.*/chromium/\([0-9][0-9]*\)/chromium-linux.zip#\1#p')"
 
-            if [[ -z "$download_url" || -z "$build_id" ]]; then
-              echo "Could not determine Chromium download URL/build id from Playwright dry-run output."
-              printf '%s\n' "$dry_run_output"
-              exit 1
-            fi
+          if [[ -z "$download_url" || -z "$build_id" ]]; then
+            echo "Could not determine Chromium download URL/build id from Playwright dry-run output."
+            printf '%s\n' "$dry_run_output"
+            exit 1
+          fi
 
-            install_dir="$PLAYWRIGHT_BROWSERS_PATH/chromium-$build_id"
-            archive_path="$(mktemp /tmp/playwright-chromium-XXXXXX.zip)"
-            extract_dir="$(mktemp -d)"
-            rm -rf "$install_dir"
-            mkdir -p "$install_dir"
-            curl --retry 3 --retry-delay 2 -fL "$download_url" -o "$archive_path"
-            unzip -q "$archive_path" -d "$extract_dir"
+          install_dir="$PLAYWRIGHT_BROWSERS_PATH/chromium-$build_id"
+          archive_path="$(mktemp /tmp/playwright-chromium-XXXXXX.zip)"
+          extract_dir="$(mktemp -d)"
+          rm -rf "$install_dir"
+          mkdir -p "$install_dir"
+          curl --retry 3 --retry-delay 2 -fL "$download_url" -o "$archive_path"
+          unzip -q "$archive_path" -d "$extract_dir"
 
-            extracted_chrome_dir="$(find "$extract_dir" -maxdepth 3 -type d -name 'chrome-linux*' | head -n1)"
-            if [[ -z "$extracted_chrome_dir" ]]; then
-              echo "Could not find extracted chrome-linux directory in fallback installation."
-              find "$extract_dir" -maxdepth 4 -print || true
-              rm -rf "$extract_dir"
-              rm -f "$archive_path"
-              exit 1
-            fi
-
-            mv "$extracted_chrome_dir" "$install_dir/chrome-linux"
-            chmod +x "$install_dir/chrome-linux/chrome" || true
+          extracted_chrome_dir="$(find "$extract_dir" -maxdepth 3 -type d -name 'chrome-linux*' | head -n1)"
+          if [[ -z "$extracted_chrome_dir" ]]; then
+            echo "Could not find extracted chrome-linux directory in manual installation."
+            find "$extract_dir" -maxdepth 4 -print || true
             rm -rf "$extract_dir"
             rm -f "$archive_path"
-
-            test -x "$install_dir/chrome-linux/chrome"
-            echo "Manual Chromium installation completed at $install_dir"
+            exit 1
           fi
+
+          mv "$extracted_chrome_dir" "$install_dir/chrome-linux"
+          chmod +x "$install_dir/chrome-linux/chrome" || true
+          rm -rf "$extract_dir"
+          rm -f "$archive_path"
+
+          test -x "$install_dir/chrome-linux/chrome"
+          echo "Manual Chromium installation completed at $install_dir"
+
+          # Ensure Chromium headless shell is available for current Playwright launches.
+          timeout 180s npx playwright install --only-shell chromium
 
           npx playwright install --list || true
 
