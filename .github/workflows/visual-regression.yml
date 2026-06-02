@@ -9,7 +9,7 @@ jobs:
   visual-regression:
     runs-on: ubuntu-latest
     env:
-      PLAYWRIGHT_BROWSERS_PATH: ~/.cache/ms-playwright
+      PLAYWRIGHT_BROWSERS_PATH: /home/runner/.cache/ms-playwright
       PLAYWRIGHT_DOWNLOAD_CONNECTION_TIMEOUT: 120000
     steps:
       - name: Checkout code
@@ -27,7 +27,7 @@ jobs:
       - name: Cache Playwright browsers
         uses: actions/cache@v4
         with:
-          path: ~/.cache/ms-playwright
+          path: ${{ env.PLAYWRIGHT_BROWSERS_PATH }}
           key: ${{ runner.os }}-playwright-${{ hashFiles('package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-playwright-
@@ -42,7 +42,13 @@ jobs:
           echo "npm: $(npm -v)"
           npx playwright --version
           echo "Playwright cache before install:"
-          ls -lah ~/.cache/ms-playwright || true
+          ls -lah "$PLAYWRIGHT_BROWSERS_PATH" || true
+
+          if compgen -G "$PLAYWRIGHT_BROWSERS_PATH/chromium-*/chrome-linux/chrome" > /dev/null; then
+            echo "Chromium is already present in cache. Skipping install."
+            npx playwright install --list || true
+            exit 0
+          fi
 
           install_chromium() {
             timeout 12m npx playwright install chromium
@@ -50,12 +56,13 @@ jobs:
 
           if ! install_chromium; then
             echo "First install attempt failed or timed out. Cleaning partial Chromium download and retrying once..."
-            rm -rf ~/.cache/ms-playwright/chromium-* || true
+            rm -rf "$PLAYWRIGHT_BROWSERS_PATH/chromium-*" || true
             install_chromium
           fi
 
           echo "Playwright cache after install:"
-          ls -lah ~/.cache/ms-playwright || true
+          ls -lah "$PLAYWRIGHT_BROWSERS_PATH" || true
+          compgen -G "$PLAYWRIGHT_BROWSERS_PATH/chromium-*/chrome-linux/chrome" > /dev/null
           npx playwright install --list
 
       - name: Start wp-env
