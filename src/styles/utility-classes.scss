@@ -4,9 +4,9 @@
  */
 
 .dswp-border-frame {
-	border: 1px solid var(--wp--custom--dswp--surface--color--border--default, #dadbdd);
+	border: 1px solid var(--dswp-surface-color-border-default);
 }
 
 .dswp-border-divider {
-	border-bottom: 1px solid var(--wp--custom--dswp--surface--color--border--default, #dadbdd);
+	border-bottom: 1px solid var(--dswp-surface-color-border-default);
 }

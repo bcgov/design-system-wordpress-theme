@@ -54,9 +54,9 @@
     "lint:pkg-json": "wp-scripts lint-pkg-json",
     "packages-update": "wp-scripts packages-update",
     "start": "wp-scripts start --output-path=dist",
-    "test:e2e": "wp-scripts test-e2e --passWithNoTests",
-    "test:screenshot": "npx playwright test",
-    "test:screenshot:update": "npx playwright test --update-snapshots",
+    "test:e2e": "npx playwright test tests/e2e",
+    "test:screenshot": "npx playwright test tests/screenshot",
+    "test:screenshot:update": "npx playwright test tests/screenshot --update-snapshots",
     "test:unit": "wp-scripts test-unit-js --passWithNoTests",
     "test": "npm run test:unit",
     "wp-env": "wp-env"

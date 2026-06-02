@@ -212,13 +212,6 @@
         },
         "custom": {
             "dswp": {
-                "surface": {
-                    "color": {
-                        "border": {
-                            "default": "var(--bcds-surface-color-border-default)"
-                        }
-                    }
-                },
                 "surfaceColorPrimaryButtonDefault": "var(--bcds-surface-color-primary-button-default)",
                 "surfaceColorPrimaryButtonHover": "var(--bcds-surface-color-primary-button-hover)",
                 "surfaceColorSecondaryButtonDefault": "var(--bcds-surface-color-secondary-button-default)",
@@ -364,7 +357,7 @@
                 {
                     "slug": "primary-color-footer",
                     "color": "var(--dswp-footer-color-primary)",
-                    "name": "Footer Color Primary "
+                    "name": "Footer Color Primary"
                 },
                 {
                     "slug": "secondary-color-footer",
@@ -384,22 +377,18 @@
                 {
                     "slug": "banner-background-dark",
                     "color": "var(--dswp-banner-background-dark)",
-                    "name": "Banner background dark"
+                    "name": "Banner Background Dark"
                 },
-                {
-                    "slug": "typography-primary-color",
-                    "color": "var(--dswp-theme-primary-blue)",
-                    "name": "Primary color"
-                },
+
                 {
                     "slug": "background-light-gray",
                     "color": "var(--dswp-surface-color-background-light-gray)",
-                    "name": "Background light gray"
+                    "name": "Background Light Gray"
                 },
                 {
                     "slug": "border-default",
                     "color": "var(--dswp-surface-color-border-default)",
-                    "name": "Border default"
+                    "name": "Border Default"
                 },
                 {
                     "slug": "background-light-gray-blue",
@@ -412,7 +401,7 @@
                     "name": "Background White"
                 },
                 {
-                    "slug": "font dark",
+                    "slug": "font-dark",
                     "color": "var(--dswp-font-dark)",
                     "name": "Font Dark"
                 },
@@ -423,13 +412,13 @@
                 },
                 {
                     "slug": "background-medium-gray",
-                    "color": "var(--bcds-theme-gray-70)",
-                    "name": "Background medium gray"
+                    "color": "var(--dswp-theme-gray-70)",
+                    "name": "Background Medium Gray"
                 },
                 {
                     "slug": "background-dark-blue",
                     "color": "var(--dswp-surface-color-background-dark-blue)",
-                    "name": "Background dark blue"
+                    "name": "Background Dark Blue"
                 }
             ]
         }

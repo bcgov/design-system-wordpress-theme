@@ -27,10 +27,17 @@ jobs:
       - name: Start wp-env
         run: npm run wp-env start
 
-      - name: Run screenshot updates
+      - name: Wait for wp-env to be ready
+        run: npx wait-on http://localhost:8889
+
+      - name: Run functional E2E tests
+        run: npm run test:e2e
+        continue-on-error: false
+
+      - name: Update visual regression snapshots
         run: npm run test:screenshot:update
 
       - name: Commit and push updated snapshots
         uses: stefanzweifel/git-auto-commit-action@v7.1.0
         with:
-          commit_message: 'Update e2e snapshots (committed automatically via Visual Regression workflow)'
+          commit_message: 'Update visual regression snapshots (committed automatically via Visual Regression workflow)'
