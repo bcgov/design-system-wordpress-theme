@@ -8,6 +8,9 @@ permissions:
 jobs:
   visual-regression:
     runs-on: ubuntu-latest
+    env:
+      PLAYWRIGHT_BROWSERS_PATH: ~/.cache/ms-playwright
+      PLAYWRIGHT_DOWNLOAD_CONNECTION_TIMEOUT: 120000
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -30,7 +33,30 @@ jobs:
             ${{ runner.os }}-playwright-
 
       - name: Install Playwright Chromium
-        run: npx playwright install chromium
+        shell: bash
+        env:
+          DEBUG: pw:install,pw:download
+        run: |
+          set -euo pipefail
+          echo "Node: $(node -v)"
+          echo "npm: $(npm -v)"
+          npx playwright --version
+          echo "Playwright cache before install:"
+          ls -lah ~/.cache/ms-playwright || true
+
+          install_chromium() {
+            timeout 12m npx playwright install chromium
+          }
+
+          if ! install_chromium; then
+            echo "First install attempt failed or timed out. Cleaning partial Chromium download and retrying once..."
+            rm -rf ~/.cache/ms-playwright/chromium-* || true
+            install_chromium
+          fi
+
+          echo "Playwright cache after install:"
+          ls -lah ~/.cache/ms-playwright || true
+          npx playwright install --list
 
       - name: Start wp-env
         run: npm run wp-env start
