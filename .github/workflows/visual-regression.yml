@@ -10,13 +10,16 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
       PLAYWRIGHT_BROWSERS_PATH: /home/runner/.cache/ms-playwright
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.head_ref }}
 
       - name: Install Node.js 24
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 24
           cache: 'npm'
@@ -25,7 +28,7 @@ jobs:
         run: npm ci
 
       - name: Cache Playwright browsers
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: ${{ env.PLAYWRIGHT_BROWSERS_PATH }}
           key: ${{ runner.os }}-playwright-${{ hashFiles('package-lock.json') }}
@@ -51,7 +54,6 @@ jobs:
 
           if [[ "$chromium_exists" == "true" && "$chromium_shell_exists" == "true" ]]; then
             echo "Chromium and headless shell already in cache, skipping install."
-            npx playwright install --list || true
             exit 0
           fi
 
@@ -117,8 +119,6 @@ jobs:
 
           test -x "$shell_install_dir/chrome-headless-shell-linux64/chrome-headless-shell"
           echo "Manual Chromium headless shell installation completed at $shell_install_dir"
-
-          npx playwright install --list || true
 
       - name: Start wp-env
         run: npm run wp-env start
