@@ -60,10 +60,24 @@ jobs:
 
             install_dir="$PLAYWRIGHT_BROWSERS_PATH/chromium-$build_id"
             archive_path="$(mktemp /tmp/playwright-chromium-XXXXXX.zip)"
+            extract_dir="$(mktemp -d)"
             rm -rf "$install_dir"
             mkdir -p "$install_dir"
             curl --retry 3 --retry-delay 2 -fL "$download_url" -o "$archive_path"
-            unzip -q "$archive_path" -d "$install_dir"
+            unzip -q "$archive_path" -d "$extract_dir"
+
+            extracted_chrome_dir="$(find "$extract_dir" -maxdepth 3 -type d -name 'chrome-linux*' | head -n1)"
+            if [[ -z "$extracted_chrome_dir" ]]; then
+              echo "Could not find extracted chrome-linux directory in fallback installation."
+              find "$extract_dir" -maxdepth 4 -print || true
+              rm -rf "$extract_dir"
+              rm -f "$archive_path"
+              exit 1
+            fi
+
+            mv "$extracted_chrome_dir" "$install_dir/chrome-linux"
+            chmod +x "$install_dir/chrome-linux/chrome" || true
+            rm -rf "$extract_dir"
             rm -f "$archive_path"
 
             test -x "$install_dir/chrome-linux/chrome"
