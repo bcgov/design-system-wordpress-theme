@@ -8,7 +8,7 @@ permissions:
 jobs:
   visual-regression:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 15
     env:
       PLAYWRIGHT_BROWSERS_PATH: /home/runner/.cache/ms-playwright
     steps:
@@ -44,7 +44,7 @@ jobs:
             exit 0
           fi
 
-          if timeout 90s npx playwright install chromium; then
+          if timeout 180s npx playwright install chromium; then
             echo "Playwright Chromium installed via native installer."
           else
             echo "Native installer timed out/failed, using manual zip extraction fallback."
