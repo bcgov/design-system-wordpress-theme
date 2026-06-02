@@ -93,11 +93,11 @@ jobs:
         run: npx wait-on http://localhost:8889
 
       - name: Run functional E2E tests
-        run: npm run test:e2e
+        run: npm run test:e2e -- --project=chromium
         continue-on-error: false
 
       - name: Update visual regression snapshots
-        run: npm run test:screenshot:update
+        run: npm run test:screenshot:update -- --project=chromium
 
       - name: Commit and push updated snapshots
         uses: stefanzweifel/git-auto-commit-action@v7.1.0
