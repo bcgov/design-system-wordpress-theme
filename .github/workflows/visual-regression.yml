@@ -8,18 +8,12 @@ permissions:
 jobs:
   visual-regression:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-      PLAYWRIGHT_BROWSERS_PATH: /home/runner/.cache/ms-playwright
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
-        with:
-          ref: ${{ github.head_ref }}
+        uses: actions/checkout@v4
 
       - name: Install Node.js 24
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v3
         with:
           node-version: 24
           cache: 'npm'
@@ -27,113 +21,16 @@ jobs:
       - name: Install node dependencies
         run: npm ci
 
-      - name: Cache Playwright browsers
-        uses: actions/cache@v5
-        with:
-          path: ${{ env.PLAYWRIGHT_BROWSERS_PATH }}
-          key: ${{ runner.os }}-playwright-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-playwright-
-
-      - name: Install Playwright Chromium
-        shell: bash
-        run: |
-          set -euo pipefail
-          mkdir -p "$PLAYWRIGHT_BROWSERS_PATH"
-
-          chromium_exists="false"
-          chromium_shell_exists="false"
-
-          if compgen -G "$PLAYWRIGHT_BROWSERS_PATH/chromium-*/chrome-linux/chrome" > /dev/null; then
-            chromium_exists="true"
-          fi
-
-          if compgen -G "$PLAYWRIGHT_BROWSERS_PATH/chromium_headless_shell-*/chrome-headless-shell-linux64/chrome-headless-shell" > /dev/null; then
-            chromium_shell_exists="true"
-          fi
-
-          if [[ "$chromium_exists" == "true" && "$chromium_shell_exists" == "true" ]]; then
-            echo "Chromium and headless shell already in cache, skipping install."
-            exit 0
-          fi
-
-          echo "Installing Chromium via manual zip extraction."
-          dry_run_output="$(npx playwright install --dry-run chromium 2>&1)"
-          download_url="$(printf '%s\n' "$dry_run_output" | grep -Eo 'https://[^ ]+/chromium-linux.zip' | head -n1)"
-          shell_download_url="$(printf '%s\n' "$dry_run_output" | grep -Eo 'https://[^ ]+/chromium-headless-shell-linux.zip' | head -n1)"
-          build_id="$(printf '%s\n' "$download_url" | sed -n 's#.*/chromium/\([0-9][0-9]*\)/chromium-linux.zip#\1#p')"
-
-          if [[ -z "$download_url" || -z "$shell_download_url" || -z "$build_id" ]]; then
-            echo "Could not determine Chromium/headless shell download URLs or build id from Playwright dry-run output."
-            printf '%s\n' "$dry_run_output"
-            exit 1
-          fi
-
-          install_dir="$PLAYWRIGHT_BROWSERS_PATH/chromium-$build_id"
-          archive_path="$(mktemp /tmp/playwright-chromium-XXXXXX.zip)"
-          extract_dir="$(mktemp -d)"
-          rm -rf "$install_dir"
-          mkdir -p "$install_dir"
-          curl --retry 3 --retry-delay 2 -fL "$download_url" -o "$archive_path"
-          unzip -q "$archive_path" -d "$extract_dir"
-
-          extracted_chrome_dir="$(find "$extract_dir" -maxdepth 3 -type d -name 'chrome-linux*' | head -n1)"
-          if [[ -z "$extracted_chrome_dir" ]]; then
-            echo "Could not find extracted chrome-linux directory in manual installation."
-            find "$extract_dir" -maxdepth 4 -print || true
-            rm -rf "$extract_dir"
-            rm -f "$archive_path"
-            exit 1
-          fi
-
-          mv "$extracted_chrome_dir" "$install_dir/chrome-linux"
-          chmod +x "$install_dir/chrome-linux/chrome" || true
-          rm -rf "$extract_dir"
-          rm -f "$archive_path"
-
-          test -x "$install_dir/chrome-linux/chrome"
-          echo "Manual Chromium installation completed at $install_dir"
-
-          echo "Installing Chromium headless shell via manual zip extraction."
-          shell_install_dir="$PLAYWRIGHT_BROWSERS_PATH/chromium_headless_shell-$build_id"
-          shell_archive_path="$(mktemp /tmp/playwright-chromium-shell-XXXXXX.zip)"
-          shell_extract_dir="$(mktemp -d)"
-          rm -rf "$shell_install_dir"
-          mkdir -p "$shell_install_dir"
-          curl --retry 3 --retry-delay 2 -fL "$shell_download_url" -o "$shell_archive_path"
-          unzip -q "$shell_archive_path" -d "$shell_extract_dir"
-
-          extracted_shell_dir="$(find "$shell_extract_dir" -maxdepth 3 -type d -name 'chrome-headless-shell-linux64' | head -n1)"
-          if [[ -z "$extracted_shell_dir" ]]; then
-            echo "Could not find extracted chrome-headless-shell-linux64 directory in manual installation."
-            find "$shell_extract_dir" -maxdepth 4 -print || true
-            rm -rf "$shell_extract_dir"
-            rm -f "$shell_archive_path"
-            exit 1
-          fi
-
-          mv "$extracted_shell_dir" "$shell_install_dir/chrome-headless-shell-linux64"
-          chmod +x "$shell_install_dir/chrome-headless-shell-linux64/chrome-headless-shell" || true
-          rm -rf "$shell_extract_dir"
-          rm -f "$shell_archive_path"
-
-          test -x "$shell_install_dir/chrome-headless-shell-linux64/chrome-headless-shell"
-          echo "Manual Chromium headless shell installation completed at $shell_install_dir"
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
 
       - name: Start wp-env
         run: npm run wp-env start
 
-      - name: Wait for wp-env to be ready
-        run: npx wait-on http://localhost:8889
-
-      - name: Run functional E2E tests
-        run: npm run test:e2e -- --project=chromium
-        continue-on-error: false
-
-      - name: Update visual regression snapshots
-        run: npm run test:screenshot:update -- --project=chromium
+      - name: Run screenshot updates
+        run: npm run test:screenshot:update
 
       - name: Commit and push updated snapshots
         uses: stefanzweifel/git-auto-commit-action@v7.1.0
         with:
-          commit_message: 'Update visual regression snapshots (committed automatically via Visual Regression workflow)'
+          commit_message: 'Update e2e snapshots (committed automatically via Visual Regression workflow)'
