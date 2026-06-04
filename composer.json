@@ -5,8 +5,8 @@
     "license": "Apache-2.0",
     "repositories": [
         {
-        "type": "vcs",
-        "url": "https://github.com/bcgov/wordpress-utils.git"
+            "type": "vcs",
+            "url": "https://github.com/bcgov/wordpress-utils.git"
         }
     ],
     "require-dev": {

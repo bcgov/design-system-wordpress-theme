@@ -61,6 +61,49 @@ npm run wp-env start # Unless already running
 npm run test:screenshot:update
 ```
 
+## End-to-End (E2E) Testing
+
+This project uses Playwright for end-to-end testing, which includes theme functionality and configuration validation.
+
+### Run all E2E tests
+
+```bash
+npm run wp-env start # Unless already running
+npm run test:e2e
+```
+
+### Available E2E tests
+
+#### CSS Custom Properties Tests (`tests/e2e/css-props.spec.ts`)
+
+Validates that theme CSS custom properties are properly defined in both standalone built CSS and WordPress runtime contexts, plus validates layout sizing properties.
+
+**Checks:**
+
+1. **Standalone built CSS**: Verifies that theme-level custom properties (e.g., `--dswp-*` and `--bcds-*`) are present in the compiled CSS output from your build.
+2. **WordPress runtime**: Verifies that WordPress-generated custom properties (e.g., `--wp--custom--dswp--*` from `theme.json`) are available when the site editor is loaded.
+3. **Layout wide size**: Verifies that the `--dswp-layout-wide-size` custom property is set to `1200px` in the site editor runtime.
+
+**Run individually:**
+
+```bash
+npm run wp-env start # Unless already running
+npx playwright test tests/e2e/css-props.spec.ts
+```
+
+If a check fails, the test output will list the missing properties or incorrect values, indicating a potential mismatch between `theme.json` definitions and the compiled CSS or WordPress runtime state.
+
+#### Hero Image Block Tests (`tests/e2e/hero-variation.spec.ts`)
+
+Validates that the Hero Image block (cover block with inner content) renders correctly with various field combinations, including all-fields-filled and title-only variations, with visual regression snapshots for desktop and mobile viewports.
+
+**Run individually:**
+
+```bash
+npm run wp-env start # Unless already running
+npx playwright test tests/e2e/hero-variation.spec.ts
+```
+
 ## Child Themes
 
 ### Template Part Override Guidelines

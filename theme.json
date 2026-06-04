@@ -16,7 +16,7 @@
         },
         {
             "name": "footer",
-            "title": "footer",
+            "title": "Footer",
             "area": "footer"
         },
         {
@@ -95,34 +95,14 @@
             },
             "core/paragraph": {
                 "spacing": {
-                    "margin": {
-                        "top": "0",
-                        "bottom": "0",
-                        "left": "0",
-                        "right": "0"
-                    },
-                    "padding": {
-                        "top": "0",
-                        "bottom": "0",
-                        "left": "0",
-                        "right": "0"
-                    }
+                    "margin": "0",
+                    "padding": "0"
                 }
             },
             "core/heading": {
                 "spacing": {
-                    "margin": {
-                        "top": "0",
-                        "bottom": "0",
-                        "left": "0",
-                        "right": "0"
-                    },
-                    "padding": {
-                        "top": "0",
-                        "bottom": "0",
-                        "left": "0",
-                        "right": "0"
-                    }
+                    "margin": "0",
+                    "padding": "0"
                 }
             }
         },
@@ -228,17 +208,10 @@
         },
         "layout": {
             "contentSize": "var(--dswp-layout-content-size)",
-            "wideSize": "var(--dswp-layout-content-size)"
+            "wideSize": "var(--dswp-layout-wide-size)"
         },
         "custom": {
             "dswp": {
-                "surface":{
-                    "color":{
-                        "border":{
-                            "default": "var(--bcds-surface-color-border-default)"
-                        }
-                    }
-                },
                 "surfaceColorPrimaryButtonDefault": "var(--bcds-surface-color-primary-button-default)",
                 "surfaceColorPrimaryButtonHover": "var(--bcds-surface-color-primary-button-hover)",
                 "surfaceColorSecondaryButtonDefault": "var(--bcds-surface-color-secondary-button-default)",
@@ -249,7 +222,7 @@
                 "surfaceColorSecondaryDefault": "var(--bcds-surface-color-secondary-default)",
                 "surfaceColorBackgroundPrimary": "var(--bcds-surface-color-background-light-gray)",
                 "surfaceColorBackgroundSecondary": "var(--bcds-surface-color-background-light-blue)",
-                "surfaceColorBackgroundTeritiary": "var(--bcds-surface-color-background-white)",
+                "surfaceColorBackgroundTertiary": "var(--bcds-surface-color-background-white)",
                 "surfaceColorBackgroundDark": "var(--bcds-surface-color-background-dark-blue)",
                 "surfaceColorBorderMedium": "var(--bcds-surface-color-border-medium)",
                 "surfaceColorBorderDark": "var(--bcds-surface-color-border-dark)",
@@ -372,11 +345,6 @@
             "defaultPalette": false,
             "palette": [
                 {
-                    "slug": "bar-color",
-                    "color": "var(--dswp-surface-color-border-default)",
-                    "name": "Bar Color"
-                },
-                {
                     "slug": "typography-color-primary",
                     "color": "var(--dswp-theme-primary-blue)",
                     "name": "Typography Color Primary"
@@ -387,14 +355,9 @@
                     "name": "Typography Color Secondary"
                 },
                 {
-                    "slug": "primary-color",
-                    "color": "var(--dswp-theme-primary-blue:)",
-                    "name": "Primary Color"
-                },
-                {
                     "slug": "primary-color-footer",
                     "color": "var(--dswp-footer-color-primary)",
-                    "name": "Footer Color Primary "
+                    "name": "Footer Color Primary"
                 },
                 {
                     "slug": "secondary-color-footer",
@@ -407,11 +370,6 @@
                     "name": "Tertiary"
                 },
                 {
-                    "slug": "accent-primary",
-                    "color": "var(--dswp-theme-primary-gold)",
-                    "name": "Accent Primary"
-                },
-                {
                     "slug": "bcgov-gold-accent",
                     "color": "var(--dswp-theme-primary-gold)",
                     "name": "BCGov Gold Accent"
@@ -419,22 +377,18 @@
                 {
                     "slug": "banner-background-dark",
                     "color": "var(--dswp-banner-background-dark)",
-                    "name": "Banner background dark"
+                    "name": "Banner Background Dark"
                 },
-                {
-                    "slug": "typography-primary-color",
-                    "color": "var(--dswp-theme-primary-blue)",
-                    "name": "Primary color"
-                },
+
                 {
                     "slug": "background-light-gray",
                     "color": "var(--dswp-surface-color-background-light-gray)",
-                    "name": "Background light gray"
+                    "name": "Background Light Gray"
                 },
                 {
                     "slug": "border-default",
                     "color": "var(--dswp-surface-color-border-default)",
-                    "name": "Border default"
+                    "name": "Border Default"
                 },
                 {
                     "slug": "background-light-gray-blue",
@@ -447,7 +401,7 @@
                     "name": "Background White"
                 },
                 {
-                    "slug": "font dark",
+                    "slug": "font-dark",
                     "color": "var(--dswp-font-dark)",
                     "name": "Font Dark"
                 },
@@ -458,14 +412,14 @@
                 },
                 {
                     "slug": "background-medium-gray",
-                    "color": "var(--bcds-theme-gray-70)",
-                    "name": "Background medium gray"
+                    "color": "var(--dswp-theme-gray-70)",
+                    "name": "Background Medium Gray"
                 },
                 {
                     "slug": "background-dark-blue",
                     "color": "var(--dswp-surface-color-background-dark-blue)",
-                    "name": "Background dark blue"
-                }                
+                    "name": "Background Dark Blue"
+                }
             ]
         }
     }
