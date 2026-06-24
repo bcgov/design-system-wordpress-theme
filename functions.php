@@ -275,7 +275,7 @@ function design_system_combine_parent_child_theme_json( $theme_json ) {
     }
 
     // Merge the parent palette with the child palette.
-    $merged_palette = array_merge( $parent_palette, $child_palette['theme'] );
+    $merged_palette = array_merge( $parent_palette, $child_palette );
 
     // Prepare the new data with the validated palette.
     $new_data = array(
