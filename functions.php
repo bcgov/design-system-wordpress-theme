@@ -274,15 +274,26 @@ function design_system_combine_parent_child_theme_json( $theme_json ) {
         $child_palette = $theme_json_data['settings']['color']['palette'];
     }
 
+    // The palette from get_data() can be keyed by origin (e.g. 'theme') rather than
+    // a flat list of presets. Normalize to a flat list so every entry is a preset
+    // with its own 'slug'; otherwise WordPress iterates the nested origin array as a
+    // preset and emits "Undefined index: slug".
+    if ( isset( $child_palette['theme'] ) && is_array( $child_palette['theme'] ) ) {
+        $child_palette = $child_palette['theme'];
+    }
+
     // Merge the parent palette with the child palette.
     $merged_palette = array_merge( $parent_palette, $child_palette );
 
-    // Prepare the new data with the validated palette.
+    // Write the palette back under the 'theme' origin so it matches the structure
+    // WordPress expects for merged theme.json data.
     $new_data = array(
         'version'  => 3, // Ensure the version matches the latest.
         'settings' => array(
             'color' => array(
-                'palette' => $merged_palette, // Use the validated palette.
+                'palette' => array(
+                    'theme' => $merged_palette,
+                ),
             ),
         ),
     );
