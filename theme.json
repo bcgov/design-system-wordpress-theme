@@ -370,6 +370,11 @@
                     "name": "Tertiary"
                 },
                 {
+                    "slug": "accent-primary",
+                    "color": "var(--dswp-theme-accent-primary)",
+                    "name": "Accent Primary"
+                },
+                {
                     "slug": "bcgov-gold-accent",
                     "color": "var(--dswp-theme-primary-gold)",
                     "name": "BCGov Gold Accent"
