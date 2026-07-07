@@ -38,7 +38,6 @@ Each column contains:
 - Click to edit H5 heading text
 - Start Typing new content
 
-- 
 ![Heading update](/images/patterns/dswp-icon-with-excerpt/d.gif)
 
 **Update Paragraph:**
