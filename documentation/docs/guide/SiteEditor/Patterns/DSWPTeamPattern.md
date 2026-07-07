@@ -72,7 +72,7 @@ Each team member section contains:
 
 1. Click the ellipses (⋮) next to any profile card (see gif below)
 2. Select "Duplicate"
-3. Exapnd the new profile to see the group a layer down
+3. Expand the new profile to see the group a layer down
 4. Select block styles
 5. Select background
 6. This step is dependant if the previous profile has a background or not.  If the previous profile has a background color select clear in the color picker else select "light gray".
