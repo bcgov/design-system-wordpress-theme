@@ -396,7 +396,7 @@ function design_system_hero_cover_variation( $variations, $block_type ) {
                                 'border'  => [
                                     'left'   => [
                                         'width' => '0.5rem',
-                                        'color' => 'var:preset|color|bcgov-gold-accent',
+                                        'color' => 'var:preset|color|accent-primary',
                                         'style' => 'solid',
                                     ],
                                     'radius' => '4px',
