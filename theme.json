@@ -35,6 +35,21 @@
             "area": "footer"
         },
         {
+            "name": "footer-logo-light",
+            "title": "Footer Logo Light",
+            "area": "footer"
+        },
+        {
+            "name": "secondary-footer",
+            "title": "Secondary Footer",
+            "area": "footer"
+        },
+        {
+            "name": "secondary-footer-links",
+            "title": "Secondary Footer Links",
+            "area": "footer"
+        },
+        {
             "name": "footer-navigation",
             "title": "Footer Navigation",
             "area": "footer"

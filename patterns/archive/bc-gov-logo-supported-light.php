@@ -1,0 +1,18 @@
+<?php
+/**
+ * Title: BC Gov Logo Supported Light.
+ * Slug: design-system-wordpress-theme/bc-gov-logo-supported-light
+ * Categories: media
+ *
+ * @package Design-System-WordPress-Theme
+ */
+?>
+
+<!-- wp:image {"width":"175px","height":"auto","sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full is-resized"
+    ><img
+        src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/BCID_Supported_H_Solid_rev.png' ); ?>"
+        alt="Supported by the Province of British Columbia"
+        style="width:175px;height:auto"
+/></figure>
+<!-- /wp:image -->
