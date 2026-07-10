@@ -9,6 +9,7 @@ test.describe('pattern', () => {
 
     [
         { name: 'bc-gov-logo-light' },
+        { name: 'bc-gov-logo-supported-light' },
         { name: 'dswp-bullet-list' },
         { name: 'dswp-call-to-action' },
         { name: 'dswp-card-with-hyperlinks-list' },
