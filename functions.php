@@ -327,6 +327,29 @@ function design_system_enable_appearance_tools_for_super_admins( $theme_json ) {
 add_filter( 'wp_theme_json_data_theme', 'design_system_enable_appearance_tools_for_super_admins', 20 );
 
 /**
+ * TEMP: Re-enable block background color in the editor.
+ *
+ * Remove this filter once background color testing is complete.
+ *
+ * @param WP_Theme_JSON_Data $theme_json Theme JSON data object.
+ *
+ * @return WP_Theme_JSON_Data
+ */
+function design_system_temp_enable_block_background_color( $theme_json ) {
+    return $theme_json->update_with(
+        array(
+            'version'  => 3,
+            'settings' => array(
+                'color' => array(
+                    'background' => true,
+                ),
+            ),
+        )
+    );
+}
+add_filter( 'wp_theme_json_data_theme', 'design_system_temp_enable_block_background_color', 25 );
+
+/**
  * Add excerpt support to pages.
  */
 add_post_type_support( 'page', 'excerpt' );
