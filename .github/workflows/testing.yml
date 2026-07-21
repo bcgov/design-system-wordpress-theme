@@ -40,6 +40,7 @@ jobs:
 
       - name: Install dependencies
         run: |
+          # Workaround for a 403 error when installing dependencies from the satis repository.
           composer install
           npm install
 

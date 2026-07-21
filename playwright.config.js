@@ -3,7 +3,10 @@ import baseConfig from '@wordpress/scripts/config/playwright.config.js';
 
 const config = defineConfig({
     ...baseConfig,
-    testDir: 'tests/screenshot',
+    // Run Playwright tests under `tests/` but ignore unit tests
+    // so Jest-style files in `tests/unit` are not executed by Playwright.
+    testDir: 'tests',
+    testIgnore: ['**/unit/**'],
 });
 
 export default config;

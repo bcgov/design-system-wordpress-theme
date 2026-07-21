@@ -16,7 +16,47 @@
         },
         {
             "name": "footer",
-            "title": "footer",
+            "title": "Footer",
+            "area": "footer"
+        },
+        {
+            "name": "copyright",
+            "title": "Copyright",
+            "area": "footer"
+        },
+        {
+            "name": "footer-info-text",
+            "title": "Footer Info Text",
+            "area": "footer"
+        },
+        {
+            "name": "footer-logo",
+            "title": "Footer Logo",
+            "area": "footer"
+        },
+        {
+            "name": "footer-logo-light",
+            "title": "Footer Logo Light",
+            "area": "footer"
+        },
+        {
+            "name": "secondary-footer",
+            "title": "Secondary Footer",
+            "area": "footer"
+        },
+        {
+            "name": "secondary-footer-links",
+            "title": "Secondary Footer Links",
+            "area": "footer"
+        },
+        {
+            "name": "footer-navigation",
+            "title": "Footer Navigation",
+            "area": "footer"
+        },
+        {
+            "name": "territorial-acknowledgement",
+            "title": "Territorial Acknowledgement",
             "area": "footer"
         },
         {
@@ -50,9 +90,18 @@
             "core/button": {
                 "variations": {
                     "outline": {
-                        "css": "&:hover{background-color:var(--dswp-surface-color-secondary-button-hover)}",
+                        "color": {
+                            "text": "var(--wp--custom--dswp--typography-color-button-secondary-default)",
+                            "background": "var(--wp--custom--dswp--surface-color-secondary-button-default)"
+                        },
+                        ":hover": {
+                            "color": {
+                                "text": "var(--wp--custom--dswp--typography-color-button-secondary-hover)",
+                                "background": "var(--wp--custom--dswp--surface-color-secondary-button-hover)"
+                            }
+                        },
                         "border": {
-                            "color": "var(--dswp-surface-color-border-dark)",
+                            "color": "var(--wp--custom--dswp--surface-color-border-dark)",
                             "radius": "4px",
                             "width": "1px"
                         }
@@ -61,34 +110,14 @@
             },
             "core/paragraph": {
                 "spacing": {
-                    "margin": {
-                        "top": "0",
-                        "bottom": "0",
-                        "left": "0",
-                        "right": "0"
-                    },
-                    "padding": {
-                        "top": "0",
-                        "bottom": "0",
-                        "left": "0",
-                        "right": "0"
-                    }
+                    "margin": "0",
+                    "padding": "0"
                 }
             },
             "core/heading": {
                 "spacing": {
-                    "margin": {
-                        "top": "0",
-                        "bottom": "0",
-                        "left": "0",
-                        "right": "0"
-                    },
-                    "padding": {
-                        "top": "0",
-                        "bottom": "0",
-                        "left": "0",
-                        "right": "0"
-                    }
+                    "margin": "0",
+                    "padding": "0"
                 }
             }
         },
@@ -118,15 +147,15 @@
             "button": {
                 ":hover": {
                     "color": {
-                        "background": "var(--dswp-surface-color-primary-button-hover)"
+                        "background": "var(--wp--custom--dswp--surface-color-primary-button-hover)"
                     }
                 },
                 "color": {
-                    "text": "var(--dswp-theme-gray-white)",
-                    "background": "var(--dswp-surface-color-primary-button-default)"
+                    "text": "var(--wp--custom--dswp--typography-color-button-primary-default)",
+                    "background": "var(--wp--custom--dswp--surface-color-primary-button-default)"
                 },
                 "border": {
-                    "color": "var(--dswp-surface-color-border-dark)",
+                    "color": "var(--wp--custom--dswp--surface-color-border-dark)",
                     "radius": "4px",
                     "width": "1px"
                 },
@@ -177,13 +206,76 @@
         }
     },
     "settings": {
-        "appearanceTools": true,
+        "appearanceTools": false,
         "useRootPaddingAwareAlignments": true,
+        "blocks": {
+            "core/button": {
+                "border": {
+                    "radius": false
+                }
+            },
+            "core/image": {
+                "spacing": {
+                    "margin": false,
+                    "padding": false
+                }
+            }
+        },
         "layout": {
             "contentSize": "var(--dswp-layout-content-size)",
-            "wideSize": "var(--dswp-layout-content-size)"
+            "wideSize": "var(--dswp-layout-wide-size)"
+        },
+        "custom": {
+            "dswp": {
+                "surfaceColorPrimaryButtonDefault": "var(--bcds-surface-color-primary-button-default)",
+                "surfaceColorPrimaryButtonHover": "var(--bcds-surface-color-primary-button-hover)",
+                "surfaceColorSecondaryButtonDefault": "var(--bcds-surface-color-secondary-button-default)",
+                "surfaceColorSecondaryButtonHover": "var(--bcds-surface-color-secondary-button-hover)",
+                "surfaceColorMenusDefault": "var(--bcds-surface-color-menus-default)",
+                "surfaceColorMenusHover": "var(--bcds-surface-color-menus-hover)",
+                "surfaceColorPrimaryDefault": "var(--bcds-surface-color-primary-default)",
+                "surfaceColorSecondaryDefault": "var(--bcds-surface-color-secondary-default)",
+                "surfaceColorBackgroundPrimary": "var(--bcds-surface-color-background-light-gray)",
+                "surfaceColorBackgroundSecondary": "var(--bcds-surface-color-background-light-blue)",
+                "surfaceColorBackgroundTertiary": "var(--bcds-surface-color-background-white)",
+                "surfaceColorBackgroundDark": "var(--bcds-surface-color-background-dark-blue)",
+                "surfaceColorBorderMedium": "var(--bcds-surface-color-border-medium)",
+                "surfaceColorBorderDark": "var(--bcds-surface-color-border-dark)",
+                "surfaceColorOverlayDefault": "var(--bcds-surface-color-overlay-default)",
+                "typographyColorPrimary": "var(--bcds-typography-color-primary)",
+                "typographyColorSecondary": "var(--bcds-typography-color-secondary)",
+                "typographyColorDisabled": "var(--bcds-typography-color-disabled)",
+                "typographyColorLinkDefault": "var(--bcds-typography-color-link)",
+                "typographyColorLinkHover": "var(--bcds-theme-blue-80)",
+                "typographyColorLinkPressed": "var(--bcds-theme-blue-100)",
+                "typographyColorButtonPrimaryDefault": "var(--bcds-typography-color-primary-invert)",
+                "typographyColorButtonPrimaryHover": "var(--bcds-typography-color-primary-invert)",
+                "typographyColorButtonPrimaryPressed": "var(--bcds-typography-color-primary-invert)",
+                "typographyColorButtonSecondaryDefault": "var(--bcds-surface-color-primary-default)",
+                "typographyColorButtonSecondaryHover": "var(--bcds-surface-color-primary-hover)",
+                "typographyColorButtonSecondaryPressed": "var(--bcds-surface-color-primary-pressed)"
+            }
+        },
+        "shadow": {
+            "defaultPresets": false,
+            "presets": []
+        },
+        "border": {
+            "radius": false
         },
         "typography": {
+            "customFontFamily": false,
+            "defaultFontFamilies": false,
+            "customFontSize": false,
+            "defaultFontSizes": false,
+            "dropCap": false,
+            "lineHeight": false,
+            "letterSpacing": false,
+            "fontStyle": false,
+            "fontWeight": false,
+            "textTransform": false,
+            "textDecoration": false,
+            "writingMode": false,
             "fontFamilies": [
                 {
                     "fontFamily": "var(--dswp-typography-font-families-bc-sans), Noto Sans, Verdana, Arial, sans-serif",
@@ -251,16 +343,22 @@
         },
         "spacing": {
             "blockGap": true,
-            "margin": true
+            "margin": false,
+            "padding": false
         },
         "color": {
+            "background": false,
+            "text": false,
+            "link": false,
+            "gradients": [],
+            "duotone": [],
+            "custom": false,
+            "customGradient": false,
+            "customDuotone": false,
+            "defaultDuotone": false,
+            "defaultGradients": false,
             "defaultPalette": false,
             "palette": [
-                {
-                    "slug": "bar-color",
-                    "color": "var(--dswp-surface-color-border-default)",
-                    "name": "Bar Color"
-                },
                 {
                     "slug": "typography-color-primary",
                     "color": "var(--dswp-theme-primary-blue)",
@@ -272,14 +370,9 @@
                     "name": "Typography Color Secondary"
                 },
                 {
-                    "slug": "primary-color",
-                    "color": "var(--dswp-theme-primary-blue:)",
-                    "name": "Primary Color"
-                },
-                {
                     "slug": "primary-color-footer",
                     "color": "var(--dswp-footer-color-primary)",
-                    "name": "Footer Color Primary "
+                    "name": "Footer Color Primary"
                 },
                 {
                     "slug": "secondary-color-footer",
@@ -293,7 +386,7 @@
                 },
                 {
                     "slug": "accent-primary",
-                    "color": "var(--dswp-theme-primary-gold)",
+                    "color": "var(--dswp-theme-accent-primary)",
                     "name": "Accent Primary"
                 },
                 {
@@ -304,22 +397,18 @@
                 {
                     "slug": "banner-background-dark",
                     "color": "var(--dswp-banner-background-dark)",
-                    "name": "Banner background dark"
+                    "name": "Banner Background Dark"
                 },
-                {
-                    "slug": "typography-primary-color",
-                    "color": "var(--dswp-theme-primary-blue)",
-                    "name": "Primary color"
-                },
+
                 {
                     "slug": "background-light-gray",
                     "color": "var(--dswp-surface-color-background-light-gray)",
-                    "name": "Background light gray"
+                    "name": "Background Light Gray"
                 },
                 {
                     "slug": "border-default",
                     "color": "var(--dswp-surface-color-border-default)",
-                    "name": "Border default"
+                    "name": "Border Default"
                 },
                 {
                     "slug": "background-light-gray-blue",
@@ -332,7 +421,7 @@
                     "name": "Background White"
                 },
                 {
-                    "slug": "font dark",
+                    "slug": "font-dark",
                     "color": "var(--dswp-font-dark)",
                     "name": "Font Dark"
                 },
@@ -343,14 +432,14 @@
                 },
                 {
                     "slug": "background-medium-gray",
-                    "color": "var(--bcds-theme-gray-70)",
-                    "name": "Background medium gray"
+                    "color": "var(--dswp-theme-gray-70)",
+                    "name": "Background Medium Gray"
                 },
                 {
                     "slug": "background-dark-blue",
                     "color": "var(--dswp-surface-color-background-dark-blue)",
-                    "name": "Background dark blue"
-                }                
+                    "name": "Background Dark Blue"
+                }
             ]
         }
     }

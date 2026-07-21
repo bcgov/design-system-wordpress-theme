@@ -1,7 +1,9 @@
 # How to Add a Pattern
+
 Overview: This section provides guidance on how to effectively use the design system patterns to build your site.
 
-## Steps:
+## Steps
+
 1. Open your WordPress page editor
 2. Click the "+" icon in the editor (usually top-left or where you want to add content)
 3. Select the "Patterns" tab
